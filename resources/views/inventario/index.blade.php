@@ -48,7 +48,7 @@
         <div class="card card-info">
           <div class="card-header">
             <h3><i class="fas fa-user-plus fa-1.4x">
-              </i>Usuarios</h3>
+              </i>Inventario</h3>
           </div>
           <div class="card-body">
             @if(Session::has('success'))
@@ -80,7 +80,7 @@
                   <div class="card-header p-0 pt-1">
                     <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
                       <li class="nav-item">
-                        <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Registro de Usuarios</a>
+                        <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Inventario</a>
                       </li>
                     </ul>
                   </div>
@@ -95,7 +95,6 @@
                               <th>COD_ARTICULO</th>
                               <th>NOMBRE_ARTICULO</th>
                               <th>CANTIDAD_ARTICULO</th>
-                              <th>TIPO_INVENTARIO</th>
                               <th>FECHA_REGISTRO</th>
                               <th>FECHA_MODIFICACION</th>
                               
@@ -110,12 +109,11 @@
                                 <td>{{$persona->COD_ARTICULO}}</td>
                                 <td>{{$persona->NOMBRE_ARTICULO}}</td>
                                 <td>{{$persona->CANTIDAD_ARTICULO}}</td>
-                                <td>{{$persona->TIPO_INVENTARIO}}</td>
                                 <td>{{$persona->FECHA_REGISTRO}}</td>
                                 <td>{{$persona->FECHA_MODIFICACION}}</td>
                                 <td>
-                                <form  action="{{ route('personas.destroy',$persona->COD_INVENTARIO) }}" method="POST">
-                              <a href="/personas/{{$persona->COD_INVENTARIO}}/edit" class="btn btn-info">Editar</a>         
+                                <form  action="{{ route('inventario.destroy',$persona->COD_INVENTARIO) }}" method="POST">
+                              <a href="/inventario/{{$persona->COD_INVENTARIO}}/edit" class="btn btn-info">Editar</a>         
                                   @csrf
                                   @method('DELETE')
                               <button type="submit" class="btn btn-danger">Delete</button>
@@ -131,7 +129,7 @@
 
                       </div>
 
-                      <a href="{{ route('personas.create') }}" class="btn btn-success">Registrar</a>
+                      <a href="{{ route('inventario.create') }}" class="btn btn-success">Registrar</a>
 
                       <div class="modal" id="estados" tabindex="-1">
                         <div class="modal-dialog">
