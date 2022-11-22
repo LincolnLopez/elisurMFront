@@ -189,96 +189,49 @@
 
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar Producto..." title="Buscar">
 
-            <table id="myTable">
+            <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                  <tr>
+                    <th>COD_HERRAMIENTA</th>
+                    <th>NOMBRE_HERRAMIENTA</th>
+                    <th>DESCRIPCION_HERRAMIENTA</th>
+                    <th>NUM_EXISTENCIA</th>
+                    <th>FECHA_INGRESO</th>
+                    <th>FECHA_MODIFICACION</th>
+                    <th>NOMBRE_EMPLEADO</th>
+                    <th>ESTADO</th>
+                    
+                  </tr>
+               
+                </thead>
 
-                <tr class="header">
-                    <th onclick="sortTable(0)">Código</th>
-                    <th onclick="sortTable(1)">Herramienta</th>
-                    <th>Descripción</th>
-                    <th onclick="sortTable(2)">Existencia</th>
-                    <th>Más Información</th>
-                </tr>
+            <tbody>
+                @foreach($personas as $persona)
                 <tr>
-                    <td>10078</td>
-                    <td>Taladro</td>
-                    <td>Percusion Stanley 1/2 plg (800W)</td>
-                    <td>7</td>
+                    <td>{{$persona->COD_HERRAMIENTA}}</td>
+                    <td>{{$persona->NOMBRE_HERRAMIENTA}}</td>
+                    <td>{{$persona->DESCRIPCION_HERRAMIENTA}}</td>
+                    <td>{{$persona->NUM_EXISTENCIA}}</td>
+                    <td>{{$persona->FECHA_INGRESO}}</td>
+                    <td>{{$persona->FECHA_MODIFICACION}}</td>
+                    <td>{{$persona->NOMBRE_EMPLEADO}}</td>
+                    <td>{{$persona->ESTADO}}</td>
                     <td>
-                        <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
-                        </button>
-                        <button class="btnInfo" data-toggle="modal" data-target="#regishModal">Detalles</button>
+                    <form  action="{{ route('inventarioH.destroy',$persona->COD_HERRAMIENTA) }}" method="POST">
+                  <a href="/inventarioH/{{$persona->COD_HERRAMIENTA}}/edit" class="btn btn-info">Editar</a>         
+                      @csrf
+                      @method('DELETE')
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>          
                     </td>
                 </tr>
-                <tr>
-                    <td>10065</td>
-                    <td>Llaves Inglesas</td>
-                    <td>Medida 14mm</td>
-                    <td>15</td>
-                    <td>
-                        <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
-                        </button>
-                        <button class="btnInfo" data-toggle="modal" data-target="#regishModal">Detalles</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>10047</td>
-                    <td>Corta Tubos</td>
-                    <td>Tamaño Pequeño</td>
-                    <td>6</td>
-                    <td>
-                        <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
-                        </button>
-                        <button class="btnInfo" data-toggle="modal" data-target="#regishModal">Detalles</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>15670</td>
-                    <td>Medidor Potencia</td>
-                    <td>PCE-GPA 62</td>
-                    <td>3</td>
-                    <td>
-                        <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
-                        </button>
-                        <button class="btnInfo" data-toggle="modal" data-target="#regishModal">Detalles</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>18934</td>
-                    <td>Esmeril</td>
-                    <td>Dewalt 8 plg (3/4HP) de Banco</td>
-                    <td>2</td>
-                    <td>
-                        <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
-                        </button>
-                        <button class="btnInfo" data-toggle="modal" data-target="#regishModal">Detalles</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>18345</td>
-                    <td>Lijadora</td>
-                    <td>Black and Decker 200W 1/4-Pliego</td>
-                    <td>4</td>
-                    <td>
-                        <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
-                        </button>
-                        <button class="btnInfo" data-toggle="modal" data-target="#regishModal">Detalles</button>
-                    </td>
-                </tr>
-
-
+                @endforeach
+                </tbody>
+              
+               
             </table>
+
+            <a href="{{ route('inventarioH.create') }}" class="btn btn-success">Registrar</a>
 
 
             <script>

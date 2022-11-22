@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class InventarioHController extends Controller
 {
@@ -13,7 +15,20 @@ class InventarioHController extends Controller
      */
     public function index()
     {
-        return view('inventarioH.index');
+        $personas = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
+        ')->get('http://localhost:3000/herramientas');
+        return view('inventarioH.index')->with('personas',json_decode($personas));
+
+        // === PARA LLENAR LA TABLA Personas ===
+        /* $response = HTTP::get('http://localhost:3000/personas');
+        $usuarios = $response->json();
+
+        return view('personas.index', compact('usuarios'));
+
+        $response = Http::get('http://localhost:3000/personas');
+        return $response->json();
+        return $response->ok();
+        return view('personas.index')->with('usuarios', json_decode($response,true));*/
     }
 
     /**
@@ -23,7 +38,11 @@ class InventarioHController extends Controller
      */
     public function create()
     {
-        //
+        
+        //=== LLAMAR EL FORMULARIO CREATE ===
+        return view('inventario.create');
+
+
     }
 
     /**
@@ -34,7 +53,8 @@ class InventarioHController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/insert_inventario',['COD_ARTICULO'=>$request->COD_ARTICULO,'CANTIDAD_ARTICULO'=>$request->CANTIDAD_ARTICULO]);
+        return redirect('/inventario');
     }
 
     /**
@@ -54,9 +74,10 @@ class InventarioHController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($cod_inventario)
     {
-        //
+        $persona = DB ::table('tbl_inventarios')->select('cod_inventario','cod_articulo','cantidad_articulo')->where('cod_inventario', '=', $cod_inventario)->first();
+        return view('inventario.edit')->with('persona',$persona);
     }
 
     /**
@@ -66,9 +87,10 @@ class InventarioHController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/update_inventario',['COD_INVENTARIO'=>$request->COD_INVENTARIO,'COD_ARTICULO'=>$request->COD_ARTICULO,'CANTIDAD_ARTICULO'=>$request->CANTIDAD_ARTICULO]);
+        return redirect('/inventario');
     }
 
     /**
@@ -77,8 +99,10 @@ class InventarioHController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($COD_INVENTARIO)
     {
-        //
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/eliminar_inventario',['COD_INVENTARIO'=>$COD_INVENTARIO]);
+        return redirect('/inventario');
     }
 }
+
