@@ -50,11 +50,11 @@
                         <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                           <thead>
                             <tr>
-                              <th>COD_EMPLEADO</th>
-                              <th>DNI_EMPLEADO</th>
-                              <th>NOMBRE_EMPLEADO</th>
-                              <th>APELLIDOS_EMPLEADO</th>
-                              <th>SEXO_EMPLEADO</th>
+                              <th>Código Inventario</th>
+                              <th>Código Articulo</th>
+                              <th>Cantidad</th>
+                              <th>Tipo Inventario</th>
+                              <th>Fecha Registro</th>
                               <th>ESTADO_CIVIL_EMPLEADO</th>
                               <th>EDAD_EMPLEADO</th>
                               <th>TELEFONO_EMPLEADO</th>
