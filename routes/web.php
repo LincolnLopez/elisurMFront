@@ -1,15 +1,21 @@
 <?php
 
+
+
+
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\PersonasController;
 use App\Http\Controllers\ArticuloController;
 use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\BitacoraClienteController;
+use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\CotizacionController;
+use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\EncuestaController;
 use App\Http\Controllers\FallaController;
-use App\Http\Controllers\HomeController;
+
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\InventarioHController;
@@ -18,6 +24,7 @@ use App\Http\Controllers\PresupuestoUsuarioController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TicketEmpleadoController;
+
 
 
 /*
@@ -30,6 +37,11 @@ use App\Http\Controllers\TicketEmpleadoController;
 | contains the "web" middleware group. Now create something great!fffffffffxxxxxx
 */ 
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -41,8 +53,9 @@ Route::resource('/bitacora_admin', BitacoraController::class);
 Route::resource('/bitacora_cliente', BitacoraClienteController::class);
 Route::resource('/cotizacion', CotizacionController::class);
 Route::resource('/encuesta', EncuestaController::class);
+Route::resource('/empleados', EmpleadosController::class);
 Route::resource('/falla', FallaController::class);
-Route::resource('/home', HomeController::class);
+
 Route::resource('/inicio', InicioController::class);
 Route::resource('/inventario', InventarioController::class);
 Route::resource('/inventarioH', InventarioHController::class);
@@ -51,12 +64,10 @@ Route::resource('/presupuesto_usuario', PresupuestoUsuarioController::class);
 Route::resource('/reporte', ReporteController::class);
 Route::resource('/ticket', TicketController::class);
 Route::resource('/ticket_empleado', TicketEmpleadoController::class);
+Route::resource('/clientes', ClientesController::class);
 
 Route::resource('/articulo', ArticuloController::class);
 
 
 
-Route::get('/pcrear', function () {
-    return view(view:'pcrear');
-});
 

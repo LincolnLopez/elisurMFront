@@ -319,6 +319,24 @@ return [
             'url'  => 'personas',
             'icon'=>'far fa-fw fas fa-user-friends',
             'icon_color' => 'info',
+            'submenu' => [
+                [
+                    'text' =>'Personas',
+                    'url' =>'personas',
+                    'icon'=>'fas fa-user-friends'
+                ],
+                [
+                    'text' =>'Empleados',
+                    'url' =>'empleados',
+                    'icon'=>'fas fa-user-friends'
+                ],
+                [
+                    'text' =>'Clientes',
+                    'url' =>'clientes',
+                    'icon'=>'fas fa-user-plus'
+                ],
+
+            ],
         ],
         [
             'text'       => 'Roles',
