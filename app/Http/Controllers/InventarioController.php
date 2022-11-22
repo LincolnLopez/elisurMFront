@@ -77,7 +77,7 @@ class InventarioController extends Controller
     public function edit($cod_inventario)
     {
         $persona = DB ::table('tbl_inventarios')->select('cod_inventario','cod_articulo','cantidad_articulo')->where('cod_inventario', '=', $cod_inventario)->first();
-        return view('inventario.edit')->with('inventario',$persona);
+        return view('inventario.edit')->with('persona',$persona);
     }
 
     /**
@@ -99,9 +99,9 @@ class InventarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($cod_inventario)
+    public function destroy($COD_INVENTARIO)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/delete_inventario',['COD_INVENTARIO'=>$cod_inventario]);
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/eliminar_inventario',['COD_INVENTARIO'=>$COD_INVENTARIO]);
         return redirect('/inventario');
     }
 }

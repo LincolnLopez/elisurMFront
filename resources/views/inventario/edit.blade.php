@@ -9,23 +9,23 @@
 
 
 @section('content')
-<form action="/inventario/{{$persona->COD_INVENTARIO}}" method="POST">
+<form action="/inventario/{{$persona->cod_inventario}}" method="POST">
     @csrf
     @method('PUT')
     <div class="mb-3">
     <label for="" class="form-label">CODIGO DE INVENTARIO</label>
-    <input id="COD_INVENTARIO" name="COD_INVENTARIO" type="text" class="form-control"  value="{{$persona->COD_INVENTARIO}}">    
+    <input id="COD_INVENTARIO" name="COD_INVENTARIO" type="text" class="form-control"  value="{{$persona->cod_inventario}}">    
   </div>
     
     <div class="mb-3">
     <label for="" class="form-label">CODIGO DE ARTICULO</label>
-    <input id="COD_ARTICULO" name="COD_ARTICULO" type="text" class="form-control"  value="{{$persona->COD_ARTICULO}}">    
+    <input id="COD_ARTICULO" name="COD_ARTICULO" type="text" class="form-control"  value="{{$persona->cod_articulo}}">    
   </div>
 
 
   <div class="mb-3">
     <label for="" class="form-label">CANTIDAD</label>
-    <input id="CANTIDAD_ARTICULO" name="CANTIDAD_ARTICULO" type="text" class="form-control"  value="{{$persona->CANTIDAD_ARTICULO}}">    
+    <input id="CANTIDAD_ARTICULO" name="CANTIDAD_ARTICULO" type="text" class="form-control"  value="{{$persona->cantidad_articulo}}">    
   </div>
 
   
