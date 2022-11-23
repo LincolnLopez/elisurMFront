@@ -6,7 +6,11 @@
 @section('content_header')
 @stop
 
+@section('css')
 
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+
+@stop
 
 @section('content')
 
@@ -64,6 +68,7 @@
                       <th>TELEFONO_EMPLEADO</th>
                       <th>CORREO_EMPLEADO</th>
                       <th>ESTADO_EMPLEADO</th>
+                      <th>ACCIONES</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -121,17 +126,15 @@
 
 
 @section('js')
-<script type="text/javascript" src="js/validacion_citas-doctores.js"></script>
-<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+
 <script>
   $(function () {
     $('#AdministradorTable').DataTable({
       responsive: true,
+      scrollX: true,
       autoWidth: true,
       language: {
         url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json'

@@ -228,4 +228,21 @@ Multi servicios.
   });
 </script>
 
+<script>
+  $("#success-alert").fadeTo(2000, 500).slideUp(400, function () {
+    $("#success-alert").slideUp(500);
+  });
+</script>
+<script>
+  $("#delete-alert").fadeTo(2000, 500).slideUp(400, function () {
+    $("#delete-alert").slideUp(500);
+  });
+</script>
+<script>
+  $("#update-alert").fadeTo(2000, 500).slideUp(400, function () {
+    $("#update-alert").slideUp(500);
+  });
+</script>
+
+
 @stop
