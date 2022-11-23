@@ -68,45 +68,40 @@
                         <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                          <thead>
                            <tr>
-                             <th>COD_REPORTE_FALLA</th>
-                             <th>cod_servicio</th>
-                             <th>NOMBRE</th>
+                             <th>COD_SOLICITUD </th>
+                             <th>FECHA_SOLICITUD</th>
+                             <th>NOMBRE_SOLICITANTE</th>
                              <th>TELEFONO</th>
                              <th>CORREO_ELECTRONICO</th>
-                             <th>TEMA</th>
-                             <th>DESCRIPCION</th>
-                             <th>UBICACION</th>
-                             <th>FECHA_CREACION</th>
-                             <th>f.FECHA_MODIFICACION</th>
-                             <th>cod_estado</th>
-                             
+                             <th>TIPO_SOLICITANTE</th>
+                             <th>TELEFONO_OPCIONAL</th>
+                             <th>DIRECCION_SOLICITANTE</th>
+                             <th>CIUDAD</th>
+                             <th>nombre_servicio</th>
+                             <th>DESCRIPCION_SOLICITUD</th>
+                             <th>nombre_estado</th>
                            </tr>
                         
                          </thead>
 
-                         
                          <tbody>
-
-                    
-
-                            @foreach($ticket as $ticke)
+                            @foreach($presupuestos as $presupuesto)
                             <tr>
-                                <td>{{$ticke->COD_REPORTE_FALLA}}</td>
-                                <td>{{$ticke->cod_servicio}}</td>
-                                <td>{{$ticke->NOMBRE}}</td>
-                                <td>{{$ticke->TELEFONO}}</td>
-                                <td>{{$ticke->CORREO_ELECTRONICO}}</td>
-                                <td>{{$ticke->TEMA}}</td>
-                                <td>{{$ticke->DESCRIPCION}}</td>
-                                <td>{{$ticke->UBICACION}}</td>
-                                <td>{{$ticke->FECHA_CREACION}}</td>
-                                <td>{{$ticke->FECHA_MODIFICACION}}</td>
-                                <td>{{$ticke->cod_estado}}</td>
-                                
-                                
+                                <td>{{$presupuesto->COD_SOLICITUD}}</td>
+                                <td>{{$presupuesto->FECHA_SOLICITUD}}</td>
+                                <td>{{$presupuesto->NOMBRE_SOLICITANTE}}</td>
+                                <td>{{$presupuesto->TELEFONO}}</td>
+                                <td>{{$presupuesto->CORREO_ELECTRONICO}}</td>
+                                <td>{{$presupuesto->TIPO_SOLICITANTE}}</td>
+                                <td>{{$presupuesto->TELEFONO_OPCIONAL}}</td>
+                                <td>{{$presupuesto->DIRECCION_SOLICITANTE}}</td>
+                                <td>{{$presupuesto->CIUDAD}}</td>
+                                <td>{{$presupuesto->nombre_servicio}}</td>
+                                <td>{{$presupuesto->DESCRIPCION_SOLICITUD}}</td>
+                                <td>{{$presupuesto->nombre_estado}}</td>
                                 <td>
-                                <form  action="{{ route('presupuestos.destroy',$ticke->COD_REPORTE_FALLA) }}" method="POST">
-                              <a href="/presupuestos/{{$ticke->COD_REPORTE_FALLA}}/edit" class="btn btn-info">Editar</a>         
+                                <form  action="{{ route('presupuestos.destroy',$presupuesto->COD_SOLICITUD) }}" method="POST">
+                              <a href="/presupuestos/{{$presupuesto->COD_SOLICITUD}}/edit" class="btn btn-info">Editar</a>         
                                   @csrf
                                   @method('DELETE')
                               <button type="submit" class="btn btn-danger">Delete</button>
