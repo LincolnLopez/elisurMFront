@@ -352,8 +352,13 @@ return [
             'url'        => 'inventario',
             'submenu' => [
                 [
+                    'text' =>'Articulos',
+                    'url' =>'articulos',
+                    'icon'=>'far fa-fw fas fas fa-boxes'
+                ],
+                [
                     'text' =>'Inventario Materia Prima',
-                    'url' =>'inventario',
+                    'url' =>'inventarios',
                     'icon'=>'far fa-fw fas fas fa-boxes'
                 ],
                 [

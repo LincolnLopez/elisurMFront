@@ -9,7 +9,7 @@
 
 
 @section('content')
-<form action="/inventario" method="POST">
+<form action="/inventarios" method="POST">
     @csrf
     <div class="mb-3">
     <label for="" class="form-label">Código Articulo</label>

@@ -1,11 +1,18 @@
 @extends('adminlte::page')
 
-@section('title', 'Empleados')
+@section('title', 'Articulos')
 
 
 @section('content_header')
 @stop
 
+@section('css')
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+
+
+
+@stop
 
 
 @section('content')
@@ -18,7 +25,7 @@
         <div class="card card-info">
           <div class="card-header">
             <h3><i class="fas fa-user-plus fa-1.4x">
-              </i>Empleados</h3>
+              </i>Articulos</h3>
           </div>
           <div class="card-body">
             @if(Session::has('success'))
@@ -50,35 +57,30 @@
                         <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                           <thead>
                             <tr>
-                              <th>Código Inventario</th>
-                              <th>Código Articulo</th>
-                              <th>Cantidad</th>
-                              <th>Tipo Inventario</th>
-                              <th>Fecha Registro</th>
-                              <th>ESTADO_CIVIL_EMPLEADO</th>
-                              <th>EDAD_EMPLEADO</th>
-                              <th>TELEFONO_EMPLEADO</th>
-                              <th>CORREO_EMPLEADO</th>
-                              <th>ESTADO_EMPLEADO</th>   
+                              <th>COD_ARTICULO</th>
+                              <th>NOMBRE_ARTICULO</th>
+                              <th>DESCRIPCION_ARTICULO</th>
+                              <th>PRECIO_ARTICULO</th>
+                              <th>COD_CATEGORIA</th>
+                              <th>NOMBRE_CATEGORIA</th>
+                              <th>ESTADO_ARTICULO</th>
+                              <th>ACCIONES</th>  
                             </tr>
                           </thead>
 
                           <tbody>
-                            @foreach($empleados as $empleado)
+                            @foreach($articulos as $articulo)
                             <tr>
-                                <td>{{$empleado->COD_EMPLEADO}}</td>
-                                <td>{{$empleado->DNI_EMPLEADO}}</td>
-                                <td>{{$empleado->NOMBRE_EMPLEADO}}</td>
-                                <td>{{$empleado->APELLIDOS_EMPLEADO}}</td>
-                                <td>{{$empleado->SEXO_EMPLEADO}}</td>
-                                <td>{{$empleado->ESTADO_CIVIL_EMPLEADO}}</td>
-                                <td>{{$empleado->EDAD_EMPLEADO}}</td>
-                                <td>{{$empleado->TELEFONO_EMPLEADO}}</td>
-                                <td>{{$empleado->CORREO_EMPLEADO}}</td>
-                                <td>{{$empleado->ESTADO_EMPLEADO}}</td>
+                                <td>{{$articulo->COD_ARTICULO}}</td>
+                                <td>{{$articulo->NOMBRE_ARTICULO}}</td>
+                                <td>{{$articulo->DESCRIPCION_ARTICULO}}</td>
+                                <td>{{$articulo->PRECIO_ARTICULO}}</td>
+                                <td>{{$articulo->COD_CATEGORIA}}</td>
+                                <td>{{$articulo->NOMBRE_CATEGORIA}}</td>
+                                <td>{{$articulo->ESTADO_ARTICULO}}</td>
                                 <td>
-                                <form  action="{{ route('empleados.destroy',$empleado->COD_EMPLEADO) }}" method="POST">
-                              <a href="/empleados/{{$empleado->COD_EMPLEADO}}/edit" class="btn btn-info">Editar</a>         
+                                <form  action="{{ route('articulos.destroy',$articulo->COD_ARTICULO) }}" method="POST">
+                              <a href="/articulos/{{$articulo->COD_ARTICULO}}/edit" class="btn btn-info">Editar</a>         
                                   @csrf
                                   @method('DELETE')
                               <button type="submit" class="btn btn-danger">Delete</button>
@@ -116,38 +118,22 @@
 
 
 @section('js')
-<script type="text/javascript" src="js/validacion_citas-doctores.js"></script>
-<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+
+
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+
 <script>
   $(function() {
     $('#AdministradorTable').DataTable({
       responsive: true,
+      scrollX: true,
       autoWidth: true,
       language: {
         url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json'
       }
     });
-  });
-</script>
-
-<script>
-  $("#success-alert").fadeTo(2000, 500).slideUp(400, function() {
-    $("#success-alert").slideUp(500);
-  });
-</script>
-<script>
-  $("#delete-alert").fadeTo(2000, 500).slideUp(400, function() {
-    $("#delete-alert").slideUp(500);
-  });
-</script>
-<script>
-  $("#update-alert").fadeTo(2000, 500).slideUp(400, function() {
-    $("#update-alert").slideUp(500);
   });
 </script>
 

@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
-  width: 100%;
+ width: 100%; /* Full width */
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -40,7 +48,7 @@ button:hover {
 /* Center the image and position the close button */
 .imgcontainer {
   text-align: center;
-  margin: 24px 0 12px 0;
+  margin: 18px 0 10px 0;
   position: relative;
 }
 
@@ -51,6 +59,8 @@ img.avatar {
 
 .container {
   padding: 16px;
+  width: 60%;
+height: 20%;
 }
 
 span.psw {
@@ -58,39 +68,27 @@ span.psw {
   padding-top: 16px;
 }
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
 }
-
 
 
 </style>
 </head>
-<body>
 
-<h2>Iniciar Sesion</h2>
-
-
-<div class="container">
-    <div class="card text-center">
-        <div class="card-header">
-          Featured
-        </div>
-        <div class="card-body">
-
-  <form >
-    <div class="imgcontainer">
+<form >
+<div class="container-sm">
+    
+     
+    
+    <div class="imgcontainer" class="rounded-circle">
       <img src="https://i.pinimg.com/564x/29/47/9b/29479ba0435741580ca9f4a467be6207.jpg" alt="Avatar" class="avatar">
     </div>
 
@@ -101,24 +99,23 @@ span.psw {
       <label for="psw"><b>Contraseña</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
         
-      <button type="submit">Confirmar</button>
+      <button type="submit">
+        <a href="{{route('inicio.index') }}" >Confirmar</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" href="{{url('/welcome')}}" class="cancelbtn">Cancel</button>
-      <a href="{{url('/welcome')}}" class="w3-xlarge w3-right"><i class="fa fa-user">Inicia Sesion </i></a>
+      
+        <button type="button" class="cancelbtn">
+              <a href='/' >Cancel</i></a>
+        </button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
-  </form>
+ 
 </div>
-<div class="card-footer text-muted">
-  2 days ago
-</div>
-</div>
-</div>
+ </form>
 
 <script>
 
