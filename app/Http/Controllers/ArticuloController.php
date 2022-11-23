@@ -87,7 +87,7 @@ class ArticuloController extends Controller
      */
     public function destroy($COD_ARTICULO)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/articulo/eliminar',['COD_ARTICULO'=>$COD_ARTICULO]);
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/delete_articulo',['COD_ARTICULO'=>$COD_ARTICULO]);
         return redirect('/articulos');
     }
 }
