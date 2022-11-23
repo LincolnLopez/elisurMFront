@@ -169,7 +169,7 @@
                         <button type="button" class="btn btn-warning"><i class="fas fa-check-circle" data-toggle="modal" data-target="#finalizadoModal"></i> </button>
                         <button type="button" class="btn btn-danger"><i class=" fas fa-trash-alt" data-toggle="modal" data-target="#eliminarModal"></i> </button>
                     </td>
-                </tr> 
+                </tr>
                 <tr>
                     <td>3023210</td>
                     <td>Miguel Acosta</td>

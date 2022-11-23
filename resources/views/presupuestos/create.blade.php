@@ -2,7 +2,7 @@
 
 
 @section('content_header')
-<h1>Bitácora de Solicitudes</h1>
+<h1>Area de presupuesto</h1>
 @stop
 
 @section('css')
@@ -91,96 +91,102 @@
         <div class="col-sm-12">
 
 
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar Solicitud..." title="Buscar">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar Nombre del solicitante..." title="Buscar">
 
             <table id="myTable">
 
                 <tr class="header">
                     <th onclick="sortTable(0)">Código</th>
-                    <th onclick="sortTable(1)">Tipo</th>
-                    <th onclick="sortTable(2)">Fecha de solicitud</th>
-                    <th onclick="sortTable(3)">Categoria</th>
-                    <th onclick="sortTable(4)">Descripción</th>
-                    <th onclick="sortTable(5)">Persona a cargo</th>
-                    <th onclick="sortTable(5)">Estado</th>
-                    <th>Detalles</th>
+                    <th onclick="sortTable(1)">Nombre</th>
+                    <th onclick="sortTable(2)">Empresa</th>
+                    <th onclick="sortTable(3)">Fecha</th>
+                    <th onclick="sortTable(4)">Servicio</th>
+                    <th onclick="sortTable(5)">Ciudad</th>
+                    <th></th>
 
                 </tr>
                 <tr>
-                    <td>20235</td>
-                    <td>Presupuesto</td>
-                    <td>01/02/2022</td>
-                    <td>Sistema de seguridad</td>
-                    <td>Instalacion de cerca electrica</td>
-                    <td>Carlos H</td>
-                    <td>En proceso</td>
+                    <td>30235</td>
+                    <td>Jose Alvarado</td>
+                    <td>Davivienda</td>
+                    <td>17/08/2022</td>
+                    <td>Sistema</td>
+                    <td>Tegucigalpa</td>
                     <td>
-                        <button type="button" class="btn btn-info"><i class="fas fa-book" data-toggle="modal" data-target="#detalleModal"></i> </button>
+                        <button type="button" class="btn btn-info"><i class="fas fa-file-alt" data-toggle="modal" data-target="#detalleModal"></i> </button>
+                        <button type="button" class="btn btn-warning"><i class="fas fa-check-circle" data-toggle="modal" data-target="#finalizadoModal"></i> </button>
+                        <button type="button" class="btn btn-danger"><i class=" fas fa-trash-alt" data-toggle="modal" data-target="#eliminarModal"></i> </button>
                     </td>
                 </tr>
                 <tr>
-                    <td>20236</td>
-                    <td>Falla</td>
-                    <td>01/02/2022</td>
-                    <td>Sistema de seguridad</td>
-                    <td>Instalacion de cerca electrica</td>
-                    <td>Carlos H</td>
-                    <td>En proceso</td>
+                    <td>30236</td>
+                    <td>Carlos Valladares</td>
+                    <td>Gruma</td>
+                    <td>12/08/2022</td>
+                    <td>Sistema</td>
+                    <td>SPS</td>
                     <td>
-                        <button type="button" class="btn btn-info"><i class="fas fa-book" data-toggle="modal" data-target="#detalleModal"></i> </button>
+                        <button type="button" class="btn btn-info"><i class="fas fa-file-alt" data-toggle="modal" data-target="#detalleModal"></i> </button>
+                        <button type="button" class="btn btn-warning"><i class="fas fa-check-circle" data-toggle="modal" data-target="#finalizadoModal"></i> </button>
+                        <button type="button" class="btn btn-danger"><i class=" fas fa-trash-alt" data-toggle="modal" data-target="#eliminarModal"></i> </button>
                     </td>
                 </tr>
                 <tr>
-                    <td>20235</td>
-                    <td>Presupuesto</td>
-                    <td>01/02/2022</td>
-                    <td>Sistema de seguridad</td>
-                    <td>Instalacion de cerca electrica</td>
-                    <td>Carlos H</td>
-                    <td>En proceso</td>
+                    <td>302327</td>
+                    <td>Erick Lagos</td>
+                    <td>Utiles de Honduras</td>
+                    <td>20/09/2022</td>
+                    <td>Hardware</td>
+                    <td>Choluteca</td>
                     <td>
-                        <button type="button" class="btn btn-info"><i class="fas fa-book" data-toggle="modal" data-target="#detalleModal"></i> </button>
+                        <button type="button" class="btn btn-info"><i class="fas fa-file-alt" data-toggle="modal" data-target="#detalleModal"></i> </button>
+                        <button type="button" class="btn btn-warning"><i class="fas fa-check-circle" data-toggle="modal" data-target="#finalizadoModal"></i> </button>
+                        <button type="button" class="btn btn-danger"><i class=" fas fa-trash-alt" data-toggle="modal" data-target="#eliminarModal"></i> </button>
                     </td>
                 </tr>
                 <tr>
-                <td>20235</td>
-                    <td>Presupuesto</td>
-                    <td>01/02/2022</td>
-                    <td>Sistema de seguridad</td>
-                    <td>Instalacion de cerca electrica</td>
-                    <td>Carlos H</td>
-                    <td>En proceso</td>
+                    <td>302328</td>
+                    <td>Moises Guardado</td>
+                    <td>Elektra</td>
+                    <td>17/10/2022</td>
+                    <td>Sistema</td>
+                    <td>Tegucigalpa</td>
                     <td>
-                        <button type="button" class="btn btn-info"><i class="fas fa-book" data-toggle="modal" data-target="#detalleModal"></i> </button>
+                        <button type="button" class="btn btn-info"><i class="fas fa-file-alt" data-toggle="modal" data-target="#detalleModal"></i> </button>
+                        <button type="button" class="btn btn-warning"><i class="fas fa-check-circle" data-toggle="modal" data-target="#finalizadoModal"></i> </button>
+                        <button type="button" class="btn btn-danger"><i class=" fas fa-trash-alt" data-toggle="modal" data-target="#eliminarModal"></i> </button>
                     </td>
                 </tr>
                 <tr>
-                <td>20235</td>
-                    <td>Presupuesto</td>
-                    <td>01/02/2022</td>
-                    <td>Sistema de seguridad</td>
-                    <td>Instalacion de cerca electrica</td>
-                    <td>Carlos H</td>
-                    <td>En proceso</td>
+                    <td>302329</td>
+                    <td>Darwin Aguilar</td>
+                    <td>Optica Santa Lucia</td>
+                    <td>17/10/2022</td>
+                    <td>Sistema</td>
+                    <td>Tegucigalpa</td>
                     <td>
-                        <button type="button" class="btn btn-info"><i class="fas fa-book" data-toggle="modal" data-target="#detalleModal"></i> </button>
+                        <button type="button" class="btn btn-info"><i class="fas fa-file-alt" data-toggle="modal" data-target="#detalleModal"></i> </button>
+                        <button type="button" class="btn btn-warning"><i class="fas fa-check-circle" data-toggle="modal" data-target="#finalizadoModal"></i> </button>
+                        <button type="button" class="btn btn-danger"><i class=" fas fa-trash-alt" data-toggle="modal" data-target="#eliminarModal"></i> </button>
                     </td>
                 </tr>
                 <tr>
-                <td>20235</td>
-                    <td>Presupuesto</td>
-                    <td>01/02/2022</td>
-                    <td>Sistema de seguridad</td>
-                    <td>Instalacion de cerca electrica</td>
-                    <td>Carlos H</td>
-                    <td>En proceso</td>
+                    <td>3023210</td>
+                    <td>Miguel Acosta</td>
+                    <td>Expreso Americano</td>
+                    <td>11/08/2022</td>
+                    <td>Sistema</td>
+                    <td>SPS</td>
                     <td>
-                        <button type="button" class="btn btn-info"><i class="fas fa-book" data-toggle="modal" data-target="#detalleModal"></i> </button>
+                        <button type="button" class="btn btn-info"><i class="fas fa-file-alt" data-toggle="modal" data-target="#detalleModal"></i> </button>
+                        <button type="button" class="btn btn-warning"><i class="fas fa-check-circle" data-toggle="modal" data-target="#finalizadoModal"></i> </button>
+                        <button type="button" class="btn btn-danger"><i class=" fas fa-trash-alt" data-toggle="modal" data-target="#eliminarModal"></i> </button>
                     </td>
                 </tr>
 
 
             </table>
+
 
             <script>
                 function myFunction() {
@@ -267,40 +273,49 @@
 
 
 
-    </div>
+    </div
 
 
 
 
 
 </div>
+<!-- /.content -->
 
-<!--Modal Detalles-->
+
+<!--Modal detalle de la persona solicitante-->
 <div class="modal fade" id="detalleModal" tabindex="-1" role="dialog" aria-labelledby="detalleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="detalleModalLabel">+ Detalles</h5>
+                <h5 class="modal-title" id="detalleModalLabel">+ Información</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <!--Formulario del Modal-->
-            <h5>Descripción de la falla</h5>
-            <td>Tuve un problema, que me tira aire caliente despues de 5 minutos, y a los 10 min de encendido el aire acondicionado se apaga</td>
 
-            <h5>Ubicación</h5>
-            <td>Blv Suyapa, frente al Hospital Escuela Universitario, contiguo a radio HN</td>
+            <div class="modal-body">
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Aceptar</button>
+
+
+
+
+
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Aceptar</button>
+                </div>
+                <!--Fin del Modal-->
             </div>
-            <!--Fin del Modal-->
         </div>
     </div>
-</div>
 
+
+
+</div>
 </body>
 
 @endsection

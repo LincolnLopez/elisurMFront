@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
-class PersonasController extends Controller
+class PresupuestosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,20 +15,12 @@ class PersonasController extends Controller
      */
     public function index()
     {
-        $personas = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
-        ')->get('http://localhost:3000/usuarios');
-        return view('personas.index')->with('personas',json_decode($personas));
 
-        // === PARA LLENAR LA TABLA Personas ===
-        /* $response = HTTP::get('http://localhost:3000/personas');
-        $usuarios = $response->json();
+        $presupuestos = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
+        ')->get('http://localhost:3000/solicitudes');
+        return view('presupuestos.index')->with('presupuestos',json_decode($presupuestos));
 
-        return view('personas.index', compact('usuarios'));
-
-        $response = Http::get('http://localhost:3000/personas');
-        return $response->json();
-        return $response->ok();
-        return view('personas.index')->with('usuarios', json_decode($response,true));*/
+        
     }
 
     /**
@@ -40,7 +32,7 @@ class PersonasController extends Controller
     {
         
         //=== LLAMAR EL FORMULARIO CREATE ===
-        return view('personas.create');
+        return view('presupuesto.create');
 
 
     }
@@ -51,11 +43,11 @@ class PersonasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //----------------INSERT USUARIO
-    public function store(Request $request)
+    //llama api de insert
+    public function store(Request $request)                                                                                                                                                          //NOMBRE_SOLICITANTE, TELEFONO, CORREO_ELECTRONICO, TIPO_SOLICITANTE, TELEFONO_OPCIONAL, DIRECCION_SOLICITANTE, CIUDAD, COD_SERVICIO, DESCRIPCION_SOLICITUD                                                                                     
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/insert_usuarios',['NOMBRE_USUARIO'=>$request->NOMBRE_USUARIO,'CORREO_USUARIO'=>$request->CORREO_USUARIO,'PASSWORD_USUARIO'=>$request->PASSWORD_USUARIO,'COD_ROL'=>$request->ROL]);
-        return redirect('/personas');
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/solicitudes',['NOMBRE_SOLICITANTE'=>$request->NOMBRE_SOLICITANTE,'CORREO_USUARIO'=>$request->CORREO_USUARIO,'PASSWORD_USUARIO'=>$request->PASSWORD_USUARIO,'COD_ROL'=>$request->ROL]);
+        return redirect('/cotizacion');
     }
 
     /**
@@ -75,12 +67,14 @@ class PersonasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //Llamar select uno
     public function edit($cod_usuario)
     {
         $persona = DB ::table('tbl_usuarios')->select('cod_usuario','nombre_usuario','correo_usuario','password_usuario','cod_rol')->where('cod_usuario', '=', $cod_usuario)->first();
         return view('personas.edit')->with('persona',$persona);
     }
-
+ 
     /**
      * Update the specified resource in storage.
      *
@@ -88,6 +82,8 @@ class PersonasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //Actualizar personas
     public function update(Request $request)
     {
         Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/actualizar_usuarios',['COD_USUARIO'=>$request->COD_USUARIO,'NOMBRE_USUARIO'=>$request->NOMBRE_USUARIO,'CORREO_USUARIO'=>$request->CORREO_USUARIO,'PASSWORD_USUARIO'=>$request->PASSWORD_USUARIO,'COD_ROL'=>$request->ROL]);
@@ -100,6 +96,8 @@ class PersonasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //Eliminar Usuario
     public function destroy($cod_usuario)
     {
         Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/eliminar_usuario',['COD_USUARIO'=>$cod_usuario]);
