@@ -57,13 +57,13 @@
                 </div>
               
                 <div class="mb-3">
-                  <label for="" class="form-label">FECHA_REGISTRO</label>
-                  <input id="FECHA_REGISTRO" name="FECHA_REGISTRO" type="text" class="form-control"  tabindex="1">    
+                  <label for="" class="form-label">TELEFONO</label>
+                  <input id="TELEFONO_CLIENTE" name="TELEFONO_CLIENTE" type="text" class="form-control"  tabindex="1">    
                 </div>
               
                 <div class="mb-3">
-                  <label for="" class="form-label">ESTADO_CLIENTE</label>
-                  <input id="ESTADO_CLIENTE" name="ESTADO_CLIENTE" type="text" class="form-control"  tabindex="1">    
+                  <label for="" class="form-label">CORREO</label>
+                  <input id="CORREO_CLIENTE" name="CORREO_CLIENTE" type="text" class="form-control"  tabindex="1">    
                 </div>
               
 

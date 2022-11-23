@@ -64,16 +64,6 @@
     <input id="CORREO_CLIENTE" name="CORREO_CLIENTE" type="text" class="form-control"  value="{{$cliente->correo_cliente}}">    
   </div>
 
-  <div class="mb-3">
-    <label for="" class="form-label">ESTADO_CLIENTE</label>
-    <input id="ESTADO_CLIENTE" name="ESTADO_CLIENTE" type="text" class="form-control"  value="{{$cliente->estado_cliente}}">    
-  </div>
-
-  <div class="mb-3">
-    <label for="" class="form-label">FECHA_REGISTRO</label>
-    <input id="FECHA_REGISTRO" name="FECHA_REGISTRO" type="text" class="form-control"  value="{{$cliente->fecha_registro}}">    
-  </div>
-
   <label for="country">COD_TIPO_CLIENTE</label>
     <select class="form-control" id="COD_TIPO_CLIENTE" name="COD_TIPO_CLIENTE" value="{{$cliente->cod_tipo_cliente}}">
         <option value="1">Premium</option>
