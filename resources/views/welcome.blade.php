@@ -81,7 +81,7 @@
    <div class="w3-top">
       <div class="w3-bar w3-black w3-card">
          <div class="justify-content-end">
-            <a href="{{url('login')}}" class="w3-xlarge w3-right"><i class="fa fa-user">Inicia Sesion </i></a>
+            <a href="{{url('elisurlogin')}}" class="w3-xlarge w3-right"><i class="fa fa-user">Inicia Sesion </i></a>
          </div>              
       </div>
    </div>
