@@ -199,6 +199,7 @@
                               <th>CANTIDAD_ARTICULO</th>
                               <th>FECHA_REGISTRO</th>
                               <th>FECHA_MODIFICACION</th>
+                              <th>ESTADO</th>
                               
                             </tr>
                          
@@ -213,6 +214,8 @@
                                 <td>{{$persona->CANTIDAD_ARTICULO}}</td>
                                 <td>{{$persona->FECHA_REGISTRO}}</td>
                                 <td>{{$persona->FECHA_MODIFICACION}}</td>
+                                <td>{{$persona->estado}}</td>
+
                                 <td>
                                 <form  action="{{ route('inventario.destroy',$persona->COD_INVENTARIO) }}" method="POST">
                               <a href="/inventario/{{$persona->COD_INVENTARIO}}/edit" class="btn btn-info">Editar</a>         

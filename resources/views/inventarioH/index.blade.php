@@ -234,7 +234,7 @@
 
         </div>
 
-            <a href="{{ route('inventarioH.create') }}" class="btn btn-success">Registrar</a>
+          
 
 
             <script>
@@ -339,7 +339,7 @@
                 }
             </script>
         </div>
-
+        <a href="{{ route('inventarioH.create') }}" class="btn btn-success">Registrar</a>
 
     </div>
 
