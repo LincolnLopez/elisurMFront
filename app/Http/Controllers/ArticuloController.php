@@ -28,7 +28,7 @@ class ArticuloController extends Controller
      */
     public function create()
     {
-        //
+       return view(('articulos.create'));
     }
 
     /**
@@ -39,7 +39,7 @@ class ArticuloController extends Controller
      */
     public function store(Request $request)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000//articulo/insert',['NOMBRE_ARTICULO'=>$request->NOMBRE_ARTICULO,'DESCRIPCION_ARTICULO'=>$request->DESCRIPCION_ARTICULO,'PRECIO_ARTICULO'=>$request->PRECIO_ARTICULO,'COD_CATEGORIA'=>$request->COD_CATEGORIA]);
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/articulo/insert',['NOMBRE_ARTICULO'=>$request->NOMBRE_ARTICULO,'DESCRIPCION_ARTICULO'=>$request->DESCRIPCION_ARTICULO,'PRECIO_ARTICULO'=>$request->PRECIO_ARTICULO,'COD_CATEGORIA'=>$request->COD_CATEGORIA]);
         return redirect('/articulos');
     }
 
@@ -85,9 +85,9 @@ class ArticuloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($cod_articulo)
+    public function destroy($COD_ARTICULO)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/articulo/eliminar',['COD_ARTICULO'=>$cod_articulo]);
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/articulo/eliminar',['COD_ARTICULO'=>$COD_ARTICULO]);
         return redirect('/articulos');
     }
 }

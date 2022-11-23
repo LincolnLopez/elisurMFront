@@ -67,13 +67,13 @@
                                 <th>NOMBRE_CLIENTE</th>
                                 <th>APELLIDOS_CLIENTE</th>
                                 <th>DIRECCION_CLIENTE</th>
-                                <th>CIUDAD_CLIENTE</th>
+                                <th>RTN_CLIENTE</th>
                                 <th>TELEFONO_CLIENTE</th>
                                 <th>CORREO_CLIENTE</th>
-                                <th>RTN_CLIENTE</th>
-                                <th>COD_TIPO_CLIENTE</th>   
+                                <th>FECHA_REGISTRO</th>
+                                <th>ESTADO_CLIENTE</th>   
                                 <th>NOMBRE_TIPO_CLIENTE</th>
-                                <th>ESTADO_CLIENTE</th>
+                                <th>ACCIONES</th>
                               </tr>
                           </thead>
                           <tbody>
@@ -91,12 +91,12 @@
                                 <td>{{$cliente->ESTADO_CLIENTE}}</td>
                                 <td>{{$cliente->NOMBRE_TIPO_CLIENTE}}</td>
                                 <td>
-                                    <form  action="{{ route('clientes.destroy',$cliente->COD_CLIENTE) }}" method="POST">
-                                        <a href="/clientes/{{$cliente->COD_CLIENTE}}/edit" class="btn btn-info">Editar</a>         
-                                            @csrf
-                                            @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                      </form>            
+                                  <form  action="{{ route('clientes.destroy',$cliente->COD_CLIENTE) }}" method="POST">
+                                    <a href="/clientes/{{$cliente->COD_CLIENTE}}/edit" class="btn btn-info">Editar</a>         
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                  </form>          
                                 </td>
                             </tr>
                             @endforeach

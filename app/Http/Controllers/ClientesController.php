@@ -19,10 +19,6 @@ class ClientesController extends Controller
         ')->get('http://localhost:3000/clientes'); 
         return view('clientes.index')->with('clientes',json_decode($clientes));
 
-
-        
-
-
     }
 
 
@@ -85,7 +81,7 @@ class ClientesController extends Controller
      */
     public function update(Request $request)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/update_cliente',['DNI_CLIENTE'=>$request->DNI_CLIENTE, 'NOMBRE_CLIENTE'=>$request->NOMBRE_CLIENTE,'APELLIDOS_CLIENTE'=>$request->APELLIDOS_CLIENTE,'DIRECCION_CLIENTE'=>$request->DIRECCION_CLIENTE, 'RTN_CLIENTE'=>$request->RTN_CLIENTE,'TELEFONO_CLIENTE'=>$request->TELEFONO_CLIENTE,'CORREO_CLIENTE'=>$request->CORREO_CLIENTE, 'COD_TIPO_CLIENTE'=>$request->COD_TIPO_CLIENTE, 'ESTADO_CLIENTE'=>$request->ESTADO_CLIENTE,]);
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/update_cliente',['COD_CLIENTE'=>$request->COD_CLIENTE,'DNI_CLIENTE'=>$request->DNI_CLIENTE, 'NOMBRE_CLIENTE'=>$request->NOMBRE_CLIENTE,'APELLIDOS_CLIENTE'=>$request->APELLIDOS_CLIENTE,'DIRECCION_CLIENTE'=>$request->DIRECCION_CLIENTE, 'RTN_CLIENTE'=>$request->RTN_CLIENTE,'TELEFONO_CLIENTE'=>$request->TELEFONO_CLIENTE,'CORREO_CLIENTE'=>$request->CORREO_CLIENTE, 'COD_TIPO_CLIENTE'=>$request->COD_TIPO_CLIENTE ]);
         return redirect('/clientes');
 
     }
@@ -96,9 +92,9 @@ class ClientesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($cod_cliente)
+    public function destroy($COD_CLIENTE)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/cliente/eliminar',['COD_CLIENTE'=>$cod_cliente]);
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/cliente/eliminar',['COD_CLIENTE'=>$COD_CLIENTE]);
         return redirect('/clientes');
     }
 }
