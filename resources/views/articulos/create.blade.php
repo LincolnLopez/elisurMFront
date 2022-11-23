@@ -9,7 +9,7 @@
 
 
 @section('content')
-<form action="/personas" method="POST">
+<form action="/articulos" method="POST">
     @csrf
 
     <div class="container-fluid">
