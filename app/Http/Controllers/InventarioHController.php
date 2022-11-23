@@ -40,7 +40,7 @@ class InventarioHController extends Controller
     {
         
         //=== LLAMAR EL FORMULARIO CREATE ===
-        return view('inventario.create');
+        return view('inventarioH.create');
 
 
     }
@@ -53,8 +53,8 @@ class InventarioHController extends Controller
      */
     public function store(Request $request)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/insert_inventario',['COD_ARTICULO'=>$request->COD_ARTICULO,'CANTIDAD_ARTICULO'=>$request->CANTIDAD_ARTICULO]);
-        return redirect('/inventario');
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/insert_herramienta',['NOMBRE_HERRAMIENTA'=>$request->NOMBRE_HERRAMIENTA,'DESCRIPCION_HERRAMIENTA'=>$request->DESCRIPCION_HERRAMIENTA,'NUM_EXISTENCIA'=>$request->NUM_EXISTENCIA,'COD_EMPLEADO'=>$request->COD_EMPLEADO]);
+        return redirect('/inventarioH');
     }
 
     /**
@@ -74,10 +74,10 @@ class InventarioHController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($cod_inventario)
+    public function edit($cod_herramienta)
     {
-        $persona = DB ::table('tbl_inventarios')->select('cod_inventario','cod_articulo','cantidad_articulo')->where('cod_inventario', '=', $cod_inventario)->first();
-        return view('inventario.edit')->with('persona',$persona);
+        $persona = DB ::table('tbl_inventario_herramientas')->select('cod_herramienta','nombre_herramienta','descripcion_herramienta','num_existencia','cod_empleado')->where('cod_herramienta', '=', $cod_herramienta)->first();
+        return view('inventarioH.edit')->with('persona',$persona);
     }
 
     /**
@@ -89,8 +89,8 @@ class InventarioHController extends Controller
      */
     public function update(Request $request)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/update_inventario',['COD_INVENTARIO'=>$request->COD_INVENTARIO,'COD_ARTICULO'=>$request->COD_ARTICULO,'CANTIDAD_ARTICULO'=>$request->CANTIDAD_ARTICULO]);
-        return redirect('/inventario');
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/actualizar_herramienta',['COD_HERRAMIENTA'=>$request->COD_HERRAMIENTA,'NOMBRE_HERRAMIENTA'=>$request->NOMBRE_HERRAMIENTA,'DESCRIPCION_HERRAMIENTA'=>$request->DESCRIPCION_HERRAMIENTA,'NUM_EXISTENCIA'=>$request->NUM_EXISTENCIA,'COD_EMPLEADO'=>$request->COD_EMPLEADO]);
+        return redirect('/inventarioH');
     }
 
     /**
@@ -99,10 +99,10 @@ class InventarioHController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($COD_INVENTARIO)
+    public function destroy($COD_HERRAMIENTA)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/eliminar_inventario',['COD_INVENTARIO'=>$COD_INVENTARIO]);
-        return redirect('/inventario');
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/delete_herramienta',['COD_HERRAMIENTA'=>$COD_HERRAMIENTA]);
+        return redirect('/inventarioH');
     }
 }
 
