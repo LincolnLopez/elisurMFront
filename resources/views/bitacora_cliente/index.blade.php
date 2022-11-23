@@ -1,306 +1,185 @@
 @extends('adminlte::page')
 
+@section('title', 'Usuarios')
+
+@section('content_top_nav_right')
+<li class="nav-item dropdown">
+  <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+    <i class="far fa-fw fas fa-bell"></i>
+    <span class="badge badge-warning navbar-badge">15</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
+    <span class="dropdown-item dropdown-header">15 Notificaciones</span>
+    <div class="dropdown-divider"></div>
+    <a href="#" class="dropdown-item">
+      <i class="fas fa-envelope mr-2"></i> 4 nuevos mensajes
+      <span class="float-right text-muted text-sm">3 mins</span>
+    </a>
+    <div class="dropdown-divider"></div>
+    <a href="#" class="dropdown-item">
+      <i class="fas fa-users mr-2"></i> 8 solicitudes nuevas
+      <span class="float-right text-muted text-sm">12 hours</span>
+    </a>
+    <div class="dropdown-divider"></div>
+    <a href="#" class="dropdown-item">
+      <i class="fas fa-file mr-2"></i> 3 nuevos reportes
+      <span class="float-right text-muted text-sm">2 days</span>
+    </a>
+    <div class="dropdown-divider"></div>
+    <a href="#" class="dropdown-item dropdown-footer">Ver todas las notificaciones</a>
+  </div>
+</li>
+@endsection
 
 @section('content_header')
-<h1>Bitácora de Solicitudes</h1>
 @stop
 
 @section('css')
-<style>
-    * {
-        box-sizing: border-box;
-    }
 
-    #myInput {
-        background-image: url('/css/searchicon.png');
-        background-position: 10px 10px;
-        background-repeat: no-repeat;
-        width: 40%;
-        font-size: 16px;
-        padding: 12px 20px 12px 40px;
-        border: 1px solid #ddd;
-        margin-bottom: 12px;
-
-    }
-
-    #myTable {
-
-        width: 100%;
-        border: 1px solid rgb(109, 109, 109);
-        font-size: 16px;
-    }
-
-    #myTable th,
-    #myTable td {
-        text-align: left;
-        padding: 12px;
-    }
-
-    #myTable tr {
-        border-bottom: 1px solid #ddd;
-    }
-
-    #myTable tr.header,
-    #myTable tr:hover {
-        background-color: #76C1CB;
-    }
-</style>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 
 
 
+@stop
 
 
-<style>
-    table {
-        border-spacing: 10;
-        width: 100%;
-        border: 1px solid rgb(24, 118, 153);
-    }
-
-    th {
-        cursor: pointer;
-    }
-
-    th,
-    td {
-        text-align: left;
-        padding: 16px;
-    }
-
-    tr:nth-child(even) {
-        background-color: #f2f2f2
-    }
-</style>
-
-<style>
-    #myDIV {
-        width: 100%;
-        padding: 20px 0;
-        text-align: center;
-        background-color: rgb(245, 243, 243);
-        margin-top: 20px;
-    }
-</style>
-
-
-@endsection
 
 @section('content')
-<div class="container-fluid">
-    <div class="row content">
-        <div class="col-sm-12">
+
+<body oncopy="return true" onpaste="return true">
+  </br>
+  <section class="content">
+
+  
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-info">
+          <div class="card-header">
+            <h3><i class="fas fa-user-plus fa-1.4x">
+              </i>Usuarios</h3>
+          </div>
+          <div class="card-body">
+            @if(Session::has('success'))
+            <div class="alert alert-success text-center alert-dismissible fade show" role="alert" id="success-alert">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+              </svg>
+              <strong> {{Session::get('success')}}</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            @endif
+            @if(Session::has('updates'))
+            <div class="alert alert-warning text-center alert-dismissible fade show" role="alert" id="update-alert">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+              </svg>
+              <strong> {{Session::get('updates')}}</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            @endif
+            
+            <div class="row">
+              <div class="col-12 col-sm-12">
+                <div class="card card-info card-tabs">
+                  
+                      
+                  
+                     
+                    
+                        <table id="myTable" class="table table-striped table-bordered" cellspacing="40%" width="100%">
+                          <thead>
+                            <tr>
+                              <th>COD_USUARIO</th>
+                              <th>NOMBRE_USUARIO</th>
+                              <th>CORREO_USUARIO</th>
+                              <th>PASSWORD_USUARIO</th>
+                              <th>FECHA_REGISTRO</th>
+                              <th>ESTADO_USUARIO</th>
+                              <th>COD_ROL</th>
+                              <th>NOMBRE_ROL</th>
+                              <th>ACCIONES</th>
+                              
+                            </tr>
+                         
+                          </thead>
+
+                            <tbody>
+                            @foreach($personas as $persona)
+                            <tr>
+                                <td>{{$persona->COD_USUARIO}}</td>
+                                <td>{{$persona->NOMBRE_USUARIO}}</td>
+                                <td>{{$persona->CORREO_USUARIO}}</td>
+                                <td>{{$persona->PASSWORD_USUARIO}}</td>
+                                <td>{{$persona->fecha_registro}}</td>
+                                <td>{{$persona->estado_usuario}}</td>
+                                <td>{{$persona->COD_ROL}}</td>
+                                <td>{{$persona->NOMBRE_ROL}}</td>
+                                <td>
+                                <form  action="{{ route('personas.destroy',$persona->COD_USUARIO) }}" method="POST">
+                              <a href="/personas/{{$persona->COD_USUARIO}}/edit" class="btn btn-info">Editar</a>         
+                                  @csrf
+                                  @method('DELETE')
+                              <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>          
+                                </td>
+                            </tr>
+                            @endforeach
+                            </tbody>
 
 
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar Solicitud..." title="Buscar">
+                         
+                        </table>
 
-            <table id="myTable">
+                      </div>
 
-                <tr class="header">
-                    <th onclick="sortTable(0)">Código</th>
-                    <th onclick="sortTable(1)">Tipo</th>
-                    <th onclick="sortTable(2)">Fecha de solicitud</th>
-                    <th onclick="sortTable(3)">Categoria</th>
-                    <th onclick="sortTable(4)">Descripción</th>
-                    <th onclick="sortTable(5)">Persona a cargo</th>
-                    <th onclick="sortTable(5)">Estado</th>
-                    <th>Detalles</th>
-
-                </tr>
-                <tr>
-                    <td>20235</td>
-                    <td>Presupuesto</td>
-                    <td>01/02/2022</td>
-                    <td>Sistema de seguridad</td>
-                    <td>Instalacion de cerca electrica</td>
-                    <td>Carlos H</td>
-                    <td>En proceso</td>
-                    <td>
-                        <button type="button" class="btn btn-info"><i class="fas fa-book" data-toggle="modal" data-target="#detalleModal"></i> </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>20236</td>
-                    <td>Falla</td>
-                    <td>01/02/2022</td>
-                    <td>Sistema de seguridad</td>
-                    <td>Instalacion de cerca electrica</td>
-                    <td>Carlos H</td>
-                    <td>En proceso</td>
-                    <td>
-                        <button type="button" class="btn btn-info"><i class="fas fa-book" data-toggle="modal" data-target="#detalleModal"></i> </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>20235</td>
-                    <td>Presupuesto</td>
-                    <td>01/02/2022</td>
-                    <td>Sistema de seguridad</td>
-                    <td>Instalacion de cerca electrica</td>
-                    <td>Carlos H</td>
-                    <td>En proceso</td>
-                    <td>
-                        <button type="button" class="btn btn-info"><i class="fas fa-book" data-toggle="modal" data-target="#detalleModal"></i> </button>
-                    </td>
-                </tr>
-                <tr>
-                <td>20235</td>
-                    <td>Presupuesto</td>
-                    <td>01/02/2022</td>
-                    <td>Sistema de seguridad</td>
-                    <td>Instalacion de cerca electrica</td>
-                    <td>Carlos H</td>
-                    <td>En proceso</td>
-                    <td>
-                        <button type="button" class="btn btn-info"><i class="fas fa-book" data-toggle="modal" data-target="#detalleModal"></i> </button>
-                    </td>
-                </tr>
-                <tr>
-                <td>20235</td>
-                    <td>Presupuesto</td>
-                    <td>01/02/2022</td>
-                    <td>Sistema de seguridad</td>
-                    <td>Instalacion de cerca electrica</td>
-                    <td>Carlos H</td>
-                    <td>En proceso</td>
-                    <td>
-                        <button type="button" class="btn btn-info"><i class="fas fa-book" data-toggle="modal" data-target="#detalleModal"></i> </button>
-                    </td>
-                </tr>
-                <tr>
-                <td>20235</td>
-                    <td>Presupuesto</td>
-                    <td>01/02/2022</td>
-                    <td>Sistema de seguridad</td>
-                    <td>Instalacion de cerca electrica</td>
-                    <td>Carlos H</td>
-                    <td>En proceso</td>
-                    <td>
-                        <button type="button" class="btn btn-info"><i class="fas fa-book" data-toggle="modal" data-target="#detalleModal"></i> </button>
-                    </td>
-                </tr>
-
-
-            </table>
-
-            <script>
-                function myFunction() {
-                    var input, filter, table, tr, td, i, txtValue;
-                    input = document.getElementById("myInput");
-                    filter = input.value.toUpperCase();
-                    table = document.getElementById("myTable");
-                    tr = table.getElementsByTagName("tr");
-                    for (i = 0; i < tr.length; i++) {
-                        td = tr[i].getElementsByTagName("td")[1];
-                        if (td) {
-                            txtValue = td.textContent || td.innerText;
-                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                tr[i].style.display = "";
-                            } else {
-                                tr[i].style.display = "none";
-                            }
-                        }
-
-                    }
-                }
-
-                function sortTable(n) {
-                    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-                    table = document.getElementById("myTable");
-                    switching = true;
-                    //Set the sorting direction to ascending:
-                    dir = "asc";
-                    /*Make a loop that will continue until
-                    no switching has been done:*/
-                    while (switching) {
-                        //start by saying: no switching is done:
-                        switching = false;
-                        rows = table.rows;
-                        /*Loop through all table rows (except the
-                        first, which contains table headers):*/
-                        for (i = 1; i < (rows.length - 1); i++) {
-                            //start by saying there should be no switching:
-                            shouldSwitch = false;
-                            /*Get the two elements you want to compare,
-                            one from current row and one from the next:*/
-                            x = rows[i].getElementsByTagName("TD")[n];
-                            y = rows[i + 1].getElementsByTagName("TD")[n];
-                            /*check if the two rows should switch place,
-                            based on the direction, asc or desc:*/
-                            if (dir == "asc") {
-                                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                                    //if so, mark as a switch and break the loop:
-                                    shouldSwitch = true;
-                                    break;
-                                }
-                            } else if (dir == "desc") {
-                                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                                    //if so, mark as a switch and break the loop:
-                                    shouldSwitch = true;
-                                    break;
-                                }
-                            }
-                        }
-                        if (shouldSwitch) {
-                            /*If a switch has been marked, make the switch
-                            and mark that a switch has been done:*/
-                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                            switching = true;
-                            //Each time a switch is done, increase this count by 1:
-                            switchcount++;
-                        } else {
-                            /*If no switching has been done AND the direction is "asc",
-                            set the direction to "desc" and run the while loop again.*/
-                            if (switchcount == 0 && dir == "asc") {
-                                dir = "desc";
-                                switching = true;
-                            }
-                        }
-                    }
-                }
-            </script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-
-
-
-
-
-
-
+      </div>
     </div>
 
 
+  </section>
 
-
-
-</div>
-
-<!--Modal Detalles-->
-<div class="modal fade" id="detalleModal" tabindex="-1" role="dialog" aria-labelledby="detalleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="detalleModalLabel">+ Detalles</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <!--Formulario del Modal-->
-            <h5>Descripción de la falla</h5>
-            <td>Tuve un problema, que me tira aire caliente despues de 5 minutos, y a los 10 min de encendido el aire acondicionado se apaga</td>
-
-            <h5>Ubicación</h5>
-            <td>Blv Suyapa, frente al Hospital Escuela Universitario, contiguo a radio HN</td>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Aceptar</button>
-            </div>
-            <!--Fin del Modal-->
-        </div>
-    </div>
-</div>
 
 </body>
 
-@endsection
+@stop
+
+@section('footer')
+<strong><a href="http://40.83.9.20/home">Elisur</a>.</strong>
+Multi servicios.
+<div class="float-right d-none d-sm-inline-block">
+  <b>Version</b> 3.1.0
+</div>
+@stop
+
+@section('js')
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+
+<script>
+  $(function() {
+    $('#myTable').DataTable({
+      responsive: true,
+      scrollX: true,
+      autoWidth: true,
+      language: {
+        url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json'
+      }
+    });
+  });
+</script>
+
+@stop
