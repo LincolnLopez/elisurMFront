@@ -51,6 +51,7 @@ class PersonasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //----------------INSERT USUARIO
     public function store(Request $request)
     {
         Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/insert_usuarios',['NOMBRE_USUARIO'=>$request->NOMBRE_USUARIO,'CORREO_USUARIO'=>$request->CORREO_USUARIO,'PASSWORD_USUARIO'=>$request->PASSWORD_USUARIO,'COD_ROL'=>$request->ROL]);

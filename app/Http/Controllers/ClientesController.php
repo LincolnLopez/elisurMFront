@@ -47,8 +47,8 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/clientes/insert',[ 'COD_CLIENTE'=>$request->COD_CLIENTE,'DNI_CLIENTE'=>$request->DNI_CLIENTE,'NOMBRE_CLIENTE'=>$request->NOMBRE_CLIENTE,'APELLIDOS_CLIENTE'=>$request->APELLIDOS_CLIENTE,'DIRECCION_CLIENTE'=>$request->DIRECCION_CLIENTE, 'RTN_CLIENTE'=>$request->RTN_CLIENTE,'TELEFONO_CLIENTE'=>$request->TELEFONO_CLIENTE,'CORREO_CLIENTE'=>$request->CORREO_CLIENTE, 'FECHA_REGISTRO'=>$request->FECHA_REGISTRO, 'ESTADO_CLIENTE'=>$request->ESTADO_CLIENTE, 'NOMBRE_TIPO _CLIENTE'=>$request->NOMBRE_TIPO_CLIENTE,'cod_tipo_cliente'=>$request->cod_tipo_cliente]);
-        return redirect('/clientes'); 
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/insert_cliente',[ 'DNI_CLIENTE'=>$request->DNI_CLIENTE,'NOMBRE_CLIENTE'=>$request->NOMBRE_CLIENTE,'APELLIDOS_CLIENTE'=>$request->APELLIDOS_CLIENTE,'DIRECCION_CLIENTE'=>$request->DIRECCION_CLIENTE, 'RTN_CLIENTE'=>$request->RTN_CLIENTE,'TELEFONO_CLIENTE'=>$request->TELEFONO_CLIENTE,'CORREO_CLIENTE'=>$request->CORREO_CLIENTE,'COD_TIPO_CLIENTE'=>$request->COD_TIPO_CLIENTE]);
+        return redirect('/clientes');
 
     }
 
@@ -83,10 +83,11 @@ class ClientesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/cliente/actualizar',['COD_CLIENTE'=>$request->COD_CLIENTE,'DNI_CLIENTE'=>$request->DNI_CLIENTE,'NOMBRE_CLIENTE'=>$request->NOMBRE_CLIENTE,'APELLIDOS_CLIENTE'=>$request->APELLIDOS_CLIENTE,'DIRECCION_CLIENTE'=>$request->DIRECCION_CLIENTE,'TELEFONO_CLIENTE'=>$request->TELEFONO_CLIENTE,'CORREO_CLIENTE'=>$request->CORREO_CLIENTE,'RTN_CLIENTE'=>$request->RTN_CLIENTE,'COD_TIPO_CLIENTE'=>$request->COD_TIPO_CLIENTE]);
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/update_cliente',['DNI_CLIENTE'=>$request->DNI_CLIENTE, 'NOMBRE_CLIENTE'=>$request->NOMBRE_CLIENTE,'APELLIDOS_CLIENTE'=>$request->APELLIDOS_CLIENTE,'DIRECCION_CLIENTE'=>$request->DIRECCION_CLIENTE, 'RTN_CLIENTE'=>$request->RTN_CLIENTE,'TELEFONO_CLIENTE'=>$request->TELEFONO_CLIENTE,'CORREO_CLIENTE'=>$request->CORREO_CLIENTE, 'COD_TIPO_CLIENTE'=>$request->COD_TIPO_CLIENTE, 'ESTADO_CLIENTE'=>$request->ESTADO_CLIENTE,]);
         return redirect('/clientes');
+
     }
 
     /**
