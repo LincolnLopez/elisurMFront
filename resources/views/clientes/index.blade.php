@@ -125,9 +125,7 @@
 
 
   </section>
-
-
-</body>
+  </body>
 
 @stop
 
