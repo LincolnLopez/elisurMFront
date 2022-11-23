@@ -16,10 +16,11 @@ class EmpleadosController extends Controller
      */
     public function index()
     {
-        $empleados = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
+       /* $empleados = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
         ')->get('http://localhost:3000/empleados'); 
         return view('empleados.index')->with('empleados',json_decode($empleados));
-
+          */
+      return view('empleados.index');
 
     }
 

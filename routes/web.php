@@ -46,6 +46,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login', function () {
+    return view('login.login');
+});
+
 
 Route::resource('/personas', PersonasController::class); 
 Route::resource('/roles', RolesController::class); 

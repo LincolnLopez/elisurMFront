@@ -6,6 +6,11 @@
 @section('content_header')
 @stop
 
+@section('css')
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+
+@stop
 
 
 @section('content')
@@ -54,7 +59,7 @@
                     </div>
                        
                         </br>
-                        <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="10" width="100%">
                           <thead>
                             <tr>
                                 <th>COD_CLIENTE</th>
@@ -79,13 +84,12 @@
                                 <td>{{$cliente->NOMBRE_CLIENTE}}</td>
                                 <td>{{$cliente->APELLIDOS_CLIENTE}}</td>
                                 <td>{{$cliente->DIRECCION_CLIENTE}}</td>
-                                <td>{{$cliente->CIUDAD_CLIENTE}}</td>
+                                <td>{{$cliente->RTN_CLIENTE}}</td>
                                 <td>{{$cliente->TELEFONO_CLIENTE}}</td>
                                 <td>{{$cliente->CORREO_CLIENTE}}</td>
-                                <td>{{$cliente->RTN_CLIENTE}}</td>
-                                <td>{{$cliente->COD_TIPO_CLIENTE}}</td>
-                                <td>{{$cliente->NOMBRE_TIPO_CLIENTE}}</td>
+                                <td>{{$cliente->FECHA_REGISTRO}}</td>
                                 <td>{{$cliente->ESTADO_CLIENTE}}</td>
+                                <td>{{$cliente->NOMBRE_TIPO_CLIENTE}}</td>
                                 <td>
                                     <form  action="{{ route('clientes.destroy',$cliente->COD_CLIENTE) }}" method="POST">
                                         <a href="/clientes/{{$cliente->COD_CLIENTE}}/edit" class="btn btn-info">Editar</a>         
@@ -130,18 +134,16 @@
 
 
 @section('js')
-<script type="text/javascript" src="js/validacion_citas-doctores.js"></script>
-<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
 <script>
     $(function() {
       $('#AdministradorTable').DataTable({
         responsive: true,
         autoWidth: true,
+        scrollX: true,
         language: {
           url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json'
         }

@@ -76,19 +76,15 @@
 <body>
 
    <!-- Navbar -->
+   
+
    <div class="w3-top">
-      @if (Route::has('login'))
       <div class="w3-bar w3-black w3-card">
-         @auth
-         <a href="{{ url('/home') }}" class="w3-padding-large w3-hover-red w3-hide-small w3-right">Home</a>
-         @else
-         <a href="{{ route('login') }}" class="w3-xlarge w3-right"><i class="fa fa-user">Inicia Sesion </i></a>
-         @endauth                             
+         <div class="justify-content-end">
+            <a href="{{url('login')}}" class="w3-xlarge w3-right"><i class="fa fa-user">Inicia Sesion </i></a>
+         </div>              
       </div>
-      @endif
    </div>
-
-
 
 
    <!--Primera Imagen-->
@@ -104,7 +100,7 @@
    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
       <h2 class="w3-wide">Multiservicios Elisur</h2>
       <p class="w3-opacity"><i>Sobre Nosotros</i></p>
-      <p class="w3-justify">Un equipo de profesionales con 30 años de experiencia en la dirección de algunas de las mayores compañías nacionales,
+      <p class="w3-justify">Un equipo de profesionales con 10 años de experiencia en la dirección de algunas de las mayores compañías nacionales,
          dedicadas a la prestación de servicios para los edificios y las personas, como Atención al Público, Control de Accesos, Limpieza o
          Mantenimiento, así como en el área de Consultoría, decidimos ponernos al frente de este ilusionante proyecto al detectar un déficit de
          oferta de soluciones multiservicios profesionales y de calidad, orientadas a la Pequeña y Mediana Empresa (PYME), Administradores de

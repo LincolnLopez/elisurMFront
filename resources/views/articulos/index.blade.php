@@ -63,7 +63,31 @@
                             </tr>
                           </thead>
 
-                          
+                          <tbody>
+                            @foreach($empleados as $empleado)
+                            <tr>
+                                <td>{{$empleado->COD_EMPLEADO}}</td>
+                                <td>{{$empleado->DNI_EMPLEADO}}</td>
+                                <td>{{$empleado->NOMBRE_EMPLEADO}}</td>
+                                <td>{{$empleado->APELLIDOS_EMPLEADO}}</td>
+                                <td>{{$empleado->SEXO_EMPLEADO}}</td>
+                                <td>{{$empleado->ESTADO_CIVIL_EMPLEADO}}</td>
+                                <td>{{$empleado->EDAD_EMPLEADO}}</td>
+                                <td>{{$empleado->TELEFONO_EMPLEADO}}</td>
+                                <td>{{$empleado->CORREO_EMPLEADO}}</td>
+                                <td>{{$empleado->ESTADO_EMPLEADO}}</td>
+                                <td>
+                                <form  action="{{ route('empleados.destroy',$empleado->COD_EMPLEADO) }}" method="POST">
+                              <a href="/empleados/{{$empleado->COD_EMPLEADO}}/edit" class="btn btn-info">Editar</a>         
+                                  @csrf
+                                  @method('DELETE')
+                              <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>          
+                                </td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                         
                         </table>
 
                       </div>
@@ -126,6 +150,5 @@
     $("#update-alert").slideUp(500);
   });
 </script>
-
 
 @stop

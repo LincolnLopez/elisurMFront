@@ -34,6 +34,14 @@
 @section('content_header')
 @stop
 
+@section('css')
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+
+
+
+@stop
+
 
 
 @section('content')
@@ -77,18 +85,12 @@
             <div class="row">
               <div class="col-12 col-sm-12">
                 <div class="card card-info card-tabs">
-                  <div class="card-header p-0 pt-1">
-                    <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Registro de Usuarios</a>
-                      </li>
-                    </ul>
-                  </div>
+                  
                       
                   
                      
-                        </br>
-                        <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    
+                        <table id="myTable" class="table table-striped table-bordered" cellspacing="40%" width="100%">
                           <thead>
                             <tr>
                               <th>COD_USUARIO</th>
@@ -207,38 +209,22 @@ Multi servicios.
 @stop
 
 @section('js')
-<script type="text/javascript" src="js/validacion_citas-doctores.js"></script>
-<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+
+
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+
 <script>
   $(function() {
-    $('#AdministradorTable').DataTable({
+    $('#myTable').DataTable({
       responsive: true,
+      scrollX: true,
       autoWidth: true,
       language: {
         url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json'
       }
     });
-  });
-</script>
-
-<script>
-  $("#success-alert").fadeTo(2000, 500).slideUp(400, function() {
-    $("#success-alert").slideUp(500);
-  });
-</script>
-<script>
-  $("#delete-alert").fadeTo(2000, 500).slideUp(400, function() {
-    $("#delete-alert").slideUp(500);
-  });
-</script>
-<script>
-  $("#update-alert").fadeTo(2000, 500).slideUp(400, function() {
-    $("#update-alert").slideUp(500);
   });
 </script>
 
