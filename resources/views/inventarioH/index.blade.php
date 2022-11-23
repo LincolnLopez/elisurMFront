@@ -188,7 +188,8 @@
 
 
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar Producto..." title="Buscar">
-
+        
+           </br>
             <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                   <tr>
@@ -230,6 +231,8 @@
               
                
             </table>
+
+        </div>
 
             <a href="{{ route('inventarioH.create') }}" class="btn btn-success">Registrar</a>
 
