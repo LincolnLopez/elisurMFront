@@ -91,110 +91,42 @@
         <div class="col-sm-12">
 
 
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar Ticket..." title="Buscar">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar Bitacora..." title="Buscar">
 
-            <table id="myTable">
+            
+           </br>
+           <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+               <thead>
+                 <tr>
+                   <th>Código de Bitacora</th>
+                   <th>Usuario</th>
+                   <th>Operación</th>
+                   <th>Modificado</th>
+                   <th>Tabla</th>
+                   
+                 </tr>
+              
+               </thead>
 
-                <tr class="header">
-                    <th onclick="sortTable(0)">Código</th>
-                    <th onclick="sortTable(1)">Nominar</th>
-                    <th onclick="sortTable(2)">Empresa</th>
-                    <th onclick="sortTable(3)">Fecha de reporte</th>
-                    <th onclick="sortTable(4)">Categoria</th>
-                    <th onclick="sortTable(5)">Descripción</th>
-                    <th onclick="sortTable(5)">Fecha de solución</th>
-                    <th onclick="sortTable(5)">Persona a cargo</th>
-                    <th onclick="sortTable(5)">Estado</th>
-                    <th></th>
+           <tbody>
+               @foreach($bitacoras as $bitacora)
+               <tr>
+                   <td>{{$bitacora->COD_BITACORA}}</td>
+                   <td>{{$bitacora->USUARIO}}</td>
+                   <td>{{$bitacora->OPERACION}}</td>
+                   <td>{{$bitacora->MODIFICADO}}</td>
+                   <td>{{$bitacora->TABLA}}</td>
+                   <td>
+                         
+                   </td>
+               </tr>
+               @endforeach
+               </tbody>
+             
+              
+           </table>
 
-                </tr>
-                <tr>
-                    <td>30235</td>
-                    <td>Jose Alvarado</td>
-                    <td>Davivienda</td>
-                    <td>17/08/2022</td>
-                    <td>Sistema Seguridad</td>
-                    <td>Camará 4 apagada</td>
-                    <td>20/09/2022</td>
-                    <td>Caros Herrera</td>
-                    <td>Liquidada</td>
-                    <td>
-                    <button type="button" class="btn btn-danger"><i class=" fas fa-trash-alt" data-toggle="modal" data-target="#detalleModal"></i> </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>30236</td>
-                    <td>Carlos Valladares</td>
-                    <td>Gruma</td>
-                    <td>12/08/2022</td>
-                    <td>Sistema Seguridad</td>
-                    <td>Alarma apagada</td>
-                    <td>14/09/2022</td>
-                    <td>Cristian Castro</td>
-                    <td>Anulada por cliente</td>
-                    <td>
-                    <button type="button" class="btn btn-danger"><i class=" fas fa-trash-alt" data-toggle="modal" data-target="#detalleModal"></i> </button>
-                    </td>
-                </tr>
-                <tr>
-                     <td>302327</td>
-                    <td>Erick Lagos</td>
-                    <td>Utiles de Honduras</td>
-                    <td>20/09/2022</td>
-                    <td>Cerca electrica</td>
-                    <td>Destruida por arbol</td>
-                    <td>28/09/2022</td>
-                    <td>Caros Herrera</td>
-                    <td>Anulada por cliente</td>
-                    <td>
-                    <button type="button" class="btn btn-danger"><i class=" fas fa-trash-alt" data-toggle="modal" data-target="#detalleModal"></i> </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>302328</td>
-                    <td>Moises Guardado</td>
-                    <td>Electra</td>
-                    <td>17/10/2022</td>
-                    <td>Sistema Seguridad</td>
-                    <td>Camará 2 apagada</td>
-                    <td>20/10/2022</td>
-                    <td>Cristian Castro</td>
-                    <td>Anulada por cliente</td>
-                    <td>
-                    <button type="button" class="btn btn-danger"><i class=" fas fa-trash-alt" data-toggle="modal" data-target="#detalleModal"></i> </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>302329</td>
-                    <td>Darwin Aguilar</td>
-                    <td>Optica Santa Lucia</td>
-                    <td>17/10/2022</td>
-                    <td>Sistema Seguridad</td>
-                    <td>Alarma apagada</td>
-                    <td>20/10/2022</td>
-                    <td>Oscar Fonseca</td>
-                    <td>Liquidada</td>
-                    <td>
-                    <button type="button" class="btn btn-danger"><i class=" fas fa-trash-alt" data-toggle="modal" data-target="#detalleModal"></i> </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3023210</td>
-                    <td>Miguel Acosta</td>
-                    <td>Expreso Americano</td>
-                    <td>11/08/2022</td>
-                    <td>Sistema Seguridad</td>
-                    <td>Camará 1 apagada</td>
-                    <td>29/09/2022</td>
-                    <td>Caros Herrera</td>
-                    <td>Liquidada</td>
-                    <td>
-                    <button type="button" class="btn btn-danger"><i class=" fas fa-trash-alt" data-toggle="modal" data-target="#detalleModal"></i> </button>
-                    </td>
-                </tr>
-
-
-            </table>
+        </div>
 
 
             <script>
