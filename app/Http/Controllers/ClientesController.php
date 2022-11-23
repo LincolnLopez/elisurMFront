@@ -47,8 +47,9 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/clientes/insert',['DNI_CLIENTE'=>$request->DNI_CLIENTE,'NOMBRE_CLIENTE'=>$request->NOMBRE_CLIENTE,'APELLIDOS_CLIENTE'=>$request->APELLIDOS_CLIENTE,'DIRECCION_CLIENTE'=>$request->DIRECCION_CLIENTE,'TELEFONO_CLIENTE'=>$request->TELEFONO_CLIENTE,'CORREO_CLIENTE'=>$request->CORREO_CLIENTE,'RTN_CLIENTE'=>$request->RTN_CLIENTE,'COD_TIPO_CLIENTE'=>$request->COD_TIPO_CLIENTE]);
-        return redirect('/clientes');
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/clientes/insert',[ 'COD_CLIENTE'=>$request->COD_CLIENTE,'DNI_CLIENTE'=>$request->DNI_CLIENTE,'NOMBRE_CLIENTE'=>$request->NOMBRE_CLIENTE,'APELLIDOS_CLIENTE'=>$request->APELLIDOS_CLIENTE,'DIRECCION_CLIENTE'=>$request->DIRECCION_CLIENTE, 'RTN_CLIENTE'=>$request->RTN_CLIENTE,'TELEFONO_CLIENTE'=>$request->TELEFONO_CLIENTE,'CORREO_CLIENTE'=>$request->CORREO_CLIENTE, 'FECHA_REGISTRO'=>$request->FECHA_REGISTRO, 'ESTADO_CLIENTE'=>$request->ESTADO_CLIENTE, 'NOMBRE_TIPO _CLIENTE'=>$request->NOMBRE_TIPO_CLIENTE,'cod_tipo_cliente'=>$request->cod_tipo_cliente]);
+        return redirect('/clientes'); 
+
     }
 
     /**
@@ -70,7 +71,7 @@ class ClientesController extends Controller
      */
     public function edit($cod_cliente)
     {
-        $cliente = DB ::table('tbl_clientes')->select('cod_cliente','dni_cliente','nombre_cliente','apellidos_cliente','direccion_cliente','ciudad_cliente','rtn_cliente','fecha_registro','estado_cliente','cod_tipo_cliente')->where('cod_cliente', '=', $cod_cliente)->first();
+        $cliente = DB ::table('tbl_clientes')->select('cod_cliente','dni_cliente','nombre_cliente','apellidos_cliente','direccion_cliente','rtn_cliente','telefono_cliente','correo_cliente','fecha_registro','estado_cliente','cod_tipo_cliente')->where('cod_cliente', '=', $cod_cliente)->first();
         return view('clientes.edit')->with('cliente',$cliente);
 
     }
