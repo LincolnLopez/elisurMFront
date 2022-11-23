@@ -94,7 +94,7 @@
 
                       </div>
 
-                      <a href="{{ route('empleados.create') }}" class="btn btn-success">Registrar</a>
+                      <a href="{{ route('articulos.create') }}" class="btn btn-success">Registrar</a>
 
 
                     </div>

@@ -39,7 +39,8 @@ class ArticuloController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000//articulo/insert',['NOMBRE_ARTICULO'=>$request->NOMBRE_ARTICULO,'DESCRIPCION_ARTICULO'=>$request->DESCRIPCION_ARTICULO,'PRECIO_ARTICULO'=>$request->PRECIO_ARTICULO,'COD_CATEGORIA'=>$request->COD_CATEGORIA]);
+        return redirect('/articulos');
     }
 
     /**
@@ -59,9 +60,10 @@ class ArticuloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($cod_articulo)
     {
-        //
+        $articulo = DB ::table('tbl_articulos')->select('cod_articulo','nombre_articulo','descripcion_articulo','precio_articulo','cod_categoria')->where('cod_articulo', '=', $cod_articulo)->first();
+        return view('articulos.edit')->with('articulo',$articulo);
     }
 
     /**
@@ -71,9 +73,10 @@ class ArticuloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/articulo/actualizar',['COD_ARTICULO'=>$request->COD_ARTICULO,'NOMBRE_ARTICULO'=>$request->NOMBRE_ARTICULO,'DESCRIPCION_ARTICULO'=>$request->DESCRIPCION_ARTICULO,'PRECIO_ARTICULO'=>$request->PRECIO_ARTICULO,'COD_CATEGORIA'=>$request->COD_CATEGORIA]);
+        return redirect('/articulos');
     }
 
     /**
@@ -82,8 +85,9 @@ class ArticuloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($cod_articulo)
     {
-        //
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/articulo/eliminar',['COD_ARTICULO'=>$cod_articulo]);
+        return redirect('/articulos');
     }
 }

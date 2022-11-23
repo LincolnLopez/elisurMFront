@@ -12,10 +12,23 @@
 <form action="/personas/{{$persona->cod_usuario}}" method="POST">
     @csrf
     @method('PUT')
+
+    <div class="row justify-content-center">
+      <!-- Left col -->
+      <div class="col-md-9">
+        <!-- MAP & BOX PANE -->
+        <div class="card card-info">
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div class="form-group">
+
+  
     <div class="mb-3">
-    <label for="" class="form-label">CODIGO DE USUARIO</label>
-    <input id="COD_USUARIO" name="COD_USUARIO" type="text" class="form-control"  value="{{$persona->cod_usuario}}">    
-  </div>
+      <label for="" class="form-label">CODIGO DE USUARIO</label>
+      <input id="COD_USUARIO" name="COD_USUARIO" type="text" class="form-control"  value="{{$persona->cod_usuario}}" >    
+    </div>
+ 
+ 
     
     <div class="mb-3">
     <label for="" class="form-label">NOMBRE DE USUARIO</label>
@@ -35,7 +48,7 @@
 
 
   <label for="country">Rol</label>
-    <select id="ROL" name="ROL" value="{{$persona->cod_rol}}">
+    <select class="form-control" id="ROL" name="ROL" value="{{$persona->cod_rol}}">
       <option value="1">Administrador</option>
       <option value="2">CLIENTE</option>
       <option value="3">Empleado</option>
@@ -44,6 +57,13 @@
 
   <a href="/personas" class="btn btn-secondary" tabindex="5">Cancelar</a>
   <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 </form>
     
 @stop
