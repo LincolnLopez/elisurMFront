@@ -49,9 +49,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view('login.login');
-});
 
 
 Route::resource('/personas', PersonasController::class); 
@@ -74,8 +71,6 @@ Route::resource('/ticket_empleado', TicketEmpleadoController::class);
 Route::resource('/clientes', ClientesController::class);
 
 Route::resource('/articulos', ArticuloController::class);
-Route::resource('/elisurlogin', ElisurloginController::class);
-
 
 
 

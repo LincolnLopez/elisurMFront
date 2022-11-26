@@ -79,11 +79,15 @@
    
 
    <div class="w3-top">
+      @if (Route::has('login'))
       <div class="w3-bar w3-black w3-card">
-         <div class="justify-content-end">
-            <a href="{{url('elisurlogin')}}" class="w3-xlarge w3-right"><i class="fa fa-user">Inicia Sesion </i></a>
-         </div>              
+         @auth
+         <a href="{{ url('/home') }}" class="w3-padding-large w3-hover-red w3-hide-small w3-right">Home</a>
+         @else
+         <a href="{{ url('login') }}" class="w3-xlarge w3-right"><i class="fa fa-user">Inicia Sesion </i></a>
+         @endauth                             
       </div>
+      @endif
    </div>
 
 

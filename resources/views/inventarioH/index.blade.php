@@ -153,13 +153,7 @@
 
 @stop
 
-@section('footer')
-<strong><a href="http://40.83.9.20/home">Elisur</a>.</strong>
-Multi servicios.
-<div class="float-right d-none d-sm-inline-block">
-  <b>Version</b> 3.1.0
-</div>
-@stop
+
 
 @section('js')
 
