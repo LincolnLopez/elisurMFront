@@ -14,9 +14,9 @@ class BitacoraClienteController extends Controller
      */
     public function index()
     {
-        $cotizaciones = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
+        $solicitudes = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
         ')->get('http://localhost:3000/solicitudes');
-        return view('bitacora_cliente.index')->with('cotizaciones',json_decode($cotizaciones));
+        return view('bitacora_cliente.index')->with('solicitudes',json_decode($solicitudes));
 
     }
 

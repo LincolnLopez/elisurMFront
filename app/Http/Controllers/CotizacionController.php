@@ -13,22 +13,15 @@ class CotizacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    // ------------------------select
     public function index()
     {
-        $cotizaciones = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
+        $cotizacion = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
         ')->get('http://localhost:3000/solicitudes');
-        return view('bitacora_cliente.index')->with('cotizaciones',json_decode($cotizaciones));
+        return view('Cotizacion.index')->with('cotizacion',json_decode($cotizacion));
 
-        // === PARA LLENAR LA TABLA Personas ===
-        /* $response = HTTP::get('http://localhost:3000/personas');
-        $usuarios = $response->json();
-
-        return view('personas.index', compact('usuarios'));
-
-        $response = Http::get('http://localhost:3000/personas');
-        return $response->json();
-        return $response->ok();
-        return view('personas.index')->with('usuarios', json_decode($response,true));*/
+      
     }
 
     /**
@@ -38,11 +31,7 @@ class CotizacionController extends Controller
      */
     public function create()
     {
-        
-        //=== LLAMAR EL FORMULARIO CREATE ===
-        return view('bitacora_cliente.create');
-
-
+        return view('cotizacion.create');
     }
 
     /**
@@ -51,10 +40,13 @@ class CotizacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     //-----------------insert para cotizacion-solicitud 
     public function store(Request $request)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/insert_herramienta',['NOMBRE_HERRAMIENTA'=>$request->NOMBRE_HERRAMIENTA,'DESCRIPCION_HERRAMIENTA'=>$request->DESCRIPCION_HERRAMIENTA,'NUM_EXISTENCIA'=>$request->NUM_EXISTENCIA,'COD_EMPLEADO'=>$request->COD_EMPLEADO]);
-        return redirect('/bitacora_cliente');
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->
+        post('http://localhost:3000/',['NOMBRE'=>$request->NOMBRE,'APELLIDO'=>$request->APELLIDO,'CORREO_ELECTRONICO'=>$request->PCORREO_ELECTRONICO,'TIPO_SOLICITANTE'=>$request->TIPO_SOLICITANTE,'TELEFONO_OPCIONAL'=>$request->TELEFONO_OPCIONAL,'DIRECCION_SOLICITANTE'=>$request->DIRECCION_SOLICITANTE,'NOMBRE_E_C'=>$request->NOMBRE_E_C,'RTN_DNI'=>$request->RTN_DNI,'COD_SERVICIO'=>$request->COD_SERVICIO,'DESCRIPCION_SOLICITUD'=>$request->DESCRIPCION_SOLICITUD]);
+        return redirect('/cotizacion');
     }
 
     /**
@@ -74,10 +66,9 @@ class CotizacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($cod_herramienta)
+    public function edit($id)
     {
-        $persona = DB ::table('tbl_inventario_herramientas')->select('cod_herramienta','nombre_herramienta','descripcion_herramienta','num_existencia','cod_empleado')->where('cod_herramienta', '=', $cod_herramienta)->first();
-        return view('inventarioH.edit')->with('persona',$persona);
+        //
     }
 
     /**
@@ -87,10 +78,10 @@ class CotizacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/actualizar_herramienta',['COD_HERRAMIENTA'=>$request->COD_HERRAMIENTA,'NOMBRE_HERRAMIENTA'=>$request->NOMBRE_HERRAMIENTA,'DESCRIPCION_HERRAMIENTA'=>$request->DESCRIPCION_HERRAMIENTA,'NUM_EXISTENCIA'=>$request->NUM_EXISTENCIA,'COD_EMPLEADO'=>$request->COD_EMPLEADO]);
-        return redirect('/inventarioH');
+       
+        //
     }
 
     /**
@@ -99,10 +90,8 @@ class CotizacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($COD_HERRAMIENTA)
+    public function destroy($id)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/delete_herramienta',['COD_HERRAMIENTA'=>$COD_HERRAMIENTA]);
-        return redirect('/inventarioH');
+        //
     }
 }
-
