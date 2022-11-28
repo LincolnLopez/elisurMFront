@@ -68,8 +68,8 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => true,
-    'usermenu_header_class' => 'bg-danger',
-    'usermenu_image' => true,
+    'usermenu_header_class' => 'bg-gray',
+    'usermenu_image' => false,
     'usermenu_desc' => true,
     'usermenu_profile_url' => true,
 /*
@@ -279,7 +279,7 @@ return [
  
         [
             'text'        => 'Inicio',
-            'url'         => 'inicio',
+            'url'         => 'home',
             'icon'        => 'far fa-fw fas fa-home',
             'icon_color'=>'info',
             

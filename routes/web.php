@@ -16,7 +16,6 @@ use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\EncuestaController;
 use App\Http\Controllers\FallaController;
 
-use App\Http\Controllers\InicioController;
 use App\Http\Controllers\InventariosController;
 use App\Http\Controllers\InventarioHController;
 use App\Http\Controllers\PresupuestoController;
@@ -60,7 +59,6 @@ Route::resource('/encuesta', EncuestaController::class);
 Route::resource('/empleados', EmpleadosController::class);
 Route::resource('/falla', FallaController::class);
 
-Route::resource('/inicio', InicioController::class);
 Route::resource('/inventarios', InventariosController::class);
 Route::resource('/inventarioH', InventarioHController::class);
 Route::resource('/presupuesto', PresupuestoController::class);
