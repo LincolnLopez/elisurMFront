@@ -83,8 +83,12 @@
                         </tr>
 
                         <a href="/presupuesto_usuario" class="btn btn-secondary" tabindex="5">Cancelar</a>
-                        
-                        <a href="{{ route('bitacora_cliente.index') }}" class="btn btn-success">Guardar</a>
+
+
+
+                        <button href="/bitacora_cliente.index" type="submit" class="btn btn-primary" tabindex="4">Guard--ar</button>
+
+                        <a href="{{ route('bitacora_cliente.index') }}" class="btn btn-success">Gu</a>
                        
                     </form>
 
