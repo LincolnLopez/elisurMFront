@@ -9,14 +9,6 @@
 @section('content_header')
 @stop
 
-@section('css')
-
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
-
-
-
-@stop
-
 
 
 @section('content')
@@ -25,7 +17,7 @@
   </br>
   <section class="content">
 
-
+  
     <div class="row">
       <div class="col-md-12">
         <div class="card card-info">
@@ -56,78 +48,144 @@
               </button>
             </div>
             @endif
-
+            
             <div class="row">
               <div class="col-12 col-sm-12">
                 <div class="card card-info card-tabs">
+                  <div class="card-header p-0 pt-1">
+                    <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Registro de presupuestos</a>
+                      </li>
+                    </ul>
+                  </div>
+                      
+                  
+                     
+                        </br>
+                        
+            
+                        <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                         <thead>
+                           <tr>
+                             <th>COD_SOLICITUD </th>
+                             <th>FECHA_SOLICITUD</th>
+                             <th>NOMBRE</th>
+                             <th>APELLIDO</th>
+                             <th>TELEFONO</th>
+                             <th>CORREO_ELECTRONICO</th>
+                             <th>TIPO_SOLICITANTE</th>
+                             <th>DIRECCION_SOLICITANTE</th>
+                             <th>NOMBRE_E_C</th>
+                             <th>RTN_DNI</th>
+                             <th>CIUDAD</th>
+                             <th>nombre_servicio</th>
+                             <th>DESCRIPCION_SOLICITUD</th>
+                             <th>nombre_estado</th>
+                           </tr>
+                        
+                         </thead>
 
+                         <tbody>
+                            @foreach($cotizaciones as $cotizacion)
+                            <tr>
+                                <td>{{$cotizacion->COD_SOLICITUD}}</td>
+                                <td>{{$cotizacion->FECHA_SOLICITUD}}</td>
+                                <td>{{$cotizacion->NOMBRE}}</td>
+                                <td>{{$cotizacion->APELLIDO}}</td>
+                                <td>{{$cotizacion->TELEFONO}}</td>
+                                <td>{{$cotizacion->CORREO_ELECTRONICO}}</td>
+                                <td>{{$cotizacion->TIPO_SOLICITANTE}}</td>
+                                <td>{{$cotizacion->DIRECCION_SOLICITANTE}}</td>
+                                <td>{{$cotizacion->NOMBRE_E_C}}</td>
+                                <td>{{$cotizacion->RTN_DNI}}</td>
+                                <td>{{$cotizacion->CIUDAD}}</td>
+                                <td>{{$cotizacion->nombre_servicio}}</td>
+                                <td>{{$cotizacion->DESCRIPCION_SOLICITUD}}</td>
+                                <td>{{$cotizacion->nombre_estado}}</td>
+                                <td>
+                                <form  action="{{ route('bitacora_cliente.destroy',$cotizacion->COD_SOLICITUD) }}" method="POST">
+                              <a href="/bitacora_cliente/{{$cotizacion->COD_SOLICITUD}}/edit" class="btn btn-info">Editar</a>         
+                                  @csrf
+                                  @method('DELETE')
+                              <button type="submit" class="btn btn-danger">Delete</button>
 
+                              <td>
+                                <button type="button" class="btn btn-info"><i class="fas fa-file-alt" data-toggle="modal" data-target="#detalleModal"></i> </button>
+                                <button type="button" class="btn btn-warning"><i class="fas fa-check-circle" data-toggle="modal" data-target="#finalizadoModal"></i> </button>
+                                <button type="button" class="btn btn-danger"><i class=" fas fa-trash-alt" data-toggle="modal" data-target="#eliminarModal"></i> </button>
+                            </td>
+                            </form>          
+                                </td>
+                            </tr>
+                            @endforeach
+                            </tbody>   <tr>
+                               
+                                
+                              
+         
+                         
+                                
 
+                         
+                        </table>
 
+                      </div>
 
-                  <table id="myTable" class="table table-striped table-bordered" cellspacing="40%" width="100%">
-                    <thead>
-                      <tr>
-                        <th>COD_SOLICITUD </th>
-                        <th>FECHA_SOLICITUD</th>
-                        <th>NOMBRE</th>
-                        <th>APELLIDO</th>
-                        <th>TELEFONO</th>
-                        <th>CORREO_ELECTRONICO</th>
-                        <th>TIPO_SOLICITANTE</th>
-                        <th>TELEFONO_OPCIONAL</th>
-                        <th>DIRECCION_SOLICITANTE</th>
-                        <th>NOMBRE_E_C</th>
-                        <th>RTN_DNI</th>
-                        <th>CIUDAD</th>
-                        <th>NOMBRE_SERVICIO</th>
-                        <th>DESCRIPCION_SOLICITUD</th>
-                        <th>NOMBRE_ESTADO</th>
+                      <a href="{{ route('bitacora_cliente.index') }}" class="btn btn-success">Ingresar solicitud</a>
 
+                      <div class="modal" id="estados" tabindex="-1">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Estados</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <form>
+                                <div class="form-group row">
+                                  <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">usuario:</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="@sdvallep">
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                  <!-- radio -->
+                                  <div class="form-group">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="radio1">
+                                      <label class="form-check-label">Activo</label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="radio1" checked="">
+                                      <label class="form-check-label">Inactivo</label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="radio1" checked="">
+                                      <label class="form-check-label">Bloqueado</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                              <button type="button" class="btn btn-primary">Guardar cambios</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-                      </tr>
-
-                    </thead>
-
-                    <tbody>
-                      @foreach($solicitudes as $solicitud)
-                      <tr>
-                        <td>{{$solicitud->COD_SOLICITUD}}</td>
-                        <td>{{$solicitud->FECHA_SOLICITUD}}</td>
-                        <td>{{$solicitud->NOMBRE}}</td>
-                        <td>{{$solicitud->APELLIDO}}</td>
-                        <td>{{$solicitud->TELEFONO}}</td>
-                        <td>{{$solicitud->CORREO_ELECTRONICO}}</td>
-                        <td>{{$solicitud->TIPO_SOLICITANTE}}</td>
-                        <td>{{$solicitud->TELEFONO_OPCIONAL}}</td>
-                        <td>{{$solicitud->DIRECCION_SOLICITANTE}}</td>
-                        <td>{{$solicitud->NOMBRE_E_C}}</td>
-                        <td>{{$solicitud->RTN_DNI}}</td>
-                        <td>{{$solicitud->CIUDAD}}</td>
-                        <td>{{$solicitud->nombre_servicio}}</td>
-                        <td>{{$solicitud->DESCRIPCION_SOLICITUD}}</td>
-                        <td>{{$solicitud->nombre_estado}}</td>
-                    
-                      </tr>
-
-
-                      @endforeach
-                    </tbody>
-
-
-
-                  </table>
-
+                    </div>
+                  </div>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    </div>
-    </div>
     </div>
 
 
@@ -147,22 +205,38 @@ Multi servicios.
 @stop
 
 @section('js')
-
-
+<script type="text/javascript" src="js/validacion_citas-doctores.js"></script>
+<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-
-
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
 <script>
   $(function() {
-    $('#myTable').DataTable({
+    $('#AdministradorTable').DataTable({
       responsive: true,
-      scrollX: true,
       autoWidth: true,
       language: {
         url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json'
       }
     });
+  });
+</script>
+
+<script>
+  $("#success-alert").fadeTo(2000, 500).slideUp(400, function() {
+    $("#success-alert").slideUp(500);
+  });
+</script>
+<script>
+  $("#delete-alert").fadeTo(2000, 500).slideUp(400, function() {
+    $("#delete-alert").slideUp(500);
+  });
+</script>
+<script>
+  $("#update-alert").fadeTo(2000, 500).slideUp(400, function() {
+    $("#update-alert").slideUp(500);
   });
 </script>
 
