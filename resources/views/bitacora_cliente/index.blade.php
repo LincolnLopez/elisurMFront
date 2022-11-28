@@ -50,7 +50,7 @@
   </br>
   <section class="content">
 
-  
+
     <div class="row">
       <div class="col-md-12">
         <div class="card card-info">
@@ -81,69 +81,78 @@
               </button>
             </div>
             @endif
-            
+
             <div class="row">
               <div class="col-12 col-sm-12">
                 <div class="card card-info card-tabs">
-                  
-                      
-                  
-                     
+
+
+
+
+
+                  <table id="myTable" class="table table-striped table-bordered" cellspacing="40%" width="100%">
+                    <thead>
+                      <tr>
+                        <th>COD_SOLICITUD </th>
+                        <th>FECHA_SOLICITUD</th>
+                        <th>NOMBRE</th>
+                        <th>APELLIDO</th>
+                        <th>TELEFONO</th>
+                        <th>CORREO_ELECTRONICO</th>
+                        <th>TIPO_SOLICITANTE</th>
+                        <th>TELEFONO_OPCIONAL</th>
+                        <th>DIRECCION_SOLICITANTE</th>
+                        <th>NOMBRE_E_C</th>
+                        <th>RTN_DNI</th>
+                        <th>CIUDAD</th>
+                        <th>NOMBRE_SERVICIO</th>
+                        <th>DESCRIPCION_SOLICITUD</th>
+                        <th>NOMBRE_ESTADO</th>
+
+
+                      </tr>
+
+                    </thead>
+
+                    <tbody>
+                      @foreach($solicitudess as $solicitud)
+                      <tr>
+                        <td>{{$solicitud->COD_SOLICITUD}}</td>
+                        <td>{{$solicitud->FECHA_SOLICITUD}}</td>
+                        <td>{{$solicitud->NOMBRE}}</td>
+                        <td>{{$solicitud->APELLIDO}}</td>
+                        <td>{{$solicitud->TELEFONO}}</td>
+                        <td>{{$solicitud->CORREO_ELECTRONICO}}</td>
+                        <td>{{$solicitud->TIPO_SOLICITANTE}}</td>
+                        <td>{{$solicitud->TELEFONO_OPCIONAL}}</td>
+                        <td>{{$solicitud->DIRECCION_SOLICITANTE}}</td>
+                        <td>{{$solicitud->NOMBRE_E_C}}</td>
+                        <td>{{$solicitud->RTN_DNI}}</td>
+                        <td>{{$solicitud->CIUDAD}}</td>
+                        <td>{{$solicitud->nombre_servicio}}</td>
+                        <td>{{$solicitud->DESCRIPCION_SOLICITUD}}</td>
+                        <td>{{$solicitud->nombre_estado}}</td>
                     
-                        <table id="myTable" class="table table-striped table-bordered" cellspacing="40%" width="100%">
-                          <thead>
-                            <tr>
-                              <th>COD_USUARIO</th>
-                              <th>NOMBRE_USUARIO</th>
-                              <th>CORREO_USUARIO</th>
-                              <th>PASSWORD_USUARIO</th>
-                              <th>FECHA_REGISTRO</th>
-                              <th>ESTADO_USUARIO</th>
-                              <th>COD_ROL</th>
-                              <th>NOMBRE_ROL</th>
-                              <th>ACCIONES</th>
-                              
-                            </tr>
-                         
-                          </thead>
-
-                            <tbody>
-                            @foreach($personas as $persona)
-                            <tr>
-                                <td>{{$persona->COD_USUARIO}}</td>
-                                <td>{{$persona->NOMBRE_USUARIO}}</td>
-                                <td>{{$persona->CORREO_USUARIO}}</td>
-                                <td>{{$persona->PASSWORD_USUARIO}}</td>
-                                <td>{{$persona->fecha_registro}}</td>
-                                <td>{{$persona->estado_usuario}}</td>
-                                <td>{{$persona->COD_ROL}}</td>
-                                <td>{{$persona->NOMBRE_ROL}}</td>
-                                <td>
-                                <form  action="{{ route('personas.destroy',$persona->COD_USUARIO) }}" method="POST">
-                              <a href="/personas/{{$persona->COD_USUARIO}}/edit" class="btn btn-info">Editar</a>         
-                                  @csrf
-                                  @method('DELETE')
-                              <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>          
-                                </td>
-                            </tr>
-                            @endforeach
-                            </tbody>
+                      </tr>
 
 
-                         
-                        </table>
+                      @endforeach
+                    </tbody>
 
-                      </div>
 
-                    </div>
-                  </div>
+
+                  </table>
+
                 </div>
+
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    </div>
+    </div>
     </div>
 
 

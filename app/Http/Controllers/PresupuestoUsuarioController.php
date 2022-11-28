@@ -68,9 +68,10 @@ post('http://localhost:3000/solicitudes/insert',['NOMBRE'=>$request->NOMBRE,'APE
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($COD_SOLICITUD )
     {
-        //
+        $solicitud = DB ::table('tbl_solicitudes')->select('COD_SOLICITUD','FECHA_SOLICITUD','NOMBRE','APELLIDO','TELEFONO','CORREO_ELECTRONICO','TIPO_SOLICITANTE','TELEFONO_OPCIONAL','DIRECCION_SOLICITANTE','NOMBRE_E_C','RTN_DNI','CIUDAD','COD_SERVICIO','DESCRIPCION_SOLICITUD','COD_ESTADO')->where('COD_SOLICITUD', '=', $COD_SOLICITUD)->first();
+        return view('presupuesto_usuario.update')->with('presupuesto_usuario',$solicitud );
     }
 
     /**
