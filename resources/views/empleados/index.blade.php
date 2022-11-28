@@ -81,8 +81,8 @@
                       <td>{{$empleado->SEXO_EMPLEADO}}</td>
                       <td>{{$empleado->ESTADO_CIVIL_EMPLEADO}}</td>
                       <td>{{$empleado->EDAD_EMPLEADO}}</td>
-                      <td>{{$empleado->TELEFONO_EMPLEADO}}</td>
-                      <td>{{$empleado->CORREO_EMPLEADO}}</td>
+                      <td>{{$empleado->TELEFONO}}</td>
+                      <td>{{$empleado->CORREO}}</td>
                       <td>{{$empleado->ESTADO_EMPLEADO}}</td>
                       
                       <td>

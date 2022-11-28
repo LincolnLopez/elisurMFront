@@ -20,7 +20,7 @@ class EmpleadosController extends Controller
         ')->get('http://localhost:3000/empleados'); 
         return view('empleados.index')->with('empleados',json_decode($empleados));
           
-      return view('empleados.index');
+      
 
     }
 
