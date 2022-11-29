@@ -42,11 +42,11 @@ class PresupuestoController extends Controller
      */
 
      //-----------------insert para cotizacion-solicitud 
-    public function store(Request $request)
+     public function store(Request $request)
     {
         Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->
-        post('http://localhost:3000/solicitudes/insert',['NOMBRE'=>$request->NOMBRE,'APELLIDO'=>$request->APELLIDO,'CORREO_ELECTRONICO'=>$request->PCORREO_ELECTRONICO,'TIPO_SOLICITANTE'=>$request->TIPO_SOLICITANTE,'TELEFONO_OPCIONAL'=>$request->TELEFONO_OPCIONAL,'DIRECCION_SOLICITANTE'=>$request->DIRECCION_SOLICITANTE,'NOMBRE_E_C'=>$request->NOMBRE_E_C,'RTN_DNI'=>$request->RTN_DNI,'CIUDAD'=>$request->CIUDAD,'COD_SERVICIO'=>$request->COD_SERVICIO,'DESCRIPCION_SOLICITUD'=>$request->DESCRIPCION_SOLICITUD]);
-        return redirect('/cotizacion');
+        post('http://localhost:3000/solicitudes/insert',['NOMBRE'=>$request->NOMBRE,'APELLIDO'=>$request->APELLIDO,'TELEFONO'=>$request->TELEFONO,'CORREO_ELECTRONICO'=>$request->CORREO_ELECTRONICO,'TIPO_SOLICITANTE'=>$request->TIPO_SOLICITANTE,'TELEFONO_OPCIONAL'=>$request->TELEFONO_OPCIONAL,'DIRECCION_SOLICITANTE'=>$request->DIRECCION_SOLICITANTE,'NOMBRE_E_C'=>$request->NOMBRE_E_C,'RTN_DNI'=>$request->RTN_DNI,'CIUDAD'=>$request->CIUDAD,'COD_SERVICIO'=>$request->COD_SERVICIO,'DESCRIPCION_SOLICITUD'=>$request->DESCRIPCION_SOLICITUD]);
+        return redirect('/presupuesto');
     }
 
     /**
@@ -66,9 +66,10 @@ class PresupuestoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($cod_solicitud)
     {
-        //
+        $presupuesto = DB ::table('tbl_solicitudes')->select('cod_solicitud','nombre','apellido','telefono','correo_electronico','tipo_solicitante','telefono_opcional','direccion_solicitante','nombre_e_c','rtn_dni','ciudad','cod_servicio','descripcion_solicitud','cod_estado')->where('cod_solicitud', '=', $cod_solicitud)->first();
+        return view('presupuesto.edit')->with('presupuesto',$presupuesto);
     }
 
     /**
@@ -78,10 +79,10 @@ class PresupuestoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-       
-        //
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/solicitudes/update',['COD_SOLICITUD'=>$request->COD_SOLICITUD,'NOMBRE'=>$request->NOMBRE,'APELLIDO'=>$request->APELLIDO,'TELEFONO'=>$request->TELEFONO,'CORREO_ELECTRONICO'=>$request->CORREO_ELECTRONICO,'TIPO_SOLICITANTE'=>$request->TIPO_SOLICITANTE,'TELEFONO_OPCIONAL'=>$request->TELEFONO_OPCIONAL,'DIRECCION_SOLICITANTE'=>$request->DIRECCION_SOLICITANTE,'NOMBRE_E_C'=>$request->NOMBRE_E_C,'RTN_DNI'=>$request->RTN_DNI,'CIUDAD'=>$request->CIUDAD,'COD_SERVICIO'=>$request->COD_SERVICIO,'DESCRIPCION_SOLICITUD'=>$request->DESCRIPCION_SOLICITUD,'COD_ESTADO'=>$request->COD_ESTADO]);
+        return redirect('/presupuesto');
     }
 
     /**
@@ -90,8 +91,9 @@ class PresupuestoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($cod_solicitud)
     {
-        //
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/solicitudes/delete',['COD_SOLICITUD'=>$cod_solicitud]);
+        return redirect('/presupuesto');
     }
 }

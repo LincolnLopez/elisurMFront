@@ -105,6 +105,7 @@
                         <th>NOMBRE_SERVICIO</th>
                         <th>DESCRIPCION_SOLICITUD</th>
                         <th>NOMBRE_ESTADO</th>
+                        <th>Acciones</th>
                       </tr>
                     </thead>
 
