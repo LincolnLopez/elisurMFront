@@ -53,7 +53,7 @@
                         </div>
                     </tr>
                     <tr>
-                        <label>Texto:</label>
+                        <label>Tema:</label>
                         <div class="form-group">
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" id="inputCity" placeholder="">
