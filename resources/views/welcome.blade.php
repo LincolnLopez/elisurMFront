@@ -207,7 +207,12 @@
          <div class="w3-container">
 
 
+            <div class="w3-bar w3-black">
+               <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'London')">Hogar</button>
+               <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Paris')">Empresa</button>
+            </div>
 
+            <div id="London" class="w3-container w3-border city">
                <div class="w3-container">
                   <h2>MULTISERVICIOS ELISUR</h2>
                </div>
@@ -267,9 +272,76 @@
                   <input class="w3-input w3-border" type="text" placeholder="Colonia, #Casa, etc.">
 
                </div>
-      
+            </div>
 
+            <div id="Paris" class="w3-container w3-border city" style="display:none">
+               <div class="w3-container">
+                  <h2>MULTISERVICIOS ELISUR</h2>
+               </div>
 
+               <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
+                  <div class="w3-half">
+                     <label>Nombres</label>
+                     <input class="w3-input w3-border" type="text" placeholder="Ingrese sus nombres">
+                  </div>
+                  <div class="w3-half">
+                     <label>Apellidos</label>
+                     <input class="w3-input w3-border" type="text" placeholder="Ingrese sus Apellidos">
+                  </div>
+               </div>
+
+               <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
+                  <div class="w3-half">
+                     <label>Celular</label>
+                     <input class="w3-input w3-border" type="text" placeholder="9999-9999">
+                  </div>
+                  <div class="w3-half">
+                     <label>Correo Electrónico</label>
+                     <input class="w3-input w3-border" type="text" placeholder="trf@gmail.com">
+                  </div>
+               </div>
+
+               <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
+                  <div class="w3-half">
+                     <label>Número de identidad</label>
+                     <input class="w3-input w3-border" type="text" placeholder="Sin guiones">
+                  </div>
+                  <div class="w3-half">
+                     <label>Ciudad</label>
+                     <select class="w3-select" name="option">
+                        <option value="" disabled selected>Selecciona una Ciudad</option>
+                        <option value="1">Tegucigalpa</option>
+                        <option value="2">San Pedro Sula</option>
+                        <option value="3">Comayagua</option>
+                     </select>
+                  </div>
+               </div>
+
+               <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
+                  <div class="w3-half">
+                     <label>Empresa</label>
+                     <input class="w3-input w3-border" type="text" placeholder="Nombre de Empresa">
+                  </div>
+               </div>
+
+               <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
+
+                  <label>Servicios</label>
+                  <select class="w3-select" name="option">
+                     <option value="" disabled selected>Selecciona nuestros servicios</option>
+                     <option value="1">Aire Acondicionado</option>
+                     <option value="2">Monitoreo CCTV</option>
+                     <option value="3">Pintura</option>
+                  </select>
+
+               </div>
+               <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
+
+                  <label>Dirección</label>
+                  <input class="w3-input w3-border" type="text" placeholder="Colonia, #Casa, etc.">
+
+               </div>
+            </div>
 
 
 
