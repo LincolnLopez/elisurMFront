@@ -17,7 +17,7 @@
   </br>
   <section class="content">
 
-  
+
     <div class="row">
       <div class="col-md-12">
         <div class="card card-info">
@@ -48,7 +48,6 @@
               </button>
             </div>
             @endif
-            
             <div class="row">
               <div class="col-12 col-sm-12">
                 <div class="card card-info card-tabs">
@@ -59,134 +58,59 @@
                       </li>
                     </ul>
                   </div>
-                      
-                  
-                     
-                        </br>
-                        
-            
-                        <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                         <thead>
-                           <tr>
-                             <th>COD_REPORTE_FALLA</th>
-                             <th>cod_servicio</th>
-                             <th>NOMBRE</th>
-                             <th>TELEFONO</th>
-                             <th>CORREO_ELECTRONICO</th>
-                             <th>TEMA</th>
-                             <th>DESCRIPCION</th>
-                             <th>UBICACION</th>
-                             <th>FECHA_CREACION</th>
-                             <th>f.FECHA_MODIFICACION</th>
-                             <th>cod_estado</th>
-                             
-                           </tr>
-                        
-                         </thead>
+                  </br>
+                  <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                      <tr>
+                        <th>COD_REPORTE_FALLA</th>
+                        <th>cod_servicio</th>
+                        <th>NOMBRE</th>
+                        <th>TELEFONO</th>
+                        <th>CORREO_ELECTRONICO</th>
+                        <th>TEMA</th>
+                        <th>DESCRIPCION</th>
+                        <th>UBICACION</th>
+                        <th>FECHA_CREACION</th>
+                        <th>f.FECHA_MODIFICACION</th>
+                        <th>cod_estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($ticket as $ticke)
+                      <tr>
+                        <td>{{$ticke->COD_REPORTE_FALLA}}</td>
+                        <td>{{$ticke->cod_servicio}}</td>
+                        <td>{{$ticke->NOMBRE}}</td>
+                        <td>{{$ticke->TELEFONO}}</td>
+                        <td>{{$ticke->CORREO_ELECTRONICO}}</td>
+                        <td>{{$ticke->TEMA}}</td>
+                        <td>{{$ticke->DESCRIPCION}}</td>
+                        <td>{{$ticke->UBICACION}}</td>
+                        <td>{{$ticke->FECHA_CREACION}}</td>
+                        <td>{{$ticke->FECHA_MODIFICACION}}</td>
+                        <td>{{$ticke->cod_estado}}</td>
+                        </form>
+                        </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                    <tr>
 
-                         
-                         <tbody>
 
-                    
+                  </table>
 
-                            @foreach($ticket as $ticke)
-                            <tr>
-                                <td>{{$ticke->COD_REPORTE_FALLA}}</td>
-                                <td>{{$ticke->cod_servicio}}</td>
-                                <td>{{$ticke->NOMBRE}}</td>
-                                <td>{{$ticke->TELEFONO}}</td>
-                                <td>{{$ticke->CORREO_ELECTRONICO}}</td>
-                                <td>{{$ticke->TEMA}}</td>
-                                <td>{{$ticke->DESCRIPCION}}</td>
-                                <td>{{$ticke->UBICACION}}</td>
-                                <td>{{$ticke->FECHA_CREACION}}</td>
-                                <td>{{$ticke->FECHA_MODIFICACION}}</td>
-                                <td>{{$ticke->cod_estado}}</td>
-                                
-                                
-                                <td>
-                                <form  action="{{ route('presupuestos.destroy',$ticke->COD_REPORTE_FALLA) }}" method="POST">
-                              <a href="/presupuestos/{{$ticke->COD_REPORTE_FALLA}}/edit" class="btn btn-info">Editar</a>         
-                                  @csrf
-                                  @method('DELETE')
-                              <button type="submit" class="btn btn-danger">Delete</button>
-
-                              <td>
-                                <button type="button" class="btn btn-info"><i class="fas fa-file-alt" data-toggle="modal" data-target="#detalleModal"></i> </button>
-                                <button type="button" class="btn btn-warning"><i class="fas fa-check-circle" data-toggle="modal" data-target="#finalizadoModal"></i> </button>
-                                <button type="button" class="btn btn-danger"><i class=" fas fa-trash-alt" data-toggle="modal" data-target="#eliminarModal"></i> </button>
-                            </td>
-                            </form>          
-                                </td>
-                            </tr>
-                            @endforeach
-                            </tbody>   <tr>
-                               
-                                
-                              
-         
-                         
-                                
-
-                         
-                        </table>
-
-                      </div>
-
-                      <a href="{{ route('cotizacion.index') }}" class="btn btn-success">Ingresar solicitud</a>
-
-                      <div class="modal" id="estados" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Estados</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <form>
-                                <div class="form-group row">
-                                  <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">usuario:</label>
-                                  <div class="col-sm-10">
-                                    <input type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="@sdvallep">
-                                  </div>
-                                </div>
-                                <div class="col-sm-6">
-                                  <!-- radio -->
-                                  <div class="form-group">
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="radio1">
-                                      <label class="form-check-label">Activo</label>
-                                    </div>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="radio1" checked="">
-                                      <label class="form-check-label">Inactivo</label>
-                                    </div>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="radio1" checked="">
-                                      <label class="form-check-label">Bloqueado</label>
-                                    </div>
-                                  </div>
-                                </div>
-                              </form>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                              <button type="button" class="btn btn-primary">Guardar cambios</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
                 </div>
+
+
+
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    </div>
+    </div>
     </div>
 
 
