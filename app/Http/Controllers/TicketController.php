@@ -15,11 +15,9 @@ class TicketController extends Controller
      */
     public function index()
     {
-
-        
-            $ticket = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
+            $ticke = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
             ')->get('http://localhost:3000/fallas');
-            return view('ticket.index')->with('ticket',json_decode($ticket ));
+            return view('ticket.index')->with('ticket',json_decode($ticke ));
 
         
     }

@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 
 class FallaController extends Controller
@@ -35,7 +36,10 @@ class FallaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+ Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->
+post('http://localhost:3000/falla/insert',['COD_SERVICIO'=>$request->COD_SERVICIO,'NOMBRE'=>$request->NOMBRE,'TELEFONO'=>$request->TELEFONO,
+ 'CORREO_ELECTRONICO'=>$request->CORREO_ELECTRONICO,'TEMA'=>$request->TEMA,'DESCRIPCION'=>$request->DESCRIPCION,'UBICACION'=>$request->UBICACION,]);
+ return redirect('/falla');
     }
 
     /**
