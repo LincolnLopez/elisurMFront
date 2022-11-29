@@ -207,9 +207,7 @@
          <div class="w3-container">
 
 
-            
-            <form action="/cotizacion" method="POST">
-               @csrf
+
                <div class="w3-container">
                   <h2>MULTISERVICIOS ELISUR</h2>
                </div>
@@ -217,54 +215,34 @@
                <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                   <div class="w3-half">
                      <label>Nombres</label>
-                     <<input id="NOMBRE" name="NOMBRE" type="text" class="form-control" tabindex="1" type="text" placeholder="Ingrese sus nombres">
+                     <input class="w3-input w3-border" type="text" placeholder="Ingrese sus nombres">
                   </div>
                   <div class="w3-half">
                      <label>Apellidos</label>
-                     <input id="APELLIDO" name="APELLIDO" type="text" class="form-control"  type="text" placeholder="Ingrese sus Apellidos">
+                     <input class="w3-input w3-border" type="text" placeholder="Ingrese sus Apellidos">
                   </div>
                </div>
 
                <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                   <div class="w3-half">
-                     <label>Telefono</label>
-                     <input id="TELEFONO" name="TELEFONO" type="text" class="form-control"  type="text" placeholder="9999-9999">
-                  </div>
-                  <div class="w3-half">
-                     <label>Telefono Opcional</label>
-                     <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control"  type="text" placeholder="9999-9999">
+                     <label>Celular</label>
+                     <input class="w3-input w3-border" type="text" placeholder="9999-9999">
                   </div>
                   <div class="w3-half">
                      <label>Correo Electrónico</label>
-                     <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="text" class="form-control"  type="text" placeholder="trf@gmail.com">
+                     <input class="w3-input w3-border" type="text" placeholder="trf@gmail.com">
                   </div>
                </div>
-               <div> 
-               <div class="w3-half">
-                  <label>Tipo Solicitante</label>
-                  <select class="form-control" id="TIPO_SOLICITANTE" name="TIPO_SOLICITANTE">
-                     <option value="" disabled selected>Seleccione el tipo:</option>
-                     <option value="1">EMPRESA</option>
-                     <option value="2">CASA</option>
-                  </select>
-               </div>
-            </div>
-         <div>
 
-         </div>
                <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                   <div class="w3-half">
                      <label>Número de identidad</label>
-                     <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control"  type="text" placeholder="RTN en caso de ser Empresa - Sin guiones">
-                  </div>
-                  <div class="w3-half">
-                     <label>Nombre de la Empresa</label>
-                     <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="form-control"  type="text" placeholder="De no ser empresa, dejar campo en blanco">
+                     <input class="w3-input w3-border" type="text" placeholder="Sin guiones">
                   </div>
                   <div class="w3-half">
                      <label>Ciudad</label>
-                     <select class="form-control" id="CIUDAD" name="CIUDAD">
-                        <option value="" disabled selected>Selecciona una Ciudad:</option>
+                     <select class="w3-select" name="option">
+                        <option value="" disabled selected>Selecciona una Ciudad</option>
                         <option value="1">Tegucigalpa</option>
                         <option value="2">San Pedro Sula</option>
                         <option value="3">Comayagua</option>
@@ -275,31 +253,23 @@
                <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
 
                   <label>Servicios</label>
-                  <select class="form-control" id="COD_SERVICIO" name="COD_SERVICIO">
+                  <select class="w3-select" name="option">
                      <option value="" disabled selected>Selecciona nuestros servicios</option>
                      <option value="1">Aire Acondicionado</option>
                      <option value="2">Monitoreo CCTV</option>
                      <option value="3">Pintura</option>
                   </select>
 
-                  
-
                </div>
                <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
 
                   <label>Dirección</label>
-                  <input id="DIRECCION_SOLICITANTE" name="DIRECCION_SOLICITANTE" type="text" class="form-control"  type="text" placeholder="Colonia, #Casa, etc.">
+                  <input class="w3-input w3-border" type="text" placeholder="Colonia, #Casa, etc.">
 
                </div>
-               <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
-                  <div class="w3-half">
-                     <label>Descripción de la Solicitud</label>
-                     <input id="DESCRIPCION_SOLICITUD" name="DESCRIPCION_SOLICITUD" type="text" class="form-control"  type="text" placeholder="Ingrese una descripción detallada de la solicitud">
-                  </div>
-                  
-               </div>
-            </div>
-               </div>
+      
+
+
 
 
 
@@ -318,8 +288,8 @@
 
 
 
-    <!-- The Contact Section -->
-    <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+   <!-- The Contact Section -->
+   <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
       <h2 class="w3-wide w3-center">CONTACTO</h2>
       <div class="w3-row w3-padding-32">
          <div class="w3-col m6 w3-large w3-margin-bottom">
@@ -346,8 +316,6 @@
 
    <!-- End Page Content -->
    </div>
-</form>
-    
 
 
    <!-- Footer -->
