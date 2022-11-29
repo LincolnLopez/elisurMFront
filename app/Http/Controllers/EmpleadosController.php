@@ -42,7 +42,7 @@ class EmpleadosController extends Controller
      */
     public function store(Request $request)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/insert_empleados',[ 'DNI_CLIENTE'=>$request->DNI_CLIENTE,'NOMBRE_CLIENTE'=>$request->NOMBRE_CLIENTE,'APELLIDOS_CLIENTE'=>$request->APELLIDOS_CLIENTE,'DIRECCION_CLIENTE'=>$request->DIRECCION_CLIENTE, 'RTN_CLIENTE'=>$request->RTN_CLIENTE,'TELEFONO'=>$request->TELEFONO,'CORREO'=>$request->CORREO,'COD_TIPO_CLIENTE'=>$request->COD_TIPO_CLIENTE]);
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/insert_empleados',[ 'DNI_EMPLEADO'=>$request->DNI_EMPLEADO,'NOMBRE_EMPLEADO'=>$request->NOMBRE_EMPLEADO,'APELLIDOS_EMPLEADO'=>$request->APELLIDOS_EMPLEADO,'SEXO_EMPLEADO'=>$request->SEXO_EMPLEADO, 'ESTADO_CIVIL_EMPLEADO'=>$request->ESTADO_CIVIL_EMPLEADO,'EDAD_EMPLEADO'=>$request->EDAD_EMPLEADO,'TELEFONO'=>$request->TELEFONO,'CORREO'=>$request->CORREO,'ESTADO_EMPLEADO'=>$request->ESTADO_EMPLEADO]);
         return redirect('/empleados');
     }
 
@@ -63,10 +63,10 @@ class EmpleadosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($cod_empleado)
     {
-        $cliente = DB ::table('tbl_clientes')->select('cod_cliente','dni_cliente','nombre_cliente','apellidos_cliente','direccion_cliente','rtn_cliente','telefono_cliente','correo_cliente','fecha_registro','estado_cliente','cod_tipo_cliente')->where('cod_cliente', '=', $cod_cliente)->first();
-        return view('clientes.edit')->with('cliente',$cliente);
+        $empleado = DB ::table('tbl_empleados')->select('cod_empleado','DNI_EMPLEADO','nombre_empleado','apellidos_empleado','sexo_empleado','estado_civil_empleado','edad_empleado','telefono','correo','estado_empleado')->where('cod_empleado', '=', $cod_empleado)->first();
+        return view('empleados.edit')->with('empleado',$empleado);
 
     }
 
@@ -77,10 +77,10 @@ class EmpleadosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/update_cliente',['COD_CLIENTE'=>$request->COD_CLIENTE,'DNI_CLIENTE'=>$request->DNI_CLIENTE, 'NOMBRE_CLIENTE'=>$request->NOMBRE_CLIENTE,'APELLIDOS_CLIENTE'=>$request->APELLIDOS_CLIENTE,'DIRECCION_CLIENTE'=>$request->DIRECCION_CLIENTE, 'RTN_CLIENTE'=>$request->RTN_CLIENTE,'TELEFONO_CLIENTE'=>$request->TELEFONO_CLIENTE,'CORREO_CLIENTE'=>$request->CORREO_CLIENTE, 'COD_TIPO_CLIENTE'=>$request->COD_TIPO_CLIENTE ]);
-        return redirect('/clientes');
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/actualizar_empleado',['COD_EMPLEADO'=>$request->COD_EMPLEADO,'DNI_EMPLEADO'=>$request->DNI_EMPLEADO, 'NOMBRE_EMPLEADO'=>$request->NOMBRE_EMPLEADO,'APELLIDOS_EMPLEADO'=>$request->APELLIDOS_EMPLEADO,'SEXO_EMPLEADO'=>$request->SEXO_EMPLEADO, 'ESTADO_CIVIL_EMPLEADO'=>$request->ESTADO_CIVIL_EMPLEADO,'EDAD_EMPLEADO'=>$request->EDAD_EMPLEADO,'TELEFONO'=>$request->TELEFONO,'CORREO'=>$request->CORREO,'ESTADO_EMPLEADO'=>$request->ESTADO_EMPLEADO ]);
+        return redirect('/empleados');
 
     }
 
@@ -90,9 +90,9 @@ class EmpleadosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($COD_EMPLEADO)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/cliente/eliminar',['COD_CLIENTE'=>$COD_CLIENTE]);
-        return redirect('/clientes');
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/eliminar_empleados',['COD_EMPLEADO'=>$COD_EMPLEADO]);
+        return redirect('/empleados');
     }
 }
