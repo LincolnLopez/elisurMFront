@@ -25,7 +25,7 @@
               <div class="form-group">
 
 
-    <div class="mb-3">
+  <div class="mb-3">
     <label for="" class="form-label">NOMBRE DE USUARIO</label>
     <input id="NOMBRE_USUARIO" name="NOMBRE_USUARIO" type="text" class="form-control" tabindex="1">    
   </div>

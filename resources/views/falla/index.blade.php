@@ -10,24 +10,13 @@
 
 <div class="container-fluid">
     <div class="row content">
-        <div class="col-sm-12">
+        <div class="col-sm-10">
             <div class="card card-info">
                 <div class="card-header">
                     <h3 class="card-title">-</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <tr>
-                        <div class="form-group">
-                            <label>Fecha:</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                                </div>
-                                <input type="text" class="form-control  col-md-5" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" im-insert="false">
-                            </div>
-                        </div>
-                    </tr>
                     <tr>
                         <label>Datos personales</label>
                         <div class="form-row">
@@ -43,6 +32,7 @@
                         </div>
                     </tr>
                     <tr>
+<<<<<<< HEAD
                         <div class="form-group col-md-6">
                             <label>Servicio:</label>
                             <select id="inputState" class="form-control">
@@ -54,6 +44,9 @@
                     </tr>
                     <tr>
                         <label>Tema:</label>
+=======
+                        <label>Servicios:</label>
+>>>>>>> 366dbc8baa39a6154a92242989b6071a6e05ade6
                         <div class="form-group">
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" id="inputCity" placeholder="">
@@ -78,14 +71,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <div class="form-group col-md-6">
-                            <label>Ubicación:</label>
-                            <select id="inputState" class="form-control">
-                                <option>Tegucigalpa</option>
-                                <option>San Pedro Sula</option>
-                                <option>Comayagua</option>
-                            </select>
-                        </div>
+                        <label>Ubicación:</label>
+                        <div class="form-group">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputCity" placeholder="">
+                            </div>
                     </tr>
                     <tr>
                         <div class="modal-footer">

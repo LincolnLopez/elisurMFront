@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 
 class BitacoraClienteController extends Controller
@@ -13,8 +14,10 @@ class BitacoraClienteController extends Controller
      */
     public function index()
     {
-        return view('bitacora_cliente.index');
-        //
+        $solicitudes = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
+        ')->get('http://localhost:3000/solicitudes');
+        return view('bitacora_cliente.index')->with('solicitudes',json_decode($solicitudes));
+
     }
 
     /**
@@ -55,11 +58,11 @@ class BitacoraClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($COD_SOLICITUD )
     {
-        //
+        $solicitud = DB ::table('tbl_solicitudes')->select('COD_SOLICITUD','FECHA_SOLICITUD','NOMBRE','APELLIDO','TELEFONO','CORREO_ELECTRONICO','TIPO_SOLICITANTE','TELEFONO_OPCIONAL','DIRECCION_SOLICITANTE','NOMBRE_E_C','RTN_DNI','CIUDAD','COD_SERVICIO','DESCRIPCION_SOLICITUD','COD_ESTADO')->where('COD_SOLICITUD', '=', $COD_SOLICITUD)->first();
+        return view('presupuesto_usuario.update')->with('presupuesto_usuario',$solicitud );
     }
-
     /**
      * Update the specified resource in storage.
      *
