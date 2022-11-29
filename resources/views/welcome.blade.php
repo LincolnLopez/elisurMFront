@@ -318,8 +318,8 @@
 
 
 
-   <!-- The Contact Section -->
-   <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+    <!-- The Contact Section -->
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
       <h2 class="w3-wide w3-center">CONTACTO</h2>
       <div class="w3-row w3-padding-32">
          <div class="w3-col m6 w3-large w3-margin-bottom">
@@ -331,13 +331,13 @@
             <form action="/action_page.php" target="_blank">
                <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
                   <div class="w3-half">
-                     <<input id="" name="_USUARIO" type="text" class="form-control" tabindex="1">>
+                     <input class="w3-input w3-border" type="text" placeholder="Nombre" required name="Name">
                   </div>
                   <div class="w3-half">
-                     <<input id="" name="_USUARIO" type="text" class="form-control" tabindex="1">>
+                     <input class="w3-input w3-border" type="text" placeholder="Correo" required name="Email">
                   </div>
                </div>
-               <<input id="" name="_USUARIO" type="text" class="form-control" tabindex="1">>
+               <input class="w3-input w3-border" type="text" placeholder="Mensaje" required name="Message">
                <button class="w3-button w3-black w3-section w3-right" type="submit">Enviar</button>
             </form>
          </div>
