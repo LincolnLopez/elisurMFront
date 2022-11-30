@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('title', 'Usuarios')
-
+<!-- U-->
 @section('content_top_nav_right')
 <li class="nav-item dropdown">
   <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
