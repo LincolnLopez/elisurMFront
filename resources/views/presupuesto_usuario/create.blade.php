@@ -56,10 +56,12 @@
                                 <div class="form-group col-md-5">
                                     <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control" placeholder="NUMERO IDENTIFICACION ">
                                 </div>
-                                <div class="form-group col-md-5">
-                                    <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control" placeholder="TELEFONO">
-                                </div>
                             </div>
+
+                            <div class="form-group col-md-5">
+                                <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control" placeholder="TELEFONO">
+                            </div>
+
                         </tr>
                         <tr>
                             <div class="form-row">
@@ -72,8 +74,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-7">
-                                    <textarea id="DIRECCION_SOLICITANTE" rows="4"  cols="120" name="DIRECCION_SOLICITANTE" rows="1" class="form-control" placeholder="Dirección"></textarea>
-                                   
+                                    <textarea id="DIRECCION_SOLICITANTE" rows="4" cols="120" name="DIRECCION_SOLICITANTE" rows="1" class="form-control" placeholder="Dirección"></textarea>
+
                                 </div>
                             </div>
                         </tr>
@@ -91,11 +93,9 @@
                                     <textarea id="DESCRIPCION_SOLICITUD" rows="4" cols="120" name="DESCRIPCION_SOLICITUD" rows="1" class="form-control" placeholder="DESCRIPCION"></textarea>
                                 </div>
                             </div>
-                        </tr>
-
-
+                        </tr> 
                         <a href="/presupuesto_usuario" class="btn btn-secondary" tabindex="5">Cancelar</a>
-                        <a href="{{ route('bitacora_cliente.index') }}" class="btn btn-success">Guardar</a>
+                        <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
 
                     </form>
                 </div>
