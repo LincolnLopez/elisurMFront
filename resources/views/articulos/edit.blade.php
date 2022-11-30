@@ -25,7 +25,7 @@
   
     <div class="mb-3">
       <label for="" class="form-label">CODIGO DE ARTICULO</label>
-      <input id="COD_ARTICULO" name="COD_ARTICULO" type="text" class="form-control"  value="{{$articulo->cod_articulo}}" >    
+      <input id="COD_ARTICULO" name="COD_ARTICULO" type="text" class="form-control"  value="{{$articulo->cod_articulo}}" readonly`>    
     </div>
  
  
