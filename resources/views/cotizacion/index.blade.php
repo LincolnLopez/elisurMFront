@@ -1,230 +1,107 @@
 @extends('adminlte::page')
 
-@section('title', 'Solicitar Presupuesto')
+@section('title', 'Presupuesto')
 
 @section('content_header')
-<h1>Solicitar presupuesto</h1>
+<h1>COTIZACIÓN
 @stop
-@section('css')
-<style>
-    body {
-        font-family: Arial;
-    }
-
-    /* Style the tab */
-    .tab {
-        overflow: hidden;
-        border: 1px solid #ccc;
-        background-color: #f1f1f1;
-    }
-
-    /* Style the buttons inside the tab */
-    .tab button {
-        background-color: inherit;
-        float: left;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: 0.3s;
-        font-size: 17px;
-    }
-
-    /* Change background color of buttons on hover */
-    .tab button:hover {
-        background-color: #ddd;
-    }
-
-    /* Create an active/current tablink class */
-    .tab button.active {
-        background-color: #ccc;
-    }
-
-    /* Style the tab content */
-    .tabcontent {
-        display: none;
-        padding: 6px 12px;
-        border: 1px solid #ccc;
-        border-top: none;
-    }
-</style>
-@endsection
 
 @section('content')
+
 <div class="container-fluid">
     <div class="row content">
-        <div class="col-sm-12">
+        <div class="col-sm-10">
             <div class="card card-info">
                 <div class="card-header">
                     <h3 class="card-title">-</h3>
                 </div>
-                <!-- /.card-header -->
                 <div class="card-body">
-                    <div class="tab">
-                        <button class="tablinks" onclick="openCity(event, 'Hogar')">Hogar</button>
-                        <button class="tablinks" onclick="openCity(event, 'Empresa')">Empresa</button>
-                    </div>
 
-                    <div id="Hogar" class="tabcontent">
-                        <h3>Hogar</h3>
+                    <form action="/presupuesto_usuario" method="POST">
+                        @csrf
                         <tr>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control  col-md-5" data-inputmask-alias="datetime" placeholder="dd/mm/yyyy" data-mask="" im-insert="false">
+                            <h4>Datos personales </h4>
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <input id="NOMBRE" name="NOMBRE" type="text" class="form-control" placeholder="NOMBRE">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <input id="APELLIDO" name="APELLIDO" type="text" class="form-control" placeholder="APELLIDO">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" placeholder="TELEFONO">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="text" class="form-control" placeholder="CORREO ELECTRONICO">
+                                </div>
+                            </div>
+                        </tr>
+                        <tr>
+                            <h4>Datos Emprea o domicilio </h4>
+                            <div class="form-row">
+                                <div class="form-group col-md-5">
+                                    <select id="TIPO_SOLICITANTE" name="TIPO_SOLICITANTE" class="form-control">
+                                        <option>Tipo de Solicitante </option>
+                                        <option value="EMPRESA">EMPRESA</option>
+                                        <option value="CASA">CASA</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="form-control" placeholder="NOMBRE EMPRESA/COLONIA">
                                 </div>
                             </div>
                         </tr>
                         <tr>
                             <div class="form-row">
-                                <div class="form-group col-md-4">
-<<<<<<< HEAD
-                                    <input type="text" class="form-control" id="inputCity" placeholder="Nombre">
+                                <div class="form-group col-md-5">
+                                    <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control" placeholder="NUMERO IDENTIFICACION ">
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" id="inputCity" placeholder="apellido">
+                                <div class="form-group col-md-5">
+                                    <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control" placeholder="TELEFONO">
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" id="inputCity" placeholder="Numero de Identificación">
-=======
-                                    <input type="text" class="form-control" id="inputCity" placeholder="Nombre de Empresa">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" id="inputCity" placeholder="Dirección">
->>>>>>> 9ee038d7b8378d0aea46bd573a58d5095b8a0d10
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" id="inputZip" placeholder="Telefóno">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" id="inputZip" placeholder="Correo Electrónico">
-                                </div>
-
-                            </div>
-                        </tr>
-                        <p>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <select id="inputState" class="form-control">
-                                    <option>Ciudad</option>
-                                    <option>Tegucigalpa</option>
-                                    <option>San Pedro Sula</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-7">
-                                <textarea class="form-control" rows="1" placeholder="Dirección"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <select id="inputState" class="form-control">
-                                <option>Seleccionar Tipo de Servicio</option>
-                                <option>Aíre Acondicionado</option>
-                                <option>Línea Telefónica</option>
-                                <option>Sistema de Seguridad</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3" placeholder="Detalle el Servicio que desea"></textarea>
-                        </div>
-                        </p>
-                    </div>
-
-                    <div id="Empresa" class="tabcontent">
-                        <h3>Empresa</h3>
-                        <tr>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control  col-md-5" data-inputmask-alias="datetime" placeholder="dd/mm/yyyy" data-mask="" im-insert="false">
-                                </div>
-                                <!-- /.input group -->
                             </div>
                         </tr>
                         <tr>
                             <div class="form-row">
-                                <div class="form-group col-md-4">
-<<<<<<< HEAD
-                                    <input type="text" class="form-control" id="inputCity" placeholder="Nombre">
+                                <div class="form-group col-md-3">
+
+                                    <select id="CIUDAD" name="CIUDAD" class="form-control">
+                                        <option>Ciudad</option>
+                                        <option value="Tegucigalpa">Tegucigalpa</option>
+                                        <option value="San Pedro Sula">San Pedro Sula</option>
+                                    </select>
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" id="inputCity" placeholder="Apellido">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" id="inputCity" placeholder="Numero de Identificación">
-=======
-                                    <input type="text" class="form-control" id="inputCity" placeholder="Dirección">
->>>>>>> 9ee038d7b8378d0aea46bd573a58d5095b8a0d10
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" id="inputZip" placeholder="Telefóno">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" id="inputZip" placeholder="Correo Electrónico">
+                                <div class="form-group col-md-7">
+                                    <textarea id="DIRECCION_SOLICITANTE" rows="4"  cols="120" name="DIRECCION_SOLICITANTE" rows="1" class="form-control" placeholder="Dirección"></textarea>
+                                   
                                 </div>
                             </div>
                         </tr>
-                        <div class="form-group col-md-4">
-                            <input type="text" class="form-control" id="inputCity" placeholder="Nombre de Empresa">
-                        </div>
-                        <p>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <select id="inputState" class="form-control">
-                                    <option>Ciudad</option>
-                                    <option>Tegucigalpa</option>
-                                    <option>San Pedro Sula</option>
-                                </select>
+                        <tr>
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <select id="COD_SERVICIO" name="COD_SERVICIO" class="form-control">
+                                        <option>Seleccionar Tipo de Servicio</option>
+                                        <option value="1">Aíre Acondicionado</option>
+                                        <option value="2">Línea Telefónica</option>
+                                        <option value="3">Sistema de Seguridad</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-7">
+                                    <textarea id="DESCRIPCION_SOLICITUD" rows="4" cols="120" name="DESCRIPCION_SOLICITUD" rows="1" class="form-control" placeholder="DESCRIPCION"></textarea>
+                                </div>
                             </div>
-                            <div class="form-group col-md-7">
-                                <textarea class="form-control" rows="1" placeholder="Dirección"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <select id="inputState" class="form-control">
-                                <option>Seleccionar Tipo de Servicio</option>
-                                <option>Aíre Acondicionado</option>
-                                <option>Línea Telefónica</option>
-                                <option>Sistema de Seguridad</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3" placeholder="Detalle el Servicio que desea"></textarea>
-                        </div>
-                        </p>
-                    </div>
+                        </tr>
+
+
+                        <a href="/presupuesto_usuario" class="btn btn-secondary" tabindex="5">Cancelar</a>
+                        <button type="submit" class="btn btn-success" tabindex="4">Guardar</button>
+
+                    </form>
                 </div>
-                <tr>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary btn-lg">Enviar</button>
-                    </div>
-                </tr>
             </div>
         </div>
     </div>
 </div>
-
-
+</div>
 @endsection
-
-@section('js')
-<script>
-    function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-</script>
-
-@stop

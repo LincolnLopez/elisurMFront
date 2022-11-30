@@ -95,7 +95,11 @@
                             </div>
                         </tr> 
                         <a href="/presupuesto_usuario" class="btn btn-secondary" tabindex="5">Cancelar</a>
+<<<<<<< HEAD
                         <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+=======
+                        <button type="submit" class="btn btn-success" tabindex="4">Guardar</button>
+>>>>>>> 9496bd1549d9a2a29a92a33a8e84d014220fe0ba
 
                     </form>
                 </div>
