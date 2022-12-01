@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class EncuestaController extends Controller
 {
@@ -13,8 +15,11 @@ class EncuestaController extends Controller
      */
     public function index()
     {
-        return view('encuesta.index');
-        
+        $encuesta = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
+        ')->get('http://localhost:3000/encuesta');
+        return view('encuesta.index')->with('encuesta',json_decode($encuesta));
+
+      
     }
 
     /**
@@ -24,7 +29,7 @@ class EncuestaController extends Controller
      */
     public function create()
     {
-        //
+        return view('encuesta.create');
     }
 
     /**
@@ -33,9 +38,13 @@ class EncuestaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     //-----------------insert para cotizacion-solicitud 
     public function store(Request $request)
     {
-        //
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->
+        post('http://localhost:3000/encuesta/insert',['P1'=>$request->P1,'P2'=>$request->P2,'P3'=>$request->P3,'P4'=>$request->P4,'P5'=>$request->P5,'P6'=>$request->P6,'P7'=>$request->P7]);
+        return redirect('/encuesta');
     }
 
     /**

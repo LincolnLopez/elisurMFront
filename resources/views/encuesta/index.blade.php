@@ -8,6 +8,9 @@
 @stop
 
 @section('content')
+<form action="/encuesta" name="form" method="POST" onsubmit="return validar();"  autocomplete="off" >
+    @csrf
+
 <div class="container-fluid">
     <div class="row content">
         <div class="col-md-12">
@@ -29,11 +32,11 @@
                                     <form>
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
-                                                <select id="inputState" class="form-control">
+                                                <select id="p1" name="p1" class="form-control">
                                                     <option selected>Seleccionar</option>
-                                                    <option>Eficiente</option>
-                                                    <option>Regular</option>
-                                                    <option>Deficiente</option>
+                                                    <option value="1">Eficiente</option>
+                                                    <option value="2">Regular</option>
+                                                    <option value="3">Deficiente</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -46,11 +49,10 @@
                                     <form>
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
-                                                <select id="inputState" class="form-control">
-                                                    <option selected>Seleccionar</option>
-                                                    <option>Eficiente</option>
-                                                    <option>Regular</option>
-                                                    <option>Deficiente</option>
+                                                <select id="p2" name="p2" class="form-control">
+                                                    <option value="1">Eficiente</option>
+                                                    <option value="2">Regular</option>
+                                                    <option value="3">Deficiente</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -64,11 +66,10 @@
                                     <form>
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
-                                                <select id="inputState" class="form-control">
-                                                    <option selected>Seleccionar</option>
-                                                    <option>Eficiente</option>
-                                                    <option>Regular</option>
-                                                    <option>Deficiente</option>
+                                                <select id="p3" name="p3" class="form-control">
+                                                    <option value="1">Eficiente</option>
+                                                    <option value="2">Regular</option>
+                                                    <option value="3">Deficiente</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -82,11 +83,11 @@
                                     <form>
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
-                                                <select id="inputState" class="form-control">
+                                                <select id="p4" name="p4" class="form-control">
                                                     <option selected>Seleccionar</option>
-                                                    <option>Eficiente</option>
-                                                    <option>Regular</option>
-                                                    <option>Deficiente</option>
+                                                    <option value="1">Eficiente</option>
+                                                    <option value="2">Regular</option>
+                                                    <option value="3">Deficiente</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -96,35 +97,35 @@
                             <tr>
                                 <td>¿Nuestro servicio cubre sus expectativas?</td>
                                 <td class="text-right py-0 align-middle">
-                                    <form>
+                                    
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
-                                                <select id="inputState" class="form-control">
+                                                <select id="p5" name="p5" class="form-control">
                                                     <option selected>Seleccionar</option>
-                                                    <option>Eficiente</option>
-                                                    <option>Regular</option>
-                                                    <option>Deficiente</option>
+                                                    <option value="1">Eficiente</option>
+                                                    <option value="2">Regular</option>
+                                                    <option value="3">Deficiente</option>
                                                 </select>
                                             </div>
                                         </div>
-                                    </form>
+                                    
                                 </td>
                             </tr>
                             <tr>
                                 <td>¿El precio del servicio va acorde con los beneficios que se brindan?</td>
                                 <td class="text-right py-0 align-middle">
-                                    <form>
+                                    
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
-                                                <select id="inputState" class="form-control">
+                                                <select id="p6" name="p6" class="form-control">
                                                     <option selected>Seleccionar</option>
-                                                    <option>Eficiente</option>
-                                                    <option>Regular</option>
-                                                    <option>Deficiente</option>
+                                                    <option value="1">Eficiente</option>
+                                                    <option value="2">Regular</option>
+                                                    <option value="3">Deficiente</option>
                                                 </select>
                                             </div>
                                         </div>
-                                    </form>
+                                    
                                 </td>
                             </tr>
                             <tr>
@@ -132,31 +133,31 @@
                             </tr>
                             <tr>
                                 <td class="text-right py-0 align-middle">
-                                    <form>
+                                    
                                         <div class="form-row align-items-center">
 
                                             <div class="col-auto my-1">
                                                 <!-- textarea -->
                                                 <div class="form-group">
-                                                    <p><textarea class="form-control" rows="8" cols="100" placeholder="Tu comentario es muy importante"></textarea></p>
+                                                    <p><textarea id="p7" name="p7" class="form-control" rows="8" cols="100" placeholder="Tu comentario es muy importante"></textarea></p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    
                                 </td>
                             </tr>
                             <tr>
                                 <td class="text-right py-0 align-middle">
-                                    <form>
+                                    
                                         <div class="form-row align-items-center">
 
                                             <div class="col-auto my-1">
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary btn-lg">Enviar</button>
+                                                    <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    
                                 </td>
                             </tr>
                         </tbody>
@@ -166,5 +167,6 @@
         </div>
     </div>
 </div>
+</form>
 
 @endsection

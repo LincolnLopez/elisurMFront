@@ -12,7 +12,7 @@
 <script>
 Swal.fire(
   'Inicio Secion Correctamente!',
-  'You clicked the button!',
+  'Haz clic en el boton!',
   'success'
 )
 
