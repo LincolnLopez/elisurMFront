@@ -154,7 +154,8 @@ var validarNumero= function(e) {
 </div>
 </div>
 </div>
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="resources/js/sweetAlert.js"></script>
 </form>
     
 @stop
