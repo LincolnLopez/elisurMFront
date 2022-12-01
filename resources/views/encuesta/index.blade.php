@@ -33,7 +33,7 @@
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
                                                 <select id="P1" name="P1" class="form-control" autocomplete="off" autofocus="on" o onPaste="return false;" autofocus required>
-                                                    <option selected>Seleccionar</option>
+                                                    <option value="" disabled selected>Seleccione:</option>
                                                     <option value="1">Eficiente</option>
                                                     <option value="2">Regular</option>
                                                     <option value="3">Deficiente</option>
@@ -50,7 +50,7 @@
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
                                                 <select id="P2" name="P2" class="form-control" autocomplete="off" autofocus="on" o onPaste="return false;" autofocus required>
-                                                    <option selected>Seleccionar</option>
+                                                    <option value="" disabled selected>Seleccione:</option>
                                                     <option value="1">Eficiente</option>
                                                     <option value="2">Regular</option>
                                                     <option value="3">Deficiente</option>
@@ -68,7 +68,7 @@
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
                                                 <select id="P3" name="P3" class="form-control" autocomplete="off" autofocus="on" o onPaste="return false;" autofocus required>
-                                                    <option selected>Seleccionar</option>
+                                                    <option value="" disabled selected>Seleccione:</option>
                                                     <option value="1">Eficiente</option>
                                                     <option value="2">Regular</option>
                                                     <option value="3">Deficiente</option>
@@ -86,7 +86,7 @@
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
                                                 <select id="P4" name="P4" class="form-control" autocomplete="off" autofocus="on" o onPaste="return false;" autofocus required>
-                                                    <option selected>Seleccionar</option>
+                                                    <option value="" disabled selected>Seleccione:</option>
                                                     <option value="1">Eficiente</option>
                                                     <option value="2">Regular</option>
                                                     <option value="3">Deficiente</option>
@@ -103,7 +103,7 @@
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
                                                 <select id="P5" name="P5" class="form-control" autocomplete="off" autofocus="on" o onPaste="return false;" autofocus required>
-                                                    <option selected>Seleccionar</option>
+                                                    <option value="" disabled selected>Seleccione:</option>
                                                     <option value="1">Eficiente</option>
                                                     <option value="2">Regular</option>
                                                     <option value="3">Deficiente</option>
@@ -120,7 +120,7 @@
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
                                                 <select id="P6" name="P6" class="form-control" autocomplete="off" autofocus="on" o onPaste="return false;" autofocus required>
-                                                    <option selected>Seleccionar</option>
+                                                    <option value="" disabled selected>Seleccione:</option>
                                                     <option value="1">Eficiente</option>
                                                     <option value="2">Regular</option>
                                                     <option value="3">Deficiente</option>
