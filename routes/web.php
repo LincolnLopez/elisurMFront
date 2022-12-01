@@ -72,7 +72,7 @@ Route::resource('/articulos', ArticuloController::class);
 
 
 /*
-Route::view('/cotizacion','cotizacion')->name('cotizacion')->middleware('auth');*/
+Route::view('/cotizacion','cotizacion')->name('cotizacion')->middleware('auth');
 Route::view('/personas','personas')->name('personas')->middleware('auth');
 Route::view('/bitacora_admin','bitacora_admin')->name('bitacora_admin')->middleware('auth');
 Route::view('/bitacora_cliente','bitacora_cliente')->name('bitacora_cliente')->middleware('auth');
@@ -91,6 +91,6 @@ Route::view('/reporte','reporte')->name('reporte')->middleware('auth');
 Route::view('/ticket','ticket')->name('ticket')->middleware('auth');
 Route::view('/ticket_empleado','ticket_empleado')->name('ticket_empleado')->middleware('auth');
 Route::view('/clientes','clientes')->name('clientes')->middleware('auth');
-Route::view('/articulos','articulos')->name('articulos')->middleware('auth');
+Route::view('/articulos','articulos')->name('articulos')->middleware('auth');*/
 
 
