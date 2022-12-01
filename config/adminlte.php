@@ -425,12 +425,6 @@ return [
         'url'        => 'presupuesto_usuario',
     ],
 
-    [
-        'text'       => 'Cotización',
-        'icon'=>'far fa-fw  fas fa-chart-line',
-        'icon_color' => 'info',
-        'url'        => 'cotizacion',
-    ],
 
     [
         'text'       => 'Encuesta de satisfaccion',

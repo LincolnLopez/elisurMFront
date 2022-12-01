@@ -251,7 +251,7 @@
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                         <div class="w3-half">
                             <label>Telefono</label>
-                            <input id="TELEFONO" name="TELEFONO" type="text" class="w3-input w3-border"
+                            <input id="TELEFONO" name="TELEFONO" type="number" class="w3-input w3-border"
                                 type="text" placeholder="9999-9999">
                         </div>
                         <div class="w3-half">
@@ -295,9 +295,9 @@
                             <label>Ciudad</label>
                             <select class="w3-select" id="CIUDAD" name="CIUDAD">
                                 <option value="" disabled selected>Selecciona una Ciudad:</option>
-                                <option value="1">Tegucigalpa</option>
-                                <option value="2">San Pedro Sula</option>
-                                <option value="3">Comayagua</option>
+                                <option value="Tegucigalpa">Tegucigalpa</option>
+                                <option value="San Pedro Sula">San Pedro Sula</option>
+                                <option value="Comayagua">Comayagua</option>
                             </select>
                         </div>
                         <div class="w3-half">
@@ -325,12 +325,12 @@
                             placeholder="Ingrese una descripción detallada de la solicitud">
                     </div>
 
-
                     <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">Enviar<i
                             class="fa fa-check"></i></button>
                     <p class="w3-right">Necesitas <a href="#" class="w3-text-blue">Ayuda?</a></p>
-                
-                  </form>
+
+                </form>
+
             </div>
         </div>
     </div>

@@ -1,107 +1,91 @@
-@extends('adminlte::page')
+<!DOCTYPE html>
+<html>
 
-@section('title', 'Presupuesto')
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            height: 1000px;
+            background: linear-gradient(141deg, rgb(199, 199, 146) 0%, #90bad0 51%, #6cafa4 75%);
+        }
 
-@section('content_header')
-<h1>COTIZACIÓN
-@stop
+        div {
 
-@section('content')
+            padding: 70px 32px;
+        }
 
-<div class="container-fluid">
-    <div class="row content">
-        <div class="col-sm-10">
-            <div class="card card-info">
-                <div class="card-header">
-                    <h3 class="card-title">-</h3>
-                </div>
-                <div class="card-body">
+        a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
 
-                    <form action="/presupuesto_usuario" method="POST">
-                        @csrf
-                        <tr>
-                            <h4>Datos personales </h4>
-                            <div class="form-row">
-                                <div class="form-group col-md-3">
-                                    <input id="NOMBRE" name="NOMBRE" type="text" class="form-control" placeholder="NOMBRE">
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <input id="APELLIDO" name="APELLIDO" type="text" class="form-control" placeholder="APELLIDO">
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" placeholder="TELEFONO">
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="text" class="form-control" placeholder="CORREO ELECTRONICO">
-                                </div>
-                            </div>
-                        </tr>
-                        <tr>
-                            <h4>Datos Emprea o domicilio </h4>
-                            <div class="form-row">
-                                <div class="form-group col-md-5">
-                                    <select id="TIPO_SOLICITANTE" name="TIPO_SOLICITANTE" class="form-control">
-                                        <option>Tipo de Solicitante </option>
-                                        <option value="EMPRESA">EMPRESA</option>
-                                        <option value="CASA">CASA</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-5">
-                                    <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="form-control" placeholder="NOMBRE EMPRESA/COLONIA">
-                                </div>
-                            </div>
-                        </tr>
-                        <tr>
-                            <div class="form-row">
-                                <div class="form-group col-md-5">
-                                    <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control" placeholder="NUMERO IDENTIFICACION ">
-                                </div>
-                                <div class="form-group col-md-5">
-                                    <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control" placeholder="TELEFONO">
-                                </div>
-                            </div>
-                        </tr>
-                        <tr>
-                            <div class="form-row">
-                                <div class="form-group col-md-3">
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
 
-                                    <select id="CIUDAD" name="CIUDAD" class="form-control">
-                                        <option>Ciudad</option>
-                                        <option value="Tegucigalpa">Tegucigalpa</option>
-                                        <option value="San Pedro Sula">San Pedro Sula</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-7">
-                                    <textarea id="DIRECCION_SOLICITANTE" rows="4"  cols="120" name="DIRECCION_SOLICITANTE" rows="1" class="form-control" placeholder="Dirección"></textarea>
-                                   
-                                </div>
-                            </div>
-                        </tr>
-                        <tr>
-                            <div class="form-row">
-                                <div class="form-group col-md-3">
-                                    <select id="COD_SERVICIO" name="COD_SERVICIO" class="form-control">
-                                        <option>Seleccionar Tipo de Servicio</option>
-                                        <option value="1">Aíre Acondicionado</option>
-                                        <option value="2">Línea Telefónica</option>
-                                        <option value="3">Sistema de Seguridad</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-7">
-                                    <textarea id="DESCRIPCION_SOLICITUD" rows="4" cols="120" name="DESCRIPCION_SOLICITUD" rows="1" class="form-control" placeholder="DESCRIPCION"></textarea>
-                                </div>
-                            </div>
-                        </tr>
+        .previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+    </style>
+    
 
 
-                        <a href="/presupuesto_usuario" class="btn btn-secondary" tabindex="5">Cancelar</a>
-                        <button type="submit" class="btn btn-success" tabindex="4">Guardar</button>
 
-                    </form>
-                </div>
+</head>
+
+<body>
+    <div class="container">
+        <h1></h1>
+
+
+
+        <a href="{{ ('/') }}" class="btn btn-dark">&laquo; Página Principal </a>
+
+        <div></div>
+        <div class="alert alert-success d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:">
+                <use xlink:href="#check-circle-fill" />
+            </svg>
+            <div>
+                <h5>
+                    Se ha registrado con éxito su solicitud de cotización, su información a
+                    sido guardada, Elisur se comunicará por medio de su correo electrónico.
+
+                </h5>
+                <h5>
+                    Muchas gracias por comunicarse con Multiservicios Elisur.
+                </h5>
             </div>
         </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="check-circle-fill" viewBox="0 0 16 16">
+                <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+            </symbol>
+            <symbol id="info-fill" viewBox="0 0 16 16">
+                <path
+                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+            </symbol>
+            <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
+                <path
+                    d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+            </symbol>
+        </svg>
+
+
+
     </div>
-</div>
-</div>
-@endsection
+
+
+
+
+</body>
+
+</html>
