@@ -26,13 +26,13 @@
                     <table class="table">
                         <tbody>
                             <tr>
-                                <td>Como evaluaría el tiempo de respuesta de la falla
+                                <td>¿Como evaluaría el tiempo de respuesta de la falla?
                                 </td>
                                 <td class="text-right py-0 align-middle">
-                                    <form>
+                                   
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
-                                                <select id="p1" name="p1" class="form-control">
+                                                <select id="P1" name="P1" class="form-control" autocomplete="off" autofocus="on" o onPaste="return false;" autofocus required>
                                                     <option selected>Seleccionar</option>
                                                     <option value="1">Eficiente</option>
                                                     <option value="2">Regular</option>
@@ -40,50 +40,16 @@
                                                 </select>
                                             </div>
                                         </div>
-                                    </form>
+                                    
                                 </td>
                             <tr>
-                                <td>Cortesía y amabilidad del técnico
+                                <td>¿Cortesía y amabilidad del técnico?
                                 </td>
                                 <td class="text-right py-0 align-middle">
-                                    <form>
+                                    
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
-                                                <select id="p2" name="p2" class="form-control">
-                                                    <option value="1">Eficiente</option>
-                                                    <option value="2">Regular</option>
-                                                    <option value="3">Deficiente</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Efectividad del técnico
-                                </td>
-                                <td class="text-right py-0 align-middle">
-                                    <form>
-                                        <div class="form-row align-items-center">
-                                            <div class="col-auto my-1">
-                                                <select id="p3" name="p3" class="form-control">
-                                                    <option value="1">Eficiente</option>
-                                                    <option value="2">Regular</option>
-                                                    <option value="3">Deficiente</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Como evaluaría los servicios técnicos de la empresa
-                                </td>
-                                <td class="text-right py-0 align-middle">
-                                    <form>
-                                        <div class="form-row align-items-center">
-                                            <div class="col-auto my-1">
-                                                <select id="p4" name="p4" class="form-control">
+                                                <select id="P2" name="P2" class="form-control" autocomplete="off" autofocus="on" o onPaste="return false;" autofocus required>
                                                     <option selected>Seleccionar</option>
                                                     <option value="1">Eficiente</option>
                                                     <option value="2">Regular</option>
@@ -91,7 +57,43 @@
                                                 </select>
                                             </div>
                                         </div>
-                                    </form>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>¿Efectividad del técnico?
+                                </td>
+                                <td class="text-right py-0 align-middle">
+                                    
+                                        <div class="form-row align-items-center">
+                                            <div class="col-auto my-1">
+                                                <select id="P3" name="P3" class="form-control" autocomplete="off" autofocus="on" o onPaste="return false;" autofocus required>
+                                                    <option selected>Seleccionar</option>
+                                                    <option value="1">Eficiente</option>
+                                                    <option value="2">Regular</option>
+                                                    <option value="3">Deficiente</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                   
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>¿Como evaluaría los servicios técnicos de la empresa?
+                                </td>
+                                <td class="text-right py-0 align-middle">
+                                    
+                                        <div class="form-row align-items-center">
+                                            <div class="col-auto my-1">
+                                                <select id="P4" name="P4" class="form-control" autocomplete="off" autofocus="on" o onPaste="return false;" autofocus required>
+                                                    <option selected>Seleccionar</option>
+                                                    <option value="1">Eficiente</option>
+                                                    <option value="2">Regular</option>
+                                                    <option value="3">Deficiente</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    
                                 </td>
                             </tr>
                             <tr>
@@ -100,7 +102,7 @@
                                     
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
-                                                <select id="p5" name="p5" class="form-control">
+                                                <select id="P5" name="P5" class="form-control" autocomplete="off" autofocus="on" o onPaste="return false;" autofocus required>
                                                     <option selected>Seleccionar</option>
                                                     <option value="1">Eficiente</option>
                                                     <option value="2">Regular</option>
@@ -117,7 +119,7 @@
                                     
                                         <div class="form-row align-items-center">
                                             <div class="col-auto my-1">
-                                                <select id="p6" name="p6" class="form-control">
+                                                <select id="P6" name="P6" class="form-control" autocomplete="off" autofocus="on" o onPaste="return false;" autofocus required>
                                                     <option selected>Seleccionar</option>
                                                     <option value="1">Eficiente</option>
                                                     <option value="2">Regular</option>
@@ -139,7 +141,7 @@
                                             <div class="col-auto my-1">
                                                 <!-- textarea -->
                                                 <div class="form-group">
-                                                    <p><textarea id="p7" name="p7" class="form-control" rows="8" cols="100" placeholder="Tu comentario es muy importante"></textarea></p>
+                                                    <p><textarea id="P7" name="P7" class="form-control" rows="8" cols="100" placeholder="Tu comentario es muy importante" autocomplete="off" autofocus="on" o onPaste="return false;" autofocus required></textarea></p>
                                                 </div>
                                             </div>
                                         </div>
