@@ -71,4 +71,26 @@ Route::resource('/clientes', ClientesController::class);
 Route::resource('/articulos', ArticuloController::class);
 
 
+/*
+Route::view('/cotizacion','cotizacion')->name('cotizacion')->middleware('auth');*/
+Route::view('/personas','personas')->name('personas')->middleware('auth');
+Route::view('/bitacora_admin','bitacora_admin')->name('bitacora_admin')->middleware('auth');
+Route::view('/bitacora_cliente','bitacora_cliente')->name('bitacora_cliente')->middleware('auth');
+
+Route::view('/encuesta','encuesta')->name('encuesta')->middleware('auth');
+Route::view('/empleados','empleados')->name('empleados')->middleware('auth');
+Route::view('/falla','falla')->name('falla')->middleware('auth');
+
+
+Route::view('/inventarios','inventarios')->name('inventarios')->middleware('auth');
+Route::view('/inventarioH','inventarioH')->name('inventarioH')->middleware('auth');
+Route::view('/presupuesto','presupuesto')->name('presupuesto')->middleware('auth');
+
+Route::view('/presupuesto_usuario','presupuesto_usuario')->name('presupuesto_usuario')->middleware('auth');
+Route::view('/reporte','reporte')->name('reporte')->middleware('auth');
+Route::view('/ticket','ticket')->name('ticket')->middleware('auth');
+Route::view('/ticket_empleado','ticket_empleado')->name('ticket_empleado')->middleware('auth');
+Route::view('/clientes','clientes')->name('clientes')->middleware('auth');
+Route::view('/articulos','articulos')->name('articulos')->middleware('auth');
+
 

@@ -24,6 +24,16 @@
             <div class="card-body">
               <div class="form-group">
 
+
+                <script>
+
+document.getElementById('NOMBRE_ARTICULO')
+  .reportValidity()
+                </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
 <!---validació de solo Letras--->
                 <script>
                   function soloLetras(e){
