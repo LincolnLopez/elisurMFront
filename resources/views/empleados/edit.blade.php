@@ -102,6 +102,10 @@ alert("La dirección de email es incorrecta.");
       
   </script>
 
+<div class="mb-3">
+  <label for="" class="form-label">Código de Empleado</label>
+  <input id="COD_EMPLEADO" name="COD_EMPLEADO" type="text" class="form-control" maxlength="15" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus required value="{{$empleado->cod_empleado}}" readonly>
+</div>
 
 
     <div class="mb-3">

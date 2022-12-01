@@ -65,7 +65,7 @@ class EmpleadosController extends Controller
      */
     public function edit($cod_empleado)
     {
-        $empleado = DB ::table('tbl_empleados')->select('cod_empleado','DNI_EMPLEADO','nombre_empleado','apellidos_empleado','sexo_empleado','estado_civil_empleado','edad_empleado','telefono','correo','estado_empleado')->where('cod_empleado', '=', $cod_empleado)->first();
+        $empleado = DB ::table('tbl_empleados')->select('cod_empleado','DNI_EMPLEADO','nombre_empleado','apellidos_empleado','sexo_empleado','estado_civil_empleado','edad_empleado','telefono','correo','estado_empleado')->where('cod_empleado', '=', $cod_empleado)->first(); 
         return view('empleados.edit')->with('empleado',$empleado);
 
     }
