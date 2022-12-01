@@ -1,12 +1,45 @@
 @extends('adminlte::page')
 
-@section('title', 'Presupuestos')
+@section('title', 'TICKET ADMINISTRADOR')
 
 @section('content_top_nav_right')
-
+<li class="nav-item dropdown">
+  <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+    <i class="far fa-fw fas fa-bell"></i>
+    <span class="badge badge-warning navbar-badge">15</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
+    <span class="dropdown-item dropdown-header">15 Notificaciones</span>
+    <div class="dropdown-divider"></div>
+    <a href="#" class="dropdown-item">
+      <i class="fas fa-envelope mr-2"></i> 4 nuevos mensajes
+      <span class="float-right text-muted text-sm">3 mins</span>
+    </a>
+    <div class="dropdown-divider"></div>
+    <a href="#" class="dropdown-item">
+      <i class="fas fa-users mr-2"></i> 8 solicitudes nuevas
+      <span class="float-right text-muted text-sm">12 hours</span>
+    </a>
+    <div class="dropdown-divider"></div>
+    <a href="#" class="dropdown-item">
+      <i class="fas fa-file mr-2"></i> 3 nuevos reportes
+      <span class="float-right text-muted text-sm">2 days</span>
+    </a>
+    <div class="dropdown-divider"></div>
+    <a href="#" class="dropdown-item dropdown-footer">Ver todas las notificaciones</a>
+  </div>
+</li>
 @endsection
 
 @section('content_header')
+@stop
+
+@section('css')
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+
+
+
 @stop
 
 
@@ -22,8 +55,8 @@
       <div class="col-md-12">
         <div class="card card-info">
           <div class="card-header">
-            <h3><i class="fas fa-user-plus fa-1.4x">
-              </i>Presupuestos</h3>
+            <h3><i class="fas fa-tasks">
+              </i>+ Area de Presupuesto</h3>
           </div>
           <div class="card-body">
             @if(Session::has('success'))
@@ -48,20 +81,15 @@
               </button>
             </div>
             @endif
+
             <div class="row">
               <div class="col-12 col-sm-12">
                 <div class="card card-info card-tabs">
-                  <div class="card-header p-0 pt-1">
-                    <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Registro de presupuestos</a>
-                      </li>
-                    </ul>
-                  </div>
+
                   </br>
                   <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
-                      <tr>
+                    <tr>
                         <th>COD_REPORTE_FALLA</th>
                         <th>cod_servicio</th>
                         <th>NOMBRE</th>
@@ -75,9 +103,10 @@
                         <th>cod_estado</th>
                       </tr>
                     </thead>
+
                     <tbody>
-                      @foreach($ticket as $ticke)
-                      <tr>
+                    @foreach($ticket as $ticke)
+                    <tr>
                         <td>{{$ticke->COD_REPORTE_FALLA}}</td>
                         <td>{{$ticke->cod_servicio}}</td>
                         <td>{{$ticke->NOMBRE}}</td>
@@ -88,18 +117,19 @@
                         <td>{{$ticke->UBICACION}}</td>
                         <td>{{$ticke->FECHA_CREACION}}</td>
                         <td>{{$ticke->FECHA_MODIFICACION}}</td>
-                        <td>{{$ticke->cod_estado}}</td>
+                        <td>{{$ticke->nombre_estado}}</td>
                         </form>
                         </td>
                       </tr>
                       @endforeach
                     </tbody>
-                    <tr>
 
 
                   </table>
 
                 </div>
+
+               
 
 
 
@@ -116,7 +146,6 @@
 
   </section>
 
-
 </body>
 
 @stop
@@ -130,38 +159,22 @@ Multi servicios.
 @stop
 
 @section('js')
-<script type="text/javascript" src="js/validacion_citas-doctores.js"></script>
-<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+
+
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+
 <script>
   $(function() {
     $('#AdministradorTable').DataTable({
       responsive: true,
+      scrollX: true,
       autoWidth: true,
       language: {
         url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json'
       }
     });
-  });
-</script>
-
-<script>
-  $("#success-alert").fadeTo(2000, 500).slideUp(400, function() {
-    $("#success-alert").slideUp(500);
-  });
-</script>
-<script>
-  $("#delete-alert").fadeTo(2000, 500).slideUp(400, function() {
-    $("#delete-alert").slideUp(500);
-  });
-</script>
-<script>
-  $("#update-alert").fadeTo(2000, 500).slideUp(400, function() {
-    $("#update-alert").slideUp(500);
   });
 </script>
 

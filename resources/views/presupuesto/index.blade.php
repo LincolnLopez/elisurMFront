@@ -50,7 +50,7 @@
   </br>
   <section class="content">
 
-  
+
     <div class="row">
       <div class="col-md-12">
         <div class="card card-info">
@@ -81,15 +81,15 @@
               </button>
             </div>
             @endif
-            
+
             <div class="row">
               <div class="col-12 col-sm-12">
                 <div class="card card-info card-tabs">
-                  
-                </br>  
+
+                  </br>
                   <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
-                          <tr>
+                      <tr>
                         <th>COD_SOLICITUD </th>
                         <th>FECHA_SOLICITUD</th>
                         <th>NOMBRE</th>
@@ -128,38 +128,38 @@
                         <td>{{$presupuesto->DESCRIPCION_SOLICITUD}}</td>
                         <td>{{$presupuesto->nombre_estado}}</td>
                         <td>
-                            <form  action="{{ route('presupuesto.destroy',$presupuesto->COD_SOLICITUD) }}" method="POST">
-                          <a href="/presupuesto/{{$presupuesto->COD_SOLICITUD}}/edit" class="btn btn-info">Editar</a>         
-                              @csrf
-                              @method('DELETE')
-                          <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>          
-                            </td>
-                        </tr>
-                        @endforeach
-                        </tbody>
-                      
-                       
-                         </table>
-    
-                    </div>
-    
-                          <a href="{{ route('presupuesto.create') }}" class="btn btn-success">Registrar</a>
-                         
-                          
-    
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                          <form action="{{ route('presupuesto.destroy',$presupuesto->COD_SOLICITUD) }}" method="POST">
+                            <a href="/presupuesto/{{$presupuesto->COD_SOLICITUD}}/edit" class="btn btn-info">Editar</a>
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                          </form>
+                        </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+
+
+                  </table>
+
                 </div>
+
+                <a href="{{ route('presupuesto.create') }}" class="btn btn-success">Registrar</a>
+
+
+
               </div>
             </div>
           </div>
         </div>
-    
-    
-      </section>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+  </section>
 
 </body>
 
@@ -169,7 +169,7 @@
 <strong><a href="http://40.83.9.20/home">Elisur</a>.</strong>
 Multi servicios.
 <div class="float-right d-none d-sm-inline-block">
-<b>Version</b> 3.1.0
+  <b>Version</b> 3.1.0
 </div>
 @stop
 
@@ -181,16 +181,16 @@ Multi servicios.
 
 
 <script>
-$(function() {
-  $('#AdministradorTable').DataTable({
-    responsive: true,
-    scrollX: true,
-    autoWidth: true,
-    language: {
-      url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json'
-    }
+  $(function() {
+    $('#AdministradorTable').DataTable({
+      responsive: true,
+      scrollX: true,
+      autoWidth: true,
+      language: {
+        url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json'
+      }
+    });
   });
-});
 </script>
 
 @stop

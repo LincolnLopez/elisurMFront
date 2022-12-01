@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 class TicketEmpleadoController extends Controller
 {
     /**
@@ -13,7 +14,11 @@ class TicketEmpleadoController extends Controller
      */
     public function index()
     {
-        return view('ticket_empleado.index');
+            $ticke = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
+            ')->get('http://localhost:3000/fallas');
+            return view('ticket_empleado.index')->with('ticket',json_decode($ticke ));
+
+        
     }
 
     /**
@@ -77,8 +82,13 @@ class TicketEmpleadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($COD_REPORTE_FALLA)
     {
-        //
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/fallas/delete',['COD_REPORTE_FALLA'=>$COD_REPORTE_FALLA]);
+        return redirect('/ticket_empleado');
+
+      
     }
+
+
 }
