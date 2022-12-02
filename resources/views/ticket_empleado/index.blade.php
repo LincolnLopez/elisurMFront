@@ -118,14 +118,14 @@
                         <td>{{$ticke->UBICACION}}</td>
                         <td>{{$ticke->FECHA_CREACION}}</td>
                         <td>{{$ticke->FECHA_MODIFICACION}}</td>
-                        <td>{{$ticke->nombre_estado}}</td>
+                        <td>{{$ticke->cod_estado}}</td>
                         <td>
 
 
                           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
 
-                          <form action="{{ route('ticket.destroy',$ticke->COD_REPORTE_FALLA) }}" method="POST">
+                          <form action="{{ route('falla.destroy',$ticke->COD_REPORTE_FALLA) }}" method="POST">
                               @csrf
                               @method('DELETE')
                               <button type="submit" class="btn btn-primary me-md-3">Proceso</button>

@@ -120,7 +120,7 @@
                         <td>{{$ticket->UBICACION}}</td>
                         <td>{{$ticket->FECHA_CREACION}}</td>
                         <td>{{$ticket->FECHA_MODIFICACION}}</td>
-                        <td>{{$ticket->nombre_estado}}</td>
+                        <td>{{$ticket->cod_estado}}</td>
                         <td>
                           <form action="{{ route('ticket.destroy',$ticket->COD_REPORTE_FALLA) }}" method="POST">
                             <a href="/ticket/{{$ticket->COD_REPORTE_FALLA}}/edit" class="btn btn-info">Editar</a>
