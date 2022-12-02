@@ -56,7 +56,7 @@
         <div class="card card-info">
           <div class="card-header">
             <h3><i class="fas fa-tasks">
-              </i>+ Area de Presupuesto</h3>
+              </i>+ Area de Tickets de Reportes de fallas</h3>
           </div>
           <div class="card-body">
             @if(Session::has('success'))
@@ -87,10 +87,12 @@
                 <div class="card card-info card-tabs">
 
                   </br>
-                  <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                  <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%" >
                     <thead>
                     <tr>
-                        <th>COD_REPORTE_FALLA</th>
+                        <th>Reporte
+                          Falla
+                        </th>
                         <th>cod_servicio</th>
                         <th>NOMBRE</th>
                         <th>TELEFONO</th>
@@ -101,24 +103,31 @@
                         <th>FECHA_CREACION</th>
                         <th>f.FECHA_MODIFICACION</th>
                         <th>cod_estado</th>
+                        <th>Acciones</th>
                       </tr>
                     </thead>
 
                     <tbody>
-                    @foreach($ticket as $ticke)
+                    @foreach($tickets as $ticket)
                     <tr>
-                        <td>{{$ticke->COD_REPORTE_FALLA}}</td>
-                        <td>{{$ticke->cod_servicio}}</td>
-                        <td>{{$ticke->NOMBRE}}</td>
-                        <td>{{$ticke->TELEFONO}}</td>
-                        <td>{{$ticke->CORREO_ELECTRONICO}}</td>
-                        <td>{{$ticke->TEMA}}</td>
-                        <td>{{$ticke->DESCRIPCION}}</td>
-                        <td>{{$ticke->UBICACION}}</td>
-                        <td>{{$ticke->FECHA_CREACION}}</td>
-                        <td>{{$ticke->FECHA_MODIFICACION}}</td>
-                        <td>{{$ticke->nombre_estado}}</td>
-                        </form>
+                        <td>{{$ticket->COD_REPORTE_FALLA}} </td>
+                        <td>{{$ticket->cod_servicio}}</td>
+                        <td>{{$ticket->NOMBRE}}</td>
+                        <td>{{$ticket->TELEFONO}}</td>
+                        <td>{{$ticket->CORREO_ELECTRONICO}}</td>
+                        <td>{{$ticket->TEMA}}</td>
+                        <td>{{$ticket->DESCRIPCION}}</td>
+                        <td>{{$ticket->UBICACION}}</td>
+                        <td>{{$ticket->FECHA_CREACION}}</td>
+                        <td>{{$ticket->FECHA_MODIFICACION}}</td>
+                        <td>{{$ticket->nombre_estado}}</td>
+                        <td>
+                          <form action="{{ route('ticket.destroy',$ticket->COD_REPORTE_FALLA) }}" method="POST">
+                            <a href="/ticket/{{$ticket->COD_REPORTE_FALLA}}/edit" class="btn btn-info">Editar</a>
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                          </form>
                         </td>
                       </tr>
                       @endforeach
@@ -128,6 +137,9 @@
                   </table>
 
                 </div>
+
+                <a href="{{ route('ticket.create') }}" class="btn btn-success">Registrar</a>
+
 
                
 
