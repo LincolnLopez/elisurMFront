@@ -90,7 +90,7 @@
                   <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th>COD_SOLICITUD </th>
+                        <th>COD_SOLICITUD</th>
                         <th>FECHA_SOLICITUD</th>
                         <th>NOMBRE</th>
                         <th>APELLIDO</th>

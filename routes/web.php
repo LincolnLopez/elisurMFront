@@ -50,25 +50,25 @@ Route::get('/', function () {
 
 
 
-Route::resource('/personas', PersonasController::class); 
-Route::resource('/roles', RolesController::class); 
-Route::resource('/bitacora_admin', BitacoraController::class);
-Route::resource('/bitacora_cliente', BitacoraClienteController::class);
+Route::resource('/personas', PersonasController::class)-> middleware ('auth'); 
+Route::resource('/roles', RolesController::class)-> middleware ('auth'); 
+Route::resource('/bitacora_admin', BitacoraController::class)-> middleware ('auth');
+Route::resource('/bitacora_cliente', BitacoraClienteController::class)-> middleware ('auth');
 Route::resource('/cotizacion', CotizacionController::class);
-Route::resource('/encuesta', EncuestaController::class);
-Route::resource('/empleados', EmpleadosController::class);
-Route::resource('/falla', FallaController::class);
+Route::resource('/encuesta', EncuestaController::class)-> middleware ('auth');
+Route::resource('/empleados', EmpleadosController::class)-> middleware ('auth');
+Route::resource('/falla', FallaController::class)-> middleware ('auth');
 
-Route::resource('/inventarios', InventariosController::class);
-Route::resource('/inventarioH', InventarioHController::class);
-Route::resource('/presupuesto', PresupuestoController::class);
-Route::resource('/presupuesto_usuario', PresupuestoUsuarioController::class);
-Route::resource('/reporte', ReporteController::class);
-Route::resource('/ticket', TicketController::class);
-Route::resource('/ticket_empleado', TicketEmpleadoController::class);
-Route::resource('/clientes', ClientesController::class);
+Route::resource('/inventarios', InventariosController::class)-> middleware ('auth');
+Route::resource('/inventarioH', InventarioHController::class)-> middleware ('auth');
+Route::resource('/presupuesto', PresupuestoController::class)-> middleware ('auth');
+Route::resource('/presupuesto_usuario', PresupuestoUsuarioController::class)-> middleware ('auth');
+Route::resource('/reporte', ReporteController::class)-> middleware ('auth');
+Route::resource('/ticket', TicketController::class)-> middleware ('auth');
+Route::resource('/ticket_empleado', TicketEmpleadoController::class)-> middleware ('auth');
+Route::resource('/clientes', ClientesController::class)-> middleware ('auth');
 
-Route::resource('/articulos', ArticuloController::class);
+Route::resource('/articulos', ArticuloController::class)-> middleware ('auth');
 
 
 /*

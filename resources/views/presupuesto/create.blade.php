@@ -132,14 +132,14 @@
   <label>Servicio</label>
                   <select class="form-control" id="COD_SERVICIO" name="COD_SERVICIO" autofocus required>
                      <option value="" disabled selected>Selecciona nuestros servicios</option>
-                     <option value="1">Aire Acondicionado</option>
-                     <option value="2">Construcción</option>
-                     <option value="3">Electricidad</option>
-                     <option value="4">Monitoreo CCTV</option>
-                     <option value="5">Pintura</option>
-                     <option value="6">Planta Telefonica</option>
-                     <option value="7">Sistema de Seguridad</option>
-                     <option value="8">Tabla Yeso</option>
+                     <option value="1">1.Aire Acondicionado</option>
+                     <option value="2">2.Construcción</option>
+                     <option value="3">3.Electricidad</option>
+                     <option value="4">4.Monitoreo CCTV</option>
+                     <option value="5">5.Pintura</option>
+                     <option value="6">6.Planta Telefonica</option>
+                     <option value="7">7.Sistema de Seguridad</option>
+                     <option value="8">8.Tabla Yeso</option>
                   </select>
     </div>
 

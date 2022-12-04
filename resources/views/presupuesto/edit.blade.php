@@ -123,8 +123,6 @@
     <option value="6">Planta Telefonica</option>
     <option value="7">Sistema de Seguridad</option>
     <option value="8">Tabla Yeso</option> <option value="1">Aire Acondicionado</option>
-   <option value="2">Monitoreo CCTV</option>
-   <option value="3">Pintura</option>
   </select>
 </div>
 
@@ -138,11 +136,10 @@
   <label for="country">Estado</label>
   <select class="form-control" id="COD_ESTADO" name="COD_ESTADO" value="{{$presupuesto->cod_estado}}" autofocus required>
     <option value="" disabled selected>Selecciona nuestros servicios</option>
-  <option value="1">Nuevo</option>
-   <option value="2">Abierto CCTV</option>
-   <option value="3">Pendiente</option>
-   <option value="4">Resuelto</option>
-   <option value="5">Cancelado</option>
+  <option value="1">NUEVO</option>
+   <option value="2">EN PROCESO</option>
+   <option value="3">FINALIZADO</option>
+   <option value="4">CANCELADO</option>
   </select>
 </div>
 

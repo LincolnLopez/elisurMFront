@@ -15,22 +15,21 @@ class TicketController extends Controller
      */
     public function index()
     {
-            $ticke = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
+            $ticket = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
             ')->get('http://localhost:3000/fallas');
-            return view('ticket.index')->with('ticket',json_decode($ticke ));
+            return view('ticket.index')->with('tickets',json_decode($ticket ));
 
         
     }
 
-    /**
+     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('ticket.update');
-        //
+        return view('ticket.create');
     }
 
     /**
@@ -39,9 +38,13 @@ class TicketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+     //-----------------insert para cotizacion-solicitud 
+     public function store(Request $request)
     {
-        //
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->
+        post('http://localhost:3000/falla/insert',['COD_SERVICIO'=>$request->COD_SERVICIO,'NOMBRE'=>$request->NOMBRE,'TELEFONO'=>$request->TELEFONO,'CORREO_ELECTRONICO'=>$request->CORREO_ELECTRONICO,'TEMA'=>$request->TEMA,'DESCRIPCION'=>$request->DESCRIPCION,'UBICACION'=>$request->UBICACION]);
+        return redirect('/ticket');
     }
 
     /**
@@ -61,10 +64,10 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($COD_REPORTE_FALLA)
     {
-        //return view('ticket.update');
-        //
+        $ticket = DB ::table('tbl_reporte_fallas')->select('cod_reporte_falla','cod_servicio','nombre','telefono','correo_electronico','tema','descripcion','ubicacion','cod_estado')->where('cod_reporte_falla', '=', $COD_REPORTE_FALLA)->first();
+        return view('ticket.edit')->with('ticket',$ticket);
     }
 
     /**
@@ -74,10 +77,10 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        
-        //
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/falla_Update',['COD_REPORTE_FALLA'=>$request->COD_REPORTE_FALLA,'COD_SERVICIO'=>$request->COD_SERVICIO,'NOMBRE'=>$request->NOMBRE,'TELEFONO'=>$request->TELEFONO,'CORREO_ELECTRONICO'=>$request->CORREO_ELECTRONICO,'TEMA'=>$request->TEMA,'DESCRIPCION'=>$request->DESCRIPCION,'UBICACION'=>$request->UBICACION,'COD_ESTADO'=>$request->COD_ESTADO]);
+        return redirect('/ticket');
     }
 
     /**
@@ -88,8 +91,8 @@ class TicketController extends Controller
      */
     public function destroy($COD_REPORTE_FALLA)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/fallas/proceso',['COD_REPORTE_FALLA'=>$COD_REPORTE_FALLA]);
-        return redirect('/ticket_empleado');
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/fallas/delete',['COD_REPORTE_FALLA'=>$COD_REPORTE_FALLA]);
+        return redirect('/ticket');
 
       
     }
