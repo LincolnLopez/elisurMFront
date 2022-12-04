@@ -25,7 +25,7 @@ class FallaController extends Controller
      */
     public function create()
     {
-        //
+        return view('falla.create');
     }
 
     /**

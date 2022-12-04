@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <style>
         body {
             font-family: "Lato", sans-serif
@@ -229,22 +232,49 @@
             </header>
             <div class="w3-container">
 
-                <form action="/cotizacion" method="POST">
+                <form action="/cotizacion" name="form" method="POST" onsubmit="return validar();"
+                    autocomplete="off" class="was-validated">
                     @csrf
                     <div class="w3-container">
                         <h2>MULTISERVICIOS ELISUR</h2>
                     </div>
 
+                    <script>
+                        function soloLetras(e) {
+                            key = e.keyCode || e.which;
+                            tecla = String.fromCharCode(key).toLowerCase();
+                            letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+                            especiales = "8-37-39-46";
+
+                            tecla_especial = false
+                            for (var i in especiales) {
+                                if (key == especiales[i]) {
+                                    tecla_especial = true;
+                                    break;
+                                }
+                            }
+
+                            if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+                                return false;
+                            }
+                        }
+                    </script>
+
+
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                         <div class="w3-half">
                             <label>Nombres</label>
                             <input id="NOMBRE" name="NOMBRE" type="text" class="w3-input w3-border"
-                                tabindex="1" type="text" placeholder="Ingrese sus nombres">
+                                tabindex="1" placeholder="Ingrese sus nombres" maxlength="20" name="txt_nom"
+                                onkeyup="return unspaces()" onkeypress="return soloLetras(event)" autofocus required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">Por favor rellene este campo.</div>
                         </div>
                         <div class="w3-half">
                             <label>Apellidos</label>
                             <input id="APELLIDO" name="APELLIDO" type="text" class="w3-input w3-border"
-                                type="text" placeholder="Ingrese sus Apellidos">
+                                type="text" placeholder="Ingrese sus Apellidos" maxlength="20"
+                                onkeypress="return soloLetras(event)" autofocus required>
                         </div>
                     </div>
 
@@ -252,12 +282,12 @@
                         <div class="w3-half">
                             <label>Telefono</label>
                             <input id="TELEFONO" name="TELEFONO" type="number" class="w3-input w3-border"
-                                type="text" placeholder="9999-9999">
+                                type="text" placeholder="9999-9999" required>
                         </div>
                         <div class="w3-half">
                             <label>Telefono Opcional</label>
-                            <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text"
-                                class="w3-input w3-border" type="text" placeholder="9999-9999">
+                            <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" class="w3-input w3-border"
+                                type="number" placeholder="9999-9999">
                         </div>
                     </div>
 
@@ -265,11 +295,12 @@
                         <div class="w3-half">
                             <label>Correo Electrónico</label>
                             <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="text"
-                                class="w3-input w3-border" type="text" placeholder="trf@gmail.com">
+                                class="w3-input w3-border" type="email" placeholder="trf@gmail.com" required>
+
                         </div>
                         <div class="w3-half">
                             <label>Tipo Solicitante</label>
-                            <select class="w3-select" id="TIPO_SOLICITANTE" name="TIPO_SOLICITANTE">
+                            <select class="w3-select" id="TIPO_SOLICITANTE" name="TIPO_SOLICITANTE" required>
                                 <option value="" disabled selected>Seleccione el tipo:</option>
                                 <option value="1">EMPRESA</option>
                                 <option value="2">CASA</option>
@@ -280,20 +311,20 @@
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                         <div class="w3-half">
                             <label>Número de identidad</label>
-                            <input id="RTN_DNI" name="RTN_DNI" type="text" class="w3-input w3-border"
-                                type="text" placeholder="RTN en caso de ser Empresa - Sin guiones">
+                            <input id="RTN_DNI" name="RTN_DNI" type="number" class="w3-input w3-border"
+                                placeholder="RTN en caso de ser Empresa - Sin guiones" required>
                         </div>
                         <div class="w3-half">
-                            <label>Nombre de la Empresa</label>
+                            <label>Nombre Empresa/Colonia</label>
                             <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="w3-input w3-border"
-                                type="text" placeholder="De no ser empresa, dejar campo en blanco">
+                                placeholder="Ingrese Nombre" required>
                         </div>
                     </div>
 
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                         <div class="w3-half">
                             <label>Ciudad</label>
-                            <select class="w3-select" id="CIUDAD" name="CIUDAD">
+                            <select class="w3-select" id="CIUDAD" name="CIUDAD" required>
                                 <option value="" disabled selected>Selecciona una Ciudad:</option>
                                 <option value="Tegucigalpa">Tegucigalpa</option>
                                 <option value="San Pedro Sula">San Pedro Sula</option>
@@ -302,7 +333,7 @@
                         </div>
                         <div class="w3-half">
                             <label>Servicios</label>
-                            <select class="w3-select" id="COD_SERVICIO" name="COD_SERVICIO">
+                            <select class="w3-select" id="COD_SERVICIO" name="COD_SERVICIO" required>
                                 <option value="" disabled selected>Selecciona nuestros servicios</option>
                                 <option value="1">Aire Acondicionado</option>
                                 <option value="2">Monitoreo CCTV</option>
@@ -315,14 +346,14 @@
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                         <label>Dirección</label>
                         <input id="DIRECCION_SOLICITANTE" name="DIRECCION_SOLICITANTE" type="text"
-                            class="w3-input w3-border" type="text" placeholder="Colonia, #Casa, etc.">
+                            class="w3-input w3-border" placeholder="Colonia, #Casa, etc." required>
                     </div>
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
 
                         <label>Descripción de la Solicitud</label>
                         <input id="DESCRIPCION_SOLICITUD" name="DESCRIPCION_SOLICITUD" type="text"
-                            class="w3-input w3-border" type="text"
-                            placeholder="Ingrese una descripción detallada de la solicitud">
+                            class="w3-input w3-border" placeholder="Ingrese una descripción detallada de la solicitud"
+                            required>
                     </div>
 
                     <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">Enviar<i
