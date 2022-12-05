@@ -31,7 +31,7 @@
         <div class="card card-info">
           <div class="card-header">
             <h3><i class="fas fa-user-plus fa-1.4x">
-              </i>Usuarios</h3>
+              </i>Solicitudes</h3>
           </div>
           <div class="card-body">
             @if(Session::has('success'))
@@ -68,21 +68,21 @@
                   <table id="myTable" class="table table-striped table-bordered" cellspacing="40%" width="100%">
                     <thead>
                       <tr>
-                        <th>COD_SOLICITUD </th>
-                        <th>FECHA_SOLICITUD</th>
-                        <th>NOMBRE</th>
-                        <th>APELLIDO</th>
-                        <th>TELEFONO</th>
-                        <th>CORREO_ELECTRONICO</th>
-                        <th>TIPO_SOLICITANTE</th>
-                        <th>TELEFONO_OPCIONAL</th>
-                        <th>DIRECCION_SOLICITANTE</th>
-                        <th>NOMBRE_E_C</th>
-                        <th>RTN_DNI</th>
-                        <th>CIUDAD</th>
-                        <th>NOMBRE_SERVICIO</th>
-                        <th>DESCRIPCION_SOLICITUD</th>
-                        <th>NOMBRE_ESTADO</th>
+                        <th>Solicitud</th>
+                        <th>Fecha</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Telefono</th>
+                        <th>Correo Electronico</th>
+                        <th>Tipo Solicitante</th>
+                        <th>Telefono Opcional</th>
+                        <th>Dirección</th>
+                        <th>Nombre Empresa</th>
+                        <th>RTN/DNI</th>
+                        <th>Ciudad</th>
+                        <th>Servicio</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
 
 
                       </tr>

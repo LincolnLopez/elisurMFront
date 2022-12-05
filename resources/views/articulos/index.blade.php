@@ -61,14 +61,14 @@
                 <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                   <thead>
                     <tr>
-                      <th>COD_ARTICULO</th>
-                      <th>NOMBRE_ARTICULO</th>
-                      <th>DESCRIPCION_ARTICULO</th>
-                      <th>PRECIO_ARTICULO</th>
-                      <th>COD_CATEGORIA</th>
-                      <th>NOMBRE_CATEGORIA</th>
-                      <th>ESTADO_ARTICULO</th>
-                      <th>ACCIONES</th>
+                      <th>Código Articulo</th>
+                      <th>Nombre</th>
+                      <th>Descripción</th>
+                      <th>Precio</th>
+                      <th>Código Categoria</th>
+                      <th>Nombre Categoria</th>
+                      <th>Estado de Articulo</th>
+                      <th>Acciones</th>
                     </tr>
                   </thead>
 

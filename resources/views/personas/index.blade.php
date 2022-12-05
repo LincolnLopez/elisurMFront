@@ -93,15 +93,15 @@
                         <table id="myTable" class="table table-striped table-bordered" cellspacing="40%" width="100%">
                           <thead>
                             <tr>
-                              <th>COD_USUARIO</th>
-                              <th>NOMBRE_USUARIO</th>
-                              <th>CORREO_USUARIO</th>
-                              <th>PASSWORD_USUARIO</th>
-                              <th>FECHA_REGISTRO</th>
-                              <th>ESTADO_USUARIO</th>
-                              <th>COD_ROL</th>
-                              <th>NOMBRE_ROL</th>
-                              <th>ACCIONES</th>
+                              <th>Código Usuario</th>
+                              <th>Nombre</th>
+                              <th>Correo</th>
+                              <th>Contraseña</th>
+                              <th>Fecha Registro</th>
+                              <th>Estado</th>
+                              <th>Codigo Rol</th>
+                              <th>Rol</th>
+                              <th>Acciones</th>
                               
                             </tr>
                          

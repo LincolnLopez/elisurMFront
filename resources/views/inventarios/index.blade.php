@@ -90,14 +90,14 @@
                   <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                           <tr>
-                            <th>COD_INVENTARIO</th>
-                            <th>COD_ARTICULO</th>
-                            <th>NOMBRE_ARTICULO</th>
-                            <th>CANTIDAD_ARTICULO</th>
-                            <th>FECHA_REGISTRO</th>
-                            <th>FECHA_MODIFICACION</th>
-                            <th>ESTADO</th>
-                            <th>ACCIONES</th>
+                            <th>Código Inventario</th>
+                            <th>Código Articulo</th>
+                            <th>Nombre</th>
+                            <th>Cantidad</th>
+                            <th>Fecha Ingreso</th>
+                            <th>Fecha Modificación</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
                           </tr>
                        
                         </thead>

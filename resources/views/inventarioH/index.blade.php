@@ -90,15 +90,15 @@
                 <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th>COD_HERRAMIENTA</th>
-                        <th>NOMBRE_HERRAMIENTA</th>
-                        <th>DESCRIPCION_HERRAMIENTA</th>
-                        <th>NUM_EXISTENCIA</th>
-                        <th>FECHA_INGRESO</th>
-                        <th>FECHA_MODIFICACION</th>
-                        <th>NOMBRE_EMPLEADO</th>
-                        <th>ESTADO</th>
-                        <th>ACCIONES</th>
+                        <th>Código de Herramienta</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>No. Existencias</th>
+                        <th>Fecha Ingreso</th>
+                        <th>Fecha Modificación</th>
+                        <th>Empleado asignado</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
                       </tr>
                    
                     </thead>

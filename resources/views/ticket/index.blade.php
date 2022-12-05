@@ -93,16 +93,16 @@
                         <th>Reporte
                           Falla
                         </th>
-                        <th>cod_servicio</th>
-                        <th>NOMBRE</th>
-                        <th>TELEFONO</th>
-                        <th>CORREO_ELECTRONICO</th>
-                        <th>TEMA</th>
-                        <th>DESCRIPCION</th>
-                        <th>UBICACION</th>
-                        <th>FECHA_CREACION</th>
-                        <th>f.FECHA_MODIFICACION</th>
-                        <th>cod_estado</th>
+                        <th>Servicio</th>
+                        <th>Nombre</th>
+                        <th>Telefono</th>
+                        <th>Correo</th>
+                        <th>Tema</th>
+                        <th>Descripción</th>
+                        <th>Ubicación</th>
+                        <th>Fecha apertura</th>
+                        <th>Fecha en Proceso</th>
+                        <th>Estado</th>
                         <th>Acciones</th>
                       </tr>
                     </thead>

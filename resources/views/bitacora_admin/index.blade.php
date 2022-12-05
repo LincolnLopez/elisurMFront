@@ -56,7 +56,7 @@
         <div class="card card-info">
           <div class="card-header">
             <h3><i class="fas fa-tasks">
-              </i>+ Inventario Materia Prima</h3>
+              </i>+ Bitacora de Actividades realizadas en el sistema</h3>
           </div>
           <div class="card-body">
             @if(Session::has('success'))

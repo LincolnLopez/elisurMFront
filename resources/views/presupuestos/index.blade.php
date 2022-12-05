@@ -68,18 +68,18 @@
                         <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                          <thead>
                            <tr>
-                             <th>COD_SOLICITUD </th>
-                             <th>FECHA_SOLICITUD</th>
-                             <th>NOMBRE_SOLICITANTE</th>
-                             <th>TELEFONO</th>
-                             <th>CORREO_ELECTRONICO</th>
-                             <th>TIPO_SOLICITANTE</th>
-                             <th>TELEFONO_OPCIONAL</th>
-                             <th>DIRECCION_SOLICITANTE</th>
-                             <th>CIUDAD</th>
-                             <th>nombre_servicio</th>
-                             <th>DESCRIPCION_SOLICITUD</th>
-                             <th>nombre_estado</th>
+                             <th>Solicitud </th>
+                             <th>Fecha</th>
+                             <th>Nombre</th>
+                             <th>Telefono</th>
+                             <th>Electronico</th>
+                             <th>Tipo Solicitante</th>
+                             <th>Telefono Opcional</th>
+                             <th>Dirección</th>
+                             <th>Ciudad</th>
+                             <th>Servicio</th>
+                             <th>Descripción</th>
+                             <th>Estado</th>
                            </tr>
                         
                          </thead>

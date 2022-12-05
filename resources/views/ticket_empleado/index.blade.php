@@ -56,7 +56,7 @@
         <div class="card card-info">
           <div class="card-header">
             <h3><i class="fas fa-tasks">
-              </i>+ Area de Presupuesto</h3>
+              </i>+ Area de Ticket</h3>
           </div>
           <div class="card-body">
             @if(Session::has('success'))
@@ -90,18 +90,18 @@
                   <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th>COD_REPORTE_FALLA</th>
-                        <th>cod_servicio</th>
-                        <th>NOMBRE</th>
-                        <th>TELEFONO</th>
-                        <th>CORREO_ELECTRONICO</th>
-                        <th>TEMA</th>
-                        <th>DESCRIPCION</th>
-                        <th>UBICACION</th>
-                        <th>FECHA_CREACION</th>
-                        <th>f.FECHA_MODIFICACION</th>
-                        <th>nombre_estado</th>
-                        <th>ACCIONES</th>
+                        <th>Numero de Reporte</th>
+                        <th>Servicio</th>
+                        <th>Nombre</th>
+                        <th>Telefono</th>
+                        <th>Correo</th>
+                        <th>Tema</th>
+                        <th>Descripción</th>
+                        <th>Ubicación</th>
+                        <th>Fecha apertura</th>
+                        <th>Fecha en Proceso</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
                       </tr>
                     </thead>
 
