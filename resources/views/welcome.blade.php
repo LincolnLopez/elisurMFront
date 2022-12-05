@@ -282,12 +282,12 @@
                         <div class="w3-half">
                             <label>Telefono</label>
                             <input id="TELEFONO" name="TELEFONO" type="number" class="w3-input w3-border"
-                                type="text" placeholder="9999-9999" required>
+                                type="text" placeholder="9999-9999" minlength="8" maxlength="13" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+">
                         </div>
                         <div class="w3-half">
                             <label>Telefono Opcional</label>
                             <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" class="w3-input w3-border"
-                                type="number" placeholder="9999-9999">
+                                type="number" placeholder="9999-9999" minlength="8" maxlength="13" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+">
                         </div>
                     </div>
 
@@ -312,7 +312,7 @@
                         <div class="w3-half">
                             <label>Número de identidad</label>
                             <input id="RTN_DNI" name="RTN_DNI" type="number" class="w3-input w3-border"
-                                placeholder="RTN en caso de ser Empresa - Sin guiones" required>
+                                placeholder="RTN en caso de ser Empresa - Sin guiones" minlength="9" maxlength="14" autocomplete="off" autofocus="on" autofocus required>
                         </div>
                         <div class="w3-half">
                             <label>Nombre Empresa/Colonia</label>
@@ -335,9 +335,14 @@
                             <label>Servicios</label>
                             <select class="w3-select" id="COD_SERVICIO" name="COD_SERVICIO" required>
                                 <option value="" disabled selected>Selecciona nuestros servicios</option>
-                                <option value="1">Aire Acondicionado</option>
-                                <option value="2">Monitoreo CCTV</option>
-                                <option value="3">Pintura</option>
+                                <option value="1">1.Aire Acondicionado</option>
+                                <option value="2">2.Construcción</option>
+                                <option value="3">3.Electricidad</option>
+                                <option value="4">4.Monitoreo CCTV</option>
+                                <option value="5">5.Pintura</option>
+                                <option value="6">6.Planta Telefonica</option>
+                                <option value="7">7.Sistema de Seguridad</option>
+                                <option value="8">8.Tabla Yeso</option>
                             </select>
                         </div>
                     </div>
