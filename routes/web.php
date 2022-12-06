@@ -5,6 +5,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\PersonasController;
 use App\Http\Controllers\ArticuloController;
@@ -49,48 +50,32 @@ Route::get('/', function () {
 });
 
 
-
-Route::resource('/personas', PersonasController::class)-> middleware ('auth'); 
-Route::resource('/roles', RolesController::class)-> middleware ('auth'); 
-Route::resource('/bitacora_admin', BitacoraController::class)-> middleware ('auth');
-Route::resource('/bitacora_cliente', BitacoraClienteController::class)-> middleware ('auth');
-Route::resource('/cotizacion', CotizacionController::class);
-Route::resource('/encuesta', EncuestaController::class)-> middleware ('auth');
-Route::resource('/empleados', EmpleadosController::class)-> middleware ('auth');
-Route::resource('/falla', FallaController::class)-> middleware ('auth');
-
-Route::resource('/inventarios', InventariosController::class)-> middleware ('auth');
-Route::resource('/inventarioH', InventarioHController::class)-> middleware ('auth');
-Route::resource('/presupuesto', PresupuestoController::class)-> middleware ('auth');
-Route::resource('/presupuesto_usuario', PresupuestoUsuarioController::class)-> middleware ('auth');
-Route::resource('/reporte', ReporteController::class)-> middleware ('auth');
-Route::resource('/ticket', TicketController::class)-> middleware ('auth');
-Route::resource('/ticket_empleado', TicketEmpleadoController::class)-> middleware ('auth');
-Route::resource('/clientes', ClientesController::class)-> middleware ('auth');
-
-Route::resource('/articulos', ArticuloController::class)-> middleware ('auth');
-
-
-/*
-Route::view('/cotizacion','cotizacion')->name('cotizacion')->middleware('auth');
-Route::view('/personas','personas')->name('personas')->middleware('auth');
-Route::view('/bitacora_admin','bitacora_admin')->name('bitacora_admin')->middleware('auth');
-Route::view('/bitacora_cliente','bitacora_cliente')->name('bitacora_cliente')->middleware('auth');
-
-Route::view('/encuesta','encuesta')->name('encuesta')->middleware('auth');
-Route::view('/empleados','empleados')->name('empleados')->middleware('auth');
-Route::view('/falla','falla')->name('falla')->middleware('auth');
+//y creamos un grupo de rutas protegidas para los controladores
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles', RolesController::class);
+    Route::resource('usuarios', UsuarioController::class);
+    Route::resource('bitacora_admin', BitacoraController::class);
+    Route::resource('bitacora_cliente', BitacoraClienteController::class);
+    Route::resource('encuesta', EncuestaController::class);
+    Route::resource('empleados', EmpleadosController::class);
+    Route::resource('falla', FallaController::class);
+    Route::resource('inventarios', InventariosController::class);
+    Route::resource('inventarioH', InventarioHController::class);
+    Route::resource('presupuesto', PresupuestoController::class);
+    Route::resource('presupuesto_usuario', PresupuestoUsuarioController::class);
+    Route::resource('reporte', ReporteController::class);
+    Route::resource('ticket', TicketController::class);
+    Route::resource('ticket_empleado', TicketEmpleadoController::class);
+    Route::resource('clientes', ClientesController::class);
+    Route::resource('articulos', ArticuloController::class);
+    
+});
 
 
-Route::view('/inventarios','inventarios')->name('inventarios')->middleware('auth');
-Route::view('/inventarioH','inventarioH')->name('inventarioH')->middleware('auth');
-Route::view('/presupuesto','presupuesto')->name('presupuesto')->middleware('auth');
 
-Route::view('/presupuesto_usuario','presupuesto_usuario')->name('presupuesto_usuario')->middleware('auth');
-Route::view('/reporte','reporte')->name('reporte')->middleware('auth');
-Route::view('/ticket','ticket')->name('ticket')->middleware('auth');
-Route::view('/ticket_empleado','ticket_empleado')->name('ticket_empleado')->middleware('auth');
-Route::view('/clientes','clientes')->name('clientes')->middleware('auth');
-Route::view('/articulos','articulos')->name('articulos')->middleware('auth');*/
+Route::resource('cotizacion', CotizacionController::class);
+
+
+
 
 

@@ -4,8 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//agregamos
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 class ReporteController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:ver-reportes|crear-reportes|editar-reportes|borrar-reportes', ['only' => ['index']]);
+         $this->middleware('permission:crear-reportes', ['only' => ['create','store']]);
+         
+    }
     /**
      * Display a listing of the resource.
      *

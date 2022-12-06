@@ -5,9 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+//agregamos
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class ArticuloController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:ver-articulo|crear-articulo|editar-articulo|borrar-articulo', ['only' => ['index']]);
+         $this->middleware('permission:crear-articulo', ['only' => ['create','store']]);
+         $this->middleware('permission:editar-articulo', ['only' => ['edit','update']]);
+         $this->middleware('permission:borrar-articulo', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

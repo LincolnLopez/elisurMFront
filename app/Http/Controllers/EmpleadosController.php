@@ -6,9 +6,33 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
+//agregamos
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
+namespace App\Http\Controllers;
+
+
+//agregamos lo siguiente
+use App\Http\Controllers\Controller;
+use App\Models\User;
+
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Arr;
+
 
 class EmpleadosController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:ver-empleados|crear-empleados|editar-empleados|borrar-empleados', ['only' => ['index']]);
+         $this->middleware('permission:crear-empleados', ['only' => ['create','store']]);
+         $this->middleware('permission:editar-empleados', ['only' => ['edit','update']]);
+         $this->middleware('permission:borrar-empleados', ['only' => ['destroy']]);
+    }
+
+
+    
     /**
      * Display a listing of the resource.
      *

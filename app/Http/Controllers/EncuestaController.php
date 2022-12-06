@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Http;
 
 class EncuestaController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:ver-encuesta|crear-encuesta|editar-encuesta|borrar-encuesta', ['only' => ['index']]);
+         $this->middleware('permission:crear-encuesta', ['only' => ['create','store']]);
+         $this->middleware('permission:editar-encuesta', ['only' => ['edit','update']]);
+    }
     /**
      * Display a listing of the resource.
      *

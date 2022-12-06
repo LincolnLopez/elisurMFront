@@ -321,8 +321,8 @@ return [
             'icon_color' => 'info',
             'submenu' => [
                 [
-                    'text' =>'Personas',
-                    'url' =>'personas',
+                    'text' =>'Usuarios',
+                    'url' =>'usuarios',
                     'icon'=>'fas fa-user-friends'
                 ],
                 [

@@ -5,9 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+//agregamos
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class PresupuestoUsuarioController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:ver-presupuestoUsuario|crear-presupuestoUsuario|editar-presupuestoUsuario|borrar-presupuestoUsuario', ['only' => ['index']]);
+         $this->middleware('permission:crear-presupuestoUsuario', ['only' => ['create','store']]);
+         $this->middleware('permission:editar-presupuestoUsuario', ['only' => ['edit','update']]);
+         $this->middleware('permission:borrar-presupuestoUsuario', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

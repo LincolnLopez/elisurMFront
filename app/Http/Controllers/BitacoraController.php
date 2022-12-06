@@ -6,8 +6,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
+//agregamos
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 class BitacoraController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:ver-bitacora|crear-bitacora|editar-bitacora|borrar-bitacora', ['only' => ['index']]);
+        
+    }
     /**
      * Display a listing of the resource.
      *

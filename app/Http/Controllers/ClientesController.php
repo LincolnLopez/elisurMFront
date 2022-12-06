@@ -2,12 +2,28 @@
 
 namespace App\Http\Controllers;
 
+
+
+
+
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+//agregamos
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class ClientesController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:ver-clientes|crear-clientes|editar-clientes|borrar-clientes', ['only' => ['index']]);
+         $this->middleware('permission:crear-clientes', ['only' => ['create','store']]);
+         $this->middleware('permission:editar-clientes', ['only' => ['edit','update']]);
+         $this->middleware('permission:borrar-clientes', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

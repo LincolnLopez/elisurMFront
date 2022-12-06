@@ -3,8 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+//agregamos lo siguiente
+use App\Http\Controllers\Controller;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Arr;
 
 class PersonasController extends Controller
 {
@@ -13,22 +19,17 @@ class PersonasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $personas = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps
-        ')->get('http://localhost:3000/usuarios');
-        return view('personas.index')->with('personas',json_decode($personas));
+    public function index(Request $request)
+    {      
+        //Sin paginación
+        /* $usuarios = User::all();
+        return view('usuarios.index',compact('usuarios')); */
 
-        // === PARA LLENAR LA TABLA Personas ===
-        /* $response = HTTP::get('http://localhost:3000/personas');
-        $usuarios = $response->json();
+        //Con paginación
+        $usuarios = User::paginate(5);
+        return view('usuarios.index',compact('usuarios'));
 
-        return view('personas.index', compact('usuarios'));
-
-        $response = Http::get('http://localhost:3000/personas');
-        return $response->json();
-        return $response->ok();
-        return view('personas.index')->with('usuarios', json_decode($response,true));*/
+        //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $usuarios->links() !!}
     }
 
     /**
@@ -38,11 +39,9 @@ class PersonasController extends Controller
      */
     public function create()
     {
-        
-        //=== LLAMAR EL FORMULARIO CREATE ===
-        return view('personas.create');
-
-
+        //aqui trabajamos con name de las tablas de users
+        $roles = Role::pluck('name','name')->all();
+        return view('usuarios.crear',compact('roles'));
     }
 
     /**
@@ -51,11 +50,22 @@ class PersonasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //----------------INSERT USUARIO
     public function store(Request $request)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/insert_usuarios',['NOMBRE_USUARIO'=>$request->NOMBRE_USUARIO,'CORREO_USUARIO'=>$request->CORREO_USUARIO,'PASSWORD_USUARIO'=>$request->PASSWORD_USUARIO,'COD_ROL'=>$request->ROL]);
-        return redirect('/personas');
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|same:confirm-password',
+            'roles' => 'required'
+        ]);
+    
+        $input = $request->all();
+        $input['password'] = Hash::make($input['password']);
+    
+        $user = User::create($input);
+        $user->assignRole($request->input('roles'));
+    
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -75,11 +85,15 @@ class PersonasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($cod_usuario)
+    public function edit($id)
     {
-        $persona = DB ::table('tbl_usuarios')->select('cod_usuario','nombre_usuario','correo_usuario','password_usuario','cod_rol')->where('cod_usuario', '=', $cod_usuario)->first();
-        return view('personas.edit')->with('persona',$persona);
+        $user = User::find($id);
+        $roles = Role::pluck('name','name')->all();
+        $userRole = $user->roles->pluck('name','name')->all();
+    
+        return view('usuarios.editar',compact('user','roles','userRole'));
     }
+    
 
     /**
      * Update the specified resource in storage.
@@ -88,10 +102,29 @@ class PersonasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/actualizar_usuarios',['COD_USUARIO'=>$request->COD_USUARIO,'NOMBRE_USUARIO'=>$request->NOMBRE_USUARIO,'CORREO_USUARIO'=>$request->CORREO_USUARIO,'PASSWORD_USUARIO'=>$request->PASSWORD_USUARIO,'COD_ROL'=>$request->ROL]);
-        return redirect('/personas');
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,'.$id,
+            'password' => 'same:confirm-password',
+            'roles' => 'required'
+        ]);
+    
+        $input = $request->all();
+        if(!empty($input['password'])){ 
+            $input['password'] = Hash::make($input['password']);
+        }else{
+            $input = Arr::except($input,array('password'));    
+        }
+    
+        $user = User::find($id);
+        $user->update($input);
+        DB::table('model_has_roles')->where('model_id',$id)->delete();
+    
+        $user->assignRole($request->input('roles'));
+    
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -100,9 +133,9 @@ class PersonasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($cod_usuario)
+    public function destroy($id)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->delete('http://localhost:3000/eliminar_usuario',['COD_USUARIO'=>$cod_usuario]);
-        return redirect('/personas');
+        User::find($id)->delete();
+        return redirect()->route('usuarios.index');
     }
 }

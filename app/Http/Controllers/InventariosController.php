@@ -6,8 +6,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
+//agregamos
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 class InventariosController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:ver-inventarios|crear-inventarios|editar-inventarios|borrar-inventarios', ['only' => ['index']]);
+         $this->middleware('permission:crear-inventarios', ['only' => ['create','store']]);
+         $this->middleware('permission:editar-inventarios', ['only' => ['edit','update']]);
+         $this->middleware('permission:borrar-inventarios', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

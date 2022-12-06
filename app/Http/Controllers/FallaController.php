@@ -4,9 +4,19 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
+//agregamos
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class FallaController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:ver-Solicitudes_cliente|crear-Solicitudes_cliente|editar-Solicitudes_cliente|borrar-Solicitudes_cliente', ['only' => ['index']]);
+         $this->middleware('permission:crear-Solicitudes_cliente', ['only' => ['create','store']]);
+         
+    }
     /**
      * Display a listing of the resource.
      *

@@ -5,8 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+//agregamos
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 class TicketEmpleadoController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:ver-bolsatrabajoEmpleado|crear-bolsatrabajoEmpleado|editar-bolsatrabajoEmpleado|borrar-bolsatrabajoEmpleado', ['only' => ['index']]);
+         $this->middleware('permission:crear-bolsatrabajoEmpleado', ['only' => ['create','store']]);
+         $this->middleware('permission:editar-bolsatrabajoEmpleado', ['only' => ['edit','update']]);
+         $this->middleware('permission:borrar-bolsatrabajoEmpleado', ['only' => ['destroy']]);
+    }
+
+   
+
+    
     /**
      * Display a listing of the resource.
      *
