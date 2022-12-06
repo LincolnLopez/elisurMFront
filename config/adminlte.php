@@ -284,7 +284,8 @@ return [
             'icon_color'=>'info',
             
         ],
-        ['header' => 'Menu Administrador'],
+        ['header' => 'Menu Administrador',
+        'can' => 'ver-usuario',],
 
 
        /* ['text'=>'Administracion de  Usuario',
@@ -319,21 +320,25 @@ return [
             'url'  => 'personas',
             'icon'=>'far fa-fw fas fa-user-friends',
             'icon_color' => 'info',
+            'can' => 'ver-usuario',
             'submenu' => [
                 [
                     'text' =>'Usuarios',
                     'url' =>'usuarios',
-                    'icon'=>'fas fa-user-friends'
+                    'icon'=>'fas fa-user-friends',
+                    'can' => 'ver-usuario'
                 ],
                 [
                     'text' =>'Empleados',
                     'url' =>'empleados',
-                    'icon'=>'fas fa-user-friends'
+                    'icon'=>'fas fa-user-friends',
+                    'can' => 'ver-empleados'
                 ],
                 [
                     'text' =>'Clientes',
                     'url' =>'clientes',
-                    'icon'=>'fas fa-user-plus'
+                    'icon'=>'fas fa-user-plus',
+                    'can' => 'ver-clientes'
                 ],
 
             ],
@@ -343,6 +348,7 @@ return [
             'icon'=>'far fa-fw  fas fa-chart-line',
             'icon_color' => 'info',
             'url'        => 'roles',
+            'can' => 'ver-rol',
         ],
 
         [
@@ -350,21 +356,25 @@ return [
             'icon'=>'far fa-fw fas fas fa-dolly',
             'icon_color' => 'info',
             'url'        => 'inventario',
+            'can' => 'ver-inventarios',
             'submenu' => [
                 [
                     'text' =>'Articulos',
                     'url' =>'articulos',
-                    'icon'=>'far fa-fw fas fas fa-boxes'
+                    'icon'=>'far fa-fw fas fas fa-boxes',
+                    'can' => 'ver-articulo'
                 ],
                 [
                     'text' =>'Inventario Materia Prima',
                     'url' =>'inventarios',
-                    'icon'=>'far fa-fw fas fas fa-boxes'
+                    'icon'=>'far fa-fw fas fas fa-boxes',
+                    'can' => 'ver-inventarios'
                 ],
                 [
                     'text' =>'Inventario Herramientas',
                     'url' =>'inventarioH',
-                    'icon'=>'far fa-fw fas fas fa-tools'
+                    'icon'=>'far fa-fw fas fas fa-tools',
+                    'can' => 'ver-inventarioH'
                 ],
 
             ],
@@ -377,16 +387,19 @@ return [
             'icon'=>'far fa-fw fas fa-people-arrows',
             'icon_color' => 'info',
             'url'        => 'bolsa_trabajo_admin',
+            'can' => 'ver-ticket',
             'submenu' => [
                 [
                     'text' =>'Tickets',
                     'url' =>'ticket',
-                    'icon'=>'far fa-fw fas fas fa-id-card'
+                    'icon'=>'far fa-fw fas fas fa-id-card',
+                    'can' => 'ver-ticket'
                 ],
                 [
                     'text' =>'Presupuesto',
                     'url' =>'presupuesto',
-                    'icon'=>'far fa-fw fas fas fa-money-check-alt'
+                    'icon'=>'far fa-fw fas fas fa-money-check-alt',
+                    'can' => 'ver-presupuesto'
                 ],
 
             ],
@@ -396,6 +409,7 @@ return [
             'icon'=>'far fa-fw fas fas fa-percent',
             'icon_color' => 'info',
             'url'        => 'reporte',
+            'can' => 'ver-reportes'
         ],
     
 
@@ -405,16 +419,19 @@ return [
             'url'  => 'bitacora_admin',
             'icon'=>'far fa-fw 	fas fa-file-invoice',
             'icon_color' => 'info',
+            'can' => 'ver-bitacora'
         ],
         
 
-    ['header' => 'Menu Cliente'],
+    ['header' => 'Menu Cliente',
+    'can' => 'ver-presupuestoUsuario'],
 
     [
         'text'       => 'Reportar falla',
         'icon'=>'far fa-fw fas fa-ban',
         'icon_color' => 'info',
         'url'        => 'falla',
+        'can' => 'ver-Solicitudes_cliente'
     ],
 
   
@@ -423,6 +440,7 @@ return [
         'icon'=>'far fa-fw  fas fa-chart-line',
         'icon_color' => 'info',
         'url'        => 'presupuesto_usuario',
+        'can' => 'ver-presupuestoUsuario'
     ],
 
 
@@ -431,6 +449,7 @@ return [
         'icon'=>'far fa-fw  fas fa-check-square',
         'icon_color' => 'info',
         'url'        => 'encuesta',
+        'can' => 'ver-encuesta'
 
     ],
 
@@ -440,15 +459,18 @@ return [
         'url'  => 'bitacora_cliente',
         'icon'=>'far fa-fw 	fas fa-file-invoice',
         'icon_color' => 'info',
+        'can' => 'ver-presupuestoUsuario'
     ],
 
-    ['header' => 'Menu Empleado'],
+    ['header' => 'Menu Empleado',
+    'can' => 'ver-bolsatrabajoEmpleado'],
 
     [
         'text'       => 'Bolsa de trabajo',
         'icon'=>'far fa-fw 	fas fas fa-calendar-check',
         'icon_color' => 'info',
         'url'        => 'ticket_empleado',
+        'can' => 'ver-bolsatrabajoEmpleado'
     ],
 
 
