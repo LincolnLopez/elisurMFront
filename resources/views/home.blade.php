@@ -11,8 +11,8 @@
 
 <script>
 Swal.fire(
-  'Inicio Secion Correctamente!',
-  'Haz clic en el boton!',
+  'Inicio Sesion Correctamente!',
+  'Bienvenido a Multiservicios Elisur',
   'success'
 )
 

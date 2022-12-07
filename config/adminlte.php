@@ -421,6 +421,13 @@ return [
             'icon_color' => 'info',
             'can' => 'ver-bitacora'
         ],
+        [
+            'text'       => 'Respaldo',
+            'icon'=>'far fa-fw fas fa-download',
+            'icon_color' => 'info',
+            'url'        => 'respaldos',
+            'can' => ''
+        ],
         
 
     ['header' => 'Menu Cliente',
