@@ -32,49 +32,71 @@
         <!-- /.card-header -->
         <div class="card-body">
           <div class="form-group">
-            <label> Fecha inicial:</label>
+            <label> Servidor Local:</label>
             <!--Codigo para la fecha-->
             <div class="row">
 
-              <x-adminlte-input name="fecha" id="fecha" type="date" fgroup-class="col-md-12" disable-feedback />
-
-            </div>
-
-            <!-- /.input group -->
-          </div>
-          <!-- /.card -->
-
-          <div class="form-group">
-            <label> Fecha final:</label>
-
-            <!--Codigo para la fecha-->
-            <div class="row">
-
-              <x-adminlte-input name="fecha" id="fecha" type="date" fgroup-class="col-md-12" disable-feedback />
+              <div class="form-group col-md-4">
+                <input type="text" class="form-control" id="inputZip">
+              </div>
 
             </div>
           </div>
-          <!-- /.card -->
           <form>
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Seleccionar reporte</label>
+              <label for="exampleFormControlSelect1"> Servidor Local:</label>
               <select class="form-control" id="exampleFormControlSelect1">
-                <option>Compras</option>
+                <option>McLovin</option>
                 <option>Ventas</option>
                 <option>Clientes nuevos</option>
                 <option>Fallas</option>
                 <option>Satisfaccion de servicios</option>
               </select>
+          <div class="form-group">
+            <label> Base de datos:</label>
+            <!--Codigo para la fecha-->
+            <div class="row">
+
+              <div class="form-group col-md-4">
+                <input type="text" class="form-control" id="inputZip">
+              </div>
+
+            </div>
+          </div>
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Base de datos:</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Elisur</option>
+                <option>Ventas</option>
+                <option>Clientes nuevos</option>
+                <option>Fallas</option>
+                <option>Satisfaccion de servicios</option>
+              </select>
+          <!-- /.card -->
+          <div class="form-group">
+            <label> Directorio:</label>
+            <!--Codigo para la fecha-->
+            <div class="row">
+
+              <div class="form-group col-md-4">
+                <input type="text" class="form-control" id="inputZip">
+              </div>
+
+            </div>
+            <button type="button" class="btn btn-primary btn-lg">Examinar</button>
+          </div>
+
+         
 
 
           </form>
 
         </div>
         <!-- /.card-body -->
-        <div class="btn-group">
-          <a href="vendor/adminlte/dist/documentos/reportegeneradop.pdf" class="btn btn-info" download="Reporte.pdf">PDF</a>
-          <a href="vendor/adminlte/dist/img/reportegenerado.xlsx" class="btn btn-info" download="Reporte.xlsx">Excel</a>
-
+        <div class>
+        <button type="button" class="btn btn-primary btn-lg">Restaurar</button>
+        <button type="button" class="btn btn-primary btn-lg">Salir</button>
         </div>
 
       </div>
