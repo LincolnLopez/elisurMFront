@@ -26,7 +26,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TicketEmpleadoController;
 use App\Http\Controllers\RespaldoController;
 
-
+use App\Http\Controllers\ReporteClientesController;
 
 
 
@@ -69,7 +69,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('ticket_empleado', TicketEmpleadoController::class);
     Route::resource('clientes', ClientesController::class);
     Route::resource('articulos', ArticuloController::class);
-    Route::resource('respaldos', RespaldoController::class);
+    Route::resource('/reporte_clientes',ReporteClientesController::class);
 });
 
 
