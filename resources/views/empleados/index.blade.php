@@ -58,17 +58,17 @@
                 <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                   <thead>
                     <tr>
-                      <th>COD_EMPLEADO</th>
-                      <th>DNI_EMPLEADO</th>
-                      <th>NOMBRE_EMPLEADO</th>
-                      <th>APELLIDOS_EMPLEADO</th>
-                      <th>SEXO_EMPLEADO</th>
-                      <th>ESTADO_CIVIL_EMPLEADO</th>
-                      <th>EDAD_EMPLEADO</th>
-                      <th>TELEFONO_EMPLEADO</th>
-                      <th>CORREO_EMPLEADO</th>
-                      <th>ESTADO_EMPLEADO</th>
-                      <th>ACCIONES</th>
+                      <th>Código Empleado</th>
+                      <th>DNI</th>
+                      <th>Nombre</th>
+                      <th>Apellidos</th>
+                      <th>Sexo</th>
+                      <th>Estado Civil</th>
+                      <th>Edad</th>
+                      <th>Telefono</th>
+                      <th>Correo</th>
+                      <th>Estado</th>
+                      <th>Acciones</th>
                     </tr>
                   </thead>
                   <tbody>

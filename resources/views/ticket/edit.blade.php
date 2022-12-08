@@ -105,8 +105,8 @@ e.value = (valor.indexOf(".") >= 0) ? (valor.substr(0, valor.indexOf(".")) + val
     
   <div>
     <label for="country">COD_SERVICIO</label>
-    <select class="form-control" id="COD_SERVICIO" name="COD_SERVICIO" value="{{$ticket->cod_servicio}}" autofocus required>
-      <option value="" disabled selected>Selecciona nuestros servicios</option>
+    <select class="form-control" id="COD_SERVICIO" name="COD_SERVICIO" value="{{$ticket->cod_servicio}}" >
+      <option value="{{$ticket->cod_servicio}}" >Selecciona nuestros servicios</option>
       <option value="1">Aire Acondicionado</option>
       <option value="2">Construcción</option>
       <option value="3">Electricidad</option>
@@ -153,15 +153,18 @@ e.value = (valor.indexOf(".") >= 0) ? (valor.substr(0, valor.indexOf(".")) + val
 
   <div>
     <label for="country">COD_ESTADO</label>
-    <select class="form-control" id="COD_ESTADO" name="COD_ESTADO" value="{{$ticket->cod_estado}}" autofocus required>
-      <option value="" disabled selected>Selecciona nuestros servicios</option>
+    <select class="form-control" id="COD_ESTADO" name="COD_ESTADO" value="{{$ticket->cod_estado}}" >
+      <option value="{{$ticket->cod_estado}}" >Selecciona nuestros servicios</option>
       <option value="1">NUEVO</option>
       <option value="2">EN PROCESO</option>
       <option value="3">FINALIZADO</option>
       <option value="4">CANCELADO</option>
     </select>
   </div>
-  
+  <div class="mb-3">
+    <label for="" class="form-label">nombre_empleado</label>
+    <input id="NOMBRE_EMPLEADO" name="NOMBRE_EMPLEADO" type="text" class="form-control"  value="{{$ticket->nombre_empleado}}" required>    
+  </div>
 
   <a href="/ticket" class="btn btn-secondary" tabindex="5">Cancelar</a>
   <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>

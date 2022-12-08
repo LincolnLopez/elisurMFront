@@ -69,9 +69,10 @@ post('http://localhost:3000/falla/insert',['COD_SERVICIO'=>$request->COD_SERVICI
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($COD_REPORTE_FALLA)
     {
-        //
+        $ticket = DB ::table('tbl_reporte_fallas')->select('cod_reporte_falla','cod_servicio','nombre','telefono','correo_electronico','tema','descripcion','ubicacion','cod_estado','nombre_empleado')->where('cod_reporte_falla', '=', $COD_REPORTE_FALLA)->first();
+        return view('ticket.update')->with('ticket',$ticket);
     }
 
     /**

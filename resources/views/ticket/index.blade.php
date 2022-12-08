@@ -87,9 +87,9 @@
                 <div class="card card-info card-tabs">
 
                   </br>
-                  <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%" >
+                  <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
-                    <tr>
+                      <tr>
                         <th>Reporte
                           Falla
                         </th>
@@ -103,13 +103,14 @@
                         <th>Fecha apertura</th>
                         <th>Fecha en Proceso</th>
                         <th>Estado</th>
+                        <th>Nombre Empleado</th>
                         <th>Acciones</th>
                       </tr>
                     </thead>
 
                     <tbody>
-                    @foreach($tickets as $ticket)
-                    <tr>
+                      @foreach($tickets as $ticket)
+                      <tr>
                         <td>{{$ticket->COD_REPORTE_FALLA}} </td>
                         <td>{{$ticket->cod_servicio}}</td>
                         <td>{{$ticket->NOMBRE}}</td>
@@ -121,13 +122,32 @@
                         <td>{{$ticket->FECHA_CREACION}}</td>
                         <td>{{$ticket->FECHA_MODIFICACION}}</td>
                         <td>{{$ticket->cod_estado}}</td>
+                        <td>{{$ticket->nombre_empleado}}</td>
                         <td>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                           <form action="{{ route('ticket.destroy',$ticket->COD_REPORTE_FALLA) }}" method="POST">
-                            <a href="/ticket/{{$ticket->COD_REPORTE_FALLA}}/edit" class="btn btn-info">Editar</a>
+                            <a href="/falla/{{$ticket->COD_REPORTE_FALLA}}/edit" class="btn btn-primary">Asignar</a>
+                            @csrf
+
+                          </form>
+
+                          <form action="{{ route('ticket.destroy',$ticket->COD_REPORTE_FALLA) }}" method="POST">
+                            <a href="/ticket/{{$ticket->COD_REPORTE_FALLA}}/edit" class="btn btn-success">Editar</a>
                             @csrf
                             @method('DELETE')
+
+                            
+
                             <button type="submit" class="btn btn-danger">Delete</button>
+
+                           
+
+
                           </form>
+
+
+                          </div>
+
                         </td>
                       </tr>
                       @endforeach
@@ -141,7 +161,7 @@
                 <a href="{{ route('ticket.create') }}" class="btn btn-success">Registrar</a>
 
 
-               
+
 
 
 

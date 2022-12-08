@@ -78,9 +78,14 @@ class TicketController extends Controller
      */
     public function edit($COD_REPORTE_FALLA)
     {
-        $ticket = DB ::table('tbl_reporte_fallas')->select('cod_reporte_falla','cod_servicio','nombre','telefono','correo_electronico','tema','descripcion','ubicacion','cod_estado')->where('cod_reporte_falla', '=', $COD_REPORTE_FALLA)->first();
+        $ticket = DB ::table('tbl_reporte_fallas')->select('cod_reporte_falla','cod_servicio','nombre','telefono','correo_electronico','tema','descripcion','ubicacion','cod_estado','nombre_empleado')->where('cod_reporte_falla', '=', $COD_REPORTE_FALLA)->first();
         return view('ticket.edit')->with('ticket',$ticket);
     }
+
+
+
+
+
 
     /**
      * Update the specified resource in storage.
@@ -91,7 +96,7 @@ class TicketController extends Controller
      */
     public function update(Request $request)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/falla_Update',['COD_REPORTE_FALLA'=>$request->COD_REPORTE_FALLA,'COD_SERVICIO'=>$request->COD_SERVICIO,'NOMBRE'=>$request->NOMBRE,'TELEFONO'=>$request->TELEFONO,'CORREO_ELECTRONICO'=>$request->CORREO_ELECTRONICO,'TEMA'=>$request->TEMA,'DESCRIPCION'=>$request->DESCRIPCION,'UBICACION'=>$request->UBICACION,'COD_ESTADO'=>$request->COD_ESTADO]);
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/falla_Update',['COD_REPORTE_FALLA'=>$request->COD_REPORTE_FALLA,'COD_SERVICIO'=>$request->COD_SERVICIO,'NOMBRE'=>$request->NOMBRE,'TELEFONO'=>$request->TELEFONO,'CORREO_ELECTRONICO'=>$request->CORREO_ELECTRONICO,'TEMA'=>$request->TEMA,'DESCRIPCION'=>$request->DESCRIPCION,'UBICACION'=>$request->UBICACION,'COD_ESTADO'=>$request->COD_ESTADO,'NOMBRE_EMPLEADO'=>$request->NOMBRE_EMPLEADO]);
         return redirect('/ticket');
     }
 

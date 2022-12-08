@@ -62,9 +62,9 @@
                         <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="10" width="100%">
                           <thead>
                             <tr>
-                                <th>COD_CLIENTE</th>
-                                <th>DNI_CLIENTE</th>
-                                <th>NOMBRE_CLIENTE</th>
+                                <th>Código empleado</th>
+                                <th>DNI</th>
+                                <th>Nombre</th>
                                 <th>APELLIDOS_CLIENTE</th>
                                 <th>DIRECCION_CLIENTE</th>
                                 <th>RTN_CLIENTE</th>
