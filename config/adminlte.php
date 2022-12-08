@@ -425,7 +425,7 @@ return [
             'text'       => 'Respaldo',
             'icon'=>'far fa-fw fas fa-download',
             'icon_color' => 'info',
-            'url'        => 'respaldos',
+            'url'        => '/backup_restore',
             'can' => 'ver-usuario'
         ],
         

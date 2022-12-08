@@ -77,6 +77,16 @@ Route::group(['middleware' => ['auth']], function() {
 Route::resource('cotizacion', CotizacionController::class);
 
 
+//____________________BACKUP BASE DE DATOS____________________________________
+
+Route::get('/backup_restore', function () {
+
+    return view('backupddbb.index');
+  
+  
+  })-> middleware ('auth');
+
+
 
 
 
