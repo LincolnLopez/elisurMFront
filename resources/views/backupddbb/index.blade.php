@@ -129,10 +129,10 @@ Realizar copia de seguridad
 				                }else{
 								echo '<tr>';
 									echo '<td><label>'.$nombrearchivo.'<label></td>';
-				                   echo '<td><a class="btn btn-primary" href="./Restore.php?restorePoint='.$ruta_completa.'"><i class="fas fa-undo"></i></a>';
+				                 echo '<td><a class=></></a>';
 									echo '&nbsp;&nbsp;<a class="btn btn-danger" href="./eliminar_backup.php?id='.$ruta_completa.'"><i class="fas fa-times"></i></a>';
 									echo '</td>';
-									echo '</tr>';
+									echo '</td>';
 
 									}
 				            }
