@@ -57,7 +57,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('bitacora_admin', BitacoraController::class);
     Route::resource('bitacora_cliente', BitacoraClienteController::class);
     Route::resource('encuesta', EncuestaController::class);
-    Route::resource('empleados', EmpleadosController::class);
+    
     Route::resource('falla', FallaController::class);
     Route::resource('inventarios', InventariosController::class);
     Route::resource('inventarioH', InventarioHController::class);
@@ -65,6 +65,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('presupuesto_usuario', PresupuestoUsuarioController::class);
     Route::resource('reporte', ReporteController::class);
     Route::resource('ticket', TicketController::class);
+    Route::resource('empleados', EmpleadosController::class);
     Route::resource('ticket_empleado', TicketEmpleadoController::class);
     Route::resource('clientes', ClientesController::class);
     Route::resource('articulos', ArticuloController::class);
