@@ -426,7 +426,7 @@ return [
             'icon'=>'far fa-fw fas fa-download',
             'icon_color' => 'info',
             'url'        => 'respaldos',
-            'can' => ''
+            'can' => 'ver-usuario'
         ],
         
 

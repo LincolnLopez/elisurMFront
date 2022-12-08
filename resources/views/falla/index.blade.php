@@ -48,9 +48,14 @@
                             <div class="form-group col-md-6">
                                 <select id="COD_SERVICIO" name="COD_SERVICIO" class="form-control">
                                     <option>Seleccionar Tipo de Servicio</option>
-                                    <option value="1">Aíre Acondicionado</option>
-                                    <option value="2">Línea Telefónica</option>
-                                    <option value="3">Sistema de Seguridad</option>
+                                    <option value="1">Aire Acondicionado</option>
+                                    <option value="2">Construcción</option>
+                                    <option value="3">Electricidad</option>
+                                    <option value="4">Monitoreo CCTV</option>
+                                    <option value="5">Pintura</option>
+                                    <option value="6">Planta Telefonica</option>
+                                    <option value="7">Sistema de Seguridad</option>
+                                    <option value="8">Tabla Yeso</option> 
                                 </select>
                             </div>
                             <label>Tema:</label>

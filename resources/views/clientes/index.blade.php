@@ -65,15 +65,15 @@
                                 <th>Código empleado</th>
                                 <th>DNI</th>
                                 <th>Nombre</th>
-                                <th>APELLIDOS_CLIENTE</th>
-                                <th>DIRECCION_CLIENTE</th>
-                                <th>RTN_CLIENTE</th>
-                                <th>TELEFONO_CLIENTE</th>
-                                <th>CORREO_CLIENTE</th>
-                                <th>FECHA_REGISTRO</th>
-                                <th>ESTADO_CLIENTE</th>   
-                                <th>NOMBRE_TIPO_CLIENTE</th>
-                                <th>ACCIONES</th>
+                                <th>Apellidos</th>
+                                <th>Dirección</th>
+                                <th>RTN</th>
+                                <th>Telefono</th>
+                                <th>Correo</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>   
+                                <th>Tipo Cliente</th>
+                                <th>Acciones</th>
                               </tr>
                           </thead>
                           <tbody>

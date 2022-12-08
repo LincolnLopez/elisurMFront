@@ -105,50 +105,51 @@ alert("La dirección de email es incorrecta.");
 
                
     <div class="mb-3">
-      <label for="" class="form-label">CODIGO DE CLIENTE</label>
+      <label for="" class="form-label">Código de Cliente</label>
       <input id="COD_CLIENTE" name="COD_CLIENTE" type="text" class="form-control"  value="{{$cliente->cod_cliente}}" readonly>    
     </div>
  
     <div class="mb-3">
-        <label for="" class="form-label">DNI_CLIENTE</label>
+        <label for="" class="form-label">DNI</label>
         <input id="DNI_CLIENTE" name="DNI_CLIENTE" type="text" class="form-control" maxlength="70" name="txt_nom" autofocus="on"  style="text-transform: uppercase;" onkeyup="return unspaces()"  onkeypress="return soloLetras(event)" autofocus required value="{{$cliente->dni_cliente}}">    
       </div>
 
     <div class="mb-3">
-    <label for="" class="form-label">NOMBRE DE CLIENTE</label>
+    <label for="" class="form-label">Nombre</label>
     <input id="NOMBRE_CLIENTE" name="NOMBRE_CLIENTE" type="text" class="form-control"  autocomplete="off" autofocus="on" o onPaste="return false;" required  onkeyup="nospaces2();" required  value="{{$cliente->nombre_cliente}}">    
   </div>
 
   <div class="mb-3">
-    <label for="" class="form-label">APELLIDOS_CLIENTE</label>
+    <label for="" class="form-label">Apellidos</label>
     <input id="APELLIDOS_CLIENTE" name="APELLIDOS_CLIENTE" type="text" class="form-control" autofocus="on" onkeyup="return nospaces1()" onPaste="return false;"required  value="{{$cliente->apellidos_cliente}}">    
   </div>
 
   <div class="mb-3">
-    <label for="" class="form-label">DIRECCION_CLIENTE</label>
+    <label for="" class="form-label">Dirección</label>
     <input id="DIRECCION_CLIENTE" name="DIRECCION_CLIENTE" type="text" class="form-control"  value="{{$cliente->direccion_cliente}}">    
   </div>
 
   <div class="mb-3">
-    <label for="" class="form-label">RTN_CLIENTE</label>
+    <label for="" class="form-label">RTN</label>
     <input id="RTN_CLIENTE" name="RTN_CLIENTE" type="text" class="form-control"  value="{{$cliente->rtn_cliente}}">    
   </div>
   
   <div class="mb-3">
-    <label for="" class="form-label">TELEFONO_CLIENTE</label>
+    <label for="" class="form-label">Telefono</label>
     <input id="TELEFONO_CLIENTE" name="TELEFONO_CLIENTE" type="text" class="form-control"  value="{{$cliente->telefono_cliente}}">    
   </div>
 
 
   <div class="mb-3">
-    <label for="" class="form-label">CORREO_CLIENTE</label>
+    <label for="" class="form-label">Correo</label>
     <input id="CORREO_CLIENTE" name="CORREO_CLIENTE" type="text" class="form-control"  value="{{$cliente->correo_cliente}}">    
   </div>
 
-  <label for="country">COD_TIPO_CLIENTE</label>
+  <label for="country">Tipo de CLiente</label>
     <select class="form-control" id="COD_TIPO_CLIENTE" name="COD_TIPO_CLIENTE" value="{{$cliente->cod_tipo_cliente}}">
-        <option value="1">Premium</option>
-        <option value="6">Nuevo</option>
+      <option value="{{$cliente->cod_tipo_cliente}}" >Selecciona nuestros servicios</option>  
+      <option value="1">Premium</option>
+        <option value="2">Nuevo</option>
     </select>
 
   <a href="/personas" class="btn btn-secondary" tabindex="5">Cancelar</a>
