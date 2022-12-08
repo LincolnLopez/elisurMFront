@@ -92,7 +92,7 @@
                       <tr>
                         <th>Numero de Reporte</th>
                         <th>Servicio</th>
-                        <th>Nombre</th>
+                        <th>Nombre de Cliente</th>
                         <th>Telefono</th>
                         <th>Correo</th>
                         <th>Tema</th>
@@ -110,7 +110,7 @@
                       @foreach($ticket as $ticke)
                       <tr>
                         <td>{{$ticke->COD_REPORTE_FALLA}}</td>
-                        <td>{{$ticke->cod_servicio}}</td>
+                        <td>{{$ticke->nombre_servicio}}</td>
                         <td>{{$ticke->NOMBRE}}</td>
                         <td>{{$ticke->TELEFONO}}</td>
                         <td>{{$ticke->CORREO_ELECTRONICO}}</td>

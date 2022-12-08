@@ -94,7 +94,7 @@
                           Falla
                         </th>
                         <th>Servicio</th>
-                        <th>Nombre</th>
+                        <th>Nombre de Cliemte</th>
                         <th>Telefono</th>
                         <th>Correo</th>
                         <th>Tema</th>
@@ -112,7 +112,7 @@
                       @foreach($tickets as $ticket)
                       <tr>
                         <td>{{$ticket->COD_REPORTE_FALLA}} </td>
-                        <td>{{$ticket->cod_servicio}}</td>
+                        <td>{{$ticket->nombre_servicio}}</td>
                         <td>{{$ticket->NOMBRE}}</td>
                         <td>{{$ticket->TELEFONO}}</td>
                         <td>{{$ticket->CORREO_ELECTRONICO}}</td>

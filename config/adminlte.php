@@ -270,10 +270,10 @@ return [
         
     
 
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+        [//Se comenta por no saber de donde surgio 
+           // 'text' => 'blog',
+            //'url'  => 'admin/blog',
+            //'can'  => 'manage-blog',
         ],
 
  
