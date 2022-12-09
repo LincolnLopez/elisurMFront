@@ -3,32 +3,7 @@
 @section('title', 'Presupuesto')
 
 @section('content_top_nav_right')
-<li class="nav-item dropdown">
-  <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
-    <i class="far fa-fw fas fa-bell"></i>
-    <span class="badge badge-warning navbar-badge">15</span>
-  </a>
-  <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
-    <span class="dropdown-item dropdown-header">15 Notificaciones</span>
-    <div class="dropdown-divider"></div>
-    <a href="#" class="dropdown-item">
-      <i class="fas fa-envelope mr-2"></i> 4 nuevos mensajes
-      <span class="float-right text-muted text-sm">3 mins</span>
-    </a>
-    <div class="dropdown-divider"></div>
-    <a href="#" class="dropdown-item">
-      <i class="fas fa-users mr-2"></i> 8 solicitudes nuevas
-      <span class="float-right text-muted text-sm">12 hours</span>
-    </a>
-    <div class="dropdown-divider"></div>
-    <a href="#" class="dropdown-item">
-      <i class="fas fa-file mr-2"></i> 3 nuevos reportes
-      <span class="float-right text-muted text-sm">2 days</span>
-    </a>
-    <div class="dropdown-divider"></div>
-    <a href="#" class="dropdown-item dropdown-footer">Ver todas las notificaciones</a>
-  </div>
-</li>
+
 @endsection
 
 @section('content_header')
@@ -85,7 +60,12 @@
             <div class="row">
               <div class="col-12 col-sm-12">
                 <div class="card card-info card-tabs">
-
+                  <div>
+                    <a href="{{ route('reporte_presupuesto.index') }}" style="float: right;"
+                        class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
+                        Descargar PDF
+                    </a>
+                </div>
                   </br>
                   <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
@@ -166,11 +146,7 @@
 @stop
 
 @section('footer')
-<strong><a href="http://40.83.9.20/home">Elisur</a>.</strong>
-Multi servicios.
-<div class="float-right d-none d-sm-inline-block">
-  <b>Version</b> 3.1.0
-</div>
+
 @stop
 
 @section('js')

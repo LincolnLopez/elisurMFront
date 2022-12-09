@@ -29,8 +29,9 @@ use App\Http\Controllers\RespaldoController;
 use App\Http\Controllers\ReporteClientesController;
 use App\Http\Controllers\ReporteInventariosController;
 use App\Http\Controllers\ReporteInventarioHController;
-
-
+use App\Http\Controllers\ReportePresupuestoController;
+use App\Http\Controllers\ReporteTicketController;
+use App\Http\Controllers\PresupuestosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +75,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/reporte_clientes',ReporteClientesController::class);
     Route::resource('reporte_inventario', ReporteInventariosController::class);
     Route::resource('reporte_inventarioH', ReporteInventarioHController::class);
+    Route::resource('reporte_ticket', ReporteTicketController::class);
+    Route::resource('reporte_presupuesto', ReportePresupuestoController::class);
 });
 
 
