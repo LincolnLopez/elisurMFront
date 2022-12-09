@@ -91,7 +91,7 @@
         </div>
         <table class="table table-striped ">
 
-            <caption>Lista de Articulod</caption>
+            <caption>Lista de Articulo</caption>
             <thead>
                 <tr>
 

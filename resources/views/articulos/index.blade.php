@@ -69,7 +69,7 @@
                             </br>
                             <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0"
                                 width="100%">
-                                <thead style="background-color:#afc3cb">
+                                <thead >
                                     <tr>
                                         <th>Código Articulo</th>
                                         <th>Nombre</th>
@@ -96,7 +96,7 @@
                                                 <form action="{{ route('articulos.destroy', $articulo->COD_ARTICULO) }}"
                                                     method="POST">
                                                     <a href="/articulos/{{ $articulo->COD_ARTICULO }}/edit"
-                                                        class="btn btn-warning"><i class="fas fa-edit"></i>Editar</a>
+                                                        class="btn btn-warning"><i class="fas fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger"><i
