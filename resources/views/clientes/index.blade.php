@@ -70,7 +70,7 @@
 
                                             <a href="{{ route('reporte_clientes.index') }}" style="float: right;"
                                                 class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
-                                                Reporte de clientes
+                                                Descargar PDF
                                             </a>
 
                                         </div>

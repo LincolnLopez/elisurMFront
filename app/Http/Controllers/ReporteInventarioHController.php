@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use PDF;
 
 class ReporteInventarioHController extends Controller
 {
@@ -14,7 +15,11 @@ class ReporteInventarioHController extends Controller
      */
     public function index()
     {
-        //
+           
+        $pdf = PDF::loadView('reporte_inventarioH.index');
+        $pdf->setPaper('a2','landscape');   
+        return $pdf->stream();
+ 
     }
 
     /**
