@@ -61,11 +61,15 @@
                                     class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
                                     Registrar
                                 </a>
+                                <a href="{{ route('reporte_articulo.index') }}" style="float: right;"
+                                class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
+                                Descargar PDF
+                            </a>
                             </div>
                             </br>
                             <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0"
                                 width="100%">
-                                <thead>
+                                <thead style="background-color:#afc3cb">
                                     <tr>
                                         <th>Código Articulo</th>
                                         <th>Nombre</th>
@@ -92,10 +96,11 @@
                                                 <form action="{{ route('articulos.destroy', $articulo->COD_ARTICULO) }}"
                                                     method="POST">
                                                     <a href="/articulos/{{ $articulo->COD_ARTICULO }}/edit"
-                                                        class="btn btn-info">Editar</a>
+                                                        class="btn btn-warning"><i class="fas fa-edit"></i>Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <button type="submit" class="btn btn-danger"><i
+                                                        class="fas fa-times"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

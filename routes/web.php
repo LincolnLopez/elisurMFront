@@ -32,6 +32,13 @@ use App\Http\Controllers\ReporteInventarioHController;
 use App\Http\Controllers\ReportePresupuestoController;
 use App\Http\Controllers\ReporteTicketController;
 use App\Http\Controllers\PresupuestosController;
+use App\Http\Controllers\ReporteArticulosController;
+use App\Http\Controllers\ReporteEmpleadosController;
+use App\Http\Controllers\ReporteUsuariosController;
+
+
+
+use Spatie\Permission\Contracts\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +84,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('reporte_inventarioH', ReporteInventarioHController::class);
     Route::resource('reporte_ticket', ReporteTicketController::class);
     Route::resource('reporte_presupuesto', ReportePresupuestoController::class);
+    Route::resource('reporte_empleados', ReporteEmpleadosController::class);
+    Route::resource('reporte_usuarios', ReporteUsuariosController::class);
+    Route::resource('reporte_articulo', ReporteArticulosController::class);
+
 });
 
 

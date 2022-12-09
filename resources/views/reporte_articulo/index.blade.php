@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Reporte de Inventario de Materia Prima</title>
+    <title>Reporte de Articulos</title>
 
     <style>
         table,
@@ -41,7 +41,7 @@
             top: 0.5cm;
             left: 0cm;
             right: 0cm;
-            height: 3cm;
+            height: 4cm;
             background-color: #ffffff;
             color: rgb(32, 28, 28);
             text-align: center;
@@ -59,6 +59,7 @@
             text-align: center;
             line-height: 35px;
         }
+
         thead {
             background-color: #6ec3d2;
         }
@@ -73,7 +74,7 @@
 
         <div style="align: center">
 
-            <h3>Reporte General Inventario Materia Prima</h3>
+            <h3>REPORTE GENERAL ARTICULOS</h3>
             <h1>
                 MULTISERVICIOS ELISUR
             </h1>
@@ -81,43 +82,48 @@
 
 
     </header>
+
     <div class="container-sm">
         <div class="text-center">
             <h1>
-                <b></b>
+                <b>.</b>
             </h1>
         </div>
         <table class="table table-striped ">
 
-            <caption>Lista de Inventario Materia Prima</caption>
+            <caption>Lista de Articulod</caption>
             <thead>
                 <tr>
-                    <th>Código Inventario</th>
+
                     <th>Código Articulo</th>
                     <th>Nombre</th>
-                    <th>Cantidad</th>
-                    <th>Fecha Ingreso</th>
-                    <th>Fecha Modificación</th>
-                   
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Código Categoria</th>
+                    <th>Nombre Categoria</th>
+                    <th>Estado de Articulo</th>
+
+
                 </tr>
             </thead>
             <tbody>
                 <?php 
-                $consulta= "SELECT ti.COD_INVENTARIO, a.COD_ARTICULO, a.NOMBRE_ARTICULO, ti.CANTIDAD_ARTICULO, ti.FECHA_REGISTRO,
-                ti.FECHA_MODIFICACION from tbl_inventarios as ti
-                 join tbl_articulos as a on a.COD_ARTICULO = Ti.COD_ARTICULO";
+                $consulta= "SELECT a.COD_ARTICULO, a.NOMBRE_ARTICULO, a.DESCRIPCION_ARTICULO, a.PRECIO_ARTICULO,
+                c.COD_CATEGORIA, c.NOMBRE_CATEGORIA, a.ESTADO_ARTICULO FROM tbl_articulos a
+                INNER JOIN tbl_categorias c ON c.cod_categoria = a.cod_categoria";
                  $conexion = mysqli_connect("localhost","root","","elisur");
                  $resultado=mysqli_query($conexion,$consulta);
                  while($llamar=mysqli_fetch_assoc($resultado)){ ?>
 
                 <tr>
-                    <td><?php echo "$llamar[COD_INVENTARIO]"; ?></td>
                     <td><?php echo "$llamar[COD_ARTICULO]"; ?></td>
                     <td><?php echo "$llamar[NOMBRE_ARTICULO]"; ?></td>
-                    <td><?php echo "$llamar[CANTIDAD_ARTICULO]"; ?></td>
-                    <td><?php echo "$llamar[FECHA_REGISTRO]"; ?></td>
-                    <td><?php echo "$llamar[FECHA_MODIFICACION]"; ?></td>
-                 
+                    <td><?php echo "$llamar[DESCRIPCION_ARTICULO]"; ?></td>
+                    <td><?php echo "$llamar[PRECIO_ARTICULO]"; ?></td>
+                    <td><?php echo "$llamar[COD_CATEGORIA]"; ?></td>
+                    <td><?php echo "$llamar[NOMBRE_CATEGORIA]"; ?></td>
+                    <td><?php echo "$llamar[ESTADO_ARTICULO]"; ?></td>
+                    
                 </tr>
                 <?php } ?>
 

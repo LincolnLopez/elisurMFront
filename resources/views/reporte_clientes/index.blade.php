@@ -59,16 +59,26 @@
             text-align: center;
             line-height: 35px;
         }
+        thead {
+            background-color: #6ec3d2;
+        }
     </style>
+
 </head>
 
 <body>
     <header>
         <H4></H4>
-        <h3>REPORTE GENERAL CLIENTES</h3>
-        <h1>
-            MULTISERVICIOS ELISUR
-        </h1>
+        <IMG SRC="vendor/adminlte/dist/img/logo.jpeg" style="float: right" width="15%" height="120">
+
+        <div style="align: center">
+
+            <h3>REPORTE GENERAL CLIENTES</h3>
+            <h1>
+                MULTISERVICIOS ELISUR
+            </h1>
+        </div>
+
 
     </header>
 

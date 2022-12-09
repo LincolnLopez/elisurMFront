@@ -383,8 +383,8 @@
         <div class="w3-row w3-padding-32">
             <div class="w3-col m6 w3-large w3-margin-bottom">
                 <i class="fa fa-map-marker" style="width:30px"></i> Tegucigalpa, HN<br>
-                <i class="fa fa-phone" style="width:30px"></i> Telefono: +22351515<br>
-                <i class="fa fa-envelope" style="width:30px"> </i> Correo: elisur@gmail.com<br>
+                <i class="fa fa-phone" style="width:30px"></i> Telefono: +504 9941-2552<br>
+                <i class="fa fa-envelope" style="width:30px"> </i> Correo: elisurelisur19@gmail.com<br>
             </div>
 
         </div>

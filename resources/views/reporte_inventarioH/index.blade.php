@@ -59,15 +59,27 @@
             text-align: center;
             line-height: 35px;
         }
+        thead {
+            background-color: #6ec3d2;
+        }
     </style>
+
 </head>
 
 <body>
     <header>
-        <H4></H4> 
-        <h1> MULTISERVICIOS ELISUR </h1>
-        <h3>Reporte General Inventario Herramientas</h3>
-        
+        <H4></H4>
+        <IMG SRC="vendor/adminlte/dist/img/logo.jpeg" style="float: right" width="15%" height="120">
+
+        <div style="align: center">
+
+            <h3>Reporte General Inventario Herramientas</h3>
+            <h1>
+                MULTISERVICIOS ELISUR
+            </h1>
+        </div>
+
+
     </header>
 
     <div class="container-sm">

@@ -54,6 +54,18 @@
 
             <div class="row">
               <div class="col-12 col-sm-12">
+                <div>
+                  <a href="{{ route('empleados.create') }}" style="float: left;"
+                      class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
+                      Registrar
+                  </a>
+
+                  <a href="{{ route('reporte_empleados.index') }}" style="float: right;"
+                      class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
+                      Descargar PDF
+                  </a>
+
+              </div>
                 </br>
                 <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                   <thead>
@@ -102,8 +114,7 @@
 
               </div>
 
-              <a href="{{ route('empleados.create') }}" class="btn btn-success">Registrar</a>
-
+         
 
             </div>
 

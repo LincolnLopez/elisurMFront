@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Reporte de Inventario de Materia Prima</title>
+    <title>Reporte de usuarios Elisur</title>
 
     <style>
         table,
@@ -40,8 +40,8 @@
             position: fixed;
             top: 0.5cm;
             left: 0cm;
-            right: 0cm;
-            height: 3cm;
+            right: 0.5cm;
+            height: 4cm;
             background-color: #ffffff;
             color: rgb(32, 28, 28);
             text-align: center;
@@ -54,11 +54,12 @@
             left: 0cm;
             right: 0cm;
             height: 1.5cm;
-            background-color: #e9e9e9;
+            background-color: #f4f1f1;
             color: rgb(15, 14, 14);
             text-align: center;
             line-height: 35px;
         }
+
         thead {
             background-color: #6ec3d2;
         }
@@ -69,11 +70,9 @@
 <body>
     <header>
         <H4></H4>
-        <IMG SRC="vendor/adminlte/dist/img/logo.jpeg" style="float: right" width="15%" height="120">
-
         <div style="align: center">
-
-            <h3>Reporte General Inventario Materia Prima</h3>
+            <IMG SRC="vendor/adminlte/dist/img/logo.jpeg" style="float: right" width="15%" height="120">
+            <h3>REPORTE GENERAL USUARIOS</h3>
             <h1>
                 MULTISERVICIOS ELISUR
             </h1>
@@ -81,43 +80,38 @@
 
 
     </header>
+
     <div class="container-sm">
         <div class="text-center">
             <h1>
-                <b></b>
+                <b>.</b>
             </h1>
         </div>
         <table class="table table-striped ">
 
-            <caption>Lista de Inventario Materia Prima</caption>
-            <thead>
-                <tr>
-                    <th>Código Inventario</th>
-                    <th>Código Articulo</th>
-                    <th>Nombre</th>
-                    <th>Cantidad</th>
-                    <th>Fecha Ingreso</th>
-                    <th>Fecha Modificación</th>
-                   
-                </tr>
+            <caption>Lista de Usuarios</caption>
+          
+            <thead style="background-color:#3f8cad">
+                <th style="color:#fff;">ID</th>
+                <th style="color:#fff;">Nombre</th>
+                <th style="color:#fff;">E-mail</th>
+                <th style="color:#fff;">Fecha Creación</th>
+                <th style="color:#fff;">Fecha Modificación</th>
             </thead>
             <tbody>
                 <?php 
-                $consulta= "SELECT ti.COD_INVENTARIO, a.COD_ARTICULO, a.NOMBRE_ARTICULO, ti.CANTIDAD_ARTICULO, ti.FECHA_REGISTRO,
-                ti.FECHA_MODIFICACION from tbl_inventarios as ti
-                 join tbl_articulos as a on a.COD_ARTICULO = Ti.COD_ARTICULO";
+                $consulta= "SELECT ID, NAME, EMAIL, CREATED_AT, UPDATED_AT FROM users;";
                  $conexion = mysqli_connect("localhost","root","","elisur");
                  $resultado=mysqli_query($conexion,$consulta);
                  while($llamar=mysqli_fetch_assoc($resultado)){ ?>
 
                 <tr>
-                    <td><?php echo "$llamar[COD_INVENTARIO]"; ?></td>
-                    <td><?php echo "$llamar[COD_ARTICULO]"; ?></td>
-                    <td><?php echo "$llamar[NOMBRE_ARTICULO]"; ?></td>
-                    <td><?php echo "$llamar[CANTIDAD_ARTICULO]"; ?></td>
-                    <td><?php echo "$llamar[FECHA_REGISTRO]"; ?></td>
-                    <td><?php echo "$llamar[FECHA_MODIFICACION]"; ?></td>
-                 
+                    <td><?php echo "$llamar[ID]"; ?></td>
+                    <td><?php echo "$llamar[NAME]"; ?></td>
+                    <td><?php echo "$llamar[EMAIL]"; ?></td>                
+                    <td><?php echo "$llamar[CREATED_AT]"; ?></td>
+                    <td><?php echo "$llamar[UPDATED_AT]"; ?></td>
+                   
                 </tr>
                 <?php } ?>
 
