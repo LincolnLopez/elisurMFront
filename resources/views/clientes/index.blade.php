@@ -13,6 +13,7 @@
 @stop
 
 
+
 @section('content')
 
     <body>
@@ -59,20 +60,25 @@
                                 <div class="col-12 col-sm-12">
                                     <div class="card card-info card-tabs">
                                         <div class="card-header p-0 pt-1">
-                                            <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                                            <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist"></ul>
+                                        </div>
+                                        <div>
+                                            <a href="{{ route('clientes.create') }}" style="float: left;"
+                                                class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
+                                                Registrar
+                                            </a>
 
-                                            </ul>
+                                            <a href="{{ route('reporte_clientes.index') }}" style="float: right;"
+                                                class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
+                                                Reporte de clientes
+                                            </a>
+
                                         </div>
 
                                         </br>
                                         <table id="AdministradorTable" class="table table-striped table-bordered"
                                             cellspacing="10" width="100%">
-                                            <div>
-                                                <a href="{{ route('reporte_clientes.index') }}" style="float: right;"
-                                                    class="btn btn-info" target="_blank"><i class="fas fa-file-pdf"></i>
-                                                    Reporte de clientes
-                                                </a>
-                                            </div>
+
                                             <thead>
                                                 <tr>
                                                     <th>Código empleado</th>
@@ -108,11 +114,13 @@
                                                                 action="{{ route('clientes.destroy', $cliente->COD_CLIENTE) }}"
                                                                 method="POST">
                                                                 <a href="/clientes/{{ $cliente->COD_CLIENTE }}/edit"
-                                                                    class="btn btn-info">Editar</a>
+                                                                    class="btn btn-warning"><i class="fas fa-edit"></i></a>
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button type="submit"
-                                                                    class="btn btn-danger">Delete</button>
+                                                                <button type="submit" class="btn btn-danger"><i
+                                                                        class="fas fa-times"></i></button>
+
+
                                                             </form>
                                                         </td>
                                                     </tr>
@@ -123,10 +131,6 @@
                                         </table>
 
                                     </div>
-
-                                    <a href="{{ route('clientes.create') }}" class="btn btn-success">Registrar</a>
-
-
                                 </div>
                             </div>
                         </div>
@@ -148,17 +152,18 @@
 
 
 
-@section('js')
 
+@section('js')
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
+
+
     <script>
         $(function() {
             $('#AdministradorTable').DataTable({
                 responsive: true,
-                autoWidth: true,
                 scrollX: true,
+                autoWidth: true,
                 language: {
                     url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json'
                 }
@@ -181,5 +186,6 @@
             $("#update-alert").slideUp(500);
         });
     </script>
+
 
 @stop

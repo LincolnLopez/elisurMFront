@@ -27,6 +27,7 @@ use App\Http\Controllers\TicketEmpleadoController;
 use App\Http\Controllers\RespaldoController;
 
 use App\Http\Controllers\ReporteClientesController;
+use App\Http\Controllers\ReporteInventariosController;
 
 
 
@@ -70,6 +71,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('clientes', ClientesController::class);
     Route::resource('articulos', ArticuloController::class);
     Route::resource('/reporte_clientes',ReporteClientesController::class);
+Route::resource('reporte_inventario', ReporteInventariosController::class);
 });
 
 
