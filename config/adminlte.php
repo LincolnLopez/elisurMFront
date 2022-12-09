@@ -404,13 +404,13 @@ return [
 
             ],
         ],
-        [
+        /*[
             'text'       => 'Reportes',
             'icon'=>'far fa-fw fas fas fa-percent',
             'icon_color' => 'info',
             'url'        => 'reporte',
             'can' => 'ver-reportes'
-        ],
+        ],*/
     
 
         [
