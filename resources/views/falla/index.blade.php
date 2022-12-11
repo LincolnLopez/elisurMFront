@@ -93,7 +93,10 @@
                         </tr>
                         <tr>
                             <div class="modal-footer">
+                                @can('crear-fallas-cliente')
                                 <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+                                @endcan
+                                
                             </div>
                         </tr>
                 </div>

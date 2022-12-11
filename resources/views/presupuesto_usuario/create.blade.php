@@ -83,10 +83,15 @@
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <select id="COD_SERVICIO" name="COD_SERVICIO" class="form-control">
-                                        <option>Seleccionar Tipo de Servicio</option>
-                                        <option value="1">Aíre Acondicionado</option>
-                                        <option value="2">Línea Telefónica</option>
-                                        <option value="3">Sistema de Seguridad</option>
+                                        <option value="" disabled selected>Selecciona nuestros servicios</option>
+                                   <option value="1">1.Aire Acondicionado</option>
+                                   <option value="2">2.Construcción</option>
+                                   <option value="3">3.Electricidad</option>
+                                   <option value="4">4.Monitoreo CCTV</option>
+                                   <option value="5">5.Pintura</option>
+                                   <option value="6">6.Planta Telefonica</option>
+                                   <option value="7">7.Sistema de Seguridad</option>
+                                   <option value="8">8.Tabla Yeso</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-7">
@@ -94,9 +99,15 @@
                                 </div>
                             </div>
                         </tr> 
+                        
+
+                        @can('crear-presupuestoUsuario')
                         <a href="/presupuesto_usuario" class="btn btn-secondary" tabindex="5">Cancelar</a>
 
-                        <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+
+                        <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button> 
+                        @endcan
+                       
 
 
 

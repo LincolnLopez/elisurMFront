@@ -154,9 +154,13 @@
                                         <div class="form-row align-items-center">
 
                                             <div class="col-auto my-1">
+                                                @can('crear-encuesta')
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
                                                 </div>
+                                                    
+                                                @endcan
+                                                
                                             </div>
                                         </div>
                                     

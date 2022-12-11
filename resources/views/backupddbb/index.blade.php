@@ -98,10 +98,13 @@ No se puedo eliminar
 
 <div class="card-body">
 
-<button onclick="window.location='./Backup.php'" class="btn btn-info" title="Crear copia de la base de datos">
-Realizar copia de seguridad
-<i class="fas fa-database"></i>
-</button>
+	
+	<button onclick="window.location='./Backup.php'" class="btn btn-info" title="Crear copia de la base de datos">
+		Realizar copia de seguridad
+		<i class="fas fa-database"></i>
+		</button>
+	
+
 <br><br>
 	
 		<label>Selecciona un punto de restauración</label><br>

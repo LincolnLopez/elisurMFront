@@ -424,7 +424,7 @@ return [
             'icon'=>'far fa-fw fas fa-download',
             'icon_color' => 'info',
             'url'        => '/backup_restore',
-            'can' => 'ver-respaldo'
+            'can' => 'administrar-respaldo'
         ],
         
 

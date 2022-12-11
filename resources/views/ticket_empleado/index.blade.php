@@ -130,12 +130,17 @@
                             <form action="{{ route('falla.destroy',$ticke->COD_REPORTE_FALLA) }}" method="POST">
                               @csrf
                               @method('DELETE')
+                              @can('editar-bolsatrabajoEmpleado')
                               <button type="submit" class="btn btn-primary me-md-3">Proceso</button>
+                              @endcan
+                              
                             </form>
                             <form action="{{ route('ticket_empleado.destroy',$ticke->COD_REPORTE_FALLA) }}" method="POST">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" class="btn btn-danger me-md-3">eliminar</button>
+                              @can('borrar-bolsatrabajoEmpleado')
+                              <button type="submit" class="btn btn-danger me-md-3">eliminar</button> 
+                              @endcan
                             </form>
 
                           </div>

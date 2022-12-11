@@ -91,21 +91,17 @@ class SeederTablaPermisos extends Seeder
              //Operaciones sobre tabla SOlicitudes
              'ver-presupuestoUsuario',
              'crear-presupuestoUsuario',
-             'editar-presupuestoUsuario',
-             'borrar-presupuestoUsuario',
 
              //Operaciones sobre tabla encuesta
              'ver-encuesta',
              'crear-encuesta',
-             'editar-encuesta',
 
               //Operaciones sobre tabla Bitacora de solicitudes
               'ver-Solicitudes_cliente',
-              'crear-Solicitudes_cliente',
+              
 
                 //Operaciones sobre tabla reporte falla
                 'ver-bolsatrabajoEmpleado',
-                'crear-bolsatrabajoEmpleado',
                 'editar-bolsatrabajoEmpleado',
                 'borrar-bolsatrabajoEmpleado',
 

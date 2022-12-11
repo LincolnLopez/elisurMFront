@@ -60,6 +60,12 @@
             <div class="row">
               <div class="col-12 col-sm-12">
                 <div class="card card-info card-tabs">
+                  @can('crear-presupuesto')
+                  <div>
+                    <a href="{{ route('presupuesto.create') }}" class="btn btn-success">Registrar</a>
+                  </div>  
+                  @endcan
+                  
                   <div>
                     <a href="{{ route('reporte_presupuesto.index') }}" style="float: right;"
                         class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
@@ -109,10 +115,15 @@
                         <td>{{$presupuesto->nombre_estado}}</td>
                         <td>
                           <form action="{{ route('presupuesto.destroy',$presupuesto->COD_SOLICITUD) }}" method="POST">
+                            @can('editar-presupuesto')
                             <a href="/presupuesto/{{$presupuesto->COD_SOLICITUD}}/edit" class="btn btn-info">Editar</a>
+                            @endcan
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            @can('borrar-presupuesto')
+                            <button type="submit" class="btn btn-danger">Delete</button>  
+                            @endcan
+                            
                           </form>
                         </td>
                       </tr>
@@ -124,7 +135,7 @@
 
                 </div>
 
-                <a href="{{ route('presupuesto.create') }}" class="btn btn-success">Registrar</a>
+                
 
 
 

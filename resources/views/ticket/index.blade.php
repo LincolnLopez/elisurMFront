@@ -66,6 +66,13 @@
                             <div class="row">
                                 <div class="col-12 col-sm-12">
                                     <div class="card card-info card-tabs">
+                                        @can('crear-ticket')
+                                        <div>
+                                            <a href="{{ route('ticket.create') }}" class="btn btn-success">Registrar</a>
+                                        
+                                        </div>
+                                            
+                                        @endcan
                                         <div>
                                             <a href="{{ route('reporte_ticket.index') }}" style="float: right;"
                                                 class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
@@ -113,9 +120,12 @@
                                                                 <form
                                                                     action="{{ route('ticket.destroy', $ticket->COD_REPORTE_FALLA) }}"
                                                                     method="POST">
+                                                                    @can('editar-ticket')
                                                                     <a href="/falla/{{ $ticket->COD_REPORTE_FALLA }}/edit"
                                                                         class="btn btn-primary"><i
-                                                                            class="far fa-calendar-check"></i>Asignar</a>
+                                                                            class="far fa-calendar-check"></i>Asignar</a> 
+                                                                    @endcan
+                                                                   
                                                                     @csrf
 
                                                                 </form>
@@ -123,14 +133,21 @@
                                                                 <form
                                                                     action="{{ route('ticket.destroy', $ticket->COD_REPORTE_FALLA) }}"
                                                                     method="POST">
+                                                                    @can('editar-ticket')
                                                                     <a href="/ticket/{{ $ticket->COD_REPORTE_FALLA }}/edit"
                                                                         class="btn btn-warning"><i
-                                                                            class="fas fa-edit"></i></a>
+                                                                            class="fas fa-edit"></i></a>  
+                                                                    @endcan
+                                                                    
                                                                     @csrf
                                                                     @method('DELETE')
-
+                                                                    @can('borrar-ticket')
+                                                                    
                                                                     <button type="submit" class="btn btn-danger"><i
-                                                                            class="fas fa-times"></i></button>
+                                                                        class="fas fa-times"></i></button>
+                                                                    @endcan
+
+                                                                    
 
 
 
@@ -149,7 +166,7 @@
 
                                     </div>
 
-                                    <a href="{{ route('ticket.create') }}" class="btn btn-success">Registrar</a>
+                                    
 
 
 
