@@ -57,10 +57,13 @@
                     <div class="row">
                         <div class="col-12 col-sm-12">
                             <div>
+                                @can('crear-articulo')
                                 <a href="{{ route('articulos.create') }}" style="float: left;"
-                                    class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
-                                    Registrar
-                                </a>
+                                class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
+                                Registrar
+                            </a> 
+                                @endcan
+                                
                                 <a href="{{ route('reporte_articulo.index') }}" style="float: right;"
                                 class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
                                 Descargar PDF
@@ -95,12 +98,17 @@
                                             <td>
                                                 <form action="{{ route('articulos.destroy', $articulo->COD_ARTICULO) }}"
                                                     method="POST">
+                                                    @can('editar-articulo')
                                                     <a href="/articulos/{{ $articulo->COD_ARTICULO }}/edit"
                                                         class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                                    @endcan
                                                     @csrf
                                                     @method('DELETE')
+                                                    @can('borrar-articulo')
                                                     <button type="submit" class="btn btn-danger"><i
-                                                        class="fas fa-times"></i></button>
+                                                        class="fas fa-times"></i></button>  
+                                                    @endcan
+                                                    
                                                 </form>
                                             </td>
                                         </tr>

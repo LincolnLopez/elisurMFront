@@ -67,10 +67,13 @@
                                 <div class="col-12 col-sm-12">
                                     <div class="card card-info card-tabs">
                                         <div>
+                                            @can('crear-inventarios')
                                             <a href="{{ route('inventarios.create') }}" style="float: left;"
-                                                class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
-                                                Registrar
-                                            </a>
+                                            class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
+                                            Registrar
+                                        </a>
+                                            @endcan
+                                           
 
                                             <a href="{{ route('reporte_inventario.index') }}" style="float: right;"
                                                 class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
@@ -108,12 +111,18 @@
                                                             <form
                                                                 action="{{ route('inventarios.destroy', $inventario->COD_INVENTARIO) }}"
                                                                 method="POST">
+                                                                @can('editar-inventarios')
                                                                 <a href="/inventarios/{{ $inventario->COD_INVENTARIO }}/edit"
-                                                                    class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                                                    class="btn btn-warning"><i class="fas fa-edit"></i></a> 
+                                                                @endcan
+                                                                
                                                                 @csrf
                                                                 @method('DELETE')
+                                                                @can('borrar-inventarios')
                                                                 <button type="submit" class="btn btn-danger"><i
-                                                                        class="fas fa-times"></i></button>
+                                                                    class="fas fa-times"></i></button>
+                                                                @endcan
+                                                                
                                                             </form>
                                                         </td>
                                                     </tr>

@@ -67,10 +67,13 @@
                                 <div class="col-12 col-sm-12">
                                     <div class="card card-info card-tabs">
                                         <div>
+                                            @can('crear-inventarioH')
                                             <a href="{{ route('inventarioH.create') }}" style="float: left;"
-                                                class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
-                                                Registrar
-                                            </a>
+                                            class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
+                                            Registrar
+                                        </a> 
+                                            @endcan
+                                            
 
                                             <a href="{{ route('reporte_inventarioH.index') }}" style="float: right;"
                                                 class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
@@ -111,12 +114,17 @@
                                                             <form
                                                                 action="{{ route('inventarioH.destroy', $persona->COD_HERRAMIENTA) }}"
                                                                 method="POST">
+                                                                @can('editar-inventarioH')
                                                                 <a href="/inventarioH/{{ $persona->COD_HERRAMIENTA }}/edit"
                                                                     class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                                                @endcan
                                                                 @csrf
                                                                 @method('DELETE')
+                                                                @can('borrar-inventarioH')
                                                                 <button type="submit" class="btn btn-danger"><i
-                                                                        class="fas fa-times"></i></button>
+                                                                    class="fas fa-times"></i></button>   
+                                                                @endcan
+                                                                
                                                             </form>
                                                         </td>
                                                     </tr>

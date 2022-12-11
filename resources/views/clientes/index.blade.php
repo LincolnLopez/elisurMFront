@@ -63,11 +63,12 @@
                                             <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist"></ul>
                                         </div>
                                         <div>
+                                            @can('crear-clientes')
                                             <a href="{{ route('clientes.create') }}" style="float: left;"
-                                                class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
-                                                Registrar
-                                            </a>
-
+                                            class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
+                                            Registrar
+                                        </a>
+                                            @endcan
                                             <a href="{{ route('reporte_clientes.index') }}" style="float: right;"
                                                 class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
                                                 Descargar PDF
@@ -113,14 +114,16 @@
                                                             <form
                                                                 action="{{ route('clientes.destroy', $cliente->COD_CLIENTE) }}"
                                                                 method="POST">
-                                                                <a href="/clientes/{{ $cliente->COD_CLIENTE }}/edit"
-                                                                    class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                                               @can('editar-clientes')
+                                                               <a href="/clientes/{{ $cliente->COD_CLIENTE }}/edit"
+                                                                class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                                               @endcan
                                                                 @csrf
                                                                 @method('DELETE')
+                                                                @can('borrar-clientes')
                                                                 <button type="submit" class="btn btn-danger"><i
-                                                                        class="fas fa-times"></i></button>
-
-
+                                                                    class="fas fa-times"></i></button>
+                                                                @endcan
                                                             </form>
                                                         </td>
                                                     </tr>
