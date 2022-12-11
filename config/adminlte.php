@@ -71,7 +71,7 @@ return [
     'usermenu_header_class' => 'bg-gray',
     'usermenu_image' => false,
     'usermenu_desc' => true,
-    'usermenu_profile_url' => true,
+    'usermenu_profile_url' => false,
 /*
     |--------------------------------------------------------------------------
     | Preloader Animation
@@ -250,25 +250,23 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
+       /* [
             'type'         => 'navbar-search',
             'text'         => 'search',
             'topnav_right' => true,
-        ],
+        ],*/
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
         ],
 
+
+
         // Sidebar items:
         /*[
             'type' => 'sidebar-menu-search',
             'text' => 'Buscar',
-        ],
-*/
-        
-        
-    
+        ],*/     
 
         [//Se comenta por no saber de donde surgio 
            // 'text' => 'blog',
