@@ -78,6 +78,14 @@ class SeederTablaPermisos extends Seeder
              //Operaciones sobre tabla Bitacora activdades
              'ver-bitacora',
 
+             //Operaciones sobre tabla SOlicitudes
+             'ver-respaldo',
+             'crear-respaldo',
+             'borrar-respaldo',
+
+              //Operaciones sobre tabla SOlicitudes
+              'ver-reportar-fallas-cliente',
+              'crear-fallas-cliente',
              //por aqui voy
 
              //Operaciones sobre tabla SOlicitudes
@@ -94,8 +102,6 @@ class SeederTablaPermisos extends Seeder
               //Operaciones sobre tabla Bitacora de solicitudes
               'ver-Solicitudes_cliente',
               'crear-Solicitudes_cliente',
-
-           
 
                 //Operaciones sobre tabla reporte falla
                 'ver-bolsatrabajoEmpleado',

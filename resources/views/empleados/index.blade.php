@@ -55,10 +55,13 @@
             <div class="row">
               <div class="col-12 col-sm-12">
                 <div>
+                  @can('crear-empleados')
                   <a href="{{ route('empleados.create') }}" style="float: left;"
-                      class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
-                      Registrar
-                  </a>
+                  class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
+                  Registrar
+              </a> 
+                  @endcan
+                  
 
                   <a href="{{ route('reporte_empleados.index') }}" style="float: right;"
                       class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
@@ -99,10 +102,15 @@
                       
                       <td>
                         <form action="{{ route('empleados.destroy',$empleado->COD_EMPLEADO) }}" method="POST">
-                          <a href="/empleados/{{$empleado->COD_EMPLEADO}}/edit" class="btn btn-info">Editar</a>
+                          @can('editar-empleados')
+                          <a href="/empleados/{{$empleado->COD_EMPLEADO}}/edit" class="btn btn-info">Editar</a>  
+                          @endcan
                           @csrf
                           @method('DELETE')
+                          @can('borrar-empleados')
                           <button type="submit" class="btn btn-danger">Delete</button>
+                          @endcan
+                          
                         </form>
                       </td>
                     </tr>

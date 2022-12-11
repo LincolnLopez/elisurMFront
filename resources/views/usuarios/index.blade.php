@@ -63,10 +63,12 @@
                                             <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist"></ul>
                                         </div>
                                         <div>
+                                            @can('crear-usuario')
                                             <a href="{{ route('usuarios.create') }}" style="float: left;"
-                                                class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
-                                                Nuevo
-                                            </a>
+                                            class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
+                                            Nuevo
+                                        </a>
+                                            @endcan
 
                                             <a href="{{ route('reporte_usuarios.index') }}" style="float: right;"
                                                 class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
@@ -103,9 +105,12 @@
                                                         </td>
 
                                                         <td>
+                                                            @can('editar-usuario')
                                                             <a class="btn btn-info"
                                                                 href="{{ route('usuarios.edit', $usuario->id) }}">Editar</a>
-
+    
+                                                            @endcan
+                                                            @can('borrar-usuario')
                                                             {!! Form::open([
                                                                 'method' => 'DELETE',
                                                                 'route' => ['usuarios.destroy', $usuario->id],
@@ -113,6 +118,8 @@
                                                             ]) !!}
                                                             {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
                                                             {!! Form::close() !!}
+                                                            @endcan
+                                                            
                                                         </td>
                                                     </tr>
                                                 @endforeach

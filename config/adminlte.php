@@ -285,7 +285,7 @@ return [
             
         ],
         ['header' => 'Menu Administrador',
-        'can' => 'ver-usuario',],
+        'can' => 'ver-usuario' or 'ver-empleados' or 'ver-clientes'],
 
 
        /* ['text'=>'Administracion de  Usuario',
@@ -320,7 +320,7 @@ return [
             'url'  => 'personas',
             'icon'=>'far fa-fw fas fa-user-friends',
             'icon_color' => 'info',
-            'can' => 'ver-usuario',
+            'can' => 'ver-usuario' or 'ver-empleados' or 'ver-clientes',
             'submenu' => [
                 [
                     'text' =>'Usuarios',
@@ -356,7 +356,7 @@ return [
             'icon'=>'far fa-fw fas fas fa-dolly',
             'icon_color' => 'info',
             'url'        => 'inventario',
-            'can' => 'ver-inventarios',
+            'can' => 'ver-articulo' or 'ver-inventarios' or 'ver-inventarioH',
             'submenu' => [
                 [
                     'text' =>'Articulos',
@@ -384,10 +384,10 @@ return [
       
         [
             'text'       => 'Bolsa de trabajo',
+            'url'        => 'bolsa',
             'icon'=>'far fa-fw fas fa-people-arrows',
             'icon_color' => 'info',
-            'url'        => 'bolsa_trabajo_admin',
-            'can' => 'ver-ticket',
+            'can' => 'ver-presupuesto' or 'ver-ticket',
             'submenu' => [
                 [
                     'text' =>'Tickets',
@@ -426,19 +426,19 @@ return [
             'icon'=>'far fa-fw fas fa-download',
             'icon_color' => 'info',
             'url'        => '/backup_restore',
-            'can' => 'ver-usuario'
+            'can' => 'ver-respaldo'
         ],
         
 
     ['header' => 'Menu Cliente',
-    'can' => 'ver-presupuestoUsuario'],
+    'can' => 'ver-reportar-fallas-cliente' or 'ver-presupuestoUsuario' or 'ver-encuesta' or 'ver-Solicitudes_cliente' or 'ver-encuesta'],
 
     [
         'text'       => 'Reportar falla',
         'icon'=>'far fa-fw fas fa-ban',
         'icon_color' => 'info',
         'url'        => 'falla',
-        'can' => 'ver-Solicitudes_cliente'
+        'can' => 'ver-reportar-fallas-cliente'
     ],
 
   
@@ -466,7 +466,7 @@ return [
         'url'  => 'bitacora_cliente',
         'icon'=>'far fa-fw 	fas fa-file-invoice',
         'icon_color' => 'info',
-        'can' => 'ver-presupuestoUsuario'
+        'can' => 'ver-Solicitudes_cliente'
     ],
 
     ['header' => 'Menu Empleado',
