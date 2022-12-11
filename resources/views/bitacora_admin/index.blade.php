@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Usuarios')
+@section('title', 'Bitacora de Actividades')
 
 @section('content_top_nav_right')
 <li class="nav-item dropdown">

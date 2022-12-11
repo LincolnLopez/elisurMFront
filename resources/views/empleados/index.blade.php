@@ -57,7 +57,7 @@
                 <div>
                   @can('crear-empleados')
                   <a href="{{ route('empleados.create') }}" style="float: left;"
-                  class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
+                  class="btn btn-success"><i class="fas fa-plus-circle"></i>
                   Registrar
               </a> 
                   @endcan

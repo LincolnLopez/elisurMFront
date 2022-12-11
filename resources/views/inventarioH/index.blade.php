@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Usuarios')
+@section('title', 'Inventario de Herramientas')
 
 @section('content_top_nav_right')
 
@@ -69,7 +69,7 @@
                                         <div>
                                             @can('crear-inventarioH')
                                             <a href="{{ route('inventarioH.create') }}" style="float: left;"
-                                            class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
+                                            class="btn btn-success"><i class="fas fa-plus-circle"></i>
                                             Registrar
                                         </a> 
                                             @endcan

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inventario')
+@section('title', 'Registro de Inventario')
 
 
 @section('content_header')
@@ -30,10 +30,22 @@
     }
     </script>
 
-    <div class="mb-3">
-    <label for="" class="form-label">Código Articulo</label>
-    <input id="COD_ARTICULO" name="COD_ARTICULO" type="text" class="form-control" tabindex="1" required>    
-  </div>
+
+
+   <div class="mb-3">
+    <label for="" class="form-label">Código Articulo</label>   
+    <select name="COD_ARTICULO" id="COD_ARTICULO" class="form-control" autofocus required>
+      @foreach ($articulos as $articulo)
+          <option value="{{ $articulo['cod_articulo'] }}">{{ $articulo['nombre_articulo']
+          }}</option>
+      @endforeach
+   </select> 
+  
+  </div>  
+
+  <!---ciclo para mostrar lista de articulos--->
+
+ 
 
 
   <div class="mb-3">

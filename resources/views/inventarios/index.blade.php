@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Usuarios')
+@section('title', 'Inventario de Materia Prima')
 
 @section('content_top_nav_right')
 
@@ -69,7 +69,7 @@
                                         <div>
                                             @can('crear-inventarios')
                                             <a href="{{ route('inventarios.create') }}" style="float: left;"
-                                            class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
+                                            class="btn btn-success"><i class="fas fa-plus-circle"></i>
                                             Registrar
                                         </a>
                                             @endcan
@@ -86,8 +86,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Código Inventario</th>
-                                                    <th>Código Articulo</th>
-                                                    <th>Nombre</th>
+                                                    <th>Nombre del Articulo</th>
                                                     <th>Cantidad</th>
                                                     <th>Fecha Ingreso</th>
                                                     <th>Fecha Modificación</th>
@@ -101,7 +100,6 @@
                                                 @foreach ($inventarios as $inventario)
                                                     <tr>
                                                         <td>{{ $inventario->COD_INVENTARIO }}</td>
-                                                        <td>{{ $inventario->COD_ARTICULO }}</td>
                                                         <td>{{ $inventario->NOMBRE_ARTICULO }}</td>
                                                         <td>{{ $inventario->CANTIDAD_ARTICULO }}</td>
                                                         <td>{{ $inventario->FECHA_REGISTRO }}</td>

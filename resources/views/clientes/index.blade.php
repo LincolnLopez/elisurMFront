@@ -65,7 +65,7 @@
                                         <div>
                                             @can('crear-clientes')
                                             <a href="{{ route('clientes.create') }}" style="float: left;"
-                                            class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
+                                            class="btn btn-success"><i class="fas fa-plus-circle"></i>
                                             Registrar
                                         </a>
                                             @endcan

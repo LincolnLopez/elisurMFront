@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Articulo;
+use App\Models\TblArticulo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Http;
+use Spatie\Permission\Models\Role;
 
 //agregamos
-use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Http;
 use Spatie\Permission\Models\Permission;
+use JeroenNoten\LaravelAdminLte\Http\Controllers\Controller;
 
 class InventariosController extends Controller
 {
@@ -51,8 +54,8 @@ class InventariosController extends Controller
     public function create()
     {
         
-        //=== LLAMAR EL FORMULARIO CREATE ===
-        return view('inventarios.create');
+        $articulos = TblArticulo::all();
+        return view('inventarios.create', compact('articulos'));
 
 
     }

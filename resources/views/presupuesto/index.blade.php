@@ -69,7 +69,7 @@
                   <div>
                     <a href="{{ route('reporte_presupuesto.index') }}" style="float: right;"
                         class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
-                        Descargar PDF
+                        Descargar PDF 
                     </a>
                 </div>
                   </br>

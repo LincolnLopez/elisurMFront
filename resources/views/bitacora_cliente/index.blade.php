@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Usuarios')
+@section('title', 'Solicitudes de Clientes')
 
 @section('content_top_nav_right')
 

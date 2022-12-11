@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Usuarios')
+@section('title', 'Editar Rol')
 
 
 @section('content_header')
@@ -23,7 +23,7 @@
         <div class="card card-info">
           <div class="card-header">
             <h3><i class="fas fa-user-plus fa-1.4x">
-              </i>Edición de Usuarios</h3>
+              </i>Edición de Rol</h3>
           </div>
           <div class="card-body">
             <div class="row">

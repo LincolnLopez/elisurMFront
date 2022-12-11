@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Tickets')
+@section('title', 'Registro de Tickets')
 
 
 @section('content_header')

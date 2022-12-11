@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Clientes')
+@section('title', 'Usuarios')
 
 
 @section('content_header')
@@ -24,7 +24,7 @@
                     <div class="card card-info">
                         <div class="card-header">
                             <h3><i class="fas fa-user-plus fa-1.4x">
-                                </i>Clientes</h3>
+                                </i>Usuarios</h3>
                         </div>
                         <div class="card-body">
                             @if (Session::has('success'))
@@ -65,7 +65,7 @@
                                         <div>
                                             @can('crear-usuario')
                                             <a href="{{ route('usuarios.create') }}" style="float: left;"
-                                            class="btn btn-success"target="_blank"><i class="fas fa-plus-circle"></i>
+                                            class="btn btn-success"><i class="fas fa-plus-circle"></i>
                                             Nuevo
                                         </a>
                                             @endcan

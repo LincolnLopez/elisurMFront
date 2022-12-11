@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Presupuesto')
+@section('title', 'Registro de Presupuesto')
 
 
 @section('content_header')
