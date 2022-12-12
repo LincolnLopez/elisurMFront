@@ -14,7 +14,7 @@
     <style>
         body {
             font-family: "Lato", sans-serif
-        }
+        } 
 
         .mySlides {
             display: none
@@ -260,29 +260,179 @@
                         }
                     </script>
 
+                    
+<script>
+    /*=============================================
+     VALIDACION QUE SOLO PERMITA LETRAS Y NUMEROS             
+    =============================================*/
+
+    function letrasynumeros(e) {
+
+        key = e.keyCode || e.wich;
+
+        teclado = String.fromCharCode(key).toUpperCase();
+
+        letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZÑ1234567890 ";
+
+        especiales = "8-37-38-46-164";
+
+        teclado_especial = false;
+
+        for (var i in especiales) {
+
+            if (key == especiales[i]) {
+                teclado_especial = true;
+                break;
+            }
+        }
+
+        if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+            return false;
+        }
+
+    }
+
+    /*=====  End of Section comment block  ======*/
+
+
+    /*==============================================
+    =     VALIDACION SOLO LETRAS            =
+    ==============================================*/
+    function sololetras(e) {
+
+        key = e.keyCode || e.wich;
+
+        teclado = String.fromCharCode(key).toUpperCase();
+
+        letras = " ABCDEFGHIJKLMNOPQRSTUVWXYZÑ";
+
+        especiales = "8-37-38-46-164";
+
+        teclado_especial = false;
+
+        for (var i in especiales) {
+
+            if (key == especiales[i]) {
+                teclado_especial = true;
+                break;
+            }
+        }
+
+        if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+            return false;
+        }
+
+    }
+
+
+
+
+    /*==============================================
+    =        VALIDACION SOLO NUMEROS           =
+    ==============================================*/
+    function solonumeros(e) {
+
+        key = e.keyCode || e.wich;
+
+        teclado = String.fromCharCode(key).toUpperCase();
+
+        letras = "1234567890";
+
+        especiales = "8-37-38-46-164";
+
+        teclado_especial = false;
+
+        for (var i in especiales) {
+
+            if (key == especiales[i]) {
+                teclado_especial = true;
+                break;
+            }
+        }
+
+        if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+            return false;
+        }
+
+    }
+
+    function Espacio(campo, event) {
+        CadenaaReemplazar = " ";
+        CadenaReemplazo = "";
+        CadenaTexto = campo.value;
+        CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+        campo.value = CadenaTextoNueva;
+    }
+
+
+
+
+    function limitDecimalPlaces(e, count) {
+        if (e.target.value.indexOf('.') == -1) {
+            return;
+        }
+        if ((e.target.value.length - e.target.value.indexOf('.')) > count) {
+            e.target.value = parseFloat(e.target.value).toFixed(count);
+        }
+    }
+
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+</script>
+
+<script>
+    function DobleEspacio(campo, event) {
+
+        CadenaaReemplazar = "  ";
+        CadenaReemplazo = " ";
+        CadenaTexto = campo.value;
+        CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+        campo.value = CadenaTextoNueva;
+
+    }
+</script>
+
+<script>
+    jQuery(function($) {
+        $("#TELEFONO").mask("9999-9999");
+        $("#TELEFONO_OPCIONAL").mask("99999-99999");
+        $("#RTN_CLIENTE").mask("9999-9999-999999");
+
+    });
+</script>
+
+
+
+
+
 
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                         <div class="w3-half">
                             <label>Nombres</label>
-                            <input id="NOMBRE" name="NOMBRE" type="text" class="w3-input w3-border"
-                                tabindex="1" placeholder="Ingrese sus nombres" maxlength="20" name="txt_nom"
-                                onkeyup="return unspaces()" onkeypress="return soloLetras(event)" autofocus required>
+                            <input id="NOMBRE" name="NOMBRE" type="text" class="form-control" tabindex="1" autocomplete="off" autofocus="on"
+                            onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
+                            placeholder="Ingrese su Nombre"autofocus required>
                             <div class="valid-feedback"></div>
                             <div class="invalid-feedback">Por favor rellene este campo.</div>
                         </div>
                         <div class="w3-half">
                             <label>Apellidos</label>
-                            <input id="APELLIDO" name="APELLIDO" type="text" class="w3-input w3-border"
-                                type="text" placeholder="Ingrese sus Apellidos" maxlength="20"
-                                onkeypress="return soloLetras(event)" autofocus required>
+                            <input id="APELLIDO" name="APELLIDO" type="text" class="form-control" tabindex="1" autocomplete="off" autofocus="on"
+                            onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
+                            placeholder="Ingrese su Apellido"autofocus required>
                         </div>
                     </div>
 
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                         <div class="w3-half">
                             <label>Telefono</label>
-                            <input id="TELEFONO" name="TELEFONO" type="number" class="w3-input w3-border"
-                                type="text" placeholder="9999-9999" minlength="8" maxlength="13" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+">
+                            <input id="TELEFONO" name="TELEFONO" type="number" class="w3-input w3-border" onkeypress="return isNumberKey(event)"
+                                type="text" placeholder="9999-9999" minlength="8" maxlength="8" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)"  autofocus required>
                         </div>
                         <div class="w3-half">
                             <label>Telefono Opcional</label>
@@ -295,12 +445,13 @@
                         <div class="w3-half">
                             <label>Correo Electrónico</label>
                             <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="text"
-                                class="w3-input w3-border" type="email" placeholder="trf@gmail.com" required>
+                                class="w3-input w3-border" type="email" placeholder="trf@gmail.com"  class="form-control"
+                                tabindex="1" onkeyup="Espacio(this, event);" autofocus required>
 
                         </div>
                         <div class="w3-half">
                             <label>Tipo Solicitante</label>
-                            <select class="w3-select" id="TIPO_SOLICITANTE" name="TIPO_SOLICITANTE" required>
+                            <select class="w3-select" id="TIPO_SOLICITANTE" name="TIPO_SOLICITANTE" autofocus required>
                                 <option value="" disabled selected>Seleccione el tipo:</option>
                                 <option value="1">EMPRESA</option>
                                 <option value="2">CASA</option>
@@ -312,19 +463,19 @@
                         <div class="w3-half">
                             <label>Número de identidad</label>
                             <input id="RTN_DNI" name="RTN_DNI" type="number" class="w3-input w3-border"
-                                placeholder="RTN en caso de ser Empresa - Sin guiones" minlength="9" maxlength="14" autocomplete="off" autofocus="on" autofocus required>
+                                placeholder="RTN en caso de ser Empresa - Sin guiones" onkeypress="return solonumeros(event)" onkeyup="DobleEspacio(this, event);" minlength="3" maxlength="14" autocomplete="off" autofocus="on" autofocus required>
                         </div>
                         <div class="w3-half">
                             <label>Nombre Empresa/Colonia</label>
                             <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="w3-input w3-border"
-                                placeholder="Ingrese Nombre" required>
+                                placeholder="Ingrese Nombre " onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)" required>
                         </div>
                     </div>
 
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                         <div class="w3-half">
                             <label>Ciudad</label>
-                            <select class="w3-select" id="CIUDAD" name="CIUDAD" required>
+                            <select class="w3-select" id="CIUDAD" name="CIUDAD" autofocus required>
                                 <option value="" disabled selected>Selecciona una Ciudad:</option>
                                 <option value="Tegucigalpa">Tegucigalpa</option>
                                 <option value="San Pedro Sula">San Pedro Sula</option>
@@ -333,7 +484,7 @@
                         </div>
                         <div class="w3-half">
                             <label>Servicios</label>
-                            <select class="w3-select" id="COD_SERVICIO" name="COD_SERVICIO" required>
+                            <select class="w3-select" id="COD_SERVICIO" name="COD_SERVICIO" autofocus required>
                                 <option value="" disabled selected>Selecciona nuestros servicios</option>
                                 <option value="1">1.Aire Acondicionado</option>
                                 <option value="2">2.Construcción</option>
@@ -351,14 +502,14 @@
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                         <label>Dirección</label>
                         <input id="DIRECCION_SOLICITANTE" name="DIRECCION_SOLICITANTE" type="text"
-                            class="w3-input w3-border" placeholder="Colonia, #Casa, etc." required>
+                            class="w3-input w3-border" placeholder="Colonia, #Casa, etc." autofocus required>
                     </div>
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
 
                         <label>Descripción de la Solicitud</label>
                         <input id="DESCRIPCION_SOLICITUD" name="DESCRIPCION_SOLICITUD" type="text"
-                            class="w3-input w3-border" placeholder="Ingrese una descripción detallada de la solicitud"
-                            required>
+                            class="w3-input w3-border" placeholder="Ingrese una descripción detallada de la solicitud" onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+                            autofocus required>
                     </div>
 
                     <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">Enviar<i

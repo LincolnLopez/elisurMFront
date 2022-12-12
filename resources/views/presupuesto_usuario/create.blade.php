@@ -179,7 +179,7 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" tabindex="1" onkeypress="return isNumberKey(event)"
-                                    placeholder="Ingrese su Numero de telefono sin espacios:00000000" minlength="9" maxlength="9"
+                                    placeholder="Ingrese su Numero de telefono sin espacios:00000000" minlength="8" maxlength="8"
                                     autofocus required>
                                 </div>
                                 <div class="form-group col-md-3">
