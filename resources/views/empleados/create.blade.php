@@ -273,6 +273,7 @@
                                         tabindex="1" autocomplete="off" autofocus="on"
                                         onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
                                         placeholder="Ingrese"autofocus required>
+                                
                                 </div>
 
 
