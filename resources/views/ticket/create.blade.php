@@ -25,6 +25,23 @@
             <div class="form-group">
 
 
+
+
+
+
+            <script>
+  jQuery(function($) {
+    $("#TELEFONO").mask("9999-9999");
+    
+  });
+</script>
+
+
+
+
+
+
+
               <script>
                 document.getElementById('NOMBRE_ARTICULO')
                   .reportValidity()
@@ -167,7 +184,7 @@
 
               <div class="mb-3">
                 <label for="" class="form-label">Telefono</label>
-                <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" tabindex="1" minlength="8" maxlength="13" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+">
+                <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" tabindex="1" minlength="8" maxlength="8" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+">
               </div>
 
               <div class="mb-3">
