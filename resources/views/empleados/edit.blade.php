@@ -7,77 +7,214 @@
 @stop
 
 
+@section('js')
 
-@section('content')
-<form action="/empleados/{{$empleado->cod_empleado}}" method="POST">
-    @csrf
-    @method('PUT')
+    <script type="text/javascript" src="js/validaciones.js"></script>
 
-    <div class="row justify-content-center">
-      <!-- Left col -->
-      <div class="col-md-9">
-        <!-- MAP & BOX PANE -->
-        <div class="card card-info">
-          <!-- /.card-header -->
-          <div class="card-body">
-            <div class="form-group">
+    <!---Mascara para los imput--->
+    <script src="/js/mascara/src/jquery.maskedinput.js" type="text/javascript"></script>
+    <!---Formato numero de telefono e id-->
+    <script>
+        jQuery(function($) {
+            $("#TELEFONO").mask("9999-9999");
+            $("#DNI_EMPLEADO").mask("9999-9999-99999");
+            $("#EDAD_EMPLEADO").mask("99");
+
+        });
+    </script>
 
 
-              <script>
-                function soloLetras(e){
-                   key = e.keyCode || e.which;
-                   tecla = String.fromCharCode(key).toLowerCase();
-                   letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
-                   especiales = "8-37-39-46";
-          
-                   tecla_especial = false
-                   for(var i in especiales){
-                        if(key == especiales[i]){
-                            tecla_especial = true;
-                            break;
-                        }
-                    }
-          
-                    if(letras.indexOf(tecla)==-1 && !tecla_especial){
-                        return false;
-                    }
+
+    < <script>
+        * FUNCION PARA RESTRINGIR EL ESPACIO *
+            **
+            **
+            **
+            ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** * /
+    </script>
+
+    <script>
+        /*=============================================
+             VALIDACION QUE SOLO PERMITA LETRAS Y NUMEROS             
+            =============================================*/
+
+        function letrasynumeros(e) {
+
+            key = e.keyCode || e.wich;
+
+            teclado = String.fromCharCode(key).toUpperCase();
+
+            letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZÑ1234567890 ";
+
+            especiales = "8-37-38-46-164";
+
+            teclado_especial = false;
+
+            for (var i in especiales) {
+
+                if (key == especiales[i]) {
+                    teclado_especial = true;
+                    break;
                 }
-          </script>
+            }
 
-          
-          <script>
-            function nospaces1(){
-      orig=document.form.PASSWORD_USUARIO.value;
-      nuev=orig.split(' ');
-      nuev=nuev.join('');
-      document.form.PASSWORD_USUARIO.value=nuev;
-      if(nuev=orig.split(' ').length>=2);
+            if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+
+        }
+
+        /*=====  End of Section comment block  ======*/
+
+
+        /*==============================================
+        =     VALIDACION SOLO LETRAS            =
+        ==============================================*/
+        function sololetras(e) {
+
+            key = e.keyCode || e.wich;
+
+            teclado = String.fromCharCode(key).toUpperCase();
+
+            letras = " ABCDEFGHIJKLMNOPQRSTUVWXYZÑ";
+
+            especiales = "8-37-38-46-164";
+
+            teclado_especial = false;
+
+            for (var i in especiales) {
+
+                if (key == especiales[i]) {
+                    teclado_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+
+        }
+
+
+
+
+        /*==============================================
+        =        VALIDACION SOLO NUMEROS           =
+        ==============================================*/
+        function solonumeros(e) {
+
+            key = e.keyCode || e.wich;
+
+            teclado = String.fromCharCode(key).toUpperCase();
+
+            letras = "1234567890";
+
+            especiales = "8-37-38-46-164";
+
+            teclado_especial = false;
+
+            for (var i in especiales) {
+
+                if (key == especiales[i]) {
+                    teclado_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+
+        }
+
+        function Espacio(campo, event) {
+            CadenaaReemplazar = " ";
+            CadenaReemplazo = "";
+            CadenaTexto = campo.value;
+            CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+            campo.value = CadenaTextoNueva;
+        }
+
+
+
+
+        function limitDecimalPlaces(e, count) {
+            if (e.target.value.indexOf('.') == -1) {
+                return;
+            }
+            if ((e.target.value.length - e.target.value.indexOf('.')) > count) {
+                e.target.value = parseFloat(e.target.value).toFixed(count);
+            }
+        }
+
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+    </script>
+
+    <script>
+        function DobleEspacio(campo, event) {
+
+            CadenaaReemplazar = "  ";
+            CadenaReemplazo = " ";
+            CadenaTexto = campo.value;
+            CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+            campo.value = CadenaTextoNueva;
+
+        }
+    </script>
+
+    
+<script>
+  function soloLetras(e) {
+      key = e.keyCode || e.which;
+      tecla = String.fromCharCode(key).toLowerCase();
+      letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+      especiales = "8-37-39-46";
+
+      tecla_especial = false
+      for (var i in especiales) {
+          if (key == especiales[i]) {
+              tecla_especial = true;
+              break;
+          }
       }
-      </script>
 
-
-      <script>
-        function nospaces2(){
-  orig=document.CORREO_USUARIO.value;
-  nuev=orig.split(' ');
-  nuev=nuev.join('');
-  document.form.CORREO_USUARIO.value=nuev;
-  if(nuev=orig.split(' ').length>=2);
-}
-
-          function validar(){
-     var correo, expresion;
-     correo = document.getElementById("correo").value;
-     expresion= /\w+@\w+\.+[a-z]/;
-
-      if(correo.length > 80){
-      alert("El campo correo excede su capacidad de caracteres");
-           }
-      else if(!expresion.test(correo)){
-        alert('El correo no es valido');
-        return false;
+      if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+          return false;
       }
-   }
+  }
+</script>
+
+
+
+
+<script>
+  function nospaces2() {
+      orig = document.CORREO.value;
+      nuev = orig.split(' ');
+      nuev = nuev.join('');
+      document.form.CORREO.value = nuev;
+      if (nuev = orig.split(' ').length >= 2);
+  }
+
+  function validar() {
+      var correo, expresion;
+      correo = document.getElementById("correo").value;
+      expresion = /\w+@\w+\.+[a-z]/;
+
+      if (correo.length > 25) {
+          alert("El campo correo excede su capacidad de caracteres");
+      } else if (!expresion.test(correo)) {
+          alert('El correo no es valido');
+          return false;
+      }
+  }
 
   /*
 function validar() {
@@ -87,86 +224,106 @@ alert("La dirección de email " + 'correo' + " es correcta.");
 alert("La dirección de email es incorrecta.");
 }
 }*/
-   </script>
-          
+</script>
+@stop
 
-   <script>
-    function unspaces(){
-      orig=document.form.NOMBRE_EMPLEADO_.value;
-      nuev=orig.split('  ');
-      nuev=nuev.join(' ');
-      document.form.NOMBRE_EMPLEADO.value=nuev;
-      if(nuev=orig.split(' ').length>=2);
-    }
+@section('content')
+    <form action="/empleados/{{ $empleado->cod_empleado }}" method="POST">
+        @csrf
+        @method('PUT')
 
-      
-  </script>
-
-<div class="mb-3">
-  <label for="" class="form-label">Código de Empleado</label>
-  <input id="COD_EMPLEADO" name="COD_EMPLEADO" type="text" class="form-control" maxlength="15" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus required value="{{$empleado->cod_empleado}}" readonly>
-</div>
+        <div class="row justify-content-center">
+            <!-- Left col -->
+            <div class="col-md-9">
+                <!-- MAP & BOX PANE -->
+                <div class="card card-info">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="form-group">
 
 
-    <div class="mb-3">
-        <label for="" class="form-label">DNI</label>
-        <input id="DNI_EMPLEADO" name="DNI_EMPLEADO" type="text" class="form-control" maxlength="15" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus required value="{{$empleado->DNI_EMPLEADO}}">
-    </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Código de Empleado</label>
+                                <input id="COD_EMPLEADO" name="COD_EMPLEADO" type="text" class="form-control"
+                                    maxlength="15"
+                                    onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                                    autofocus required value="{{ $empleado->cod_empleado }}" readonly>
+                            </div>
 
-      <div class="mb-3">
-        <label for="" class="form-label">Nombre</label>
-        <input id="NOMBRE_EMPLEADO" name="NOMBRE_EMPLEADO" type="text" class="form-control" maxlength="70" name="txt_nom" autofocus="on"  style="text-transform: uppercase;" onkeyup="return unspaces()"  onkeypress="return soloLetras(event)" autofocus required value="{{$empleado->nombre_empleado}}">
-      </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">DNI</label>
+                                <input id="DNI_EMPLEADO" name="DNI_EMPLEADO" type="text" class="form-control"
+                                maxlength="13" name="txt_nom" autofocus="on" style="text-transform: uppercase;"
+                                onkeyup="return unspaces()" onkeypress="return soloLetras(event)" autofocus required value="{{ $empleado->DNI_EMPLEADO }}">
+                            </div>
 
+                            
+                           
 
-      <div class="w3-half">
-        <label>Sexo</label>
-        <select class="form-control" id="SEXO_EMPLEADO" name="SEXO_EMPLEADO" value="{{$empleado->sexo_empleado}}"autofocus required >
-           <option value="{{$empleado->sexo_empleado}}"></option>
-           <option value="1">Hombre</option>
-           <option value="2">Mujer</option>
-        </select>
-     </div>
-
-     <div class="w3-half">
-      <label>Estado Civil</label>
-      <select class="form-control" id="ESTADO_CIVIL_EMPLEADO" name="ESTADO_CIVIL_EMPLEADO"  value="{{$empleado->estado_civil_empleado}}" autofocus required>
-         <option value="{{$empleado->estado_civil_empleado}}"></option>
-         <option value="1">Soltero</option>
-         <option value="2">Casado</option>
-         <option value="3">Union Libre</option>
-      </select>
-   </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Nombre</label>
+                                <input id="NOMBRE_EMPLEADO" name="NOMBRE_EMPLEADO" type="text" class="form-control"
+                                    maxlength="50" name="txt_nom" autofocus="on" 
+                                    onkeyup="DobleEspacio(this, event);" onkeypress="return soloLetras(event)" autofocus required
+                                    value="{{ $empleado->nombre_empleado }}">
+                            </div>
 
 
-      <div class="mb-3">
-        <label for="" class="form-label">Edad</label>
-        <input id="EDAD_EMPLEADO" name="EDAD_EMPLEADO" type="text" class="form-control" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus required value="{{$empleado->edad_empleado}}">
-      </div>
+                            <div class="w3-half">
+                                <label>Sexo</label>
+                                <select class="form-control" id="SEXO_EMPLEADO" name="SEXO_EMPLEADO"
+                                    value="{{ $empleado->sexo_empleado }}"autofocus required>
+                                    <option value="{{ $empleado->sexo_empleado }}"></option>
+                                    <option value="Hombre">Hombre</option>
+                                    <option value="Mujer">Mujer</option>
+                                </select>
+                            </div>
 
-      <div class="mb-3">
-        <label for="" class="form-label">Telefono</label>
-        <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus required value="{{$empleado->telefono}}">
-      </div>
+                            <div class="w3-half">
+                                <label>Estado Civil</label>
+                                <select class="form-control" id="ESTADO_CIVIL_EMPLEADO" name="ESTADO_CIVIL_EMPLEADO"
+                                    value="{{ $empleado->estado_civil_empleado }}" autofocus required>
+                                    <option value="{{ $empleado->estado_civil_empleado }}"></option>
+                                    <option value="Soltero">Soltero</option>
+                                    <option value="Casado">Casado</option>
+                                    <option value="Union Libre">Union Libre</option>
+                                </select>
+                            </div>
 
-      <div class="mb-3">
-        <label for="" class="form-label">Correo</label>
-        <input id="CORREO" name="CORREO" type="text" class="form-control" value="{{$empleado->correo}}">
-      </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Edad</label>
+                                <input id="EDAD_EMPLEADO" name="EDAD_EMPLEADO" type="text" class="form-control"
+                                    maxlength="9"
+                                    onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                                    autofocus required value="{{ $empleado->edad_empleado }}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="" class="form-label">Telefono</label>
+                                <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" maxlength="9"
+                                    onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                                    autofocus required value="{{ $empleado->telefono }}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="" class="form-label">Correo</label>
+                                <input id="CORREO" name="CORREO" type="email" class="form-control"
+                                maxlength="40" onkeyup="Espacio(this, event);" value="{{ $empleado->correo }}">
+                            </div>
+
+                           
 
 
 
+                            <a href="/empleados" class="btn btn-secondary" tabindex="5">Cancelar</a>
+                            <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
 
+    </form>
 
-  <a href="/empleados" class="btn btn-secondary" tabindex="5">Cancelar</a>
-  <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</form>
-    
 @stop
