@@ -6,13 +6,199 @@
 @section('content_header')
 @stop
 
-
+ 
 
 @section('content')
 <form action="/presupuesto/{{$presupuesto->cod_solicitud}}" method="POST">
     @csrf
     @method('PUT')
 
+    <script>
+      function soloNums(e){
+         key != e.keyCode || e.which;
+         tecla != String.fromCharCode(key).toLowerCase();
+         letras != " áéíóúabcdefghijklmnñopqrstuvwxyz";
+         especiales != "8-37-39-46";
+    
+         tecla_especial != false
+         for(var i in especiales){
+              if(key == especiales[i]){
+                  tecla_especial != true;
+                  break;
+              }
+          }
+    
+          if(letras.indexOf(tecla)==-1 && !tecla_especial){
+              return false;
+          }
+      }
+    </script>
+    
+                
+                <script>
+                  function nospaces1(){
+            orig=document.form.PASSWORD_USUARIO.value;
+            nuev=orig.split(' ');
+            nuev=nuev.join('');
+            document.form.PASSWORD_USUARIO.value=nuev;
+            if(nuev=orig.split(' ').length>=2);
+            }
+            </script>
+    
+    <!---validació de numeros y 2 decimales--->
+    <script>
+      function limitDecimalPlaces(e, count) {
+      if (e.target.value.indexOf('.') == -1) { return; }
+      if ((e.target.value.length - e.target.value.indexOf('.')) > count) {
+        e.target.value = parseFloat(e.target.value).toFixed(count);
+      }
+    }
+    
+    function isNumberKey(evt)
+    {
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    
+      return true;
+    }
+    </script>
+
+<script>
+  /*=============================================
+   VALIDACION QUE SOLO PERMITA LETRAS Y NUMEROS             
+  =============================================*/
+
+  function letrasynumeros(e) {
+
+      key = e.keyCode || e.wich;
+
+      teclado = String.fromCharCode(key).toUpperCase();
+
+      letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZÑ1234567890 ";
+
+      especiales = "8-37-38-46-164";
+
+      teclado_especial = false;
+
+      for (var i in especiales) {
+
+          if (key == especiales[i]) {
+              teclado_especial = true;
+              break;
+          }
+      }
+
+      if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+          return false;
+      }
+
+  }
+
+  /*=====  End of Section comment block  ======*/
+
+
+  /*==============================================
+  =     VALIDACION SOLO LETRAS            =
+  ==============================================*/
+  function sololetras(e) {
+
+      key = e.keyCode || e.wich;
+
+      teclado = String.fromCharCode(key).toUpperCase();
+
+      letras = " ABCDEFGHIJKLMNOPQRSTUVWXYZÑ";
+
+      especiales = "8-37-38-46-164";
+
+      teclado_especial = false;
+
+      for (var i in especiales) {
+
+          if (key == especiales[i]) {
+              teclado_especial = true;
+              break;
+          }
+      }
+
+      if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+          return false;
+      }
+
+  }
+
+
+
+
+  /*==============================================
+  =        VALIDACION SOLO NUMEROS           =
+  ==============================================*/
+  function solonumeros(e) {
+
+      key = e.keyCode || e.wich;
+
+      teclado = String.fromCharCode(key).toUpperCase();
+
+      letras = "1234567890";
+
+      especiales = "8-37-38-46-164";
+
+      teclado_especial = false;
+
+      for (var i in especiales) {
+
+          if (key == especiales[i]) {
+              teclado_especial = true;
+              break;
+          }
+      }
+
+      if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+          return false;
+      }
+
+  }
+
+  function Espacio(campo, event) {
+      CadenaaReemplazar = " ";
+      CadenaReemplazo = "";
+      CadenaTexto = campo.value;
+      CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+      campo.value = CadenaTextoNueva;
+  }
+
+
+
+
+  function limitDecimalPlaces(e, count) {
+      if (e.target.value.indexOf('.') == -1) {
+          return;
+      }
+      if ((e.target.value.length - e.target.value.indexOf('.')) > count) {
+          e.target.value = parseFloat(e.target.value).toFixed(count);
+      }
+  }
+
+  function isNumberKey(evt) {
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+          return false;
+
+      return true;
+  }
+</script>
+
+<script>
+  function DobleEspacio(campo, event) {
+
+      CadenaaReemplazar = "  ";
+      CadenaReemplazo = " ";
+      CadenaTexto = campo.value;
+      CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+      campo.value = CadenaTextoNueva;
+
+  }
+</script>
 
     <script>
       function limitDecimalPlaces(e, count) {
@@ -51,23 +237,33 @@
     
     <div class="mb-3">
     <label for="" class="form-label">Nombre</label>
-    <input id="NOMBRE" name="NOMBRE" type="text" class="form-control"  value="{{$presupuesto->nombre}}" autocomplete="off" autofocus="on" autofocus required="" pattern="[a-z A-Z ñÑ ÁÉÍÓÚáéíóú ]+">    
+    <input id="NOMBRE" name="NOMBRE" type="text" class="form-control"
+    tabindex="1" autocomplete="off" autofocus="on"
+    onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
+    autofocus required value="{{$presupuesto->nombre}}">    
   </div>
 
 
   <div class="mb-3">
     <label for="" class="form-label">Apellido</label>
-    <input id="APELLIDO" name="APELLIDO" type="text" class="form-control"  value="{{$presupuesto->apellido}}" autocomplete="off" autofocus="on" autofocus required="" pattern="[a-z A-Z ñÑ ÁÉÍÓÚáéíóú ]+">    
+    <input id="APELLIDO" name="APELLIDO" type="text"
+    class="form-control" tabindex="1" autocomplete="off" autofocus="on"
+    onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
+    autofocus required  value="{{$presupuesto->apellido}}">    
   </div>
 
   <div class="mb-3">
     <label for="" class="form-label">Telefono</label>
-    <input id="TELEFONO" name="TELEFONO" type="text" class="form-control"  value="{{$presupuesto->telefono}}" minlength="8" maxlength="13" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+">    
+    <input id="TELEFONO" name="TELEFONO" type="text" class="form-control"
+    tabindex="1" onkeypress="return isNumberKey(event)"
+    placeholder="Ingrese su Numero de telefono sin espacios:99999999" minlength="8" maxlength="8"
+    autofocus required value="{{$presupuesto->telefono}}" >    
   </div>
 
   <div class="mb-3">
     <label for="" class="form-label">Correo Electronico</label>
-    <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email" class="form-control"  value="{{$presupuesto->correo_electronico}}" autocomplete="off" autofocus="on" autofocus required>    
+    <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email" placeholder="Ingrese su correo electronico: aaa@gmail.com" class="form-control"
+    tabindex="1" onkeyup="Espacio(this, event);" autofocus required value="{{$presupuesto->correo_electronico}}">    
   </div>
 
   
@@ -75,6 +271,7 @@
 <div>
   <label for="country">Tipo Solicitante</label>
   <select class="form-control" id="TIPO_SOLICITANTE" name="TIPO_SOLICITANTE" value="{{$presupuesto->tipo_solicitante}}" autocomplete="off" autofocus="on" autofocus required>
+    <option value="{{$presupuesto->tipo_solicitante}}" >Selecciona nuestros servicios</option>
     <option value="1">EMPRESA</option>
     <option value="2">CASA</option>
   </select>
@@ -82,29 +279,39 @@
 
 <div class="mb-3">
   <label for="" class="form-label">Telefono Opcional</label>
-  <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control"  value="{{$presupuesto->telefono_opcional}}" minlength="8" maxlength="13" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+">    
+  <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control"
+  tabindex="1" onkeypress="return isNumberKey(event)"
+  placeholder="Ingrese su Numero de telefono sin espacios:99999999" minlength="8" maxlength="8"
+  autofocus required value="{{$presupuesto->telefono_opcional}}">    
 </div>
 
 
 <div class="mb-3">
   <label for="" class="form-label">Dirección</label>
-  <input id="DIRECCION_SOLICITANTE" name="DIRECCION_SOLICITANTE" type="text" class="form-control"  value="{{$presupuesto->direccion_solicitante}}" autocomplete="off" autofocus="on" autofocus required>    
+  <input id="DIRECCION_SOLICITANTE" name="DIRECCION_SOLICITANTE" type="text"
+  class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Ingrese la dirección"
+  onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+  autofocus required value="{{$presupuesto->direccion_solicitante}}">    
 </div>
 
 <div class="mb-3">
   <label for="" class="form-label">Nombre Empresa</label>
-  <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="form-control"  value="{{$presupuesto->nombre_e_c}}" autocomplete="off" autofocus="on" autofocus required>    
+  <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="form-control" tabindex="1"placeholder="Ingrese el nombre de la empresa" onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+  autofocus required autofocus required  value="{{$presupuesto->nombre_e_c}}">    
 </div>
 
 <div class="mb-3">
   <label for="" class="form-label">No. Identidad / RTN</label>
-  <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control"  value="{{$presupuesto->rtn_dni}}" minlength="9" maxlength="14" autocomplete="off" autofocus="on" autofocus required>    
+  <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control"
+  tabindex="1" onkeypress="return solonumeros(event)"
+  placeholder="En caso de aplicar Ingrese su RTN sin espacios:0000000000000"
+  onkeyup="DobleEspacio(this, event);" minlength="14" maxlength="14" autofocus required  value="{{$presupuesto->rtn_dni}}">    
 </div>
 
 <div>
   <label for="country">Ciudad</label>
   <select class="form-control" id="CIUDAD" name="CIUDAD" value="{{$presupuesto->ciudad}}" autofocus required>
-    <option value="" disabled selected>Selecciona una Ciudad:</option>
+    <option value="{{$presupuesto->ciudad}}" disabled selected>Selecciona una Ciudad:</option>
     <option value="1">Tegucigalpa</option>
     <option value="2">San Pedro Sula</option>
     <option value="3">Comayagua</option>
@@ -128,14 +335,17 @@
 
 <div class="mb-3">
   <label for="" class="form-label">Descripció de solicitud</label>
-  <input id="DESCRIPCION_SOLICITUD" name="DESCRIPCION_SOLICITUD" type="text" class="form-control"  value="{{$presupuesto->descripcion_solicitud}}" autofocus required>    
+  <input id="DESCRIPCION_SOLICITUD" name="DESCRIPCION_SOLICITUD" type="text"
+  class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Describa la solicitud"
+  onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+  autofocus required  value="{{$presupuesto->descripcion_solicitud}}">    
 </div>
 
 
 <div>
   <label for="country">Estado</label>
   <select class="form-control" id="COD_ESTADO" name="COD_ESTADO" value="{{$presupuesto->cod_estado}}" autofocus required>
-    <option value="" disabled selected>Selecciona nuestros servicios</option>
+    <option value="{{$presupuesto->cod_estado}}" disabled selected>Selecciona nuestros servicios</option>
   <option value="1">NUEVO</option>
    <option value="2">EN PROCESO</option>
    <option value="3">FINALIZADO</option>

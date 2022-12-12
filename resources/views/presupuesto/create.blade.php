@@ -6,7 +6,7 @@
 @section('content_header')
 @stop
 
-
+ 
 
 @section('content')
 <form action="/presupuesto" method="POST">
