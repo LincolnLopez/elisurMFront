@@ -23,7 +23,7 @@
         });
     </script>
 
-
+  
 
     < <script>
         * FUNCION PARA RESTRINGIR EL ESPACIO *
@@ -203,7 +203,7 @@
                                     <input id="NOMBRE_CLIENTE" name="NOMBRE_CLIENTE" type="text" class="form-control"
                                         tabindex="1" autocomplete="off" autofocus="on"
                                         onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-                                        placeholder="Ingrese"autofocus required>
+                                        placeholder="Ingrese Nombre"autofocus required>
                                 </div>
 
                                 <div class="mb-3">
@@ -211,13 +211,13 @@
                                     <input id="APELLIDOS_CLIENTE" name="APELLIDOS_CLIENTE" type="text"
                                         class="form-control" tabindex="1" autocomplete="off" autofocus="on"
                                         onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-                                        placeholder="Ingrese"autofocus required>
+                                        placeholder="Ingrese Apellido"autofocus required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="" class="form-label">Direcciones</label>
                                     <input id="DIRECCION_CLIENTE" name="DIRECCION_CLIENTE" type="text"
-                                        class="form-control" tabindex="1" autocomplete="off" autofocus="on"
+                                        class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Ingrese la dirección"
                                         onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
                                         autofocus required>
                                 </div>
@@ -237,14 +237,14 @@
                                     <input id="RTN_CLIENTE" name="RTN_CLIENTE" type="text" class="form-control"
                                         tabindex="1" onkeypress="return solonumeros(event)"
                                         placeholder="En caso de aplicar Ingrese su RTN sin espacios:0000000000000"
-                                        onkeyup="DobleEspacio(this, event);" minlength="14" maxlength="14">
+                                        onkeyup="DobleEspacio(this, event);" minlength="14" maxlength="14" autofocus required>
                                 </div>
 
                                 <div class="mb-3">
                                   <label for="" class="form-label">TELEFONO</label>
                                   <input id="TELEFONO_CLIENTE" name="TELEFONO_CLIENTE" type="text" class="form-control"
                                       tabindex="1" onkeypress="return isNumberKey(event)"
-                                      placeholder="Ingrese su ID sin espacios:0000000000000" minlength="13" maxlength="13"
+                                      placeholder="Ingrese su Numero de telefono sin espacios:00000000" minlength="8" maxlength="8"
                                       autofocus required>
                               </div>
 
