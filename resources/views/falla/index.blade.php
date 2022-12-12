@@ -8,6 +8,215 @@
 
 @section('content')
 
+<!------Ruta de algunas validaciones----->
+@section('js')
+
+    <script type="text/javascript" src="js/validaciones.js"></script>
+
+    <!---Mascara para los imput--->
+    <script src="/js/mascara/src/jquery.maskedinput.js" type="text/javascript"></script>
+    <!---Formato numero de telefono e id-->
+    <script>
+        jQuery(function($) {
+            $("#TELEFONO").mask("9999-9999");
+            $("#DNI_EMPLEADO").mask("9999-9999-99999");
+            $("#EDAD_EMPLEADO").mask("99");
+
+        });
+    </script>
+
+
+
+    < <script>
+        * FUNCION PARA RESTRINGIR EL ESPACIO *
+            **
+            **
+            ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** * /
+    </script>
+
+    <script>
+        /*=============================================
+         VALIDACION QUE SOLO PERMITA LETRAS Y NUMEROS             
+        =============================================*/
+
+        function letrasynumeros(e) {
+
+            key = e.keyCode || e.wich;
+
+            teclado = String.fromCharCode(key).toUpperCase();
+
+            letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZÑ1234567890 ";
+
+            especiales = "8-37-38-46-164";
+
+            teclado_especial = false;
+
+            for (var i in especiales) {
+
+                if (key == especiales[i]) {
+                    teclado_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+
+        }
+
+        /*=====  End of Section comment block  ======*/
+
+
+        /*==============================================
+        =     VALIDACION SOLO LETRAS            =
+        ==============================================*/
+        function sololetras(e) {
+
+            key = e.keyCode || e.wich;
+
+            teclado = String.fromCharCode(key).toUpperCase();
+
+            letras = " ABCDEFGHIJKLMNOPQRSTUVWXYZÑ";
+
+            especiales = "8-37-38-46-164";
+
+            teclado_especial = false;
+
+            for (var i in especiales) {
+
+                if (key == especiales[i]) {
+                    teclado_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+
+        }
+
+
+
+
+        /*==============================================
+        =        VALIDACION SOLO NUMEROS           =
+        ==============================================*/
+        function solonumeros(e) {
+
+            key = e.keyCode || e.wich;
+
+            teclado = String.fromCharCode(key).toUpperCase();
+
+            letras = "1234567890";
+
+            especiales = "8-37-38-46-164";
+
+            teclado_especial = false;
+
+            for (var i in especiales) {
+
+                if (key == especiales[i]) {
+                    teclado_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+
+        }
+
+        function Espacio(campo, event) {
+            CadenaaReemplazar = " ";
+            CadenaReemplazo = "";
+            CadenaTexto = campo.value;
+            CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+            campo.value = CadenaTextoNueva;
+        }
+
+
+
+
+        function limitDecimalPlaces(e, count) {
+            if (e.target.value.indexOf('.') == -1) {
+                return;
+            }
+            if ((e.target.value.length - e.target.value.indexOf('.')) > count) {
+                e.target.value = parseFloat(e.target.value).toFixed(count);
+            }
+        }
+
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+    </script>
+
+    <script>
+        function DobleEspacio(campo, event) {
+
+            CadenaaReemplazar = "  ";
+            CadenaReemplazo = " ";
+            CadenaTexto = campo.value;
+            CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+            campo.value = CadenaTextoNueva;
+
+        }
+    </script>
+
+<script>
+    function nospaces2() {
+        orig = document.CORREO_ELECTRONICO.value;
+        nuev = orig.split(' ');
+        nuev = nuev.join('');
+        document.form.CORREO_ELECTRONICO.value = nuev;
+        if (nuev = orig.split(' ').length >= 2);
+    }
+
+    function validar() {
+        var correo, expresion;
+        correo = document.getElementById("correo").value;
+        expresion = /\w+@\w+\.+[a-z]/;
+
+        if (correo.length > 80) {
+            alert("El campo correo excede su capacidad de caracteres");
+        } else if (!expresion.test(correo)) {
+            alert('El correo no es valido');
+            return false;
+        }
+    }
+
+    /*
+function validar() {
+if (/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3,4})+$/.test('correo')){
+alert("La dirección de email " + 'correo' + " es correcta.");
+}else {
+alert("La dirección de email es incorrecta.");
+}
+}*/
+</script>
+
+
+<script>
+    function unspaces() {
+        orig = document.form.NOMBRE.value;
+        nuev = orig.split('  ');
+        nuev = nuev.join(' ');
+        document.form.NOMBRE.value = nuev;
+        if (nuev = orig.split(' ').length >= 2);
+    }
+</script>
+
+
+
+
+@stop
 
 <div class="container-fluid">
     <div class="row content">
@@ -32,13 +241,19 @@
 
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <input id="NOMBRE" name="NOMBRE" type="text" class="form-control" placeholder="Nombre">
+                                    <input id="NOMBRE" name="NOMBRE" type="text" class="form-control"
+                                        tabindex="1" autocomplete="off" autofocus="on"
+                                        onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
+                                        placeholder="Ingrese Nombre"autofocus minlength="7" maxlength="40" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" placeholder="Telefóno">
+                                   <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" tabindex="1" onkeypress="return isNumberKey(event)"
+                                    placeholder="Ingrese su número de telefono: 00000000" minlength="8" maxlength="8"
+                                    autofocus required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input id="TCORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="text" class="form-control" placeholder="Correo Electrónico">
+                                    <input id="TCORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email" class="form-control"
+                                    tabindex="1" onkeyup="Espacio(this, event);" placeholder="Ingrese correo" autofocus required>
                                 </div>
                             </div>
                         </tr>
@@ -46,7 +261,7 @@
                         <tr>
 
                             <div class="form-group col-md-6">
-                                <select id="COD_SERVICIO" name="COD_SERVICIO" class="form-control">
+                                <select id="COD_SERVICIO" name="COD_SERVICIO" class="form-control" required>
                                     <option>Seleccionar Tipo de Servicio</option>
                                     <option value="1">Aire Acondicionado</option>
                                     <option value="2">Construcción</option>
@@ -62,7 +277,7 @@
 
                             <div class="form-group">
                                 <div class="form-group col-md-6">
-                                    <input id="TEMA" name="TEMA" type="text" class="form-control" placeholder="tema">
+                                    <input id="TEMA" name="TEMA" type="text" class="form-control" placeholder="tema" required>
                                 </div>
                         </tr>
                         <tr>
@@ -77,7 +292,7 @@
                                         <div class="col-auto my-1">
                                             <!-- textarea -->
                                             <div class="form-group col-md-20">
-                                                <textarea id="DESCRIPCION" name="DESCRIPCION" rows="4" cols="120" class="form-control" placeholder="DESCRIPCION"></textarea>
+                                                <textarea id="DESCRIPCION" name="DESCRIPCION" rows="4" cols="120" class="form-control" placeholder="DESCRIPCION" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +303,7 @@
                             <label>Ubicación:</label>
                             <div class="form-group">
                                 <div class="form-group col-md-4">
-                                    <input id="UBICACION" name="UBICACION" type="text" class="form-control" placeholder="">
+                                    <input id="UBICACION" name="UBICACION" type="text" class="form-control" placeholder="" required>
                                 </div>
                         </tr>
                         <tr>
