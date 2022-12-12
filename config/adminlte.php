@@ -353,8 +353,6 @@ return [
             'text'       => 'Inventario',
             'icon'=>'far fa-fw fas fas fa-dolly',
             'icon_color' => 'info',
-            'url'        => 'inventario',
-            'can' => 'ver-articulo' or 'ver-inventarios' or 'ver-inventarioH',
             'submenu' => [
                 [
                     'text' =>'Articulos',

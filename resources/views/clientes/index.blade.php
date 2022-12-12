@@ -13,7 +13,6 @@
 @stop
 
 
-
 @section('content')
 
     <body>
