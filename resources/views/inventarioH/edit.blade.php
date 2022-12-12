@@ -114,6 +114,8 @@
     <label for="" class="form-label">Código Empleado</label>
     <input id="COD_EMPLEADO" name="COD_EMPLEADO" type="text" class="form-control" onkeypress="return isNumberKey(event)" value="{{$persona->cod_empleado}}">    
   </div>
+
+  
   
 
   <a href="/inventarioH" class="btn btn-secondary" tabindex="5">Cancelar</a>

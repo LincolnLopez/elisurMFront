@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TblEmpleado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -51,7 +52,8 @@ class InventarioHController extends Controller
     {
         
         //=== LLAMAR EL FORMULARIO CREATE ===
-        return view('inventarioH.create');
+        $empleados = TblEmpleado::all();
+        return view('inventarioH.create', compact('empleados')); 
 
 
     }

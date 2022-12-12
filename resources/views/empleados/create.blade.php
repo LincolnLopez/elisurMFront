@@ -117,20 +117,25 @@ alert("La dirección de email es incorrecta.");
                 <input id="NOMBRE_EMPLEADO" name="NOMBRE_EMPLEADO" type="text" class="form-control" tabindex="1" maxlength="70" name="txt_nom" autofocus="on"  style="text-transform: uppercase;" onkeyup="return unspaces()"  onkeypress="return soloLetras(event)" autofocus required>
               </div>
 
-              <div class="mb-3">
-                <label for="" class="form-label">APELLIDOS EMPLEADO</label>
-                <input id="APELLIDOS_EMPLEADO" name="APELLIDOS_EMPLEADO" type="text" class="form-control" tabindex="1" maxlength="70" name="txt_nom" autofocus="on"  style="text-transform: uppercase;" onkeyup="return unspaces()"  onkeypress="return soloLetras(event)" autofocus required>
-              </div>
 
-              <div class="mb-3">
-                <label for="" class="form-label">SEXO_EMPLEADO</label>
-                <input id="SEXO_EMPLEADO" name="SEXO_EMPLEADO" type="text" class="form-control" tabindex="1" maxlength="70" name="txt_nom" autofocus="on"  style="text-transform: uppercase;" onkeyup="return unspaces()"  onkeypress="return soloLetras(event)" autofocus required>
-              </div>
+              <div class="w3-half">
+                <label>Sexo</label>
+                <select class="form-control" id="SEXO_EMPLEADO" name="SEXO_EMPLEADO" autofocus required>
+                   <option value="" disabled selected>Seleccione el Sexo:</option>
+                   <option value="1">Hombre</option>
+                   <option value="2">Mujer</option>
+                </select>
+             </div>
 
-              <div class="mb-3">
-                <label for="" class="form-label">ESTADO_CIVIL_EMPLEADO</label>
-                <input id="ESTADO_CIVIL_EMPLEADO" name="ESTADO_CIVIL_EMPLEADO" type="text" class="form-control" tabindex="1" maxlength="70" name="txt_nom" autofocus="on"  style="text-transform: uppercase;" onkeyup="return unspaces()"  onkeypress="return soloLetras(event)" autofocus required>
-              </div>
+              <div class="w3-half">
+                <label>Estado Civil</label>
+                <select class="form-control" id="ESTADO_CIVIL_EMPLEADO" name="ESTADO_CIVIL_EMPLEADO" autofocus required>
+                   <option value="" disabled selected>Seleccione el Sexo:</option>
+                   <option value="1">Soltero</option>
+                   <option value="2">Casado</option>
+                   <option value="3">Union Libre</option>
+                </select>
+             </div>
 
               <div class="mb-3">
                 <label for="" class="form-label">EDAD EMPLEADO</label>

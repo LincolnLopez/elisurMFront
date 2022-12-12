@@ -96,7 +96,6 @@
                     <th>Código Empleado</th>
                     <th>DNI</th>
                     <th>Nombre</th>
-                    <th>Apellidos</th>
                     <th>Sexo</th>
                     <th>Estado Civil</th>
                     <th>Edad</th>
@@ -108,7 +107,7 @@
             </thead>
             <tbody>
                 <?php 
-                $consulta= "SELECT COD_EMPLEADO, DNI_EMPLEADO, NOMBRE_EMPLEADO, APELLIDOS_EMPLEADO, SEXO_EMPLEADO, ESTADO_CIVIL_EMPLEADO, 
+                $consulta= "SELECT COD_EMPLEADO, DNI_EMPLEADO, NOMBRE_EMPLEADO, SEXO_EMPLEADO, ESTADO_CIVIL_EMPLEADO, 
                  EDAD_EMPLEADO, TELEFONO, CORREO, ESTADO_EMPLEADO FROM tbl_empleados";
                  $conexion = mysqli_connect("localhost","root","","elisur");
                  $resultado=mysqli_query($conexion,$consulta);
@@ -118,7 +117,6 @@
                     <td><?php echo "$llamar[COD_EMPLEADO]"; ?></td>
                     <td><?php echo "$llamar[DNI_EMPLEADO]"; ?></td>
                     <td><?php echo "$llamar[NOMBRE_EMPLEADO]"; ?></td>
-                    <td><?php echo "$llamar[APELLIDOS_EMPLEADO]"; ?></td>
                     <td><?php echo "$llamar[SEXO_EMPLEADO]"; ?></td>
                     <td><?php echo "$llamar[ESTADO_CIVIL_EMPLEADO]"; ?></td>
                     <td><?php echo "$llamar[EDAD_EMPLEADO]"; ?></td>

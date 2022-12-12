@@ -92,9 +92,15 @@
 
 
   <div class="mb-3">
-    <label for="" class="form-label">Código de Empleado</label>
-    <input id="COD_EMPLEADO" name="COD_EMPLEADO" type="text" class="form-control" tabindex="1" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+">
-  </div>
+    <label for="" class="form-label">Nombre del empleado</label>   
+    <select name="COD_EMPLEADO" id="COD_EMPLEADO" class="form-control" autofocus required>
+      @foreach ($empleados as $empleado)
+          <option value="{{ $empleado['cod_empleado'] }}">{{ $empleado['nombre_empleado']
+          }}</option>
+      @endforeach
+   </select> 
+  
+  </div>  
 
 
   <a href="/inventarioH" class="btn btn-secondary" tabindex="5">Cancelar</a>

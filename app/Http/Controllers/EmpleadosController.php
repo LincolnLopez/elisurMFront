@@ -53,7 +53,7 @@ class EmpleadosController extends Controller
      */
     public function store(Request $request)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/insert_empleados',[ 'DNI_EMPLEADO'=>$request->DNI_EMPLEADO,'NOMBRE_EMPLEADO'=>$request->NOMBRE_EMPLEADO,'APELLIDOS_EMPLEADO'=>$request->APELLIDOS_EMPLEADO,'SEXO_EMPLEADO'=>$request->SEXO_EMPLEADO, 'ESTADO_CIVIL_EMPLEADO'=>$request->ESTADO_CIVIL_EMPLEADO,'EDAD_EMPLEADO'=>$request->EDAD_EMPLEADO,'TELEFONO'=>$request->TELEFONO,'CORREO'=>$request->CORREO,'ESTADO_EMPLEADO'=>$request->ESTADO_EMPLEADO]);
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->post('http://localhost:3000/insert_empleados',[ 'DNI_EMPLEADO'=>$request->DNI_EMPLEADO,'NOMBRE_EMPLEADO'=>$request->NOMBRE_EMPLEADO,'SEXO_EMPLEADO'=>$request->SEXO_EMPLEADO, 'ESTADO_CIVIL_EMPLEADO'=>$request->ESTADO_CIVIL_EMPLEADO,'EDAD_EMPLEADO'=>$request->EDAD_EMPLEADO,'TELEFONO'=>$request->TELEFONO,'CORREO'=>$request->CORREO,'ESTADO_EMPLEADO'=>$request->ESTADO_EMPLEADO]);
         return redirect('/empleados');
     }
 
@@ -76,7 +76,7 @@ class EmpleadosController extends Controller
      */
     public function edit($cod_empleado)
     {
-        $empleado = DB ::table('tbl_empleados')->select('cod_empleado','DNI_EMPLEADO','nombre_empleado','apellidos_empleado','sexo_empleado','estado_civil_empleado','edad_empleado','telefono','correo','estado_empleado')->where('cod_empleado', '=', $cod_empleado)->first(); 
+        $empleado = DB ::table('tbl_empleados')->select('cod_empleado','DNI_EMPLEADO','nombre_empleado','sexo_empleado','estado_civil_empleado','edad_empleado','telefono','correo','estado_empleado')->where('cod_empleado', '=', $cod_empleado)->first(); 
         return view('empleados.edit')->with('empleado',$empleado);
 
     }
@@ -90,7 +90,7 @@ class EmpleadosController extends Controller
      */
     public function update(Request $request)
     {
-        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/actualizar_empleado',['COD_EMPLEADO'=>$request->COD_EMPLEADO,'DNI_EMPLEADO'=>$request->DNI_EMPLEADO, 'NOMBRE_EMPLEADO'=>$request->NOMBRE_EMPLEADO,'APELLIDOS_EMPLEADO'=>$request->APELLIDOS_EMPLEADO,'SEXO_EMPLEADO'=>$request->SEXO_EMPLEADO, 'ESTADO_CIVIL_EMPLEADO'=>$request->ESTADO_CIVIL_EMPLEADO,'EDAD_EMPLEADO'=>$request->EDAD_EMPLEADO,'TELEFONO'=>$request->TELEFONO,'CORREO'=>$request->CORREO,'ESTADO_EMPLEADO'=>$request->ESTADO_EMPLEADO ]);
+        Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjowfSwiaWF0IjoxNjY4OTIyMjY2fQ.ZknZ8Fk77oKHICyGfN5t3IDMYt9RMz12SX_CAcWy0Ps')->put('http://localhost:3000/actualizar_empleado',['COD_EMPLEADO'=>$request->COD_EMPLEADO,'DNI_EMPLEADO'=>$request->DNI_EMPLEADO, 'NOMBRE_EMPLEADO'=>$request->NOMBRE_EMPLEADO,'SEXO_EMPLEADO'=>$request->SEXO_EMPLEADO, 'ESTADO_CIVIL_EMPLEADO'=>$request->ESTADO_CIVIL_EMPLEADO,'EDAD_EMPLEADO'=>$request->EDAD_EMPLEADO,'TELEFONO'=>$request->TELEFONO,'CORREO'=>$request->CORREO,'ESTADO_EMPLEADO'=>$request->ESTADO_EMPLEADO ]);
         return redirect('/empleados');
 
     }

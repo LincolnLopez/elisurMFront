@@ -76,7 +76,6 @@
                       <th>Código Empleado</th>
                       <th>DNI</th>
                       <th>Nombre</th>
-                      <th>Apellidos</th>
                       <th>Sexo</th>
                       <th>Estado Civil</th>
                       <th>Edad</th>
@@ -92,7 +91,6 @@
                       <td>{{$empleado->COD_EMPLEADO}}</td>
                       <td>{{$empleado->DNI_EMPLEADO}}</td>
                       <td>{{$empleado->NOMBRE_EMPLEADO}}</td>
-                      <td>{{$empleado->APELLIDOS_EMPLEADO}}</td>
                       <td>{{$empleado->SEXO_EMPLEADO}}</td>
                       <td>{{$empleado->ESTADO_CIVIL_EMPLEADO}}</td>
                       <td>{{$empleado->EDAD_EMPLEADO}}</td>

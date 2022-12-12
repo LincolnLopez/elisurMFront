@@ -118,20 +118,26 @@ alert("La dirección de email es incorrecta.");
         <input id="NOMBRE_EMPLEADO" name="NOMBRE_EMPLEADO" type="text" class="form-control" maxlength="70" name="txt_nom" autofocus="on"  style="text-transform: uppercase;" onkeyup="return unspaces()"  onkeypress="return soloLetras(event)" autofocus required value="{{$empleado->nombre_empleado}}">
       </div>
 
-      <div class="mb-3">
-        <label for="" class="form-label">Apellidos</label>
-        <input id="APELLIDOS_EMPLEADO" name="APELLIDOS_EMPLEADO" type="text" class="form-control" maxlength="70" name="txt_nom" autofocus="on"  style="text-transform: uppercase;" onkeyup="return unspaces()"  onkeypress="return soloLetras(event)" autofocus required value="{{$empleado->apellidos_empleado}}">
-      </div>
 
-      <div class="mb-3">
-        <label for="" class="form-label">Sexo</label>
-        <input id="SEXO_EMPLEADO" name="SEXO_EMPLEADO" type="text" class="form-control" maxlength="70" name="txt_nom" autofocus="on"  style="text-transform: uppercase;" onkeyup="return unspaces()"  onkeypress="return soloLetras(event)" autofocus required value="{{$empleado->sexo_empleado}}">
-      </div>
+      <div class="w3-half">
+        <label>Sexo</label>
+        <select class="form-control" id="SEXO_EMPLEADO" name="SEXO_EMPLEADO" value="{{$empleado->sexo_empleado}}"autofocus required >
+           <option value="{{$empleado->sexo_empleado}}"></option>
+           <option value="1">Hombre</option>
+           <option value="2">Mujer</option>
+        </select>
+     </div>
 
-      <div class="mb-3">
-        <label for="" class="form-label">Estado Civil</label>
-        <input id="ESTADO_CIVIL_EMPLEADO" name="ESTADO_CIVIL_EMPLEADO" type="text" class="form-control" maxlength="70" name="txt_nom" autofocus="on"  style="text-transform: uppercase;" onkeyup="return unspaces()"  onkeypress="return soloLetras(event)" autofocus required value="{{$empleado->estado_civil_empleado}}">
-      </div>
+     <div class="w3-half">
+      <label>Estado Civil</label>
+      <select class="form-control" id="ESTADO_CIVIL_EMPLEADO" name="ESTADO_CIVIL_EMPLEADO"  value="{{$empleado->estado_civil_empleado}}" autofocus required>
+         <option value="{{$empleado->estado_civil_empleado}}"></option>
+         <option value="1">Soltero</option>
+         <option value="2">Casado</option>
+         <option value="3">Union Libre</option>
+      </select>
+   </div>
+
 
       <div class="mb-3">
         <label for="" class="form-label">Edad</label>
