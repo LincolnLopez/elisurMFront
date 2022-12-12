@@ -3,12 +3,12 @@
 @section('title', 'Reportar fallas')
 
 @section('content_header')
-<h1>Reportar Fallas</h1>
+    <h1>Reportar Fallas</h1>
 @stop
 
 @section('content')
 
-<!------Ruta de algunas validaciones----->
+    <!------Ruta de algunas validaciones----->
 @section('js')
 
     <script type="text/javascript" src="js/validaciones.js"></script>
@@ -31,13 +31,15 @@
         * FUNCION PARA RESTRINGIR EL ESPACIO *
             **
             **
-            ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** * /
+            **
+            **
+            ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** * /
     </script>
 
     <script>
         /*=============================================
-         VALIDACION QUE SOLO PERMITA LETRAS Y NUMEROS             
-        =============================================*/
+                 VALIDACION QUE SOLO PERMITA LETRAS Y NUMEROS             
+                =============================================*/
 
         function letrasynumeros(e) {
 
@@ -170,48 +172,48 @@
         }
     </script>
 
-<script>
-    function nospaces2() {
-        orig = document.CORREO_ELECTRONICO.value;
-        nuev = orig.split(' ');
-        nuev = nuev.join('');
-        document.form.CORREO_ELECTRONICO.value = nuev;
-        if (nuev = orig.split(' ').length >= 2);
-    }
-
-    function validar() {
-        var correo, expresion;
-        correo = document.getElementById("correo").value;
-        expresion = /\w+@\w+\.+[a-z]/;
-
-        if (correo.length > 80) {
-            alert("El campo correo excede su capacidad de caracteres");
-        } else if (!expresion.test(correo)) {
-            alert('El correo no es valido');
-            return false;
+    <script>
+        function nospaces2() {
+            orig = document.CORREO_ELECTRONICO.value;
+            nuev = orig.split(' ');
+            nuev = nuev.join('');
+            document.form.CORREO_ELECTRONICO.value = nuev;
+            if (nuev = orig.split(' ').length >= 2);
         }
-    }
 
-    /*
-function validar() {
-if (/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3,4})+$/.test('correo')){
-alert("La dirección de email " + 'correo' + " es correcta.");
-}else {
-alert("La dirección de email es incorrecta.");
-}
-}*/
-</script>
+        function validar() {
+            var correo, expresion;
+            correo = document.getElementById("correo").value;
+            expresion = /\w+@\w+\.+[a-z]/;
+
+            if (correo.length > 80) {
+                alert("El campo correo excede su capacidad de caracteres");
+            } else if (!expresion.test(correo)) {
+                alert('El correo no es valido');
+                return false;
+            }
+        }
+
+        /*
+        function validar() {
+        if (/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3,4})+$/.test('correo')){
+        alert("La dirección de email " + 'correo' + " es correcta.");
+        }else {
+        alert("La dirección de email es incorrecta.");
+        }
+        }*/
+    </script>
 
 
-<script>
-    function unspaces() {
-        orig = document.form.NOMBRE.value;
-        nuev = orig.split('  ');
-        nuev = nuev.join(' ');
-        document.form.NOMBRE.value = nuev;
-        if (nuev = orig.split(' ').length >= 2);
-    }
-</script>
+    <script>
+        function unspaces() {
+            orig = document.form.NOMBRE.value;
+            nuev = orig.split('  ');
+            nuev = nuev.join(' ');
+            document.form.NOMBRE.value = nuev;
+            if (nuev = orig.split(' ').length >= 2);
+        }
+    </script>
 
 
 
@@ -247,13 +249,15 @@ alert("La dirección de email es incorrecta.");
                                         placeholder="Ingrese Nombre"autofocus minlength="7" maxlength="40" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                   <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" tabindex="1" onkeypress="return isNumberKey(event)"
-                                    placeholder="Ingrese su número de telefono: 00000000" minlength="8" maxlength="8"
-                                    autofocus required>
+                                    <input id="TELEFONO" name="TELEFONO" type="text" class="form-control"
+                                        tabindex="1" onkeypress="return isNumberKey(event)"
+                                        placeholder="Ingrese su número de telefono: 00000000" minlength="8"
+                                        maxlength="8" autofocus required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input id="TCORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email" class="form-control"
-                                    tabindex="1" onkeyup="Espacio(this, event);" placeholder="Ingrese correo" autofocus required>
+                                    <input id="TCORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email"
+                                        class="form-control" tabindex="1" onkeyup="Espacio(this, event);"
+                                        placeholder="Ingrese correo" autofocus required>
                                 </div>
                             </div>
                         </tr>
@@ -262,7 +266,7 @@ alert("La dirección de email es incorrecta.");
 
                             <div class="form-group col-md-6">
                                 <select id="COD_SERVICIO" name="COD_SERVICIO" class="form-control" required>
-                                    <option>Seleccionar Tipo de Servicio</option>
+                                    <option value="" disabled selected>Seleccione el Tipo de Servicio:</option>
                                     <option value="1">Aire Acondicionado</option>
                                     <option value="2">Construcción</option>
                                     <option value="3">Electricidad</option>
@@ -270,14 +274,16 @@ alert("La dirección de email es incorrecta.");
                                     <option value="5">Pintura</option>
                                     <option value="6">Planta Telefonica</option>
                                     <option value="7">Sistema de Seguridad</option>
-                                    <option value="8">Tabla Yeso</option> 
+                                    <option value="8">Tabla Yeso</option>
                                 </select>
                             </div>
                             <label>Tema:</label>
 
                             <div class="form-group">
                                 <div class="form-group col-md-6">
-                                    <input id="TEMA" name="TEMA" type="text" class="form-control" placeholder="tema" required>
+                                    <input id="TEMA" name="TEMA" type="text" class="form-control"
+                                        placeholder="tema" onkeyup="DobleEspacio(this, event);"
+                                        onkeypress="return sololetras(event)" required>
                                 </div>
                         </tr>
                         <tr>
@@ -292,7 +298,8 @@ alert("La dirección de email es incorrecta.");
                                         <div class="col-auto my-1">
                                             <!-- textarea -->
                                             <div class="form-group col-md-20">
-                                                <textarea id="DESCRIPCION" name="DESCRIPCION" rows="4" cols="120" class="form-control" placeholder="DESCRIPCION" required></textarea>
+                                                <textarea id="DESCRIPCION" name="DESCRIPCION" rows="4" cols="120" class="form-control"
+                                                    placeholder="DESCRIPCION" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -302,16 +309,21 @@ alert("La dirección de email es incorrecta.");
                         <tr>
                             <label>Ubicación:</label>
                             <div class="form-group">
-                                <div class="form-group col-md-4">
-                                    <input id="UBICACION" name="UBICACION" type="text" class="form-control" placeholder="" required>
+                                <div class="form-group col-md">                            
+                                
+                                    <input id="UBICACION" name="UBICACION" type="text"
+                                        class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Ingrese Ubicación"
+                                        onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+                                        autofocus required>
                                 </div>
+                            </div>
                         </tr>
                         <tr>
                             <div class="modal-footer">
                                 @can('crear-fallas-cliente')
-                                <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+                                    <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
                                 @endcan
-                                
+
                             </div>
                         </tr>
                 </div>
