@@ -8,6 +8,151 @@
 
 @section('content')
 
+<script>
+    /*=============================================
+     VALIDACION QUE SOLO PERMITA LETRAS Y NUMEROS             
+    =============================================*/
+
+    function letrasynumeros(e) {
+
+        key = e.keyCode || e.wich;
+
+        teclado = String.fromCharCode(key).toUpperCase();
+
+        letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZÑ1234567890 ";
+
+        especiales = "8-37-38-46-164";
+
+        teclado_especial = false;
+
+        for (var i in especiales) {
+
+            if (key == especiales[i]) {
+                teclado_especial = true;
+                break;
+            }
+        }
+
+        if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+            return false;
+        }
+
+    }
+
+    /*=====  End of Section comment block  ======*/
+
+
+    /*==============================================
+    =     VALIDACION SOLO LETRAS            =
+    ==============================================*/
+    function sololetras(e) {
+
+        key = e.keyCode || e.wich;
+
+        teclado = String.fromCharCode(key).toUpperCase();
+
+        letras = " ABCDEFGHIJKLMNOPQRSTUVWXYZÑ";
+
+        especiales = "8-37-38-46-164";
+
+        teclado_especial = false;
+
+        for (var i in especiales) {
+
+            if (key == especiales[i]) {
+                teclado_especial = true;
+                break;
+            }
+        }
+
+        if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+            return false;
+        }
+
+    }
+
+
+
+
+    /*==============================================
+    =        VALIDACION SOLO NUMEROS           =
+    ==============================================*/
+    function solonumeros(e) {
+
+        key = e.keyCode || e.wich;
+
+        teclado = String.fromCharCode(key).toUpperCase();
+
+        letras = "1234567890";
+
+        especiales = "8-37-38-46-164";
+
+        teclado_especial = false;
+
+        for (var i in especiales) {
+
+            if (key == especiales[i]) {
+                teclado_especial = true;
+                break;
+            }
+        }
+
+        if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+            return false;
+        }
+
+    }
+
+    function Espacio(campo, event) {
+        CadenaaReemplazar = " ";
+        CadenaReemplazo = "";
+        CadenaTexto = campo.value;
+        CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+        campo.value = CadenaTextoNueva;
+    }
+
+
+
+
+    function limitDecimalPlaces(e, count) {
+        if (e.target.value.indexOf('.') == -1) {
+            return;
+        }
+        if ((e.target.value.length - e.target.value.indexOf('.')) > count) {
+            e.target.value = parseFloat(e.target.value).toFixed(count);
+        }
+    }
+
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+</script>
+
+<script>
+    function DobleEspacio(campo, event) {
+
+        CadenaaReemplazar = "  ";
+        CadenaReemplazo = " ";
+        CadenaTexto = campo.value;
+        CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+        campo.value = CadenaTextoNueva;
+
+    }
+</script>
+
+<script>
+    jQuery(function($) {
+        $("#TELEFONO").mask("9999-9999");
+        $("#TELEFONO_OPCIONAL").mask("99999-99999");
+        $("#RTN_CLIENTE").mask("9999-9999-999999");
+
+    });
+</script>
+
 <div class="container-fluid">
     <div class="row content">
         <div class="col-sm-10">
@@ -23,16 +168,23 @@
                             <h4>Datos personales </h4>
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <input id="NOMBRE" name="NOMBRE" type="text" class="form-control" placeholder="NOMBRE">
+                                    <input id="NOMBRE" name="NOMBRE" type="text" class="form-control" tabindex="1" autocomplete="off" autofocus="on"
+                                    onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
+                                    placeholder="Ingrese su Nombre"autofocus required>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <input id="APELLIDO" name="APELLIDO" type="text" class="form-control" placeholder="APELLIDO">
+                                    <input id="APELLIDO" name="APELLIDO" type="text" class="form-control" tabindex="1" autocomplete="off" autofocus="on"
+                                    onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
+                                    placeholder="Ingrese su Apellido"autofocus required>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" placeholder="TELEFONO">
+                                    <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" tabindex="1" onkeypress="return isNumberKey(event)"
+                                    placeholder="Ingrese su Numero de telefono sin espacios:00000000" minlength="9" maxlength="9"
+                                    autofocus required>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="text" class="form-control" placeholder="CORREO ELECTRONICO">
+                                    <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email" class="form-control" placeholder="Ingrese su correo electronico"
+                                    tabindex="1" onkeyup="Espacio(this, event);" autofocus required>
                                 </div>
                             </div>
                         </tr>
@@ -40,7 +192,7 @@
                             <h4>Datos Emprea o domicilio </h4>
                             <div class="form-row">
                                 <div class="form-group col-md-5">
-                                    <select id="TIPO_SOLICITANTE" name="TIPO_SOLICITANTE" class="form-control">
+                                    <select id="TIPO_SOLICITANTE" name="TIPO_SOLICITANTE" class="form-control" autofocus required>
                                         <option>Tipo de Solicitante </option>
                                         <option value="EMPRESA">EMPRESA</option>
                                         <option value="CASA">CASA</option>
@@ -54,12 +206,16 @@
                         <tr>
                             <div class="form-row">
                                 <div class="form-group col-md-5">
-                                    <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control" placeholder="NUMERO IDENTIFICACION ">
+                                    <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control" tabindex="1" onkeypress="return solonumeros(event)"
+                                    placeholder="Ingrese su ID sin espacios:0000000000000"
+                                    onkeyup="DobleEspacio(this, event);" minlength="15" maxlength="15">
                                 </div>
                             </div>
 
                             <div class="form-group col-md-5">
-                                <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control" placeholder="TELEFONO">
+                                <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control" tabindex="1" onkeypress="return isNumberKey(event)"
+                                placeholder="Ingrese su Numero de telefono sin espacios:00000000" minlength="9" maxlength="9"
+                                autofocus required>
                             </div>
 
                         </tr>
@@ -67,14 +223,16 @@
                             <div class="form-row">
                                 <div class="form-group col-md-3">
 
-                                    <select id="CIUDAD" name="CIUDAD" class="form-control">
+                                    <select id="CIUDAD" name="CIUDAD" class="form-control" autofocus required>
                                         <option>Ciudad</option>
                                         <option value="Tegucigalpa">Tegucigalpa</option>
                                         <option value="San Pedro Sula">San Pedro Sula</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-7">
-                                    <textarea id="DIRECCION_SOLICITANTE" rows="4" cols="120" name="DIRECCION_SOLICITANTE" rows="1" class="form-control" placeholder="Dirección"></textarea>
+                                    <textarea id="DIRECCION_SOLICITANTE" rows="4" cols="120" name="DIRECCION_SOLICITANTE" rows="1" class="form-control" tabindex="1" autocomplete="off" autofocus="on"
+                                    onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+                                    placeholder="Ingresa la dirección" autofocus required></textarea>
 
                                 </div>
                             </div>
@@ -95,7 +253,9 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-7">
-                                    <textarea id="DESCRIPCION_SOLICITUD" rows="4" cols="120" name="DESCRIPCION_SOLICITUD" rows="1" class="form-control" placeholder="DESCRIPCION"></textarea>
+                                    <textarea id="DESCRIPCION_SOLICITUD" rows="4" cols="120" name="DESCRIPCION_SOLICITUD" rows="1" class="form-control" tabindex="1" autocomplete="off" autofocus="on"
+                                    onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+                                    placeholder="Ingresa la descripción solicitada" autofocus required></textarea>
                                 </div>
                             </div>
                         </tr> 
