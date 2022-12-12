@@ -311,10 +311,10 @@
 <div>
   <label for="country">Ciudad</label>
   <select class="form-control" id="CIUDAD" name="CIUDAD" value="{{$presupuesto->ciudad}}" autofocus required>
-    <option value="{{$presupuesto->ciudad}}" disabled selected>Selecciona una Ciudad:</option>
-    <option value="1">Tegucigalpa</option>
-    <option value="2">San Pedro Sula</option>
-    <option value="3">Comayagua</option>
+    <option value="{{$presupuesto->ciudad}}">Selecciona una Ciudad:</option>
+    <option value="Tegucigalpa">Tegucigalpa</option>
+    <option value="San Pedro Sula">San Pedro Sula</option>
+    <option value="Comayagua">Comayagua</option>
  </select>
 </div>
 
@@ -345,7 +345,7 @@
 <div>
   <label for="country">Estado</label>
   <select class="form-control" id="COD_ESTADO" name="COD_ESTADO" value="{{$presupuesto->cod_estado}}" autofocus required>
-    <option value="{{$presupuesto->cod_estado}}" disabled selected>Selecciona nuestros servicios</option>
+    <option value="{{$presupuesto->cod_estado}}" >Selecciona nuestros servicios</option>
   <option value="1">NUEVO</option>
    <option value="2">EN PROCESO</option>
    <option value="3">FINALIZADO</option>

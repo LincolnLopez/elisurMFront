@@ -227,6 +227,7 @@
                                         <option>Ciudad</option>
                                         <option value="Tegucigalpa">Tegucigalpa</option>
                                         <option value="San Pedro Sula">San Pedro Sula</option>
+                                        <option value="Comayagua">Comayagua</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-7">
