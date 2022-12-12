@@ -189,7 +189,9 @@
               <label for="country">CODIGO CATEGORIA</label>
               <select class="form-control" id="COD_CATEGORIA" name="COD_CATEGORIA" autofocus required>
                 <option value="1">Tapiceria</option>
-                <option value="21">Construcción</option>
+                <option value="2">Albañileria</option>
+                <option value="3">Carpinteria</option>
+                <option value="4">Redes</option>
               </select>
 
 
