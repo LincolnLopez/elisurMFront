@@ -63,28 +63,174 @@
       return true;
     }
     </script>
+
+<script>
+  /*=============================================
+   VALIDACION QUE SOLO PERMITA LETRAS Y NUMEROS             
+  =============================================*/
+
+  function letrasynumeros(e) {
+
+      key = e.keyCode || e.wich;
+
+      teclado = String.fromCharCode(key).toUpperCase();
+
+      letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZÑ1234567890 ";
+
+      especiales = "8-37-38-46-164";
+
+      teclado_especial = false;
+
+      for (var i in especiales) {
+
+          if (key == especiales[i]) {
+              teclado_especial = true;
+              break;
+          }
+      }
+
+      if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+          return false;
+      }
+
+  }
+
+  /*=====  End of Section comment block  ======*/
+
+
+  /*==============================================
+  =     VALIDACION SOLO LETRAS            =
+  ==============================================*/
+  function sololetras(e) {
+
+      key = e.keyCode || e.wich;
+
+      teclado = String.fromCharCode(key).toUpperCase();
+
+      letras = " ABCDEFGHIJKLMNOPQRSTUVWXYZÑ";
+
+      especiales = "8-37-38-46-164";
+
+      teclado_especial = false;
+
+      for (var i in especiales) {
+
+          if (key == especiales[i]) {
+              teclado_especial = true;
+              break;
+          }
+      }
+
+      if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+          return false;
+      }
+
+  }
+
+
+
+
+  /*==============================================
+  =        VALIDACION SOLO NUMEROS           =
+  ==============================================*/
+  function solonumeros(e) {
+
+      key = e.keyCode || e.wich;
+
+      teclado = String.fromCharCode(key).toUpperCase();
+
+      letras = "1234567890";
+
+      especiales = "8-37-38-46-164";
+
+      teclado_especial = false;
+
+      for (var i in especiales) {
+
+          if (key == especiales[i]) {
+              teclado_especial = true;
+              break;
+          }
+      }
+
+      if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+          return false;
+      }
+
+  }
+
+  function Espacio(campo, event) {
+      CadenaaReemplazar = " ";
+      CadenaReemplazo = "";
+      CadenaTexto = campo.value;
+      CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+      campo.value = CadenaTextoNueva;
+  }
+
+
+
+
+  function limitDecimalPlaces(e, count) {
+      if (e.target.value.indexOf('.') == -1) {
+          return;
+      }
+      if ((e.target.value.length - e.target.value.indexOf('.')) > count) {
+          e.target.value = parseFloat(e.target.value).toFixed(count);
+      }
+  }
+
+  function isNumberKey(evt) {
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+          return false;
+
+      return true;
+  }
+</script>
+
+<script>
+  function DobleEspacio(campo, event) {
+
+      CadenaaReemplazar = "  ";
+      CadenaReemplazo = " ";
+      CadenaTexto = campo.value;
+      CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+      campo.value = CadenaTextoNueva;
+
+  }
+</script>
     
 
 
     <div class="mb-3">
     <label for="" class="form-label">Nombre</label>
-    <input id="NOMBRE" name="NOMBRE" type="text" class="form-control" tabindex="1" autocomplete="off" autofocus="on" autofocus required="" pattern="[a-z A-Z ñÑ ÁÉÍÓÚáéíóú ]+">    
+    <input id="NOMBRE" name="NOMBRE" type="text" class="form-control"
+    tabindex="1" autocomplete="off" autofocus="on"
+    onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
+    placeholder="Ingrese Nombre"autofocus required>    
   </div>
 
 
   <div class="mb-3">
     <label for="" class="form-label">Apellido</label>                                                                               <!--Solo letras--->
-    <input id="APELLIDO" name="APELLIDO" type="text" class="form-control" tabindex="1" autocomplete="off" autofocus="on" autofocus required="" pattern="[a-z A-Z ñÑ ÁÉÍÓÚáéíóú ]+">    
+    <input id="APELLIDO" name="APELLIDO" type="text"
+    class="form-control" tabindex="1" autocomplete="off" autofocus="on"
+    onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
+    placeholder="Ingrese Apellido"autofocus required>    
   </div>
 
   <div class="mb-3">
     <label for="" class="form-label">Telefono</label>                                                                                                                    <!--solo numeros y que se pueden repetir-->
-    <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" tabindex="1" minlength="8" maxlength="13" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+">    
+    <input id="TELEFONO" name="TELEFONO" type="text" class="form-control"
+    tabindex="1" onkeypress="return isNumberKey(event)"
+    placeholder="Ingrese su Numero de telefono sin espacios:99999999" minlength="8" maxlength="8"
+    autofocus required>    
   </div>
 
   <div class="mb-3">
     <label for="" class="form-label">Correo Electronico</label>
-    <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email" class="form-control" tabindex="1" autocomplete="off" autofocus="on" autofocus required>    
+    <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email" placeholder="Ingrese su correo electronico: aaa@gmail.com" class="form-control"
+    tabindex="1" onkeyup="Espacio(this, event);" autofocus required>    
   </div>
 
   <div class="w3-half">
@@ -98,24 +244,34 @@
 
   <div class="mb-3">
     <label for="" class="form-label">Telefono opcional</label>
-    <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control" tabindex="1" minlength="8" maxlength="13" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+">    
+    <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control"
+    tabindex="1" onkeypress="return isNumberKey(event)"
+    placeholder="Ingrese su Numero de telefono sin espacios:99999999" minlength="8" maxlength="8"
+    autofocus required>    
   </div>
 
 
   <div class="mb-3">
     <label for="" class="form-label">Direccion de Solicitud</label>
-    <input id="DIRECCION_SOLICITANTE" name="DIRECCION_SOLICITANTE" type="text" class="form-control" tabindex="1" autofocus required>    
+    <input id="DIRECCION_SOLICITANTE" name="DIRECCION_SOLICITANTE" type="text"
+    class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Ingrese la dirección"
+    onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+    autofocus required>    
   </div>
 
   <div class="mb-3">
     <label for="" class="form-label">Nombre Empresa</label>
-    <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="form-control" tabindex="1" autofocus required>    
+    <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="form-control" tabindex="1"placeholder="Ingrese el nombre de la empresa" onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+    autofocus required autofocus required>    
   </div>
 
 
   <div class="mb-3">
     <label for="" class="form-label">No. identidad / RTN </label>
-    <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control" tabindex="1" minlength="9" maxlength="14" autocomplete="off" autofocus="on" autofocus required>    
+    <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control"
+    tabindex="1" onkeypress="return solonumeros(event)"
+    placeholder="En caso de aplicar Ingrese su RTN sin espacios:0000000000000"
+    onkeyup="DobleEspacio(this, event);" minlength="14" maxlength="14" autofocus required>    
   </div>
 
   <div class="mb-3">
@@ -145,7 +301,10 @@
 
   <div class="mb-3">
     <label for="" class="form-label">Descripción de Solicitud</label>
-    <input id="DESCRIPCION_SOLICITUD" name="DESCRIPCION_SOLICITUD" type="text" class="form-control" tabindex="1" autofocus required>    
+    <input id="DESCRIPCION_SOLICITUD" name="DESCRIPCION_SOLICITUD" type="text"
+    class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Describa la solicitud"
+    onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+    autofocus required>    
   </div>
   
 
