@@ -462,7 +462,7 @@
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                         <div class="w3-half">
                             <label>Número de identidad</label>
-                            <input id="RTN_DNI" name="RTN_DNI" type="number" class="w3-input w3-border"
+                            <input id="RTN_DNI" name="RTN_DNI" type="text" class="w3-input w3-border"
                                 placeholder="RTN en caso de ser Empresa - Sin guiones" onkeypress="return solonumeros(event)" onkeyup="DobleEspacio(this, event);" minlength="3" maxlength="14" autocomplete="off" autofocus="on" autofocus required>
                         </div>
                         <div class="w3-half">
@@ -502,7 +502,8 @@
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                         <label>Dirección</label>
                         <input id="DIRECCION_SOLICITANTE" name="DIRECCION_SOLICITANTE" type="text"
-                            class="w3-input w3-border" placeholder="Colonia, #Casa, etc." autofocus required>
+                            class="w3-input w3-border" placeholder="Colonia, #Casa, etc."  onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+                            autofocus required>
                     </div>
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
 

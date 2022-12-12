@@ -193,28 +193,30 @@
                             <div class="form-row">
                                 <div class="form-group col-md-5">
                                     <select id="TIPO_SOLICITANTE" name="TIPO_SOLICITANTE" class="form-control" autofocus required>
-                                        <option>Tipo de Solicitante </option>
+                                        <option value="" disabled selected>Selecciona tipo de Solicitante:</option>
                                         <option value="EMPRESA">EMPRESA</option>
                                         <option value="CASA">CASA</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="form-control" placeholder="NOMBRE EMPRESA/COLONIA">
+                                    <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="form-control" tabindex="1"placeholder="Ingrese el nombre de la empresa" onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+                                    autofocus required autofocus required>
                                 </div>
                             </div>
                         </tr>
                         <tr>
                             <div class="form-row">
                                 <div class="form-group col-md-5">
-                                    <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control" tabindex="1" onkeypress="return solonumeros(event)"
-                                    placeholder="Ingrese su ID sin espacios:0000000000000"
-                                    onkeyup="DobleEspacio(this, event);" minlength="15" maxlength="15">
+                                    <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control"
+                                    tabindex="1" onkeypress="return solonumeros(event)"
+                                    placeholder="En caso de aplicar Ingrese su RTN sin espacios:0000000000000"
+                                    onkeyup="DobleEspacio(this, event);" minlength="13" maxlength="14" autofocus required>
                                 </div>
                             </div>
 
                             <div class="form-group col-md-5">
                                 <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control" tabindex="1" onkeypress="return isNumberKey(event)"
-                                placeholder="Ingrese su Numero de telefono sin espacios:00000000" minlength="9" maxlength="9"
+                                placeholder="Ingrese su Numero de telefono sin espacios:00000000" minlength="8" maxlength="8"
                                 autofocus required>
                             </div>
 
@@ -224,7 +226,7 @@
                                 <div class="form-group col-md-3">
 
                                     <select id="CIUDAD" name="CIUDAD" class="form-control" autofocus required>
-                                        <option>Ciudad</option>
+                                        <option value="" disabled selected>Selecciona la ciudad:</option>
                                         <option value="Tegucigalpa">Tegucigalpa</option>
                                         <option value="San Pedro Sula">San Pedro Sula</option>
                                         <option value="Comayagua">Comayagua</option>

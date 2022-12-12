@@ -271,7 +271,7 @@
     <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control"
     tabindex="1" onkeypress="return solonumeros(event)"
     placeholder="En caso de aplicar Ingrese su RTN sin espacios:0000000000000"
-    onkeyup="DobleEspacio(this, event);" minlength="14" maxlength="14" autofocus required>    
+    onkeyup="DobleEspacio(this, event);" minlength="13" maxlength="14" autofocus required>    
   </div>
 
   <div class="mb-3">
