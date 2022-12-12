@@ -19,8 +19,6 @@
     <script>
         jQuery(function($) {
             $("#TELEFONO").mask("9999-9999");
-            $("#DNI_EMPLEADO").mask("9999-9999-99999");
-            $("#EDAD_EMPLEADO").mask("99");
 
         });
     </script>
@@ -33,13 +31,14 @@
             **
             **
             **
-            ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** * /
+            **
+            ** ** ** ** ** ** ** ** ** ** ** ** ** ** * /
     </script>
 
     <script>
         /*=============================================
-                 VALIDACION QUE SOLO PERMITA LETRAS Y NUMEROS             
-                =============================================*/
+                     VALIDACION QUE SOLO PERMITA LETRAS Y NUMEROS             
+                    =============================================*/
 
         function letrasynumeros(e) {
 
@@ -243,28 +242,33 @@
 
                             <div class="form-row">
                                 <div class="form-group col-md-4">
+                                    <label for="" class="form-label">Nombre</label>
                                     <input id="NOMBRE" name="NOMBRE" type="text" class="form-control"
                                         tabindex="1" autocomplete="off" autofocus="on"
                                         onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
                                         placeholder="Ingrese Nombre"autofocus minlength="7" maxlength="40" required>
                                 </div>
                                 <div class="form-group col-md-4">
+                                    <label for="" class="form-label">Número Telefonico</label>
                                     <input id="TELEFONO" name="TELEFONO" type="text" class="form-control"
                                         tabindex="1" onkeypress="return isNumberKey(event)"
                                         placeholder="Ingrese su número de telefono: 00000000" minlength="8"
                                         maxlength="8" autofocus required>
                                 </div>
                                 <div class="form-group col-md-4">
+                                    <label for="" class="form-label">Correo Electronico</label>
                                     <input id="TCORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email"
                                         class="form-control" tabindex="1" onkeyup="Espacio(this, event);"
                                         placeholder="Ingrese correo" autofocus required>
                                 </div>
+
                             </div>
                         </tr>
 
                         <tr>
 
                             <div class="form-group col-md-6">
+                                <label for="" class="form-label">Servicios</label>
                                 <select id="COD_SERVICIO" name="COD_SERVICIO" class="form-control" required>
                                     <option value="" disabled selected>Seleccione el Tipo de Servicio:</option>
                                     <option value="1">Aire Acondicionado</option>
@@ -282,7 +286,7 @@
                             <div class="form-group">
                                 <div class="form-group col-md-6">
                                     <input id="TEMA" name="TEMA" type="text" class="form-control"
-                                        placeholder="tema" onkeyup="DobleEspacio(this, event);"
+                                        placeholder="Asunto" onkeyup="DobleEspacio(this, event);"
                                         onkeypress="return sololetras(event)" required>
                                 </div>
                         </tr>
@@ -299,7 +303,8 @@
                                             <!-- textarea -->
                                             <div class="form-group col-md-20">
                                                 <textarea id="DESCRIPCION" name="DESCRIPCION" rows="4" cols="120" class="form-control"
-                                                    placeholder="DESCRIPCION" required></textarea>
+                                                    placeholder="DESCRIPCION" onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+                                                    placeholder="Ingrese una breve descripción de lo solicitado" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -309,10 +314,10 @@
                         <tr>
                             <label>Ubicación:</label>
                             <div class="form-group">
-                                <div class="form-group col-md">                            
-                                
-                                    <input id="UBICACION" name="UBICACION" type="text"
-                                        class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Ingrese Ubicación"
+                                <div class="form-group col-md">
+
+                                    <input id="UBICACION" name="UBICACION" type="text" class="form-control"
+                                        tabindex="1" autocomplete="off" autofocus="on" placeholder="Ingrese Ubicación"
                                         onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
                                         autofocus required>
                                 </div>

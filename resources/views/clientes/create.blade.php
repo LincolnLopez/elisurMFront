@@ -258,6 +258,7 @@
                                 <label for="country">Tipo de CLiente</label>
                                 <select class="form-control" id="COD_TIPO_CLIENTE" name="COD_TIPO_CLIENTE" autofocus
                                     required>
+                                    <option value="" disabled selected>Seleccione el Tipo de Cliente:</option>
                                     <option value="1">Premium</option>
                                     <option value="2">Nuevo</option>
                                 </select>
