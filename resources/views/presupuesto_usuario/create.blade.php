@@ -153,6 +153,14 @@
     });
 </script>
 
+<script>
+    function onPaste(event) {
+  console.log('Paste!! ', event);
+  event.preventDefault();
+  event.stopPropagation();
+  }
+  </script>
+
 <div class="container-fluid">
     <div class="row content">
         <div class="col-sm-10">
@@ -170,21 +178,21 @@
                                 <div class="form-group col-md-3">
                                     <input id="NOMBRE" name="NOMBRE" type="text" class="form-control" tabindex="1" autocomplete="off" autofocus="on"
                                     onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-                                    placeholder="Ingrese su Nombre"autofocus required>
+                                    placeholder="Ingrese su Nombre" onpaste="onPaste(event)" autofocus required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <input id="APELLIDO" name="APELLIDO" type="text" class="form-control" tabindex="1" autocomplete="off" autofocus="on"
                                     onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-                                    placeholder="Ingrese su Apellido"autofocus required>
+                                    placeholder="Ingrese su Apellido" onpaste="onPaste(event)" autofocus required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" tabindex="1" onkeypress="return isNumberKey(event)"
-                                    placeholder="Ingrese su Numero de telefono sin espacios:00000000" minlength="8" maxlength="8"
+                                    placeholder="Ingrese su Numero de telefono sin espacios:00000000" onpaste="onPaste(event)" minlength="8" maxlength="8"
                                     autofocus required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email" class="form-control" placeholder="Ingrese su correo electronico"
-                                    tabindex="1" onkeyup="Espacio(this, event);" autofocus required>
+                                    tabindex="1" onkeyup="Espacio(this, event);" onpaste="onPaste(event)" autofocus required>
                                 </div>
                             </div>
                         </tr>
@@ -200,7 +208,7 @@
                                 </div>
                                 <div class="form-group col-md-5">
                                     <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="form-control" tabindex="1"placeholder="Ingrese el nombre de la empresa" onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-                                    autofocus required autofocus required>
+                                    onpaste="onPaste(event)" autofocus required>
                                 </div>
                             </div>
                         </tr>
@@ -210,12 +218,12 @@
                                     <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control"
                                     tabindex="1" onkeypress="return solonumeros(event)"
                                     placeholder="En caso de aplicar Ingrese su RTN sin espacios:0000000000000"
-                                    onkeyup="DobleEspacio(this, event);" minlength="13" maxlength="14" autofocus required>
+                                    onkeyup="DobleEspacio(this, event);"  onpaste="onPaste(event)" minlength="13" maxlength="14" autofocus required>
                                 </div>
                             </div>
 
                             <div class="form-group col-md-5">
-                                <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control" tabindex="1" onkeypress="return isNumberKey(event)"
+                                <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control" tabindex="1" onpaste="onPaste(event)" onkeypress="return isNumberKey(event)"
                                 placeholder="Ingrese su Numero de telefono sin espacios:00000000" minlength="8" maxlength="8"
                                 autofocus required>
                             </div>
@@ -234,7 +242,7 @@
                                 </div>
                                 <div class="form-group col-md-7">
                                     <textarea id="DIRECCION_SOLICITANTE" rows="4" cols="120" name="DIRECCION_SOLICITANTE" rows="1" class="form-control" tabindex="1" autocomplete="off" autofocus="on"
-                                    onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+                                    onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" onkeypress="return letrasynumeros(event)"
                                     placeholder="Ingresa la dirección" autofocus required></textarea>
 
                                 </div>
@@ -257,7 +265,7 @@
                                 </div>
                                 <div class="form-group col-md-7">
                                     <textarea id="DESCRIPCION_SOLICITUD" rows="4" cols="120" name="DESCRIPCION_SOLICITUD" rows="1" class="form-control" tabindex="1" autocomplete="off" autofocus="on"
-                                    onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+                                    onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" onkeypress="return letrasynumeros(event)"
                                     placeholder="Ingresa la descripción solicitada" autofocus required></textarea>
                                 </div>
                             </div>

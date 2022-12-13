@@ -160,6 +160,16 @@
 </script>
 
 
+<script>
+  function onPaste(event) {
+console.log('Paste!! ', event);
+event.preventDefault();
+event.stopPropagation();
+}
+</script>
+
+
+
             <div class="mb-3">
               <label for="" class="form-label">CODIGO DE ARTICULO</label>
               <input id="COD_ARTICULO" name="COD_ARTICULO" type="text" class="form-control" value="{{$articulo->cod_articulo}}" readonly>
@@ -172,7 +182,7 @@
               <input id="NOMBRE_ARTICULO" name="NOMBRE_ARTICULO" type="text" class="form-control"
               tabindex="1" autocomplete="off" autofocus="on"
               onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-              placeholder="Ingrese la descripción"autofocus required value="{{$articulo->nombre_articulo}}">
+              placeholder="Ingrese la descripción"  onpaste="onPaste(event)" autofocus required value="{{$articulo->nombre_articulo}}">
             </div>
 
 
@@ -181,14 +191,14 @@
               <input id="DESCRIPCION_ARTICULO" name="DESCRIPCION_ARTICULO" type="text" class="form-control"
               tabindex="1" autocomplete="off" autofocus="on"
               onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-              placeholder="Ingrese la descripción"autofocus required onkeyup="DobleEspacio(this, event);" value="{{$articulo->descripcion_articulo}}">
+              placeholder="Ingrese la descripción"autofocus required onkeyup="DobleEspacio(this, event);"  onpaste="onPaste(event)" value="{{$articulo->descripcion_articulo}}">
             </div>
 
             <div class="mb-3">
               <label for="" class="form-label">PRECIO ARTICULO</label>
               <input id="PRECIO_ARTICULO" name="PRECIO_ARTICULO" type="text" class="form-control"
               tabindex="1" autofocus required oninput="limitDecimalPlaces(event, 2)"
-              onkeypress="return isNumberKey(event)" autofocus required minlength="2" maxlength="10" value="{{$articulo->precio_articulo}}" autofocus required oninput="limitDecimalPlaces(event, 2)" onkeypress="return isNumberKey(event)">
+              onkeypress="return isNumberKey(event)" autofocus required minlength="2" maxlength="10"  onpaste="onPaste(event)" value="{{$articulo->precio_articulo}}" autofocus required oninput="limitDecimalPlaces(event, 2)" onkeypress="return isNumberKey(event)">
             </div>
 
             <label for="country">CODIGO CATEGORIA</label>

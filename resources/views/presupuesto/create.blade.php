@@ -199,6 +199,15 @@
 
   }
 </script>
+
+<script>
+  function onPaste(event) {
+console.log('Paste!! ', event);
+event.preventDefault();
+event.stopPropagation();
+}
+</script>
+
     
 
 
@@ -207,7 +216,7 @@
     <input id="NOMBRE" name="NOMBRE" type="text" class="form-control"
     tabindex="1" autocomplete="off" autofocus="on"
     onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-    placeholder="Ingrese Nombre"autofocus required>    
+    placeholder="Ingrese Nombre" onpaste="onPaste(event)" autofocus required>    
   </div>
 
 
@@ -216,7 +225,7 @@
     <input id="APELLIDO" name="APELLIDO" type="text"
     class="form-control" tabindex="1" autocomplete="off" autofocus="on"
     onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-    placeholder="Ingrese Apellido"autofocus required>    
+    placeholder="Ingrese Apellido" onpaste="onPaste(event)" autofocus required>    
   </div>
 
   <div class="mb-3">
@@ -224,13 +233,13 @@
     <input id="TELEFONO" name="TELEFONO" type="text" class="form-control"
     tabindex="1" onkeypress="return isNumberKey(event)"
     placeholder="Ingrese su Numero de telefono sin espacios:99999999" minlength="8" maxlength="8"
-    autofocus required>    
+    onpaste="onPaste(event)" onpaste="onPaste(event)" autofocus required>    
   </div>
 
   <div class="mb-3">
     <label for="" class="form-label">Correo Electronico</label>
     <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email" placeholder="Ingrese su correo electronico: aaa@gmail.com" class="form-control"
-    tabindex="1" onkeyup="Espacio(this, event);" autofocus required>    
+    tabindex="1" onkeyup="Espacio(this, event);" onpaste="onPaste(event)" autofocus required>    
   </div>
 
   <div class="w3-half">
@@ -247,7 +256,7 @@
     <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control"
     tabindex="1" onkeypress="return isNumberKey(event)"
     placeholder="Ingrese su Numero de telefono sin espacios:99999999" minlength="8" maxlength="8"
-    autofocus required>    
+    onpaste="onPaste(event)" autofocus required>    
   </div>
 
 
@@ -255,14 +264,14 @@
     <label for="" class="form-label">Direccion de Solicitud</label>
     <input id="DIRECCION_SOLICITANTE" name="DIRECCION_SOLICITANTE" type="text"
     class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Ingrese la dirección"
-    onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-    autofocus required>    
+    onkeyup="DobleEspacio(this, event);"  onpaste="onPaste(event)" onkeypress="return letrasynumeros(event)"
+    onpaste="onPaste(event)" autofocus required>    
   </div>
 
   <div class="mb-3">
     <label for="" class="form-label">Nombre Empresa</label>
-    <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="form-control" tabindex="1"placeholder="Ingrese el nombre de la empresa" onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-    autofocus required autofocus required>    
+    <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="form-control"  tabindex="1"placeholder="Ingrese el nombre de la empresa" onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
+    onpaste="onPaste(event)" autofocus required>    
   </div>
 
 
@@ -271,7 +280,7 @@
     <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control"
     tabindex="1" onkeypress="return solonumeros(event)"
     placeholder="En caso de aplicar Ingrese su RTN sin espacios:0000000000000"
-    onkeyup="DobleEspacio(this, event);" minlength="13" maxlength="14" autofocus required>    
+    onkeyup="DobleEspacio(this, event);" minlength="13" maxlength="14"  onpaste="onPaste(event)" autofocus required>    
   </div>
 
   <div class="mb-3">
@@ -302,7 +311,7 @@
   <div class="mb-3">
     <label for="" class="form-label">Descripción de Solicitud</label>
     <input id="DESCRIPCION_SOLICITUD" name="DESCRIPCION_SOLICITUD" type="text"
-    class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Describa la solicitud"
+    class="form-control" tabindex="1" autocomplete="off" autofocus="on" onpaste="onPaste(event)" placeholder="Describa la solicitud"
     onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
     autofocus required>    
   </div>
