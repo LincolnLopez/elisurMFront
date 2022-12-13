@@ -151,7 +151,7 @@ alert("La dirección de email es incorrecta.");
 
       <div class="mb-3">
         <label for="" class="form-label">Correo</label>
-        <input id="CORREO" name="CORREO" type="text" class="form-control" value="{{$empleado->correo}}">
+        <input id="CORREO" name="CORREO" type="email" class="form-control" value="{{$empleado->correo}}" autofocus required>
       </div>
 
 

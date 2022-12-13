@@ -125,11 +125,7 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
-                                        <!-- Centramos la paginacion a la derecha -->
-                                        <div class="pagination justify-content-end">
-                                            {!! $usuarios->links() !!}
-                                        </div>
-
+                                     
 
 
 
