@@ -15,6 +15,12 @@
 
 @section('content')
 
+
+
+
+
+
+
 <body >
   </br>
   <section class="content-12">
@@ -64,31 +70,57 @@
                         @endif
 
                         {!! Form::open(array('route' => 'usuarios.store','method'=>'POST')) !!}
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <label for="name">Nombre</label>
-                                    {!! Form::text('name', null, array('class' => 'form-control')) !!}
-                                </div>
+                        
+                               
+
+                                    <div class="mb-3">
+                                      <label for="" class="form-label">Nombre de Usuario</label>
+                            
+                                      <input id="name" type="text" name="name" class="form-control" onpaste="onPaste(event)" placeholder="Nombre de Usuario" aria-label="primer nombre" onkeyup="mayus(this);" minlength="3" maxlength="20" onkeypress="return soloLetras(event);"  required onblur="quitarespacios(this);" onkeydown="sinespacio(this);" required="">
+                                  </div>  
+
+
+                            <div class="mb-3">
+                              <label for="" class="form-label">Correo Electronico</label>
+                              <input  pattern=".{6,}" id="email" type="email" name="email" onpaste="onPaste(event)"  class="form-control" tabindex="1" required onblur="quitarespacios(this);" onkeydown="sinespacio(this);" required="">
+                          </div>  
+
+
+                            
+
+
+
+
+                          <div class="col">
+                            <div class="input-group mb-4" id="grupo__clave_nueva">
+                                <span  class="input-group-text" id="password"><i class="fas fa-lock"></i></span> 
+                                <input type="password" class="form-control" placeholder="Ingresa tu contrase&ntilde;a: Debe tener mayusculas,minisculas y caracteres especiales"  id="password" name="password" required onblur="quitarespacios(this);"  onkeyup="sinespacio(this);" required="" minlength="8" maxlength="" required="">
+                                
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <label for="email">E-mail</label>
-                                    {!! Form::text('email', null, array('class' => 'form-control')) !!}
-                                </div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    {!! Form::password('password', array('class' => 'form-control')) !!}
-                                </div>
+          
+                            <div class="col">
+                            <div class="input-group mb-4" id="grupo__confirmar_clave">
+                                <span    class="input-group-text" id="confirm-password"><i class="fas fa-lock"></i></span> 
+                                <input name = "confirm-password" type="password" class="form-control" placeholder="Confirma tu contrase&ntilde;a: La contraseña tiene que coincidir con la contraseña anterior"  id="confirm-password" name="confirm-password" required onblur="quitarespacios(this);"  onkeyup="sinespacio(this);" required="" minlength="8" maxlength="" required="">
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <label for="confirm-password">Confirmar Password</label>
-                                    {!! Form::password('confirm-password', array('class' => 'form-control')) !!}
-                                </div>
-                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="">Roles</label>
@@ -120,6 +152,23 @@
     
     @stop
     
+    <script>
+      function mayus(e) {
+          e.value = e.value.toUpperCase();
+      }
+      
+      </script>
+      
+      <script>
+      
+      function aMayusculas(obj,id){
+          obj = obj.toUpperCase();
+          document.getElementById(id).value = obj;
+      }
+      </script>
+
+
+      
     
     
     @section('js')
@@ -155,5 +204,86 @@
         $("#update-alert").slideUp(500);
       });
     </script>
+
+
+<script>
+  function soloLetras(e){
+   key = e.keyCode || e.which;
+   tecla = String.fromCharCode(key).toLowerCase();
+   letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+   especiales = ["8-37-39-46"];
+
+   tecla_especial = false
+   for(var i in especiales){
+    if(key == especiales[i]){
+      tecla_especial = true;
+      break;
+    }
+  }
+
+  if(letras.indexOf(tecla)==-1 && !tecla_especial){
+    return false;
+  }
+}
+</script>
+
+<script type="text/javascript">
+function mayus(e) {
+e.value = e.value.toUpperCase();
+}
+</script>
+
+<script type="text/javascript">
+
+function sinespacio(e) {
+
+var cadena =  e.value;
+var limpia = "";
+var parts = cadena.split(" ");
+var length = parts.length;
+
+for (var i = 0; i < length; i++) {
+nuevacadena = parts[i];
+subcadena = nuevacadena.trim();
+
+if(subcadena != "") {
+  limpia += subcadena + " ";
+}
+}
+limpia = limpia.trim();
+e.value = limpia;
+
+};
+</script>
+
+<script type="text/javascript">
+function quitarespacios(e) {
+
+var cadena =  e.value;
+cadena = cadena.trim();
+
+e.value = cadena;
+
+};
+</script>
+
+<script type="text/javascript"> function solonumero(e) {
+    tecla = (document.all) ? e.keyCode : e.which;
+    if (tecla==8) return true;
+    else if (tecla==0||tecla==9)  return true;
+   // patron =/[0-9\s]/;// -> solo letras
+    patron =/[0-9\s]/;// -> solo numeros
+    te = String.fromCharCode(tecla);
+    return patron.test(te);
+}
+</script>
+
+<script>
+  function onPaste(event) {
+console.log('Paste!! ', event);
+event.preventDefault();
+event.stopPropagation();
+}
+</script>
     
     @stop
