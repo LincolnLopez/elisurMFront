@@ -161,6 +161,22 @@
     }
 </script>
 
+<script>
+
+    var validarNumero= function(e) {
+    var valor = e.value;
+    e.value = (valor.indexOf(".") >= 0) ? (valor.substr(0, valor.indexOf(".")) + valor.substr(valor.indexOf("."), 3)) : valor;
+    }
+    </script>
+
+
+<script>
+    function onPaste(event) {
+  console.log('Paste!! ', event);
+  event.preventDefault();
+  event.stopPropagation();
+}
+</script>
 
 
 
@@ -194,8 +210,8 @@
 
                                     <input id="NOMBRE_ARTICULO" name="NOMBRE_ARTICULO" type="text" class="form-control"
                                     tabindex="1" autocomplete="off" autofocus="on"
-                                    onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-                                    placeholder="Ingrese Nombre"autofocus required>
+                                    onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)" 
+                                    placeholder="Ingrese Nombre" onpaste="onPaste(event)" autofocus required>
 
                                 </div>
                                 <!--campo requerido required    Que no se pueda pegar onPaste="return false;"-->
@@ -206,7 +222,7 @@
                                     <input id="DESCRIPCION_ARTICULO" name="DESCRIPCION_ARTICULO" type="text" class="form-control"
                                     tabindex="1" autocomplete="off" autofocus="on"
                                     onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-                                    placeholder="Ingrese la descripción"autofocus required>
+                                    placeholder="Ingrese la descripción" onpaste="onPaste(event)" autofocus required>
                                 </div>
 
 
@@ -214,7 +230,7 @@
                                     <label for="" class="form-label">PRECIO ARTICULO</label>
                                     <input id="PRECIO_ARTICULO" name="PRECIO_ARTICULO" type="text" class="form-control"
                                         tabindex="1" autofocus required oninput="limitDecimalPlaces(event, 2)"
-                                        onkeypress="return isNumberKey(event)" autofocus required minlength="2" maxlength="10">
+                                        onkeypress="return isNumberKey(event)" autofocus required minlength="2" maxlength="10" onpaste="onPaste(event)">
                                 </div>
 
 
