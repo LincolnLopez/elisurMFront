@@ -102,6 +102,15 @@
   }
   </script>
 
+<script>
+    function filtro()
+    {
+    var tecla = event.key;
+    if (['.','e'].includes(tecla))
+       event.preventDefault()
+    }
+    </script>
+
 
 @stop
 
@@ -163,7 +172,7 @@
                                     <input id="CANTIDAD_ARTICULO" name="CANTIDAD_ARTICULO" type="text"
                                         class="form-control" tabindex="1" autocomplete="off" autofocus="on"
                                         onkeypress="return solonumeros(event)" placeholder="Ingrese cantidad" autofocus
-                                        required="" onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" minlength="1" maxlength="5">
+                                        required="" onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" minlength="1" maxlength="5" onkeydown="filtro()">
                                 </div>
 
 

@@ -223,6 +223,14 @@ event.stopPropagation();
 }
 </script>
 
+<script>
+  function filtro()
+  {
+  var tecla = event.key;
+  if (['.','e'].includes(tecla))
+     event.preventDefault()
+  }
+  </script>
 
 
 
@@ -254,7 +262,7 @@ event.stopPropagation();
 
   <div class="mb-3">
     <label for="" class="form-label">Numero de Existencias</label>
-    <input id="NUM_EXISTENCIA" name="NUM_EXISTENCIA" type="number" onpaste="onPaste(event)" class="form-control" tabindex="1" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+" value="{{$persona->num_existencia}}">    
+    <input id="NUM_EXISTENCIA" name="NUM_EXISTENCIA" type="number" onpaste="onPaste(event)" class="form-control" tabindex="1" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+" value="{{$persona->num_existencia}}" onkeydown="filtro()">    
   </div>
 
 

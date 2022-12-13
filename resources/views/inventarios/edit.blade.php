@@ -106,6 +106,15 @@
   }
   </script>
 
+<script>
+    function filtro()
+    {
+    var tecla = event.key;
+    if (['.','e'].includes(tecla))
+       event.preventDefault()
+    }
+    </script>
+
 
 @stop
 
@@ -134,7 +143,7 @@
             <input id="CANTIDAD_ARTICULO" name="CANTIDAD_ARTICULO" type="text" class="form-control"
                 value="{{ $inventario->cantidad_articulo }}"  onpaste="onPaste(event)" autocomplete="off" autofocus="on"
                 onkeypress="return solonumeros(event)" autofocus required="" onkeyup="DobleEspacio(this, event);" 
-                minlength="1" maxlength="5">
+                minlength="1" maxlength="5" onkeydown="filtro()">
 
         </div>
 

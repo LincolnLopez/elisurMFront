@@ -158,6 +158,15 @@
   }
   </script>
 
+<script>
+    function filtro()
+    {
+    var tecla = event.key;
+    if (['.','e'].includes(tecla))
+       event.preventDefault()
+    }
+    </script>
+
 
   <div class="mb-3">
     <label for="" class="form-label">Nombre de Herramienta</label>
@@ -178,7 +187,7 @@
 
   <div class="mb-3">
     <label for="" class="form-label">Numero de Existencia</label>
-    <input id="NUM_EXISTENCIA" name="NUM_EXISTENCIA" type="text" class="form-control" onpaste="onPaste(event)" tabindex="1" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+">
+    <input id="NUM_EXISTENCIA" name="NUM_EXISTENCIA" type="text" class="form-control" onpaste="onPaste(event)" tabindex="1" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+" onkeydown="filtro()">
   </div>
 
 
