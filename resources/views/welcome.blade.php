@@ -14,7 +14,7 @@
     <style>
         body {
             font-family: "Lato", sans-serif
-        } 
+        }
 
         .mySlides {
             display: none
@@ -233,7 +233,7 @@
             <div class="w3-container">
 
                 <form action="/cotizacion" name="form" method="POST" onsubmit="return validar();"
-                    autocomplete="off" class="was-validated">
+                    autocomplete="off">
                     @csrf
                     <div class="w3-container">
                         <h2>MULTISERVICIOS ELISUR</h2>
@@ -260,153 +260,159 @@
                         }
                     </script>
 
-                    
-<script>
-    /*=============================================
-     VALIDACION QUE SOLO PERMITA LETRAS Y NUMEROS             
-    =============================================*/
 
-    function letrasynumeros(e) {
+                    <script>
+                        /*=============================================
+                         VALIDACION QUE SOLO PERMITA LETRAS Y NUMEROS             
+                        =============================================*/
 
-        key = e.keyCode || e.wich;
+                        function letrasynumeros(e) {
 
-        teclado = String.fromCharCode(key).toUpperCase();
+                            key = e.keyCode || e.wich;
 
-        letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZÑ1234567890 ";
+                            teclado = String.fromCharCode(key).toUpperCase();
 
-        especiales = "8-37-38-46-164";
+                            letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZÑ1234567890 ";
 
-        teclado_especial = false;
+                            especiales = "8-37-38-46-164";
 
-        for (var i in especiales) {
+                            teclado_especial = false;
 
-            if (key == especiales[i]) {
-                teclado_especial = true;
-                break;
-            }
-        }
+                            for (var i in especiales) {
 
-        if (letras.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-        }
+                                if (key == especiales[i]) {
+                                    teclado_especial = true;
+                                    break;
+                                }
+                            }
 
-    }
+                            if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+                                return false;
+                            }
 
-    /*=====  End of Section comment block  ======*/
+                        }
 
-
-    /*==============================================
-    =     VALIDACION SOLO LETRAS            =
-    ==============================================*/
-    function sololetras(e) {
-
-        key = e.keyCode || e.wich;
-
-        teclado = String.fromCharCode(key).toUpperCase();
-
-        letras = " ABCDEFGHIJKLMNOPQRSTUVWXYZÑ";
-
-        especiales = "8-37-38-46-164";
-
-        teclado_especial = false;
-
-        for (var i in especiales) {
-
-            if (key == especiales[i]) {
-                teclado_especial = true;
-                break;
-            }
-        }
-
-        if (letras.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-        }
-
-    }
+                        /*=====  End of Section comment block  ======*/
 
 
+                        /*==============================================
+                        =     VALIDACION SOLO LETRAS            =
+                        ==============================================*/
+                        function sololetras(e) {
 
+                            key = e.keyCode || e.wich;
 
-    /*==============================================
-    =        VALIDACION SOLO NUMEROS           =
-    ==============================================*/
-    function solonumeros(e) {
+                            teclado = String.fromCharCode(key).toUpperCase();
 
-        key = e.keyCode || e.wich;
+                            letras = " ABCDEFGHIJKLMNOPQRSTUVWXYZÑ";
 
-        teclado = String.fromCharCode(key).toUpperCase();
+                            especiales = "8-37-38-46-164";
 
-        letras = "1234567890";
+                            teclado_especial = false;
 
-        especiales = "8-37-38-46-164";
+                            for (var i in especiales) {
 
-        teclado_especial = false;
+                                if (key == especiales[i]) {
+                                    teclado_especial = true;
+                                    break;
+                                }
+                            }
 
-        for (var i in especiales) {
+                            if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+                                return false;
+                            }
 
-            if (key == especiales[i]) {
-                teclado_especial = true;
-                break;
-            }
-        }
-
-        if (letras.indexOf(teclado) == -1 && !teclado_especial) {
-            return false;
-        }
-
-    }
-
-    function Espacio(campo, event) {
-        CadenaaReemplazar = " ";
-        CadenaReemplazo = "";
-        CadenaTexto = campo.value;
-        CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
-        campo.value = CadenaTextoNueva;
-    }
+                        }
 
 
 
 
-    function limitDecimalPlaces(e, count) {
-        if (e.target.value.indexOf('.') == -1) {
-            return;
-        }
-        if ((e.target.value.length - e.target.value.indexOf('.')) > count) {
-            e.target.value = parseFloat(e.target.value).toFixed(count);
-        }
-    }
+                        /*==============================================
+                        =        VALIDACION SOLO NUMEROS           =
+                        ==============================================*/
+                        function solonumeros(e) {
 
-    function isNumberKey(evt) {
-        var charCode = (evt.which) ? evt.which : evt.keyCode;
-        if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
-            return false;
+                            key = e.keyCode || e.wich;
 
-        return true;
-    }
-</script>
+                            teclado = String.fromCharCode(key).toUpperCase();
 
-<script>
-    function DobleEspacio(campo, event) {
+                            letras = "1234567890";
 
-        CadenaaReemplazar = "  ";
-        CadenaReemplazo = " ";
-        CadenaTexto = campo.value;
-        CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
-        campo.value = CadenaTextoNueva;
+                            especiales = "8-37-38-46-164";
 
-    }
-</script>
+                            teclado_especial = false;
 
-<script>
-    jQuery(function($) {
-        $("#TELEFONO").mask("9999-9999");
-        $("#TELEFONO_OPCIONAL").mask("99999-99999");
-        $("#RTN_CLIENTE").mask("9999-9999-999999");
+                            for (var i in especiales) {
 
-    });
-</script>
+                                if (key == especiales[i]) {
+                                    teclado_especial = true;
+                                    break;
+                                }
+                            }
+
+                            if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+                                return false;
+                            }
+
+                        }
+
+                        function Espacio(campo, event) {
+                            CadenaaReemplazar = " ";
+                            CadenaReemplazo = "";
+                            CadenaTexto = campo.value;
+                            CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+                            campo.value = CadenaTextoNueva;
+                        }
 
 
+
+
+                        function limitDecimalPlaces(e, count) {
+                            if (e.target.value.indexOf('.') == -1) {
+                                return;
+                            }
+                            if ((e.target.value.length - e.target.value.indexOf('.')) > count) {
+                                e.target.value = parseFloat(e.target.value).toFixed(count);
+                            }
+                        }
+
+                        function isNumberKey(evt) {
+                            var charCode = (evt.which) ? evt.which : evt.keyCode;
+                            if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+                                return false;
+
+                            return true;
+                        }
+                    </script>
+
+                    <script>
+                        function DobleEspacio(campo, event) {
+
+                            CadenaaReemplazar = "  ";
+                            CadenaReemplazo = " ";
+                            CadenaTexto = campo.value;
+                            CadenaTextoNueva = CadenaTexto.split(CadenaaReemplazar).join(CadenaReemplazo);
+                            campo.value = CadenaTextoNueva;
+
+                        }
+                    </script>
+
+                    <script>
+                        jQuery(function($) {
+                            $("#TELEFONO").mask("9999-9999");
+                            $("#TELEFONO_OPCIONAL").mask("99999-99999");
+                            $("#RTN_CLIENTE").mask("9999-9999-999999");
+
+                        });
+                    </script>
+
+                    <script>
+                        function onPaste(event) {
+                            console.log('Paste!! ', event);
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                    </script>
 
 
 
@@ -414,30 +420,36 @@
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                         <div class="w3-half">
                             <label>Nombres</label>
-                            <input id="NOMBRE" name="NOMBRE" type="text" class="form-control" tabindex="1" autocomplete="off" autofocus="on"
-                            onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-                            placeholder="Ingrese su Nombre"autofocus required>
-                            <div class="valid-feedback"></div>
-                            <div class="invalid-feedback">Por favor rellene este campo.</div>
+                            <input id="NOMBRE" name="NOMBRE" type="text" class="form-control" tabindex="1"
+                                autocomplete="off" autofocus="on" onkeyup="DobleEspacio(this, event);"
+                                onkeypress="return sololetras(event)" placeholder="Ingrese su Nombre"autofocus
+                                onpaste="onPaste(event)" required>
+
+
                         </div>
                         <div class="w3-half">
                             <label>Apellidos</label>
-                            <input id="APELLIDO" name="APELLIDO" type="text" class="form-control" tabindex="1" autocomplete="off" autofocus="on"
-                            onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-                            placeholder="Ingrese su Apellido"autofocus required>
+                            <input id="APELLIDO" name="APELLIDO" type="text" class="form-control"
+                                tabindex="1" autocomplete="off" autofocus="on"
+                                onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
+                                onpaste="onPaste(event)" placeholder="Ingrese su Apellido"autofocus required>
                         </div>
                     </div>
 
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                         <div class="w3-half">
                             <label>Telefono</label>
-                            <input id="TELEFONO" name="TELEFONO" type="number" class="w3-input w3-border" onkeypress="return isNumberKey(event)"
-                                type="text" placeholder="9999-9999" minlength="8" maxlength="8" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)"  autofocus required>
+                            <input id="TELEFONO" name="TELEFONO" type="text" class="w3-input w3-border"
+                                onkeypress="return isNumberKey(event)" placeholder="9999-9999" minlength="8"
+                                maxlength="8" autocomplete="off" autofocus="on" autofocus onpaste="onPaste(event)"
+                                required>
                         </div>
                         <div class="w3-half">
                             <label>Telefono Opcional</label>
                             <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" class="w3-input w3-border"
-                                type="number" placeholder="9999-9999" minlength="8" maxlength="13" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+">
+                                type="number" placeholder="9999-9999" minlength="8" maxlength="13"
+                                autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus
+                                required="" pattern="[0-9]+" onpaste="onPaste(event)">
                         </div>
                     </div>
 
@@ -445,13 +457,15 @@
                         <div class="w3-half">
                             <label>Correo Electrónico</label>
                             <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="text"
-                                class="w3-input w3-border" type="email" placeholder="trf@gmail.com"  class="form-control"
-                                tabindex="1" onkeyup="Espacio(this, event);" autofocus required>
+                                class="w3-input w3-border" type="email" placeholder="trf@gmail.com"
+                                class="form-control" tabindex="1" onkeyup="Espacio(this, event);" autofocus onpaste="onPaste(event)"
+                                required>
 
                         </div>
                         <div class="w3-half">
                             <label>Tipo Solicitante</label>
-                            <select class="w3-select" id="TIPO_SOLICITANTE" name="TIPO_SOLICITANTE" autofocus required>
+                            <select class="w3-select" id="TIPO_SOLICITANTE" name="TIPO_SOLICITANTE" autofocus
+                                required>
                                 <option value="" disabled selected>Seleccione el tipo:</option>
                                 <option value="1">EMPRESA</option>
                                 <option value="2">CASA</option>
@@ -463,12 +477,15 @@
                         <div class="w3-half">
                             <label>Número de identidad</label>
                             <input id="RTN_DNI" name="RTN_DNI" type="text" class="w3-input w3-border"
-                                placeholder="RTN en caso de ser Empresa - Sin guiones" onkeypress="return solonumeros(event)" onkeyup="DobleEspacio(this, event);" minlength="3" maxlength="14" autocomplete="off" autofocus="on" autofocus required>
+                                placeholder="RTN en caso de ser Empresa - Sin guiones"
+                                onkeypress="return solonumeros(event)" onkeyup="DobleEspacio(this, event);"
+                                minlength="3" maxlength="14" autocomplete="off" autofocus="on" autofocus onpaste="onPaste(event)" required>
                         </div>
                         <div class="w3-half">
                             <label>Nombre Empresa/Colonia</label>
                             <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="w3-input w3-border"
-                                placeholder="Ingrese Nombre " onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)" required>
+                                placeholder="Ingrese Nombre " onkeyup="DobleEspacio(this, event);"
+                                onkeypress="return letrasynumeros(event)" onpaste="onPaste(event)" required>
                         </div>
                     </div>
 
@@ -502,15 +519,17 @@
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
                         <label>Dirección</label>
                         <input id="DIRECCION_SOLICITANTE" name="DIRECCION_SOLICITANTE" type="text"
-                            class="w3-input w3-border" placeholder="Colonia, #Casa, etc."  onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-                            autofocus required>
+                            class="w3-input w3-border" placeholder="Colonia, #Casa, etc."
+                            onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)" autofocus onpaste="onPaste(event)"
+                            required>
                     </div>
                     <div class="w3-row-padding w3-padding-16" style="margin:0 -16px">
 
                         <label>Descripción de la Solicitud</label>
                         <input id="DESCRIPCION_SOLICITUD" name="DESCRIPCION_SOLICITUD" type="text"
-                            class="w3-input w3-border" placeholder="Ingrese una descripción detallada de la solicitud" onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-                            autofocus required>
+                            class="w3-input w3-border" placeholder="Ingrese una descripción detallada de la solicitud"
+                            onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)" autofocus onpaste="onPaste(event)"
+                            required>
                     </div>
 
                     <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">Enviar<i
