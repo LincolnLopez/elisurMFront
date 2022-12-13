@@ -333,7 +333,7 @@
 
 
 
-                                <a href="/articulos" class="btn btn-secondary" tabindex="5">Cancelar</a>
+                                <a href="/ticket" class="btn btn-secondary" tabindex="5">Cancelar</a>
                                 <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
 
                             </div>
