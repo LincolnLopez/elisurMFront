@@ -280,8 +280,6 @@
                                     </select>
                                 </div>
 
-
-
                                 <div class="mb-3">
                                     <label for="" class="form-label">Nombre</label>
                                     <input id="NOMBRE" name="NOMBRE" type="text" class="form-control" tabindex="1"

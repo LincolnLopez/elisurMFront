@@ -68,13 +68,18 @@
                                         <div>
                                             <a href="{{ route('ticket.create') }}" class="btn btn-success">Registrar</a>
                                         
-                                        </div>
+                                       
                                             
                                         @endcan
-                                        <div>
+                                       
+                                            <a href="{{ route('reporte_falla.index') }}" style="float: right;"
+                                                class="btn btn-success" target="_blank"><i class="fas fa-file-pdf"></i>
+                                                Reporte Encuestas PDF
+                                            </a>
+                                        
                                             <a href="{{ route('reporte_ticket.index') }}" style="float: right;"
                                                 class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
-                                                Descargar PDF
+                                                Reporte Tickets PDF
                                             </a>
                                         </div>
                                         </br>

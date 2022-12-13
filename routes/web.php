@@ -35,6 +35,7 @@ use App\Http\Controllers\PresupuestosController;
 use App\Http\Controllers\ReporteArticulosController;
 use App\Http\Controllers\ReporteEmpleadosController;
 use App\Http\Controllers\ReporteUsuariosController;
+use App\Http\Controllers\ReporteFallaController;
 
 
 
@@ -87,6 +88,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('reporte_empleados', ReporteEmpleadosController::class);
     Route::resource('reporte_usuarios', ReporteUsuariosController::class);
     Route::resource('reporte_articulo', ReporteArticulosController::class);
+    Route::resource('reporte_falla', ReporteFallaController::class);
 
 });
 
