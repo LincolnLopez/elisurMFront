@@ -214,7 +214,13 @@
         }
     </script>
 
-
+<script>
+    function onPaste(event) {
+  console.log('Paste!! ', event);
+  event.preventDefault();
+  event.stopPropagation();
+  }
+  </script>
 
 
 @stop
@@ -246,20 +252,20 @@
                                     <input id="NOMBRE" name="NOMBRE" type="text" class="form-control"
                                         tabindex="1" autocomplete="off" autofocus="on"
                                         onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-                                        placeholder="Ingrese Nombre"autofocus minlength="7" maxlength="40" required>
+                                        placeholder="Ingrese Nombre"autofocus minlength="7" maxlength="40" onpaste="onPaste(event)" required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="" class="form-label">Número Telefonico</label>
                                     <input id="TELEFONO" name="TELEFONO" type="text" class="form-control"
                                         tabindex="1" onkeypress="return isNumberKey(event)"
                                         placeholder="Ingrese su número de telefono: 00000000" minlength="8"
-                                        maxlength="8" autofocus required>
+                                        maxlength="8" onpaste="onPaste(event)" autofocus required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="" class="form-label">Correo Electronico</label>
                                     <input id="TCORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email"
                                         class="form-control" tabindex="1" onkeyup="Espacio(this, event);"
-                                        placeholder="Ingrese correo" autofocus required>
+                                        placeholder="Ingrese correo" onpaste="onPaste(event)" autofocus required>
                                 </div>
 
                             </div>
@@ -287,7 +293,7 @@
                                 <div class="form-group col-md-6">
                                     <input id="TEMA" name="TEMA" type="text" class="form-control"
                                         placeholder="Asunto" onkeyup="DobleEspacio(this, event);"
-                                        onkeypress="return sololetras(event)" required>
+                                        onkeypress="return sololetras(event)" onpaste="onPaste(event)" required>
                                 </div>
                         </tr>
                         <tr>
@@ -304,7 +310,7 @@
                                             <div class="form-group col-md-20">
                                                 <textarea id="DESCRIPCION" name="DESCRIPCION" rows="4" cols="120" class="form-control"
                                                     placeholder="DESCRIPCION" onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-                                                    placeholder="Ingrese una breve descripción de lo solicitado" required></textarea>
+                                                    placeholder="Ingrese una breve descripción de lo solicitado" onpaste="onPaste(event)" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -319,7 +325,7 @@
                                     <input id="UBICACION" name="UBICACION" type="text" class="form-control"
                                         tabindex="1" autocomplete="off" autofocus="on" placeholder="Ingrese Ubicación"
                                         onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-                                        autofocus required>
+                                        autofocus onpaste="onPaste(event)" required>
                                 </div>
                             </div>
                         </tr>
