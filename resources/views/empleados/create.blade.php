@@ -168,6 +168,13 @@
         }
     </script>
 
+<script>
+    function onPaste(event) {
+console.log('Paste!! ', event);
+event.preventDefault();
+event.stopPropagation();
+}
+</script>
 
 @stop
 
@@ -264,7 +271,7 @@
                                     <input id="DNI_EMPLEADO" name="DNI_EMPLEADO" type="text" class="form-control"
                                         tabindex="1" onkeypress="return isNumberKey(event)"
                                         placeholder="Ingrese su ID sin espacios:0000000000000" minlength="13" maxlength="13"
-                                        autofocus required>
+                                        autofocus onpaste="onPaste(event)" required>
                                 </div>
 
                                 <div class="mb-3">
@@ -272,7 +279,7 @@
                                     <input id="NOMBRE_EMPLEADO" name="NOMBRE_EMPLEADO" type="text" class="form-control"
                                         tabindex="1" autocomplete="off" autofocus="on"
                                         onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-                                        placeholder="Ingrese"autofocus required>
+                                        placeholder="Ingrese"autofocus onpaste="onPaste(event)" required>
                                 
                                 </div>
 
@@ -301,7 +308,7 @@
                                     <label for="" class="form-label">EDAD EMPLEADO</label>
                                     <input id="EDAD_EMPLEADO" name="EDAD_EMPLEADO" type="text" class="form-control"
                                         tabindex="1" onkeypress="return solonumeros(event)"
-                                        placeholder="Ingrese edad"
+                                        placeholder="Ingrese edad" onpaste="onPaste(event)"
                                         onkeyup="DobleEspacio(this, event);" minlength="2" maxlength="2">
                                 </div>
 
@@ -309,13 +316,13 @@
                                     <label for="" class="form-label">TELEFONO</label>
                                     <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" tabindex="1" onkeypress="return isNumberKey(event)"
                                     placeholder="Ingrese su número de telefono: 00000000" minlength="8" maxlength="8"
-                                    autofocus required>
+                                    autofocus onpaste="onPaste(event)" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="" class="form-label">CORREO</label>
                                     <input id="CORREO" name="CORREO" type="email" class="form-control"
-                                    tabindex="1" onkeyup="Espacio(this, event);" placeholder="Ingrese correo" autofocus required>
+                                    tabindex="1" onkeyup="Espacio(this, event);" placeholder="Ingrese correo" autofocus onpaste="onPaste(event)" required>
                                 </div>
 
                                 <a href="/empleados" class="btn btn-secondary" tabindex="5">Cancelar</a>

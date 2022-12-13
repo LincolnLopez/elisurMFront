@@ -102,20 +102,28 @@ alert("La dirección de email es incorrecta.");
       
   </script>
 
+<script>
+  function onPaste(event) {
+console.log('Paste!! ', event);
+event.preventDefault();
+event.stopPropagation();
+}
+</script>
+
 <div class="mb-3">
   <label for="" class="form-label">Código de Empleado</label>
-  <input id="COD_EMPLEADO" name="COD_EMPLEADO" type="text" class="form-control" maxlength="15" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus required value="{{$empleado->cod_empleado}}" readonly>
+  <input id="COD_EMPLEADO" name="COD_EMPLEADO" type="text" class="form-control" maxlength="15" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus required value="{{$empleado->cod_empleado}}" onpaste="onPaste(event)" readonly>
 </div>
 
 
     <div class="mb-3">
         <label for="" class="form-label">DNI</label>
-        <input id="DNI_EMPLEADO" name="DNI_EMPLEADO" type="text" class="form-control" maxlength="15" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus required value="{{$empleado->DNI_EMPLEADO}}">
+        <input id="DNI_EMPLEADO" name="DNI_EMPLEADO" type="text" class="form-control" maxlength="15" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus onpaste="onPaste(event)" required value="{{$empleado->DNI_EMPLEADO}}">
     </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Nombre</label>
-        <input id="NOMBRE_EMPLEADO" name="NOMBRE_EMPLEADO" type="text" class="form-control" maxlength="70" name="txt_nom" autofocus="on"  style="text-transform: uppercase;" onkeyup="return unspaces()"  onkeypress="return soloLetras(event)" autofocus required value="{{$empleado->nombre_empleado}}">
+        <input id="NOMBRE_EMPLEADO" name="NOMBRE_EMPLEADO" type="text" class="form-control" maxlength="70" name="txt_nom" autofocus="on"  style="text-transform: uppercase;" onkeyup="return unspaces()"  onkeypress="return soloLetras(event)" autofocus onpaste="onPaste(event)" required value="{{$empleado->nombre_empleado}}">
       </div>
 
 
@@ -141,17 +149,17 @@ alert("La dirección de email es incorrecta.");
 
       <div class="mb-3">
         <label for="" class="form-label">Edad</label>
-        <input id="EDAD_EMPLEADO" name="EDAD_EMPLEADO" type="text" class="form-control" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus required value="{{$empleado->edad_empleado}}">
+        <input id="EDAD_EMPLEADO" name="EDAD_EMPLEADO" type="text" class="form-control" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus onpaste="onPaste(event)" required value="{{$empleado->edad_empleado}}">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Telefono</label>
-        <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus required value="{{$empleado->telefono}}">
+        <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" autofocus onpaste="onPaste(event)" required value="{{$empleado->telefono}}">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Correo</label>
-        <input id="CORREO" name="CORREO" type="email" class="form-control" value="{{$empleado->correo}}" autofocus required>
+        <input id="CORREO" name="CORREO" type="email" class="form-control" value="{{$empleado->correo}}" autofocus onpaste="onPaste(event)" required>
       </div>
 
 

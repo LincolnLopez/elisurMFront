@@ -238,6 +238,13 @@
         }
     </script>
 
+<script>
+    function onPaste(event) {
+  console.log('Paste!! ', event);
+  event.preventDefault();
+  event.stopPropagation();
+  }
+  </script>
 
 @stop
 
@@ -261,7 +268,7 @@
                                 <div class="mb-3">
                                     <label for="" class="form-label">COD_REPORTE_FALLA</label>
                                     <input id="COD_REPORTE_FALLA" name="COD_REPORTE_FALLA" type="text"
-                                        class="form-control" value="{{ $ticket->cod_reporte_falla }}" readonly>
+                                        class="form-control" value="{{ $ticket->cod_reporte_falla }}" onpaste="onPaste(event)" readonly>
                                 </div>
 
                                 <div>
@@ -286,14 +293,14 @@
                                     <input id="NOMBRE" name="NOMBRE" type="text" class="form-control"
                                         value="{{ $ticket->nombre }}" autocomplete="off" autofocus="on"
                                         onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-                                        minlength="7" maxlength="40" required>
+                                        minlength="7" maxlength="40" onpaste="onPaste(event)" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="" class="form-label">TELEFONO</label>
                                     <input id="TELEFONO" name="TELEFONO" type="text" class="form-control"
                                         value="{{ $ticket->telefono }}" minlength="8" maxlength="8" autocomplete="off"
-                                        autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="">
+                                        autofocus="on" onkeypress="return isNumberKey(event)" onpaste="onPaste(event)" autofocus required="">
                                 </div>
 
 
@@ -301,21 +308,21 @@
                                     <label for="" class="form-label">CORREO_ELECTRONICO</label>
                                     <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email"
                                         class="form-control" autocomplete="off" onkeyup="Espacio(this, event);"
-                                        value="{{ $ticket->correo_electronico }}" required>
+                                        value="{{ $ticket->correo_electronico }}" onpaste="onPaste(event)" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="" class="form-label">TEMA</label>
                                     <input id="TEMA" name="TEMA" type="text" class="form-control"
                                         autocomplete="off" onkeyup="DobleEspacio(this, event);"
-                                        onkeypress="return sololetras(event)" value="{{ $ticket->tema }}" required>
+                                        onkeypress="return sololetras(event)" value="{{ $ticket->tema }}" onpaste="onPaste(event)" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="" class="form-label">DESCRIPCION</label>
                                     <input id="DESCRIPCION" name="DESCRIPCION" type="text" class="form-control"
                                         autocomplete="off" onkeyup="DobleEspacio(this, event);"
-                                        onkeypress="return letrasynumeros(event)" value="{{ $ticket->descripcion }}"
+                                        onkeypress="return letrasynumeros(event)" onpaste="onPaste(event)" value="{{ $ticket->descripcion }}"
                                         required>
                                 </div>
 
@@ -324,7 +331,7 @@
                                     <label for="" class="form-label">UBICACION</label>
                                     <input id="UBICACION" name="UBICACION" type="text" class="form-control"
                                         autocomplete="off" onkeyup="DobleEspacio(this, event);"
-                                        onkeypress="return letrasynumeros(event)" value="{{ $ticket->ubicacion }}"
+                                        onkeypress="return letrasynumeros(event)" onpaste="onPaste(event)" value="{{ $ticket->ubicacion }}"
                                         required>
                                 </div>
 
@@ -343,7 +350,7 @@
                                     <label for="" class="form-label">nombre_empleado</label>
                                     <input id="NOMBRE_EMPLEADO" name="NOMBRE_EMPLEADO" type="text"
                                         class="form-control" value="{{ $ticket->nombre_empleado }}"
-                                        onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
+                                        onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" onkeypress="return sololetras(event)"
                                         required>
                                 </div>
 

@@ -237,6 +237,13 @@
         }
     </script>
 
+<script>
+    function onPaste(event) {
+  console.log('Paste!! ', event);
+  event.preventDefault();
+  event.stopPropagation();
+  }
+  </script>
 
 @stop
 
@@ -280,7 +287,7 @@
                                     <input id="NOMBRE" name="NOMBRE" type="text" class="form-control" tabindex="1"
                                         autocomplete="off" autofocus="on" onkeyup="DobleEspacio(this, event);"
                                         onkeypress="return sololetras(event)" placeholder="Ingrese Nombre"autofocus
-                                        minlength="7" maxlength="40" required>
+                                        minlength="7" maxlength="40" onpaste="onPaste(event)" required>
 
                                 </div>
 
@@ -290,7 +297,7 @@
                                     <input id="TELEFONO" name="TELEFONO" type="text" class="form-control" tabindex="1"
                                         onkeypress="return isNumberKey(event)"
                                         placeholder="Ingrese su número de telefono: 00000000" minlength="8" maxlength="8"
-                                        autofocus required>
+                                        autofocus onpaste="onPaste(event)" required>
                                 </div>
 
 
@@ -298,7 +305,7 @@
                                     <label for="" class="form-label">Correo Electronico</label>
                                     <input id="TCORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email"
                                         class="form-control" tabindex="1" onkeyup="Espacio(this, event);"
-                                        placeholder="Ingrese correo" autofocus required>
+                                        placeholder="Ingrese correo" autofocus onpaste="onPaste(event)" required>
                                 </div>
 
 
@@ -306,14 +313,14 @@
                                     <label for="" class="form-label">Tema</label>
                                     <input id="TEMA" name="TEMA" type="text" class="form-control"
                                         placeholder="Asunto" onkeyup="DobleEspacio(this, event);"
-                                        onkeypress="return sololetras(event)" required>
+                                        onkeypress="return sololetras(event)" onpaste="onPaste(event)" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="" class="form-label">Descripción</label>
                                     <input id="DESCRIPCION" name="DESCRIPCION" type="text" class="form-control"
                                         tabindex="1" autocomplete="off" autofocus="on" onkeypress="return letrasynumeros(event)"
-                                        onkeyup="DobleEspacio(this, event);" placeholder="Ingrese una breve descripción de lo solicitado" required>
+                                        onkeyup="DobleEspacio(this, event);" placeholder="Ingrese una breve descripción de lo solicitado" onpaste="onPaste(event)" required>
                                 </div>
 
                                 <div class="mb-3">
@@ -321,7 +328,7 @@
                                     <input id="UBICACION" name="UBICACION" type="text" class="form-control"
                                         tabindex="1" autocomplete="off" autofocus="on" placeholder="Ingrese Ubicación"
                                         onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-                                        autofocus required>
+                                        autofocus onpaste="onPaste(event)" required>
                                 </div>
 
 
