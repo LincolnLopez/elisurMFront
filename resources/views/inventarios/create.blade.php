@@ -94,6 +94,14 @@
         }
     </script>
 
+<script>
+    function onPaste(event) {
+  console.log('Paste!! ', event);
+  event.preventDefault();
+  event.stopPropagation();
+  }
+  </script>
+
 
 @stop
 
@@ -135,7 +143,7 @@
 
                                 <div class="mb-3">
                                     <label for="" class="form-label">Articulos</label>
-                                    <select name="COD_ARTICULO" id="COD_ARTICULO" class="form-control" autofocus required>
+                                    <select name="COD_ARTICULO" id="COD_ARTICULO" class="form-control" onpaste="onPaste(event)" autofocus required>
                                         <option value="" disabled selected>Selecciona un Articulo:</option>
                                         @foreach ($articulos as $articulo)
                                             <option value="{{ $articulo['cod_articulo'] }}">
@@ -155,7 +163,7 @@
                                     <input id="CANTIDAD_ARTICULO" name="CANTIDAD_ARTICULO" type="text"
                                         class="form-control" tabindex="1" autocomplete="off" autofocus="on"
                                         onkeypress="return solonumeros(event)" placeholder="Ingrese cantidad" autofocus
-                                        required="" onkeyup="DobleEspacio(this, event);" minlength="1" maxlength="5">
+                                        required="" onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" minlength="1" maxlength="5">
                                 </div>
 
 

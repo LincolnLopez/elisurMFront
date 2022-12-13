@@ -218,6 +218,15 @@
     }
     </script>
 
+
+<script>
+  function onPaste(event) {
+console.log('Paste!! ', event);
+event.preventDefault();
+event.stopPropagation();
+}
+</script>
+
     <div class="row justify-content-center">
       <!-- Left col -->
       <div class="col-md-9">
@@ -239,7 +248,7 @@
     <label for="" class="form-label">Nombre</label>
     <input id="NOMBRE" name="NOMBRE" type="text" class="form-control"
     tabindex="1" autocomplete="off" autofocus="on"
-    onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
+    onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" onkeypress="return sololetras(event)"
     autofocus required value="{{$presupuesto->nombre}}">    
   </div>
 
@@ -248,7 +257,7 @@
     <label for="" class="form-label">Apellido</label>
     <input id="APELLIDO" name="APELLIDO" type="text"
     class="form-control" tabindex="1" autocomplete="off" autofocus="on"
-    onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
+    onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" onkeypress="return sololetras(event)"
     autofocus required  value="{{$presupuesto->apellido}}">    
   </div>
 
@@ -256,13 +265,13 @@
     <label for="" class="form-label">Telefono</label>
     <input id="TELEFONO" name="TELEFONO" type="text" class="form-control"
     tabindex="1" onkeypress="return isNumberKey(event)"
-    placeholder="Ingrese su Numero de telefono sin espacios:99999999" minlength="8" maxlength="8"
+    placeholder="Ingrese su Numero de telefono sin espacios:99999999" onpaste="onPaste(event)" minlength="8" maxlength="8"
     autofocus required value="{{$presupuesto->telefono}}" >    
   </div>
 
   <div class="mb-3">
     <label for="" class="form-label">Correo Electronico</label>
-    <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email" placeholder="Ingrese su correo electronico: aaa@gmail.com" class="form-control"
+    <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email" onpaste="onPaste(event)" placeholder="Ingrese su correo electronico: aaa@gmail.com" class="form-control"
     tabindex="1" onkeyup="Espacio(this, event);" autofocus required value="{{$presupuesto->correo_electronico}}">    
   </div>
 
@@ -270,7 +279,7 @@
 
 <div>
   <label for="country">Tipo Solicitante</label>
-  <select class="form-control" id="TIPO_SOLICITANTE" name="TIPO_SOLICITANTE" value="{{$presupuesto->tipo_solicitante}}" autocomplete="off" autofocus="on" autofocus required>
+  <select class="form-control" id="TIPO_SOLICITANTE" name="TIPO_SOLICITANTE" value="{{$presupuesto->tipo_solicitante}}" onpaste="onPaste(event)" autocomplete="off" autofocus="on" autofocus required>
     <option value="{{$presupuesto->tipo_solicitante}}" >Selecciona nuestros servicios</option>
     <option value="1">EMPRESA</option>
     <option value="2">CASA</option>
@@ -281,7 +290,7 @@
   <label for="" class="form-label">Telefono Opcional</label>
   <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" type="text" class="form-control"
   tabindex="1" onkeypress="return isNumberKey(event)"
-  placeholder="Ingrese su Numero de telefono sin espacios:99999999" minlength="8" maxlength="8"
+  placeholder="Ingrese su Numero de telefono sin espacios:99999999"  onpaste="onPaste(event)" minlength="8" maxlength="8"
   autofocus required value="{{$presupuesto->telefono_opcional}}">    
 </div>
 
@@ -289,7 +298,7 @@
 <div class="mb-3">
   <label for="" class="form-label">Dirección</label>
   <input id="DIRECCION_SOLICITANTE" name="DIRECCION_SOLICITANTE" type="text"
-  class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Ingrese la dirección"
+  class="form-control" tabindex="1" autocomplete="off" onpaste="onPaste(event)" autofocus="on" placeholder="Ingrese la dirección"
   onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
   autofocus required value="{{$presupuesto->direccion_solicitante}}">    
 </div>
@@ -297,13 +306,13 @@
 <div class="mb-3">
   <label for="" class="form-label">Nombre Empresa</label>
   <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="form-control" tabindex="1"placeholder="Ingrese el nombre de la empresa" onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-  autofocus required autofocus required  value="{{$presupuesto->nombre_e_c}}">    
+  autofocus required autofocus required onpaste="onPaste(event)" value="{{$presupuesto->nombre_e_c}}">    
 </div>
 
 <div class="mb-3">
   <label for="" class="form-label">No. Identidad / RTN</label>
   <input id="RTN_DNI" name="RTN_DNI" type="text" class="form-control"
-  tabindex="1" onkeypress="return solonumeros(event)"
+  tabindex="1" onpaste="onPaste(event)" onkeypress="return solonumeros(event)"
   placeholder="En caso de aplicar Ingrese su RTN sin espacios:0000000000000"
   onkeyup="DobleEspacio(this, event);" minlength="14" maxlength="14" autofocus required  value="{{$presupuesto->rtn_dni}}">    
 </div>
@@ -336,7 +345,7 @@
 <div class="mb-3">
   <label for="" class="form-label">Descripció de solicitud</label>
   <input id="DESCRIPCION_SOLICITUD" name="DESCRIPCION_SOLICITUD" type="text"
-  class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Describa la solicitud"
+  class="form-control" tabindex="1" onpaste="onPaste(event)" autocomplete="off" autofocus="on" placeholder="Describa la solicitud"
   onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
   autofocus required  value="{{$presupuesto->descripcion_solicitud}}">    
 </div>

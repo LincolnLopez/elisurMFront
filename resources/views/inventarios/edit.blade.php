@@ -98,6 +98,14 @@
         }
     </script>
 
+<script>
+    function onPaste(event) {
+  console.log('Paste!! ', event);
+  event.preventDefault();
+  event.stopPropagation();
+  }
+  </script>
+
 
 @stop
 
@@ -110,22 +118,22 @@
         <div class="mb-3">
             <label for="" class="form-label">CODIGO DE INVENTARIO</label>
             <input id="COD_INVENTARIO" name="COD_INVENTARIO" type="text" class="form-control"
-                value="{{ $inventario->cod_inventario }}" readonly>
+                value="{{ $inventario->cod_inventario }}" onpaste="onPaste(event)" readonly>
         </div>
 
         <div class="mb-3">
             <label for="" class="form-label">CODIGO DE ARTICULO</label>
             <input id="COD_ARTICULO" name="COD_ARTICULO" type="text" class="form-control"
                 value="{{ $inventario->cod_articulo }}" autocomplete="off" autofocus="on"
-                onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+" readonly>
+                onkeypress="return isNumberKey(event)" autofocus required="" onpaste="onPaste(event)" pattern="[0-9]+" readonly>
         </div>
 
 
         <div class="mb-3">
             <label for="" class="form-label">CANTIDAD</label>
             <input id="CANTIDAD_ARTICULO" name="CANTIDAD_ARTICULO" type="text" class="form-control"
-                value="{{ $inventario->cantidad_articulo }}" autocomplete="off" autofocus="on"
-                onkeypress="return solonumeros(event)" autofocus required="" onkeyup="DobleEspacio(this, event);"
+                value="{{ $inventario->cantidad_articulo }}"  onpaste="onPaste(event)" autocomplete="off" autofocus="on"
+                onkeypress="return solonumeros(event)" autofocus required="" onkeyup="DobleEspacio(this, event);" 
                 minlength="1" maxlength="5">
 
         </div>
