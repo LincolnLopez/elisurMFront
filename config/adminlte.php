@@ -318,7 +318,17 @@ return [
             'url'  => 'personas',
             'icon'=>'far fa-fw fas fa-user-friends',
             'icon_color' => 'info',
-            'can' => 'ver-usuario' or 'ver-empleados' or 'ver-clientes',
+            'can' => [
+                [
+                    'ver-usuario'
+                ],
+                [
+                    'ver-empleados'
+                ],
+                [
+                    'ver-clientes'
+                ],
+            ],
             'submenu' => [
                 [
                     'text' =>'Usuarios', 
@@ -353,6 +363,17 @@ return [
             'text'       => 'Inventario',
             'icon'=>'far fa-fw fas fas fa-dolly',
             'icon_color' => 'info',
+            'can' => [
+                [
+                    'ver-articulo'
+                ],
+                [
+                    'ver-inventarios'
+                ],
+                [
+                    'ver-inventarioH'
+                ],
+            ],
             'submenu' => [
                 [
                     'text' =>'Articulos',
@@ -376,6 +397,8 @@ return [
             ],
         ],
 
+        
+
        
       
         [
@@ -383,7 +406,15 @@ return [
             'url'        => 'bolsa',
             'icon'=>'far fa-fw fas fa-people-arrows',
             'icon_color' => 'info',
-            'can' => 'ver-presupuesto' or 'ver-ticket',
+            'can' => [
+                [
+                    'ver-ticket'
+                ],
+                [
+                    'ver-presupuesto'
+                ],
+                
+            ],
             'submenu' => [
                 [
                     'text' =>'Tickets',
