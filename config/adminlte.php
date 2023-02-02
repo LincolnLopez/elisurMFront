@@ -321,7 +321,7 @@ return [
             'can' => 'ver-usuario' or 'ver-empleados' or 'ver-clientes',
             'submenu' => [
                 [
-                    'text' =>'Usuarios',
+                    'text' =>'Usuarios', 
                     'url' =>'usuarios',
                     'icon'=>'fas fa-user-friends',
                     'can' => 'ver-usuario'
