@@ -20,12 +20,44 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        .titulo {
+            font-size: 20pt;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            text-align: center;
+            margin-left: 14%;
+        }
+
+        .titulo2 {
+            font-size: 13pt;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            text-align: left;
+            
+        }
+
+        th {
+            font-size: 14pt;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            text-align: center;
+            background-color: #6ec3d2;
+        }
+
+        td {
+            font-size: 12pt;
+            font-family: "Times New Roman", Times, serif;
+            text-align: center;
+        }
     </style>
+
     <style>
         .page-break {
             page-break-after: always;
         }
     </style>
+
     <style>
         @page {
             margin: 0cm 0cm;
@@ -59,9 +91,6 @@
             text-align: center;
             line-height: 35px;
         }
-        thead {
-            background-color: #6ec3d2;
-        }
     </style>
 
 </head>
@@ -72,24 +101,19 @@
         <IMG SRC="vendor/adminlte/dist/img/logo.jpeg" style="float: right" width="15%" height="120">
 
         <div style="align: center">
-
-            <h3>Reporte General Inventario Materia Prima</h3>
-            <h1>
-                MULTISERVICIOS ELISUR
-            </h1>
+            <h3 class="titulo">Reporte General Inventario Materia Prima</h3>
+            <h1 class="titulo">MULTISERVICIOS ELISUR</h1>
         </div>
-
-
     </header>
+
     <div class="container-sm">
         <div class="text-center">
             <h1>
                 <b></b>
             </h1>
         </div>
-        <table class="table table-striped ">
-
-            <caption>Lista de Inventario Materia Prima</caption>
+        <table class="table table-striped center">
+            <caption class="titulo2">Lista de Inventario Materia Prima</caption>
             <thead>
                 <tr>
                     <th>Código Inventario</th>

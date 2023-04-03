@@ -23,7 +23,7 @@ class ReporteInventariosController extends Controller
         return $pdf->stream();
  
     }
-    public function export(){
+    public function exportInventario(){
         return Excel::download(new ExcelExport, 'inventario.xlsx');
 
     }
