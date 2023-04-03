@@ -29,7 +29,7 @@ class ReporteInventariosController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

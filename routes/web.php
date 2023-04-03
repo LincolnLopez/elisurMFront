@@ -97,6 +97,10 @@ Route::group(['middleware' => ['auth']], function() {
 Route::resource('cotizacion', CotizacionController::class);
 
 
+//-----reportes excel-----
+
+
+
 //____________________BACKUP BASE DE DATOS____________________________________
 
 Route::get('/backup_restore', function () {
