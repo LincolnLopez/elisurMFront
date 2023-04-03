@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExcelExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use PDF;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReporteInventariosController extends Controller
 {
@@ -20,6 +22,10 @@ class ReporteInventariosController extends Controller
         $pdf->setPaper('a2','landscape');   
         return $pdf->stream();
  
+    }
+    public function export(){
+        return Excel::download(new ExcelExport, 'inventario.xlsx');
+
     }
 
     /**

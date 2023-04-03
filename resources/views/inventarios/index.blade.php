@@ -79,7 +79,7 @@
                                                 class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
                                                 Descargar PDF
                                             </a>
-                                            <a href="{{ route('reporte_inventario.index') }}" style="float: right;"
+                                            <a href="{{ route('export') }}" style="float: right;"
                                                 class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
                                                 Descargar Excel
                                             </a>

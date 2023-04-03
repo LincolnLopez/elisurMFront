@@ -20,4 +20,4 @@ class ExcelInventario implements FromView
             'data' => $this->data
         ]);
     }
-}
+} 

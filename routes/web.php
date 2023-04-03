@@ -98,7 +98,7 @@ Route::resource('cotizacion', CotizacionController::class);
 
 
 //-----reportes excel-----
-
+Route::get('/export',[ReporteInventariosController::class,'export'])->name('export');
 
 
 //____________________BACKUP BASE DE DATOS____________________________________
