@@ -34,7 +34,16 @@
             font-family: "Times New Roman", Times, serif;
             font-weight: bold;
             text-align: left;
-            
+            color: rgb(32, 28, 28);
+        }
+
+        .titulo3 {
+            font-size: 13pt;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            text-align: left;
+            margin-left: 3.4%;
+            color: rgb(32, 28, 28);
         }
 
         th {
@@ -91,20 +100,29 @@
             text-align: center;
             line-height: 35px;
         }
+        
     </style>
 
 </head>
 
 <body>
+    <?php 
+    $fecha_actual = date('d-m-Y H:i:s');
+    ?>
+
     <header>
         <H4></H4>
         <IMG SRC="vendor/adminlte/dist/img/logo.jpeg" style="float: right" width="15%" height="120">
+            
 
         <div style="align: center">
             <h3 class="titulo">Reporte General Inventario Materia Prima</h3>
             <h1 class="titulo">MULTISERVICIOS ELISUR</h1>
+          <caption class="titulo3">  <p>Fecha: <?php echo $fecha_actual ?></p> </caption>
         </div>
+        
     </header>
+    <br>
 
     <div class="container-sm">
         <div class="text-center">
