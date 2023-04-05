@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ExportInventarioH;
 
 class ReporteInventarioHController extends Controller
 {
@@ -20,6 +22,10 @@ class ReporteInventarioHController extends Controller
         $pdf->setPaper('a2','landscape');   
         return $pdf->stream();
  
+    }
+
+    public function ExportInventarioH(){
+        return Excel::download(new ExportInventarioH, 'Inventario_Herramientas.xlsx');
     }
 
     /**

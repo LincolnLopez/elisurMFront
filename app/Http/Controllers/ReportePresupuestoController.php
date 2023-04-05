@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use PDF;
+use App\Exports\exportPresupuesto;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReportePresupuestoController extends Controller
 {
@@ -18,6 +20,10 @@ class ReportePresupuestoController extends Controller
         $pdf = PDF::loadView('reporte_presupuesto.index');
         $pdf->setPaper('a2','landscape');   
         return $pdf->stream();
+    }
+
+    public function exportPresupuesto(){
+        return Excel::download(new exportPresupuesto, 'Presupuestos.xlsx');
     }
 
     /**

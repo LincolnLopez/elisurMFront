@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use PDF;
+use App\Exports\ExcelEmpleado;
+use App\Exports\ExportEmpleados;
+
+
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class ReporteEmpleadosController extends Controller
 {
@@ -18,8 +24,12 @@ class ReporteEmpleadosController extends Controller
         $pdf = PDF::loadView('reporte_empleados.index');
         $pdf->setPaper('a2','landscape');   
         return $pdf->stream();  
-    }
+    } 
 
+    public function exportEmpleado(){
+        return Excel::download(new ExportEmpleados, 'Empleados.xlsx');
+    }
+ 
     /**
      * Show the form for creating a new resource.
      *

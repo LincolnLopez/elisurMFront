@@ -39,6 +39,7 @@ use App\Http\Controllers\ReporteFallaController;
 
 
 
+
 use Spatie\Permission\Contracts\Role;
 
 /*
@@ -101,6 +102,9 @@ Route::resource('cotizacion', CotizacionController::class);
 //-----reportes excel-----
 Route::get('/exportInventario',[ReporteInventariosController::class,'exportInventario'])->name('exportInventario');
 Route::get('/exportUsuario',[ReporteUsuariosController::class,'exportUsuario'])->name('exportUsuario');
+Route::get('/exportEmpleado',[ReporteEmpleadosController::class,'exportEmpleado'])->name('exportEmpleado');
+Route::get('/exportPresupuesto',[ReportePresupuestoController::class,'exportPresupuesto'])->name('exportPresupuesto');
+Route::get('/exportInventarioH',[ReporteInventarioHController::class,'exportInventarioH'])->name('exportInventarioH');
 
 //____________________BACKUP BASE DE DATOS____________________________________
 
