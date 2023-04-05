@@ -17,28 +17,36 @@ class ExcelUsuario implements FromCollection, WithHeadings, ShouldAutoSize, With
     * @return \Illuminate\Support\Collection
     */
     public function collection()
-    {
-       return User::all();
-    }
+{
+    return User::select('id', 'name', 'email', 'created_at', 'updated_at')->get();
+}
     public function headings(): array
-    {
-        return [
+{
+    return [
+        [
+            'ELISUASERVICIOS',
+            '',
+            '',
+            '',
+            '',
+        ],
+        [
             'ID',
             'NOMBRE',
             'CORREO',
-            '',
             'FECHA CREACIÓN',
             'FECHA MODIFICACIÓN'
-        ];
-    }
-    public function styles(Worksheet $sheet)
-    {
-        $sheet->getStyle('A1:F1')->getFont()->setSize(14);
-        $sheet->getStyle('A1:F1')->getFont()->setBold(true);
-        $sheet->getStyle('A1:F1')->getAlignment()->setHorizontal('center');
-        $sheet->getStyle('A1:F1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
-        $sheet->getStyle('A1:F1')->getFill()->getStartColor()->setRGB('DDDDDD');
-    }
+        ]
+    ];
+}
+public function styles(Worksheet $sheet)
+{
+    $sheet->getStyle('A1:F2')->getFont()->setSize(14);
+    $sheet->getStyle('A1:F2')->getFont()->setBold(true);
+    $sheet->getStyle('A1:F2')->getAlignment()->setHorizontal('center');
+    $sheet->getStyle('A1:F2')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
+    $sheet->getStyle('A1:F2')->getFill()->getStartColor()->setRGB('DDDDDD');
+}
 
     public function registerEvents(): array
     {
