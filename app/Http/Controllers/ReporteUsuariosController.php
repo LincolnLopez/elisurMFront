@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExcelExportU;
+use App\Exports\ExcelUsuario;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Concerns\FromView;
+use Maatwebsite\Excel\Facades\Excel;
 use PDF;
+
 
 class ReporteUsuariosController extends Controller
 {
@@ -19,7 +24,10 @@ class ReporteUsuariosController extends Controller
         $pdf->setPaper('a2','landscape');   
         return $pdf->stream();  
     }
-
+   
+    public function exportUsuario(){
+        return Excel::download(new ExcelExportU, 'Usuarios.xlsx');
+    }
     /**
      * Show the form for creating a new resource.
      *

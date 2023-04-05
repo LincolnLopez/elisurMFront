@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Models\TblInventario;
+use App\Models\User;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class ExcelExport implements FromCollection
@@ -12,6 +13,9 @@ class ExcelExport implements FromCollection
     */
     public function collection()
     {
+       
         return TblInventario::all();
     }
+
+    
 }

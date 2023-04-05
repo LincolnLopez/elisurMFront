@@ -90,6 +90,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('reporte_articulo', ReporteArticulosController::class);
     Route::resource('reporte_falla', ReporteFallaController::class);
 
+  
 });
 
 
@@ -99,7 +100,7 @@ Route::resource('cotizacion', CotizacionController::class);
 
 //-----reportes excel-----
 Route::get('/exportInventario',[ReporteInventariosController::class,'exportInventario'])->name('exportInventario');
-
+Route::get('/exportUsuario',[ReporteUsuariosController::class,'exportUsuario'])->name('exportUsuario');
 
 //____________________BACKUP BASE DE DATOS____________________________________
 
