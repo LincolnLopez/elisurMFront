@@ -9,7 +9,6 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
-use Maatwebsite\Excel\Events\AfterSheet;
 
 
 class ExcelUsuario implements FromCollection, WithHeadings, ShouldAutoSize, WithStyles 
@@ -57,43 +56,8 @@ public function styles(Worksheet $sheet)
     $sheet->getStyle('A1:E1')->getAlignment()->setHorizontal('center');
     $sheet->getStyle('A1:E2')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
     $sheet->getStyle('A1:E2')->getFill()->getStartColor()->setRGB('DDDDDD');
-
+   // setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_DATE_DATETIME);
 }
-
-    public function registerEvents(): array
-    {
-        return [
-            AfterSheet::class => function(AfterSheet $event) {
-                $cellRange = 'A1:F1'; // Encabezado de la tabla
-                $event->sheet->getStyle($cellRange)->applyFromArray([
-                    'font' => [
-                        'bold' => true
-                    ],
-                    'alignment' => [
-                        'horizontal' => 'center'
-                    ],
-                    'borders' => [
-                        'allBorders' => [
-                            'borderStyle' => 'thin',
-                            'color' => ['argb' => '000000'],
-                        ],
-                    ],
-                    'fill' => [
-                        'fillType' => 'solid',
-                        'startColor' => [
-                            'argb' => 'DDDDDD',
-                        ],
-                    ],
-                ]);
-
-                $event->sheet->setCellValue('A1', 'Elisur'); // Título de la tabla
-
-                $event->sheet->getStyle('A1')->getFont()->setSize(16); // Tamaño de la fuente del título
-            },
-        ];
-    }
-
-
 
     public function getColumnFormats(): array
     {

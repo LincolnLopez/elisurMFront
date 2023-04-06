@@ -72,14 +72,14 @@
                                             
                                         @endcan
                                        
-                                            <a href="{{ route('reporte_falla.index') }}" style="float: right;"
-                                                class="btn btn-success" target="_blank"><i class="fas fa-file-pdf"></i>
-                                                Reporte Encuestas PDF
-                                            </a>
+ 
                                         
                                             <a href="{{ route('reporte_ticket.index') }}" style="float: right;"
                                                 class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
                                                 Reporte Tickets PDF
+                                            </a>
+                                            <a href="{{ route('exportTicket') }}" style="float: right;" class="btn btn-success" download>
+                                                <i class="fas fa-file-excel"></i> Descargar Excel Ticket
                                             </a>
                                         </div>
                                         </br>

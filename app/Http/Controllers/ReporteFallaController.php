@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExcelEncuesta;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use PDF;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReporteFallaController extends Controller
 {
@@ -19,7 +21,9 @@ class ReporteFallaController extends Controller
         $pdf->setPaper('a2','landscape');   
         return $pdf->stream(); 
     }
-
+    public function exportEncuesta(){
+        return Excel::download(new ExcelEncuesta, 'RespuestasEncuestaFalla.xlsx');
+    }
     /**
      * Show the form for creating a new resource.
      *

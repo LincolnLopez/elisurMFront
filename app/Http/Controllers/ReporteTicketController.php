@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExcelTicket;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use PDF;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReporteTicketController extends Controller
 {
@@ -19,6 +21,9 @@ class ReporteTicketController extends Controller
         $pdf->setPaper('a2','landscape');   
         return $pdf->stream();
  
+    }
+    public function exportTicket(){
+        return Excel::download(new ExcelTicket, 'Tickets.xlsx');
     }
 
     /**

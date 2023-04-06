@@ -76,7 +76,7 @@
                                             </a>
                                             <a href="{{ route('exportUsuario') }}" style="float: right;" class="btn btn-success" download>
                                                 <i class="fas fa-file-excel"></i> Descargar Excel
-                                              </a>
+                                            </a>
                                         </div>
 
                                         </br>
