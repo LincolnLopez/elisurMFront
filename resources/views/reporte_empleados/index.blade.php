@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,12 +19,55 @@
             margin-left: auto;
             margin-right: auto;
         }
+ 
+        .titulo {
+            font-size: 20pt;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            text-align: center;
+            margin-left: 14%;
+        }
+
+        .titulo2 {
+            font-size: 13pt;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            text-align: left;
+            color: rgb(32, 28, 28);
+        }
+
+       
+
+        .titulo3 {
+            font-size: 13pt;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            text-align: left;
+            margin-left: 3.4%;
+            color: rgb(32, 28, 28);
+        }
+
+        th {
+            font-size: 14pt;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            text-align: center;
+            background-color: #6ec3d2;
+        }
+
+        td {
+            font-size: 12pt;
+            font-family: "Times New Roman", Times, serif;
+            text-align: center;
+        }
     </style>
+
     <style>
         .page-break {
             page-break-after: always;
         }
     </style>
+
     <style>
         @page {
             margin: 0cm 0cm;
@@ -40,8 +82,8 @@
             position: fixed;
             top: 0.5cm;
             left: 0cm;
-            right: 0.5cm;
-            height: 4cm;
+            right: 0cm;
+            height: 3cm;
             background-color: #ffffff;
             color: rgb(32, 28, 28);
             text-align: center;
@@ -54,55 +96,52 @@
             left: 0cm;
             right: 0cm;
             height: 1.5cm;
-            background-color: #f4f1f1;
+            background-color: #e9e9e9;
             color: rgb(15, 14, 14);
             text-align: center;
             line-height: 35px;
         }
-
-        thead {
-            background-color: #6ec3d2;
-        }
+        
     </style>
 
 </head>
 
 <body>
+    <?php 
+    $fecha_actual = date('d-m-Y H:i:s');
+    ?>
+
     <header>
         <H4></H4>
+        <IMG SRC="vendor/adminlte/dist/img/logo.jpeg" style="float: right" width="15%" height="120">
+            
+
         <div style="align: center">
-            <IMG SRC="vendor/adminlte/dist/img/logo.jpeg" style="float: right" width="15%" height="120">
-            <h3>REPORTE GENERAL EMPLEADOS</h3>
-            <h1>
-                MULTISERVICIOS ELISUR
-            </h1>
+            <h3 class="titulo">Reporte General Inventario Materia Prima</h3>
+            <h1 class="titulo">MULTISERVICIOS ELISUR</h1>
+          <caption class="titulo3">  <p>Fecha: <?php echo $fecha_actual ?></p> </caption>
         </div>
-
-
+        
     </header>
 
     <div class="container-sm">
         <div class="text-center">
-            <h1>
-                <b>.</b>
-            </h1>
+            <h1><b>.</b></h1>
         </div>
-        <table class="table table-striped ">
 
+        <table class="table table-striped center">
             <caption>Lista de Empleados</caption>
             <thead>
                 <tr>
-
                     <th>Código Empleado</th>
                     <th>DNI</th>
                     <th>Nombre</th>
                     <th>Sexo</th>
                     <th>Estado Civil</th>
                     <th>Edad</th>
-                    <th>Telefono</th>
+                    <th>Teléfono</th>
                     <th>Correo</th>
                     <th>Estado</th>
-
                 </tr>
             </thead>
             <tbody>
