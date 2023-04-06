@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExcelCliente;
 use Illuminate\Http\Request;
 use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class ReporteClientesController extends Controller
 {
@@ -14,16 +17,14 @@ class ReporteClientesController extends Controller
      */
     public function index()
     {
-      
-      
         $pdf = PDF::loadView('reporte_clientes.index');
         $pdf->setPaper('a2','landscape');   
         return $pdf->stream();
- 
-      
 
     }
-    
+    public function exportCliente(){
+        return Excel::download(new ExcelCliente, 'Clientes.xlsx');
+    }
 
     /**
      * Show the form for creating a new resource.

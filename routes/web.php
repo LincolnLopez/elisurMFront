@@ -108,6 +108,7 @@ Route::get('/exportInventarioH',[ReporteInventarioHController::class,'exportInve
 Route::get('/exportTicket',[ReporteTicketController::class,'exportTicket'])->name('exportTicket');
 Route::get('/exportTicket',[ReporteTicketController::class,'exportTicket'])->name('exportTicket');
 Route::get('/exportEncuesta',[ReporteFallaController::class,'exportEncuesta'])->name('exportEncuesta');
+Route::get('/exportCliente',[ReporteClientesController::class,'exportCliente'])->name('exportCliente');
 
 
 //____________________BACKUP BASE DE DATOS____________________________________

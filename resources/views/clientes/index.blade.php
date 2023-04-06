@@ -72,7 +72,9 @@
                                                 class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
                                                 Descargar PDF
                                             </a>
-
+                                            <a href="{{ route('exportCliente') }}" style="float: right;" class="btn btn-success" download>
+                                                <i class="fas fa-file-excel"></i> Descargar Excel 
+                                            </a>
                                         </div>
 
                                         </br>
