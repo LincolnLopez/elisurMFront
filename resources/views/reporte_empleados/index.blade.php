@@ -107,7 +107,8 @@
 </head>
 
 <body>
-<?php 
+    <?php 
+date_default_timezone_set('America/Tegucigalpa'); // establecer el huso horario a Honduras
 $fecha_actual = date('d-m-Y H:i:s');
 ?>
 

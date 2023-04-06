@@ -123,7 +123,7 @@ $fecha_actual = date('d-m-Y H:i:s');
         </div>
         
     </header>
-    <br>
+    <br> 
 
     <div class="container-sm">
         <div class="text-center">

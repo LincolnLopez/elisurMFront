@@ -20,7 +20,7 @@
             margin-left: auto;
             margin-right: auto;
         }
-
+ 
         .titulo {
             font-size: 20pt;
             font-family: "Times New Roman", Times, serif;
@@ -36,6 +36,8 @@
             text-align: left;
             color: rgb(32, 28, 28);
         }
+
+       
 
         .titulo3 {
             font-size: 13pt;
@@ -66,6 +68,7 @@
             page-break-after: always;
         }
     </style>
+
 <style>
     @page {
         margin: 0cm 0cm;
@@ -105,7 +108,8 @@
 </head>
 
 <body>
-<?php 
+    <?php 
+date_default_timezone_set('America/Tegucigalpa'); // establecer el huso horario a Honduras
 $fecha_actual = date('d-m-Y H:i:s');
 ?>
 
@@ -115,7 +119,7 @@ $fecha_actual = date('d-m-Y H:i:s');
         
 
     <div style="align: center">
-        <h3 class="titulo">Reporte General Inventario Herramientas</h3>
+        <h3 class="titulo">Reporte General Inventario Herrramientas</h3>
         <h1 class="titulo">MULTISERVICIOS ELISUR</h1>
       <caption class="titulo3">  <p>Fecha: <?php echo $fecha_actual ?></p> </caption>
     </div>
@@ -130,8 +134,19 @@ $fecha_actual = date('d-m-Y H:i:s');
         </h1>
     </div>
     <table class="table table-striped center">
-        <caption class="titulo2">Lista de Herramientas</caption>
+        <caption class="titulo2">Lista de Herrramientas</caption>
             <thead>
+                <tr>
+                    <th>Código de Herramienta</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>No. Existencias</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Fecha Modificación</th>
+                    <th>Empleado asignado</th>
+                                  
+                </tr>
+            </thead>
             <tbody>
                 <?php 
                 $consulta= "SELECT ti.COD_HERRAMIENTA, ti.NOMBRE_HERRAMIENTA, ti.DESCRIPCION_HERRAMIENTA, ti.NUM_EXISTENCIA,
