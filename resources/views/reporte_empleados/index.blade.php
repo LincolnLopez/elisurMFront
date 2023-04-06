@@ -68,69 +68,71 @@
         }
     </style>
 
-    <style>
-        @page {
-            margin: 0cm 0cm;
-            font-family: Arial;
-        }
+<style>
+    @page {
+        margin: 0cm 0cm;
+        font-family: Arial;
+    }
 
-        body {
-            margin: 3cm 2cm 2cm;
-        }
+    body {
+        margin: 3cm 2cm 2cm;
+    }
 
-        header {
-            position: fixed;
-            top: 0.5cm;
-            left: 0cm;
-            right: 0cm;
-            height: 3cm;
-            background-color: #ffffff;
-            color: rgb(32, 28, 28);
-            text-align: center;
-            line-height: 30px;
-        }
+    header {
+        position: fixed;
+        top: 0.5cm;
+        left: 0cm;
+        right: 0cm;
+        height: 3cm;
+        background-color: #ffffff;
+        color: rgb(32, 28, 28);
+        text-align: center;
+        line-height: 30px;
+    }
 
-        footer {
-            position: fixed;
-            bottom: 0cm;
-            left: 0cm;
-            right: 0cm;
-            height: 1.5cm;
-            background-color: #e9e9e9;
-            color: rgb(15, 14, 14);
-            text-align: center;
-            line-height: 35px;
-        }
-        
-    </style>
+    footer {
+        position: fixed;
+        bottom: 0cm;
+        left: 0cm;
+        right: 0cm;
+        height: 1.5cm;
+        background-color: #e9e9e9;
+        color: rgb(15, 14, 14);
+        text-align: center;
+        line-height: 35px;
+    }
+    
+</style>
 
 </head>
 
 <body>
-    <?php 
-    $fecha_actual = date('d-m-Y H:i:s');
-    ?>
+<?php 
+$fecha_actual = date('d-m-Y H:i:s');
+?>
 
-    <header>
-        <H4></H4>
-        <IMG SRC="vendor/adminlte/dist/img/logo.jpeg" style="float: right" width="15%" height="120">
-            
-
-        <div style="align: center">
-            <h3 class="titulo">Reporte General Inventario Materia Prima</h3>
-            <h1 class="titulo">MULTISERVICIOS ELISUR</h1>
-          <caption class="titulo3">  <p>Fecha: <?php echo $fecha_actual ?></p> </caption>
-        </div>
+<header>
+    <H4></H4>
+    <IMG SRC="vendor/adminlte/dist/img/logo.jpeg" style="float: right" width="15%" height="120">
         
-    </header>
 
-    <div class="container-sm">
-        <div class="text-center">
-            <h1><b>.</b></h1>
-        </div>
+    <div style="align: center">
+        <h3 class="titulo">Reporte General de Empleados</h3>
+        <h1 class="titulo">MULTISERVICIOS ELISUR</h1>
+      <caption class="titulo3">  <p>Fecha: <?php echo $fecha_actual ?></p> </caption>
+    </div>
+    
+</header>
+<br>
 
-        <table class="table table-striped center">
-            <caption>Lista de Empleados</caption>
+<div class="container-sm">
+    <div class="text-center">
+        <h1>
+            <b></b>
+        </h1>
+    </div>
+    <table class="table table-striped center">
+        <caption class="titulo2">Lista de Empleados</caption>
             <thead>
                 <tr>
                     <th>Código Empleado</th>
