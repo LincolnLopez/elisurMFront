@@ -68,6 +68,9 @@
                                 class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
                                 Descargar PDF
                             </a>
+                            <a href="{{ route('exportArticulo') }}" style="float: right;" class="btn btn-success" download>
+                                <i class="fas fa-file-excel"></i> Descargar Excel
+                              </a>
                             </div>
                             </br>
                             <table id="AdministradorTable" class="table table-striped table-bordered" cellspacing="0"

@@ -4,13 +4,17 @@
 
 @section('content_header')
 <div class="card-tools">
+    @can('crear-usuario')
     <a href="{{ route('reporte_falla.index') }}" style="float: right;"
     class="btn btn-danger" target="_blank"><i class="fas fa-file-pdf"></i>
     Reporte Encuestas PDF
 </a>
+@endcan
+@can('crear-usuario')
 <a href="{{ route('exportEncuesta') }}" style="float: right;" class="btn btn-success" download>
     <i class="fas fa-file-excel"></i> Descargar Excel Encuesta
-</a>
+</a> 
+@endcan
 <h1>Encuesta</h1>
 <td>Con tu opinión, nos ayudas a mejorar</td>
 @stop

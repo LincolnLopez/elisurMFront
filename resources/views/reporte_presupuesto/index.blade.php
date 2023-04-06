@@ -30,7 +30,7 @@
         }
 
         .titulo2 {
-            font-size: 13pt;
+            font-size: 15pt;
             font-family: "Times New Roman", Times, serif;
             font-weight: bold;
             text-align: left;
@@ -38,7 +38,7 @@
         }
 
         .titulo3 {
-            font-size: 13pt;
+            font-size: 15pt;
             font-family: "Times New Roman", Times, serif;
             font-weight: bold;
             text-align: left;
@@ -47,7 +47,7 @@
         }
 
         th {
-            font-size: 14pt;
+            font-size: 16pt;
             font-family: "Times New Roman", Times, serif;
             font-weight: bold;
             text-align: center;
@@ -55,7 +55,7 @@
         }
 
         td {
-            font-size: 12pt;
+            font-size: 14pt;
             font-family: "Times New Roman", Times, serif;
             text-align: center;
         }
@@ -137,11 +137,8 @@ $fecha_actual = date('d-m-Y H:i:s');
                     <th>Solicitud</th>
                     <th>Fecha</th>
                     <th>Nombre</th>
-                    <th>Apellido</th>
                     <th>Telefono</th>
                     <th>Correo Electronico</th>
-                    <th>Tipo Solicitante</th>
-                    <th>Telefono Opcional</th>
                     <th>Dirección</th>
                     <th>Nombre Empresa</th>
                     <th>RTN/DNI</th>
@@ -155,8 +152,8 @@ $fecha_actual = date('d-m-Y H:i:s');
             <tbody>
                 <?php 
                 $consulta= 
-                 "SELECT s.COD_SOLICITUD, s.FECHA_SOLICITUD, s.NOMBRE, S.APELLIDO, s.TELEFONO, s.CORREO_ELECTRONICO, s.TIPO_SOLICITANTE, 
-                  s.TELEFONO_OPCIONAL, s.DIRECCION_SOLICITANTE,S.NOMBRE_E_C, S.RTN_DNI   , s.CIUDAD, ss.nombre_servicio, s.DESCRIPCION_SOLICITUD,
+                 "SELECT s.COD_SOLICITUD, s.FECHA_SOLICITUD, s.NOMBRE, s.TELEFONO, s.CORREO_ELECTRONICO, 
+                 s.DIRECCION_SOLICITANTE,S.NOMBRE_E_C, S.RTN_DNI   , s.CIUDAD, ss.nombre_servicio, s.DESCRIPCION_SOLICITUD,
                   e.nombre_estado FROM tbl_solicitudes s
                  INNER JOIN tbl_servicios ss on ss.cod_servicio = s.COD_SERVICIO
                  INNER JOIN tbl_estados e on e.cod_estado = s.COD_ESTADO";
@@ -168,11 +165,8 @@ $fecha_actual = date('d-m-Y H:i:s');
                     <td><?php echo "$llamar[COD_SOLICITUD]"; ?></td>
                     <td><?php echo "$llamar[FECHA_SOLICITUD]"; ?></td>
                     <td><?php echo "$llamar[NOMBRE]"; ?></td>
-                    <td><?php echo "$llamar[APELLIDO]"; ?></td>
                     <td><?php echo "$llamar[TELEFONO]"; ?></td>
                     <td><?php echo "$llamar[CORREO_ELECTRONICO]"; ?></td>
-                    <td><?php echo "$llamar[TIPO_SOLICITANTE]"; ?></td>
-                    <td><?php echo "$llamar[TELEFONO_OPCIONAL]"; ?></td>
                     <td><?php echo "$llamar[DIRECCION_SOLICITANTE]"; ?></td>
                     <td><?php echo "$llamar[NOMBRE_E_C]"; ?></td>
                     <td><?php echo "$llamar[RTN_DNI]"; ?></td>

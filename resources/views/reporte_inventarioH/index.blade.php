@@ -14,7 +14,7 @@
         td {
             border: 1px solid rgb(160, 160, 160);
             /*border-collapse: collapse;*/
-        }
+        }  
 
         table.center {
             margin-left: auto;
