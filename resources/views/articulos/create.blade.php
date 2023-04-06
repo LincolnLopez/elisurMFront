@@ -211,7 +211,7 @@
                                     <input id="NOMBRE_ARTICULO" name="NOMBRE_ARTICULO" type="text" class="form-control"
                                     tabindex="1" autocomplete="off" autofocus="on"
                                     onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)" 
-                                    placeholder="Ingrese Nombre" onpaste="onPaste(event)" autofocus required>
+                                    placeholder="Ingrese Nombre" onpaste="onPaste(event)" autofocus required onkeypress="return minlength="2" maxlength="30">
 
                                 </div>
                                 <!--campo requerido required    Que no se pueda pegar onPaste="return false;"-->
@@ -220,9 +220,9 @@
                                 <div class="mb-3">
                                     <label for="" class="form-label">DESCRIPCION ARTICULO</label>
                                     <input id="DESCRIPCION_ARTICULO" name="DESCRIPCION_ARTICULO" type="text" class="form-control"
-                                    tabindex="1" autocomplete="off" autofocus="on"
+                                    tabindex="1" autocomplete="off" autofocus="on" 
                                     onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-                                    placeholder="Ingrese la descripción" onpaste="onPaste(event)" autofocus required>
+                                    placeholder="Ingrese la descripción" onpaste="onPaste(event)" autofocus required  onkeypress="return minlength="2" maxlength="30">
                                 </div>
 
 

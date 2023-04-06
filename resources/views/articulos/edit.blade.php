@@ -181,8 +181,8 @@ event.stopPropagation();
               <label for="" class="form-label">NOMBRE DE ARTICULO</label>
               <input id="NOMBRE_ARTICULO" name="NOMBRE_ARTICULO" type="text" class="form-control"
               tabindex="1" autocomplete="off" autofocus="on"
-              onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-              placeholder="Ingrese la descripción"  onpaste="onPaste(event)" autofocus required value="{{$articulo->nombre_articulo}}">
+              onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)" 
+              placeholder="Ingrese la descripción"  onpaste="onPaste(event)" autofocus required value="{{$articulo->nombre_articulo}}" onkeypress="return minlength="10" maxlength="40">
             </div>
 
 
@@ -191,7 +191,7 @@ event.stopPropagation();
               <input id="DESCRIPCION_ARTICULO" name="DESCRIPCION_ARTICULO" type="text" class="form-control"
               tabindex="1" autocomplete="off" autofocus="on"
               onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-              placeholder="Ingrese la descripción"autofocus required onkeyup="DobleEspacio(this, event);"  onpaste="onPaste(event)" value="{{$articulo->descripcion_articulo}}">
+              placeholder="Ingrese la descripción"autofocus required onkeyup="DobleEspacio(this, event);"  onpaste="onPaste(event)" value="{{$articulo->descripcion_articulo}}" onkeypress="return minlength="2" maxlength="40">
             </div>
 
             <div class="mb-3">
