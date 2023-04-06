@@ -28,7 +28,7 @@ class ExcelExport implements FromCollection, WithHeadings, ShouldAutoSize, WithS
     return [
         [
            
-          'MULTISERVICIOS ELISUR USUARIOS',
+          'MULTISERVICIOS ELISUR Inventario de Materia Prima',
            
         ],
         [
