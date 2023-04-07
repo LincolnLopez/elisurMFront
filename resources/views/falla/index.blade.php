@@ -236,7 +236,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
                     <form action="/falla" method="POST">
 
                         @csrf
@@ -334,7 +334,7 @@
                         <tr>
                             <div class="modal-footer">
                                 @can('crear-fallas-cliente')
-                                    <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+                                    <button type="submit" class="btn btn-primary" tabindex="4" onclick="return validarFormulario();">Guardar</button>
                                 @endcan
 
                             </div>
@@ -347,6 +347,27 @@
 
 
 </form>
+<script>
+    function validarFormulario() {
+      // Obtener todos los campos de entrada requeridos
+      var campos = document.querySelectorAll('input[required], select[required], textarea[required]');
+
+      // Verificar si algun campo requerido esta vacio
+      for (var i = 0; i < campos.length; i++) {
+        if (campos[i].value.trim() === '') {
+          // Mostrar mensaje de error y detener el envio del formulario
+          alert('Por favor, llene el campo ' + campos[i].name);
+          campos[i].focus();
+          return false;
+        }
+      }
+
+      // Si no hay campos requeridos vacios, mostrar mensaje de exito
+      alert('¡El formulario se ha enviado con éxito!');
+      return true;
+    }
+  </script>
+
 <script>
     function reporteIngresado() {
         // Mostrar alerta
