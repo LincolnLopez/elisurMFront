@@ -15,6 +15,8 @@
 
     <!---Mascara para los imput--->
     <script src="/js/mascara/src/jquery.maskedinput.js" type="text/javascript"></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css">
     <!---Formato numero de telefono e id-->
     <script>
         jQuery(function($) {
@@ -332,7 +334,7 @@
                         <tr>
                             <div class="modal-footer">
                                 @can('crear-fallas-cliente')
-                                    <button type="submit" class="btn btn-primary" tabindex="4" onclick="reporteIngresado()">Guardar</button>
+                                    <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
                                 @endcan
 
                             </div>
@@ -351,4 +353,37 @@
         alert('Reporte ingresado');
     }
 </script>
+
+
+<script>
+    function mostrarAlerta() {
+      Swal.fire({
+        title: "Reporte ingresado",
+        icon: "success",
+        timer: 2000,
+        timerProgressBar: true,
+      });
+    }
+
+    const miFormulario = document.querySelector("#miFormulario");
+    miFormulario.addEventListener("submit", function(evento) {
+      evento.preventDefault(); // prevenimos el envío automático del formulario
+
+      // Validar que los campos no están vacíos
+      const NOMBRE = document.querySelector("#NOMBRE").value;
+      const TELEFONO = document.querySelector("#TELEFONO").value;
+      const TCORREO_ELECTRONICO = document.querySelector("#TCORREO_ELECTRONICO").value;
+      const COD_SERVICIO = document.querySelector("#COD_SERVICIO").value;
+      const TEMA = document.querySelector("#TEMA").value;
+      const DESCRIPCION = document.querySelector("#DESCRIPCION").value;
+      const UBICACION = document.querySelector("#UBICACION").value;
+      if (NOMBRE && TELEFONO && TCORREO_ELECTRONICO && COD_SERVICIO && TEMA && DESCRIPCION && UBICACION) {
+        // Si los campos no están vacíos, mostrar la alerta
+        mostrarAlerta();
+      } else {
+        // Si los campos están vacíos, mostrar un mensaje de error
+        alert("Por favor rellene los campos.");
+      }
+    });
+  </script>
 @stop
