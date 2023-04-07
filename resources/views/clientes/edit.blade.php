@@ -409,7 +409,7 @@ event.stopPropagation();
                
     <div class="mb-3">
       <label for="" class="form-label">Código de Cliente</label>
-      <input id="COD_CLIENTE" name="COD_CLIENTE" type="text" class="form-control"  value="{{$cliente->cod_cliente}}" onpaste="onPaste(event)" readonly>    
+      <input id="COD_CLIENTE" name="COD_CLIENTE" type="text" class="form-control"  value="{{$cliente->cod_cliente}}" onpaste="onPaste(event)" maxlength="10" readonly>    
     </div>
  
     <div class="mb-3">
@@ -425,7 +425,7 @@ event.stopPropagation();
     <input id="NOMBRE_CLIENTE" name="NOMBRE_CLIENTE" type="text" class="form-control"
     tabindex="1" autocomplete="off" autofocus="on"
     onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-    autofocus required onpaste="onPaste(event)" value="{{$cliente->nombre_cliente}}">    
+    autofocus required onpaste="onPaste(event)" value="{{$cliente->nombre_cliente}}" maxlength="60">    
   </div>
 
   <div class="mb-3">
@@ -433,14 +433,14 @@ event.stopPropagation();
     <input id="APELLIDOS_CLIENTE" name="APELLIDOS_CLIENTE" type="text"
     class="form-control" tabindex="1" autocomplete="off" autofocus="on"
     onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-    autofocus required onpaste="onPaste(event)" value="{{$cliente->apellidos_cliente}}">    
+    autofocus required onpaste="onPaste(event)" value="{{$cliente->apellidos_cliente}}" maxlength="60">    
   </div>
 
   <div class="mb-3">
     <label for="" class="form-label">Dirección</label>
     <input id="DIRECCION_CLIENTE" name="DIRECCION_CLIENTE" type="text"
     class="form-control" tabindex="1" autocomplete="off" autofocus="on"
-    onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"  value="{{$cliente->direccion_cliente}}" autofocus onpaste="onPaste(event)" required>    
+    onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"  value="{{$cliente->direccion_cliente}}" autofocus onpaste="onPaste(event)" maxlength="80" required>    
   </div>
 
   <div class="mb-3">

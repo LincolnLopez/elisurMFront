@@ -173,7 +173,7 @@
     <input id="NOMBRE_HERRAMIENTA" name="NOMBRE_HERRAMIENTA" type="text"
     class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Ingrese la dirección"
     onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" onkeypress="return letrasynumeros(event)"
-    autofocus required>
+    maxlength="50" autofocus required>
   </div>
 
 
@@ -182,18 +182,18 @@
     <input id="DESCRIPCION_HERRAMIENTA" name="DESCRIPCION_HERRAMIENTA" type="text"
     class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Ingrese la dirección"
     onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" onkeypress="return letrasynumeros(event)"
-    autofocus required>
+    maxlength="70" autofocus required>
   </div>
 
   <div class="mb-3">
     <label for="" class="form-label">Numero de Existencia</label>
-    <input id="NUM_EXISTENCIA" name="NUM_EXISTENCIA" type="text" class="form-control" onpaste="onPaste(event)" tabindex="1" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+" onkeydown="filtro()">
+    <input id="NUM_EXISTENCIA" name="NUM_EXISTENCIA" type="text" class="form-control" onpaste="onPaste(event)" tabindex="1" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+" onkeydown="filtro()" maxlength="20">
   </div>
 
 
   <div class="mb-3">
     <label for="" class="form-label">Nombre del empleado</label>   
-    <select name="COD_EMPLEADO" id="COD_EMPLEADO" class="form-control" onpaste="onPaste(event)" autofocus required>
+    <select name="COD_EMPLEADO" id="COD_EMPLEADO" class="form-control" onpaste="onPaste(event)" maxlength="70" autofocus required>
       @foreach ($empleados as $empleado)
           <option value="{{ $empleado['cod_empleado'] }}">{{ $empleado['nombre_empleado']
           }}</option>

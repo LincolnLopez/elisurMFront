@@ -219,7 +219,7 @@
                                     <input id="APELLIDOS_CLIENTE" name="APELLIDOS_CLIENTE" type="text"
                                         class="form-control" tabindex="1" autocomplete="off" autofocus="on"
                                         onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-                                        placeholder="Ingrese Apellido"autofocus  onpaste="onPaste(event)" required>
+                                        placeholder="Ingrese Apellido"autofocus  onpaste="onPaste(event)" maxlength="30" required>
                                 </div>
 
                                 <div class="mb-3">
@@ -227,7 +227,7 @@
                                     <input id="DIRECCION_CLIENTE" name="DIRECCION_CLIENTE" type="text"
                                         class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Ingrese la dirección"
                                         onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-                                        autofocus  onpaste="onPaste(event)" required>
+                                        autofocus  onpaste="onPaste(event)" maxlength="80" required>
                                 </div>
 
                                 <div class="mb-3">

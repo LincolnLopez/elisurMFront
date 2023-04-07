@@ -127,14 +127,14 @@
         <div class="mb-3">
             <label for="" class="form-label">CODIGO DE INVENTARIO</label>
             <input id="COD_INVENTARIO" name="COD_INVENTARIO" type="text" class="form-control"
-                value="{{ $inventario->cod_inventario }}" onpaste="onPaste(event)" readonly>
+                value="{{ $inventario->cod_inventario }}" onpaste="onPaste(event)" maxlength="20" readonly>
         </div>
 
         <div class="mb-3">
             <label for="" class="form-label">CODIGO DE ARTICULO</label>
             <input id="COD_ARTICULO" name="COD_ARTICULO" type="text" class="form-control"
                 value="{{ $inventario->cod_articulo }}" autocomplete="off" autofocus="on"
-                onkeypress="return isNumberKey(event)" autofocus required="" onpaste="onPaste(event)" pattern="[0-9]+" readonly>
+                onkeypress="return isNumberKey(event)" autofocus required="" onpaste="onPaste(event)" pattern="[0-9]+" maxlength="20" readonly>
         </div>
 
 

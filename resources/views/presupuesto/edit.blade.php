@@ -248,7 +248,7 @@ event.stopPropagation();
     <label for="" class="form-label">Nombre</label>
     <input id="NOMBRE" name="NOMBRE" type="text" class="form-control"
     tabindex="1" autocomplete="off" autofocus="on"
-    onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" onkeypress="return sololetras(event)"
+    onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" maxlength="60" onkeypress="return sololetras(event)"
     autofocus required value="{{$presupuesto->nombre}}">    
   </div>
 
@@ -257,7 +257,7 @@ event.stopPropagation();
     <label for="" class="form-label">Apellido</label>
     <input id="APELLIDO" name="APELLIDO" type="text"
     class="form-control" tabindex="1" autocomplete="off" autofocus="on"
-    onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" onkeypress="return sololetras(event)"
+    onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" maxlength="60" onkeypress="return sololetras(event)"
     autofocus required  value="{{$presupuesto->apellido}}">    
   </div>
 
@@ -300,13 +300,13 @@ event.stopPropagation();
   <input id="DIRECCION_SOLICITANTE" name="DIRECCION_SOLICITANTE" type="text"
   class="form-control" tabindex="1" autocomplete="off" onpaste="onPaste(event)" autofocus="on" placeholder="Ingrese la dirección"
   onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-  autofocus required value="{{$presupuesto->direccion_solicitante}}">    
+  autofocus required value="{{$presupuesto->direccion_solicitante}}" maxlength="80">    
 </div>
 
 <div class="mb-3">
   <label for="" class="form-label">Nombre Empresa</label>
   <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="form-control" tabindex="1"placeholder="Ingrese el nombre de la empresa" onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-  autofocus required autofocus required onpaste="onPaste(event)" value="{{$presupuesto->nombre_e_c}}">    
+  autofocus required autofocus required onpaste="onPaste(event)" value="{{$presupuesto->nombre_e_c}}" maxlength="70">    
 </div>
 
 <div class="mb-3">
@@ -347,7 +347,7 @@ event.stopPropagation();
   <input id="DESCRIPCION_SOLICITUD" name="DESCRIPCION_SOLICITUD" type="text"
   class="form-control" tabindex="1" onpaste="onPaste(event)" autocomplete="off" autofocus="on" placeholder="Describa la solicitud"
   onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-  autofocus required  value="{{$presupuesto->descripcion_solicitud}}">    
+  autofocus required  value="{{$presupuesto->descripcion_solicitud}}" maxlength="100">    
 </div>
 
 

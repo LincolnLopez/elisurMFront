@@ -332,7 +332,7 @@
                         <tr>
                             <div class="modal-footer">
                                 @can('crear-fallas-cliente')
-                                    <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+                                    <button type="submit" class="btn btn-primary" tabindex="4" onclick="reporteIngresado()">Guardar</button>
                                 @endcan
 
                             </div>
@@ -345,4 +345,10 @@
 
 
 </form>
+<script>
+    function reporteIngresado() {
+        // Mostrar alerta
+        alert('Reporte ingresado');
+    }
+</script>
 @stop

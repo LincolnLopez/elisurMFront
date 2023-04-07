@@ -248,7 +248,7 @@ event.stopPropagation();
     <input id="NOMBRE_HERRAMIENTA" name="NOMBRE_HERRAMIENTA" type="text"
     class="form-control" tabindex="1" onpaste="onPaste(event)" autocomplete="off" autofocus="on" 
     onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-    autofocus required value="{{$persona->nombre_herramienta}}">    
+    autofocus required value="{{$persona->nombre_herramienta}}" maxlength="70">    
   </div>
 
 
@@ -257,18 +257,18 @@ event.stopPropagation();
     <input id="DESCRIPCION_HERRAMIENTA" name="DESCRIPCION_HERRAMIENTA" type="text"
     class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Ingrese la dirección"
     onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" onkeypress="return letrasynumeros(event)"
-    autofocus required  onkeyup="DobleEspacio(this, event);"  value="{{$persona->descripcion_herramienta}}">    
+    autofocus required  onkeyup="DobleEspacio(this, event);"  value="{{$persona->descripcion_herramienta}}" maxlength="70">    
   </div>
 
   <div class="mb-3">
     <label for="" class="form-label">Numero de Existencias</label>
-    <input id="NUM_EXISTENCIA" name="NUM_EXISTENCIA" type="number" onpaste="onPaste(event)" class="form-control" tabindex="1" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+" value="{{$persona->num_existencia}}" onkeydown="filtro()">    
+    <input id="NUM_EXISTENCIA" name="NUM_EXISTENCIA" type="number" onpaste="onPaste(event)" class="form-control" tabindex="1" autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus required="" pattern="[0-9]+" value="{{$persona->num_existencia}}" onkeydown="filtro()" maxlength="20">    
   </div>
 
 
   <div class="mb-3">
     <label for="" class="form-label">Código Empleado</label>
-    <input id="COD_EMPLEADO" name="COD_EMPLEADO" type="text" class="form-control" onpaste="onPaste(event)" onkeypress="return isNumberKey(event)" value="{{$persona->cod_empleado}}">    
+    <input id="COD_EMPLEADO" name="COD_EMPLEADO" type="text" class="form-control" onpaste="onPaste(event)" onkeypress="return isNumberKey(event)" value="{{$persona->cod_empleado}}" maxlength="20">    
   </div>
 
   

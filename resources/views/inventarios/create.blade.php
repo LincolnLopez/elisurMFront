@@ -152,7 +152,7 @@
 
                                 <div class="mb-3">
                                     <label for="" class="form-label">Articulos</label>
-                                    <select name="COD_ARTICULO" id="COD_ARTICULO" class="form-control" onpaste="onPaste(event)" autofocus required>
+                                    <select name="COD_ARTICULO" id="COD_ARTICULO" class="form-control" onpaste="onPaste(event)" maxlength="50" autofocus required>
                                         <option value="" disabled selected>Selecciona un Articulo:</option>
                                         @foreach ($articulos as $articulo)
                                             <option value="{{ $articulo['cod_articulo'] }}">

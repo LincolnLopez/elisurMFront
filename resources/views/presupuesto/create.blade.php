@@ -216,7 +216,7 @@ event.stopPropagation();
     <input id="NOMBRE" name="NOMBRE" type="text" class="form-control"
     tabindex="1" autocomplete="off" autofocus="on"
     onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-    placeholder="Ingrese Nombre" onpaste="onPaste(event)" autofocus required>    
+    placeholder="Ingrese Nombre" onpaste="onPaste(event)" maxlength="60" autofocus required>    
   </div>
 
 
@@ -225,7 +225,7 @@ event.stopPropagation();
     <input id="APELLIDO" name="APELLIDO" type="text"
     class="form-control" tabindex="1" autocomplete="off" autofocus="on"
     onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-    placeholder="Ingrese Apellido" onpaste="onPaste(event)" autofocus required>    
+    placeholder="Ingrese Apellido" onpaste="onPaste(event)" maxlength="60" autofocus required>    
   </div>
 
   <div class="mb-3">
@@ -265,13 +265,13 @@ event.stopPropagation();
     <input id="DIRECCION_SOLICITANTE" name="DIRECCION_SOLICITANTE" type="text"
     class="form-control" tabindex="1" autocomplete="off" autofocus="on" placeholder="Ingrese la dirección"
     onkeyup="DobleEspacio(this, event);"  onpaste="onPaste(event)" onkeypress="return letrasynumeros(event)"
-    onpaste="onPaste(event)" autofocus required>    
+    onpaste="onPaste(event)" maxlength="100" autofocus required>    
   </div>
 
   <div class="mb-3">
     <label for="" class="form-label">Nombre Empresa</label>
     <input id="NOMBRE_E_C" name="NOMBRE_E_C" type="text" class="form-control"  tabindex="1"placeholder="Ingrese el nombre de la empresa" onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-    onpaste="onPaste(event)" autofocus required>    
+    onpaste="onPaste(event)" maxlength="60" autofocus required>    
   </div>
 
 
@@ -313,7 +313,7 @@ event.stopPropagation();
     <input id="DESCRIPCION_SOLICITUD" name="DESCRIPCION_SOLICITUD" type="text"
     class="form-control" tabindex="1" autocomplete="off" autofocus="on" onpaste="onPaste(event)" placeholder="Describa la solicitud"
     onkeyup="DobleEspacio(this, event);" onkeypress="return letrasynumeros(event)"
-    autofocus required>    
+    maxlength="80" autofocus required>    
   </div>
   
 

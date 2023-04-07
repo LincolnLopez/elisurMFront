@@ -279,7 +279,7 @@ event.stopPropagation();
                                     <input id="NOMBRE_EMPLEADO" name="NOMBRE_EMPLEADO" type="text" class="form-control"
                                         tabindex="1" autocomplete="off" autofocus="on"
                                         onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
-                                        placeholder="Ingrese"autofocus onpaste="onPaste(event)" required>
+                                        minlength="3" maxlength="50" placeholder="Ingrese"autofocus onpaste="onPaste(event)" required>
                                 
                                 </div>
 
