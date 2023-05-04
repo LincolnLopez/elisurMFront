@@ -67,5 +67,6 @@ class ExcelCliente implements FromCollection, WithHeadings, ShouldAutoSize, With
         $sheet->getStyle('A1:K3')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
         $sheet->getStyle('A3:K3')->getFill()->getStartColor()->setRGB('C2E0EE');
        // setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_DATE_DATETIME);
+       
     }
 }
