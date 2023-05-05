@@ -55,7 +55,7 @@ use Spatie\Permission\Contracts\Role;
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/ayuda', [App\Http\Controllers\AyudaController::class, 'index'])->name('ayuda');
 
 Route::get('/', function () {
     return view('welcome');

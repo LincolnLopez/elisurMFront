@@ -10,6 +10,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-win8.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
+
+    <style>
+		/* Make the image fully responsive */
+		.carousel-inner img {
+			width: 100%;
+			height: 400px;
+		}
+	</style>
+
 
     <style>
         body {
@@ -31,7 +44,7 @@
 
         .hero-image {
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("vendor/adminlte/dist/img/collage.jpeg");
-            height: 80%;
+            height: 70%;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -52,7 +65,7 @@
             outline: 0;
             display: inline-block;
             padding: 10px 25px;
-            color: black;
+            color: rgb(0, 0, 0);
             background-color: #ddd;
             text-align: center;
             cursor: pointer;
@@ -85,7 +98,7 @@
         @if (Route::has('login'))
             <div class="w3-bar w3-black w3-card">
                 @auth
-                    <a href="{{ url('/home') }}" class="w3-padding-large w3-hover-red w3-hide-small w3-right">Home</a>
+                    <a href="{{ url('/home') }}" class="w3-padding-large w3-hover-red w3-hide-small w3-right">Ingresar</a>
                 @else
                     <a href="{{ url('login') }}" class="w3-xlarge w3-right"><i class="fa fa-user">Inicia Sesion </i></a>
                 @endauth
@@ -97,8 +110,8 @@
     <!--Primera Imagen-->
     <div class="hero-image">
         <div class="hero-text">
-            <h1 style="font-size:80px">Elisur</h1>
-            <p>Servicios Múltiples</p>
+            <h1 style="font-size:130px">Elisur</h1>
+            <p style="font-size:20px">Servicios Múltiples</p>
         </div>
     </div>
 
@@ -107,15 +120,13 @@
     <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
         <h2 class="w3-wide">Multiservicios Elisur</h2>
         <p class="w3-opacity"><i>Sobre Nosotros</i></p>
-        <p class="w3-justify">Un equipo de profesionales con 10 años de experiencia en la dirección de algunas de las
+        <p class="w3-justify">Un equipo de profesionales con más de 10 años de experiencia en la dirección de algunas de las
             mayores compañías nacionales,
-            dedicadas a la prestación de servicios para los edificios y las personas, como Atención al Público, Control
-            de Accesos, Limpieza o
-            Mantenimiento, así como en el área de Consultoría, decidimos ponernos al frente de este ilusionante proyecto
+            dedicadas a la prestación de servicios para los edificios y las personas, como Sistemas de Seguridad, Control
+            y Monitoreo CCTV, Mantenimiento, así como en el área de Construcción, decidimos ponernos al frente de este ilusionante proyecto
             al detectar un déficit de
             oferta de soluciones multiservicios profesionales y de calidad, orientadas a la Pequeña y Mediana Empresa
-            (PYME), Administradores de
-            Fincas y Comunidades de Propietarios.
+            (PYME), y cualquier publico en general.
             Ofrecemos nuestra capacidad de gestión, aplicando las mejoras tecnológicas de la gran empresa, junto al
             trato cercano, flexible y
             personalizado de las PYMES, y nuestra innata creatividad, para ofrecer servicios sostenibles, de calidad,
@@ -125,6 +136,29 @@
     </div>
 
 
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="https://www.nivianhome.com/wp-content/uploads/2017/10/Camaras.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="https://blog.unex.net/sites/default/files/2020-06/portada-clima-2000px_0.jpg" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="https://www.problemitelefonia.it/wp-content/uploads/2019/02/Sospensione-linea-telefonica-e1606903270548.jpg" alt="Third slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Siguiente</span>
+        </a>
+      </div>
+    
 
 
     <!-- The Tour Section -->
@@ -447,9 +481,9 @@
                         <div class="w3-half">
                             <label>Telefono Opcional</label>
                             <input id="TELEFONO_OPCIONAL" name="TELEFONO_OPCIONAL" class="w3-input w3-border"
-                                type="number" placeholder="9999-9999" minlength="8" maxlength="13"
-                                autocomplete="off" autofocus="on" onkeypress="return isNumberKey(event)" autofocus
-                                required="" pattern="[0-9]+" onpaste="onPaste(event)">
+                            onkeypress="return isNumberKey(event)" placeholder="9999-9999" minlength="8"
+                            maxlength="8" autocomplete="off" autofocus="on" autofocus onpaste="onPaste(event)"
+                            required>
                         </div>
                     </div>
 
@@ -534,7 +568,7 @@
 
                     <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">Enviar<i
                             class="fa fa-check"></i></button>
-                    <p class="w3-right">Necesitas <a href="#" class="w3-text-blue">Ayuda?</a></p>
+                    <p class="w3-right">Necesitas <a href="ayuda" class="w3-text-blue">Ayuda?</a></p>
 
                 </form>
 
@@ -550,9 +584,9 @@
 
     <!-- The Contact Section -->
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
-        <h2 class="w3-wide w3-center">CONTACTO</h2>
+        <h2 class="w3-wide w3-center">CONTÁCTANOS</h2>
         <div class="w3-row w3-padding-32">
-            <div class="w3-col m6 w3-large w3-margin-bottom">
+            <div class="w3-center m6 w3-large w3-margin-bottom">
                 <i class="fa fa-map-marker" style="width:30px"></i> Tegucigalpa, HN<br>
                 <i class="fa fa-phone" style="width:30px"></i> Telefono: +504 9941-2552<br>
                 <i class="fa fa-envelope" style="width:30px"> </i> Correo: elisurelisur19@gmail.com<br>
@@ -602,7 +636,9 @@
     </script>
 
 
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 
