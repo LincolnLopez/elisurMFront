@@ -83,7 +83,7 @@
 
                                             <thead>
                                                 <tr>
-                                                    <th>Código empleado</th>
+                                                    <th>Código Cliente</th>
                                                     <th>DNI</th>
                                                     <th>Nombre</th>
                                                     <th>Apellidos</th>
