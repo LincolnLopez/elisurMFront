@@ -266,13 +266,13 @@
                             <div class="form-group">
 
                                 <div class="mb-3">
-                                    <label for="" class="form-label">COD_REPORTE_FALLA</label>
+                                    <label for="" class="form-label">Código de Reporte</label>
                                     <input id="COD_REPORTE_FALLA" name="COD_REPORTE_FALLA" type="text"
                                         class="form-control" value="{{ $ticket->cod_reporte_falla }}" onpaste="onPaste(event)" readonly>
                                 </div>
 
                                 <div>
-                                    <label for="country">COD_SERVICIO</label>
+                                    <label for="country">Servicio</label>
                                     <select class="form-control" id="COD_SERVICIO" name="COD_SERVICIO"
                                         value="{{ $ticket->cod_servicio }}">
                                         <option value="{{ $ticket->cod_servicio }}">Selecciona nuestros servicios</option>
@@ -289,7 +289,7 @@
 
 
                                 <div class="mb-3">
-                                    <label for="" class="form-label">NOMBRE</label>
+                                    <label for="" class="form-label">Nombre</label>
                                     <input id="NOMBRE" name="NOMBRE" type="text" class="form-control"
                                         value="{{ $ticket->nombre }}" autocomplete="off" autofocus="on"
                                         onkeyup="DobleEspacio(this, event);" onkeypress="return sololetras(event)"
@@ -297,7 +297,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="" class="form-label">TELEFONO</label>
+                                    <label for="" class="form-label">Telefono</label>
                                     <input id="TELEFONO" name="TELEFONO" type="text" class="form-control"
                                         value="{{ $ticket->telefono }}" minlength="8" maxlength="8" autocomplete="off"
                                         autofocus="on" onkeypress="return isNumberKey(event)" onpaste="onPaste(event)" autofocus required="">
@@ -305,21 +305,21 @@
 
 
                                 <div class="mb-3">
-                                    <label for="" class="form-label">CORREO_ELECTRONICO</label>
+                                    <label for="" class="form-label">Correo Electronico</label>
                                     <input id="CORREO_ELECTRONICO" name="CORREO_ELECTRONICO" type="email"
                                         class="form-control" autocomplete="off" onkeyup="Espacio(this, event);"
                                         value="{{ $ticket->correo_electronico }}" onpaste="onPaste(event)" required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="" class="form-label">TEMA</label>
+                                    <label for="" class="form-label">Tema</label>
                                     <input id="TEMA" name="TEMA" type="text" class="form-control"
                                         autocomplete="off" onkeyup="DobleEspacio(this, event);"
                                         onkeypress="return sololetras(event)" value="{{ $ticket->tema }}" onpaste="onPaste(event)" required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="" class="form-label">DESCRIPCION</label>
+                                    <label for="" class="form-label">Descripción</label>
                                     <input id="DESCRIPCION" name="DESCRIPCION" type="text" class="form-control"
                                         autocomplete="off" onkeyup="DobleEspacio(this, event);"
                                         onkeypress="return letrasynumeros(event)" onpaste="onPaste(event)" value="{{ $ticket->descripcion }}"
@@ -328,7 +328,7 @@
 
 
                                 <div class="mb-3">
-                                    <label for="" class="form-label">UBICACION</label>
+                                    <label for="" class="form-label">Ubicación</label>
                                     <input id="UBICACION" name="UBICACION" type="text" class="form-control"
                                         autocomplete="off" onkeyup="DobleEspacio(this, event);"
                                         onkeypress="return letrasynumeros(event)" onpaste="onPaste(event)" value="{{ $ticket->ubicacion }}"
@@ -336,7 +336,7 @@
                                 </div>
 
                                 <div>
-                                    <label for="country">COD_ESTADO</label>
+                                    <label for="country">Estado</label>
                                     <select class="form-control" id="COD_ESTADO" name="COD_ESTADO"
                                         value="{{ $ticket->cod_estado }}">
                                         <option value="{{ $ticket->cod_estado }}">Selecciona nuestros servicios</option>
@@ -347,7 +347,7 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="" class="form-label">nombre_empleado</label>
+                                    <label for="" class="form-label">Nombre Empleado</label>
                                     <input id="NOMBRE_EMPLEADO" name="NOMBRE_EMPLEADO" type="text"
                                         class="form-control" value="{{ $ticket->nombre_empleado }}"
                                         onkeyup="DobleEspacio(this, event);" onpaste="onPaste(event)" onkeypress="return sololetras(event)"
