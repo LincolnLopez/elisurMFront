@@ -115,7 +115,7 @@
         }
 
         .image-container {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://media.istockphoto.com/photos/collage-of-construction-tools-house-renovation-background-picture-id915165442?s=612x612");
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://media.sciencephoto.com/image/f0195109/800wm/F0195109-Illustration_of_construction_collage.jpg");
             background-size: cover;
             position: relative;
             height: 400px;
